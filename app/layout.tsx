@@ -78,10 +78,23 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico" },
       { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: [
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/icon.svg",
   },
-  category: "technology",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: "Best IPTV VIP",
+    statusBarStyle: "black-translucent",
+  },
+  applicationName: "Best IPTV VIP",
+  category: "entertainment",
 };
 
 export const viewport: Viewport = {
@@ -89,6 +102,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
 };
 
 const jsonLdOrganization = {
@@ -239,6 +253,14 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="application-name" content="Best IPTV VIP" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Best IPTV VIP" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#050507" />
+        <meta name="msapplication-tap-highlight" content="no" />
         {/* Anti-flash : applique le fond noir avant tout paint */}
         <style
           dangerouslySetInnerHTML={{
