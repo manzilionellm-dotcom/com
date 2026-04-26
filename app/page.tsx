@@ -2034,9 +2034,9 @@ function CinematicIntro({ onDone }: { onDone: () => void }) {
   const [exiting, setExiting] = useState(false);
   const skip = () => { setExiting(true); window.setTimeout(onDone, 420); };
   useEffect(() => {
-    const tt = window.setTimeout(skip, 3000);
+    const tt = window.setTimeout(() => { setExiting(true); window.setTimeout(onDone, 420); }, 3000);
     return () => window.clearTimeout(tt);
-  }, []);
+  }, [onDone]);
   const particles = Array.from({ length: 50 }, (_, i) => ({
     id: i,
     left: (i * 97 + 13) % 100,
@@ -2077,9 +2077,16 @@ function CinematicIntro({ onDone }: { onDone: () => void }) {
 }
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[];
+  readonly userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
+  prompt(): Promise<void>;
+}
+type IOSNavigator = Navigator & { standalone?: boolean };
+
 export default function Page() {
   const [lang, setLang] = useState<Locale>("en");
-  const [installPrompt, setInstallPrompt] = useState<any>(null);
+  const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
   const [showPWABar, setShowPWABar] = useState(false);
@@ -2095,7 +2102,7 @@ export default function Page() {
       document.documentElement.dir = detected === "ar" ? "rtl" : "ltr";
     }
     if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => {});
-    const handleInstall = (e: Event) => { e.preventDefault(); setInstallPrompt(e); };
+    const handleInstall = (e: Event) => { e.preventDefault(); setInstallPrompt(e as BeforeInstallPromptEvent); };
     window.addEventListener("beforeinstallprompt", handleInstall);
     return () => window.removeEventListener("beforeinstallprompt", handleInstall);
   }, []);
@@ -2110,7 +2117,7 @@ export default function Page() {
 
   useEffect(() => {
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isInStandalone = (window.navigator as any).standalone === true;
+    const isInStandalone = (window.navigator as IOSNavigator).standalone === true;
     if (!isIOS || isInStandalone) return;
     const key = "ios_pwa_dismissed_v1";
     try { if (localStorage.getItem(key)) return; } catch {}
@@ -2131,7 +2138,7 @@ export default function Page() {
     setShowPWABar(false);
     try { localStorage.removeItem("pwa_dismissed_v1"); } catch {}
     installPrompt.prompt();
-    installPrompt.userChoice.then((c: any) => { if (c.outcome === "accepted") setInstallPrompt(null); });
+    installPrompt.userChoice.then((c) => { if (c.outcome === "accepted") setInstallPrompt(null); });
   };
 
   const handlePWADismiss = () => { setShowPWABar(false); try { localStorage.setItem("pwa_dismissed_v1", "1"); } catch {} };
