@@ -1,0 +1,50 @@
+/* Best IPTV VIP — Service Worker (PWA) */
+const CACHE = "bestiptv-vip-v1";
+const PRECACHE = ["/", "/manifest.json", "/icon.svg"];
+
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE).then((cache) =>
+      cache.addAll(PRECACHE).catch(() => {})
+    )
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+  if (request.method !== "GET") return;
+  // Network-first pour les pages HTML, cache-first pour le reste
+  if (request.mode === "navigate" || request.headers.get("accept")?.includes("text/html")) {
+    event.respondWith(
+      fetch(request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
+          return res;
+        })
+        .catch(() => caches.match(request).then((r) => r || caches.match("/")))
+    );
+    return;
+  }
+  event.respondWith(
+    caches.match(request).then((cached) =>
+      cached ||
+      fetch(request).then((res) => {
+        if (res.ok && (request.url.startsWith(self.location.origin))) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
+        }
+        return res;
+      }).catch(() => cached)
+    )
+  );
+});
