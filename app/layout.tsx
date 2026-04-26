@@ -46,21 +46,12 @@ export const metadata: Metadata = {
     title: "Best IPTV VIP — Premium 4K IPTV Subscription Worldwide",
     description:
       "Premium IPTV service with 4K streaming, live sports, movies & 20,000+ channels worldwide. 24H free trial available.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Best IPTV VIP — Premium IPTV Service",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Best IPTV VIP — Premium 4K IPTV Subscription",
     description:
       "Premium IPTV streaming for VIP viewers worldwide. 4K HD, all devices, 24H free trial.",
-    images: ["/og-image.jpg"],
     creator: "@bestiptvvip",
   },
   robots: {
@@ -75,17 +66,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    shortcut: "/icon.svg",
+    icon: [{ url: "/favicon.ico" }],
   },
   manifest: "/manifest.json",
   appleWebApp: {
@@ -110,7 +91,6 @@ const jsonLdOrganization = {
   "@type": "Organization",
   name: "Best IPTV VIP",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
   description:
     "Premium IPTV streaming service with 4K HD channels, live sports, movies and global content.",
   contactPoint: {
@@ -250,10 +230,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ background: "#050507", colorScheme: "dark" }}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="manifest" href="/manifest.json" />
+      <head>        <link rel="manifest" href="/manifest.json" />
         <meta name="application-name" content="Best IPTV VIP" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
