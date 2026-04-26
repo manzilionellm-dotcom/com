@@ -2747,3 +2747,27 @@ export default function Page() {
             .miliTeaser { bottom: max(86px, env(safe-area-inset-bottom, 0px) + 70px); left: auto; right: 12px; width: min(280px, calc(100vw - 24px)); }
             .miliBox { bottom: max(86px, env(safe-area-inset-bottom, 0px) + 70px); left: 10px; right: 10px; width: auto; max-height: 70vh; }
             .fabText { display: none; }
+.fabContent { padding: 8px; gap: 0; }
+            .pwaBar { left: 10px; right: 10px; bottom: max(12px, env(safe-area-inset-bottom, 0px)); width: auto; transform: none; padding: 10px 12px; }
+            .pwaBarIOS { bottom: max(80px, env(safe-area-inset-bottom, 0px) + 70px); }
+            .mobileMenu { padding-top: calc(70px + env(safe-area-inset-top, 0px)); }
+          }
+          @media (max-width: 380px) {
+            .main { padding: 0 10px calc(100px + env(safe-area-inset-bottom, 0px)); }
+            .nav { padding: 8px 10px; }
+            .topBarInner { padding: 0 10px; font-size: 9.5px; }
+            h1 { font-size: clamp(1.4rem, 7vw, 2rem); }
+            .lead { font-size: 0.85rem; }
+            .bigNumber { font-size: 2.4rem; }
+            .compareTable { font-size: 9.5px; min-width: 320px; }
+            .countriesGrid { grid-template-columns: 1fr; }
+            .deviceGrid { grid-template-columns: repeat(2, 1fr); }
+            .channelList { grid-template-columns: 1fr; }
+            .trustGrid { grid-template-columns: 1fr; }
+            .statsGrid { grid-template-columns: 1fr; }
+          }
+        `}</style>
+      </div>
+    </LanguageContext.Provider>
+  );
+}
