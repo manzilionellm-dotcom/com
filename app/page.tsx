@@ -2088,23 +2088,10 @@ export default function Page() {
   const [lang, setLang] = useState<Locale>("en");
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  // Intro: true au premier render → recouvre dès le SSR pour éviter le flash.
-  // Skippé automatiquement si déjà vu dans la session.
-  const [showIntro, setShowIntro] = useState(true);
   const [showPWABar, setShowPWABar] = useState(false);
   const [showIOSBar, setShowIOSBar] = useState(false);
 
   useEffect(() => {
-    // Skip intro si déjà vue cette session (évite le replay à chaque navigation)
-    try {
-      if (sessionStorage.getItem("introSeen") === "1") {
-        setShowIntro(false);
-      } else {
-        sessionStorage.setItem("introSeen", "1");
-      }
-    } catch {
-      // sessionStorage indisponible → on garde l'intro
-    }
     const detected = detectLangClient();
     setLang(detected);
     try { localStorage.setItem("lang", detected); } catch {}
@@ -2266,7 +2253,6 @@ export default function Page() {
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>
-      {showIntro && <CinematicIntro onDone={() => setShowIntro(false)} />}
       <div className="app">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
