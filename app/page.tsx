@@ -2435,10 +2435,14 @@ export default function Page() {
             --border-accent: rgba(212,175,55,0.35);
             --gold: #D4AF37;
           }
-          html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: #050507; overflow-x: hidden; }
-          body { margin: 0; background: #050507; color: #f5f0f5; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; overscroll-behavior-y: contain; }
+          html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: #050507; overflow-x: hidden; max-width: 100vw; }
+          body { margin: 0; background: #050507; color: #f5f0f5; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; overscroll-behavior-y: contain; overflow-x: hidden; max-width: 100vw; width: 100%; }
           html[dir="rtl"] body { font-family: "Segoe UI", Tahoma, "Arial", sans-serif; }
-          *, *::before, *::after { box-sizing: border-box; }
+          *, *::before, *::after { box-sizing: border-box; min-width: 0; }
+          .app { overflow-x: hidden; max-width: 100vw; width: 100%; }
+          img, video, iframe, table, svg { max-width: 100%; height: auto; }
+          h1, h2, h3, h4, p, a, span, li, td, th, button { overflow-wrap: break-word; word-wrap: break-word; }
+          a, button { -webkit-tap-highlight-color: rgba(212,175,55,0.15); }
           .bg { position: fixed; inset: 0; z-index: -1; background:
               radial-gradient(ellipse 80% 40% at 50% -5%, #1a0409 0%, transparent 60%),
               radial-gradient(ellipse 100% 60% at 50% 100%, #0a0008 0%, transparent 70%),
@@ -2659,91 +2663,87 @@ export default function Page() {
             .hamburger { display: flex; }
           }
           @media (max-width: 640px) {
-            .main { padding: 0 16px 100px; }
+            .main { padding: 0 14px calc(100px + env(safe-area-inset-bottom, 0px)); max-width: 100vw; }
             .section { margin-bottom: 52px; }
-            .sectionHead { margin-bottom: 28px; }
-            .sectionHead h2 { font-size: 1.55rem; }
-            .topBarInner { flex-direction: column; gap: 4px; font-size: 11px; }
-            .urgency { font-size: 11px; }
-            .nav { padding: 12px 16px; }
-            .hero { padding: 44px 0 36px; }
-            h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); letter-spacing: -0.5px; margin-bottom: 16px; }
-            .pill { font-size: 10px; padding: 5px 12px; margin-bottom: 16px; }
-            .lead { font-size: 0.95rem; margin-bottom: 24px; }
-            .actions { gap: 10px; flex-direction: column; align-items: center; }
-            .btnPrimary, .btnSecondary { width: 100%; max-width: 320px; padding: 16px 24px; font-size: 15px; text-align: center; }
+            .sectionHead { margin-bottom: 28px; padding: 0 4px; }
+            .sectionHead h2 { font-size: clamp(1.3rem, 5.5vw, 1.55rem); line-height: 1.2; }
+            .sectionHead p { font-size: 13px; }
+            .topBar { padding: 6px 0; padding-top: max(6px, env(safe-area-inset-top, 0px)); }
+            .topBarInner { flex-direction: column; gap: 4px; font-size: 10.5px; padding: 0 14px; text-align: center; }
+            .urgency { font-size: 10.5px; }
+            .nav { padding: 10px 14px; gap: 8px; }
+            .brand { flex-shrink: 1; min-width: 0; overflow: hidden; }
+            .hero { padding: 36px 0 28px; }
+            .heroContent { padding: 0 4px; }
+            h1 { font-size: clamp(1.6rem, 7.5vw, 2.4rem); letter-spacing: -0.5px; margin-bottom: 14px; line-height: 1.1; }
+            .pill { font-size: 10px; padding: 5px 12px; margin-bottom: 14px; }
+            .lead { font-size: 0.9rem; margin-bottom: 22px; padding: 0 4px; }
+            .actions { gap: 10px; flex-direction: column; align-items: stretch; padding: 0 8px; }
+            .btnPrimary, .btnSecondary { width: 100%; max-width: 100%; padding: 14px 20px; font-size: 14px; text-align: center; }
             .heroTrust { font-size: 11px; padding: 0 8px; }
-            .trialBanner { flex-direction: column; align-items: stretch; padding: 20px 16px; gap: 16px; }
-            .trialCta { text-align: center; justify-content: center; padding: 16px 20px; font-size: 15px; }
-            .trustGrid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .trustCard { padding: 14px 10px; }
-            .grid { grid-template-columns: 1fr; gap: 20px; }
-            .card { padding: 24px 18px; }
-            .bigNumber { font-size: 3.2rem; }
-            .statsGrid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .compareTable { font-size: 11px; min-width: 420px; }
-            .compareTable th, .compareTable td { padding: 10px 8px; }
-            .tabBtn { font-size: 12px; padding: 12px 10px; min-width: 100px; }
-            .channelList { padding: 16px; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
-            .countriesGrid { grid-template-columns: repeat(2, 1fr); }
+            .trialBanner { flex-direction: column; align-items: stretch; padding: 18px 14px; gap: 14px; margin-bottom: 50px; border-radius: 14px; }
+            .trialContent h3 { font-size: 1.1rem; }
+            .trialContent p { font-size: 13px; }
+            .trialCta { text-align: center; justify-content: center; padding: 14px 18px; font-size: 14px; width: 100%; }
+            .trustGrid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .trustCard { padding: 12px 8px; border-radius: 10px; }
+            .trustIcon { font-size: 22px; margin-bottom: 6px; }
+            .trustCard h4 { font-size: 11.5px; }
+            .trustCard p { font-size: 10.5px; }
+            .grid { grid-template-columns: 1fr; gap: 18px; }
+            .card { padding: 22px 16px; border-radius: 14px; }
+            .cardHeader h3 { font-size: 1rem; }
+            .bigNumber { font-size: 2.8rem; letter-spacing: -1.5px; }
+            .currency { font-size: 1rem; }
+            .perks li { font-size: 13px; padding: 6px 0; }
+            .btnPlan { padding: 13px; font-size: 14px; }
+            .saveBadge { font-size: 10px; padding: 4px 10px; top: -10px; }
+            .statsGrid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .statCard { padding: 18px 12px; border-radius: 12px; }
+            .statValue { font-size: 1.5rem; }
+            .statLabel { font-size: 11px; }
+            .compareWrap { border-radius: 10px; max-width: calc(100vw - 28px); margin-left: -2px; }
+            .compareTable { font-size: 10.5px; min-width: 360px; }
+            .compareTable th { padding: 9px 6px; font-size: 10px; }
+            .compareTable td { padding: 9px 6px; }
+            .accentPrice { font-size: 11.5px !important; }
+            .explorerBox { border-radius: 12px; }
+            .tabBtn { font-size: 11px; padding: 11px 8px; min-width: 90px; }
+            .channelList { padding: 14px; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .channelItem { font-size: 11.5px; }
+            .countriesGrid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .countryCard { padding: 12px 12px; gap: 9px; border-radius: 10px; }
+            .ctryFlag { font-size: 20px; }
+            .ctryName { font-size: 13px; }
+            .ctrySub { font-size: 10px; }
             .countryModalFlag { font-size: 32px; }
-            .countryModalHd { gap: 10px; padding: 16px 16px 0; }
-            .countryModalTb h2 { font-size: 18px; }
-            .countryModalBd { padding: 12px 16px 20px; }
+            .countryModalHd { gap: 10px; padding: 14px 14px 0; }
+            .countryModalTb h2 { font-size: 17px; }
+            .countryModalTb p { font-size: 12px; }
+            .countryModalBd { padding: 10px 14px 18px; }
             .countryChGrid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-            .countryModalFt { flex-direction: column; padding: 12px 16px 16px; }
-            .countryModalFt a { width: 100%; }
-            .deviceGrid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .reviewsGrid { grid-template-columns: 1fr; gap: 14px; }
-            .stepsGrid { grid-template-columns: 1fr; gap: 14px; }
-            .faqSummary { padding: 15px; font-size: 14px; }
-            .footer { padding: 40px 16px; }
-            .footerLinks { gap: 14px; }
+            .countryChChip { padding: 7px 9px; }
+            .countryChName { font-size: 11.5px; }
+            .countryModalFt { flex-direction: column; padding: 12px 14px 14px; gap: 8px; }
+            .countryModalFt a { width: 100% !important; min-width: 0 !important; padding: 13px !important; font-size: 13px !important; }
+            .deviceGrid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .deviceCard { padding: 14px 6px; gap: 6px; border-radius: 10px; }
+            .deviceIcon { font-size: 24px; }
+            .deviceName { font-size: 11px; }
+            .reviewsGrid { grid-template-columns: 1fr; gap: 12px; }
+            .reviewCard { padding: 18px 16px; border-radius: 12px; }
+            .reviewText { font-size: 13px; }
+            .stepsGrid { grid-template-columns: 1fr; gap: 12px; }
+            .stepCard { padding: 18px 16px; border-radius: 14px; }
+            .faqItem { border-radius: 10px; margin-bottom: 8px; }
+            .faqSummary { padding: 14px; font-size: 13.5px; }
+            .faqAnswer { padding: 0 14px 14px; font-size: 13px; }
+            .footer { padding: 40px 14px calc(40px + env(safe-area-inset-bottom, 0px)); }
+            .footerLinks { gap: 12px; }
+            .footerLinks a { font-size: 11px; }
             .liveBadge { display: none; }
-            .liveToast { bottom: 16px; left: 12px; right: 12px; width: auto; }
-            .miliFab { bottom: 16px; left: auto; right: 16px; }
-            .miliTeaser { bottom: 88px; left: auto; right: 16px; width: min(300px, calc(100vw - 32px)); }
-            .miliBox { bottom: 88px; left: 12px; right: 12px; width: auto; max-height: 72vh; }
+            .liveToast { bottom: max(12px, env(safe-area-inset-bottom, 0px)); left: 10px; right: 10px; width: auto; padding: 12px 14px; }
+            .miliFab { bottom: max(12px, env(safe-area-inset-bottom, 0px)); left: auto; right: 12px; }
+            .miliTeaser { bottom: max(86px, env(safe-area-inset-bottom, 0px) + 70px); left: auto; right: 12px; width: min(280px, calc(100vw - 24px)); }
+            .miliBox { bottom: max(86px, env(safe-area-inset-bottom, 0px) + 70px); left: 10px; right: 10px; width: auto; max-height: 70vh; }
             .fabText { display: none; }
-            .fabContent { padding: 8px; gap: 0; }
-          }
-          .cinWrap { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; }
-          .cinWrap.cinExit { animation: cinFadeOut 0.42s cubic-bezier(0.4,0,1,1) forwards; }
-          @keyframes cinFadeOut { to { opacity: 0; transform: scale(1.04); } }
-          .cinBg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, #1a0a14 0%, #0a0008 55%, #000 100%); }
-          .cinVignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0,0,0,0.85) 100%); pointer-events: none; }
-          .cinParticles { position: absolute; inset: 0; pointer-events: none; }
-          .cinParticle { position: absolute; border-radius: 50%; background: var(--gold); animation: cinFloat linear infinite; }
-          @keyframes cinFloat { 0% { transform: translateY(0) scale(1); opacity: 0; } 8% { opacity: 0.55; } 90% { opacity: 0.3; } 100% { transform: translateY(-105vh) scale(0.4); opacity: 0; } }
-          .cinLensFlare { position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.04), rgba(212,175,55,0.09), transparent); animation: cinLens 0.7s ease-out 1.0s forwards; pointer-events: none; }
-          @keyframes cinLens { to { left: 140%; } }
-          .cinEmblemWrap { position: relative; margin-bottom: 28px; filter: drop-shadow(0 0 24px rgba(212,175,55,0.5)); }
-          .cinEmblemGlow { position: absolute; inset: -30px; border-radius: 50%; background: radial-gradient(ellipse, rgba(212,175,55,0.18) 0%, transparent 70%); animation: cinGlowPulse 2s ease-in-out 1.1s infinite; }
-          @keyframes cinGlowPulse { 0%,100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.15); opacity: 1; } }
-          .cinContent { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
-          .cinTitleWrap { margin-bottom: 14px; }
-          .cinTitle { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 900; letter-spacing: 0.22em; color: var(--gold); text-shadow: 0 0 32px rgba(212,175,55,0.7), 0 0 64px rgba(212,175,55,0.28); margin: 0 0 8px; opacity: 0; animation: cinTitleIn 0.48s cubic-bezier(0.16,1,0.3,1) 1.2s forwards; }
-          @keyframes cinTitleIn { 0% { opacity: 0; letter-spacing: 0.45em; transform: scale(1.04); filter: blur(6px); } 100% { opacity: 1; letter-spacing: 0.22em; transform: scale(1); filter: blur(0); } }
-          .cinTitleLine { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); width: 0; margin: 0 auto; animation: cinLineExpand 0.38s ease 1.5s forwards; }
-          @keyframes cinLineExpand { to { width: 240px; } }
-          .cinTagline { font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 400; margin: 0 0 8px; opacity: 0; animation: cinFadeUp 0.35s ease 1.7s forwards; }
-          .cinSub { font-size: 11px; letter-spacing: 0.08em; color: rgba(212,175,55,0.5); margin: 0; opacity: 0; animation: cinFadeUp 0.3s ease 1.9s forwards; }
-          @keyframes cinFadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-          .cinSkip { position: absolute; bottom: 28px; right: 20px; background: rgba(0,0,0,0.35); border: 1px solid rgba(212,175,55,0.3); color: rgba(212,175,55,0.65); font-size: 12px; letter-spacing: 0.08em; padding: 8px 18px; border-radius: 20px; cursor: pointer; z-index: 10; min-height: 40px; opacity: 0; animation: fadeIn 0.3s ease 0.6s forwards; }
-          .cinSkip:hover { border-color: var(--gold); color: var(--gold); background: rgba(212,175,55,0.06); }
-          @media (prefers-reduced-motion: reduce) { .cinWrap { display: none !important; } }
-          .pwaBar { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); width: min(460px, calc(100vw - 32px)); background: var(--card-hi); border: 1px solid var(--border-accent); border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; z-index: 1050; box-shadow: 0 8px 32px rgba(0,0,0,0.5); animation: pwaSlideUp 0.4s cubic-bezier(0.16,1,0.3,1); }
-          @keyframes pwaSlideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
-          .pwaIcon { font-size: 24px; flex-shrink: 0; }
-          .pwaText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
-          .pwaText strong { font-size: 13px; font-weight: 700; color: var(--fg); }
-          .pwaText span { font-size: 11px; color: var(--muted); }
-          .pwaAccept { background: linear-gradient(135deg, var(--gold), #A8862A); color: #050507; border: none; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
-          .pwaDismiss { background: none; border: none; color: var(--muted); font-size: 14px; cursor: pointer; padding: 4px 6px; flex-shrink: 0; }
-          .pwaBarIOS { bottom: 150px; }
-          .iosShareIcon { display: inline-block; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; padding: 1px 5px; font-size: 11px; color: var(--gold); margin: 0 1px; vertical-align: middle; }
-        `}</style>
-      </div>
-    </LanguageContext.Provider>
-  );
-}
