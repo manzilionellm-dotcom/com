@@ -598,7 +598,7 @@ export default function Page() {
     name: `${SITE.brand} — Premium Worldwide IPTV`,
     brand: { "@type": "Brand", name: SITE.brand },
     description: "20,000+ live channels, 100,000+ movies & series, 4K UHD, EPG. Activation in 10 min via WhatsApp.",
-    image: `${SITE.domain}/icon-512.png`,
+    image: `${SITE.domain}/favicon.ico`,
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "12000", bestRating: "5" },
     offers: PLANS.map(p => ({
       "@type": "Offer", name: t.planNames[p.key],
