@@ -98,10 +98,10 @@ const SITE = {
 } as const;
 
 const PLANS: { key: PlanKey; price: number; months: number; highlight?: boolean }[] = [
-  { key: "p1", price: 14, months: 1 },
-  { key: "p3", price: 30, months: 3, highlight: true },
-  { key: "p6", price: 55, months: 6 },
-  { key: "p12", price: 99, months: 12 },
+  { key: "p1", price: 10, months: 1 },
+  { key: "p3", price: 25, months: 3, highlight: true },
+  { key: "p6", price: 35, months: 6 },
+  { key: "p12", price: 60, months: 12 },
 ];
 
 /* ============================================================
@@ -145,7 +145,7 @@ const dict: Record<Locale, Copy> = {
     heroPill: "WhatsApp support • 4K UHD • 20,000+ channels",
     heroTitle1: "World's #1 Premium IPTV",
     heroTitle2: "Fast. Stable. Simple.",
-    heroLead: "Stop overpaying for cable. 20,000+ live channels, premium sports, movies & 100,000+ series — from $14/month worldwide.",
+    heroLead: "Stop overpaying for cable. 20,000+ live channels, premium sports, movies & 100,000+ series — from $10/month worldwide.",
     heroBtnPlans: "See Pricing", heroBtnTrial: "Free 24h Trial",
     heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 from 12,000+ customers worldwide • Satisfaction guarantee",
     trialBadge: "Free Trial",
@@ -188,7 +188,7 @@ const dict: Record<Locale, Copy> = {
       { s: "Netflix Premium", p: "$22.99", live: "0", vod: true, hd: true, sup: "Chat" },
       { s: "Disney+ Premium", p: "$15.99", live: "0", vod: true, hd: true, sup: "Chat" },
       { s: "HBO Max", p: "$15.99", live: "0", vod: true, hd: true, sup: "Chat" },
-      { s: "Best IPTV VIP", p: "from $8.25", live: "20k+", vod: true, hd: true, sup: "WhatsApp", hi: true },
+      { s: "Best IPTV VIP", p: "from $5", live: "20k+", vod: true, hd: true, sup: "WhatsApp", hi: true },
     ],
     channelsTitle: "Explore channels worldwide",
     channelsSub: "Pick a region",
@@ -204,7 +204,7 @@ const dict: Record<Locale, Copy> = {
     countriesSub: "Pick your country — see channels and order via WhatsApp",
     countriesHint: "👆 Tap a country to see channels",
     modalChannels: "📺 Channels included",
-    modalPrice: "Price: from $8.25/mo",
+    modalPrice: "Price: from $5/mo",
     modalPriceSub: "All channels • Free 24h trial • No contract",
     modalOrder: (n) => `💬 Order ${n} — WhatsApp`,
     modalTrial: "🧪 Free 24h trial",
@@ -258,7 +258,7 @@ const dict: Record<Locale, Copy> = {
     heroPill: "Support WhatsApp • 4K UHD • 20 000+ chaînes",
     heroTitle1: "L'IPTV Premium #1 mondial",
     heroTitle2: "Rapide. Stable. Simple.",
-    heroLead: "Arrêtez de surpayer le câble. 20 000+ chaînes, sport premium, films & 100 000+ séries — dès 14 $/mois.",
+    heroLead: "Arrêtez de surpayer le câble. 20 000+ chaînes, sport premium, films & 100 000+ séries — dès 10 $/mois.",
     heroBtnPlans: "Voir les Offres", heroBtnTrial: "Essai Gratuit 24h",
     heroTrust: "⭐⭐⭐⭐⭐ 4,9/5 par 12 000+ clients • Garantie satisfaction",
     trialBadge: "Essai Gratuit",
@@ -301,7 +301,7 @@ const dict: Record<Locale, Copy> = {
       { s: "Netflix Premium", p: "21,99 €", live: "0", vod: true, hd: true, sup: "Chat" },
       { s: "Disney+ Premium", p: "13,99 €", live: "0", vod: true, hd: true, sup: "Chat" },
       { s: "Canal+ Total", p: "39,99 €", live: "~80", vod: true, hd: true, sup: "Chat" },
-      { s: "Best IPTV VIP", p: "dès 8,25 $", live: "20k+", vod: true, hd: true, sup: "WhatsApp", hi: true },
+      { s: "Best IPTV VIP", p: "dès 5 $", live: "20k+", vod: true, hd: true, sup: "WhatsApp", hi: true },
     ],
     channelsTitle: "Aperçu des chaînes",
     channelsSub: "Choisissez une région",
@@ -317,7 +317,7 @@ const dict: Record<Locale, Copy> = {
     countriesSub: "Choisissez votre pays — voyez les chaînes et commandez via WhatsApp",
     countriesHint: "👆 Cliquez sur un pays pour voir les chaînes",
     modalChannels: "📺 Chaînes incluses",
-    modalPrice: "Prix : dès 8,25 $/mois",
+    modalPrice: "Prix : dès 5 $/mois",
     modalPriceSub: "Toutes les chaînes • Essai gratuit 24h • Sans engagement",
     modalOrder: (n) => `💬 Commander ${n} — WhatsApp`,
     modalTrial: "🧪 Essai gratuit 24h",
@@ -371,7 +371,7 @@ const dict: Record<Locale, Copy> = {
     heroPill: "دعم واتساب • 4K UHD • +20,000 قناة",
     heroTitle1: "IPTV الأول عالمياً",
     heroTitle2: "سريع. مستقر. بسيط.",
-    heroLead: "توقف عن دفع الكثير للكابل. +20,000 قناة، رياضة بريميوم، أفلام و+100,000 مسلسل — من 14 دولار شهرياً.",
+    heroLead: "توقف عن دفع الكثير للكابل. +20,000 قناة، رياضة بريميوم، أفلام و+100,000 مسلسل — من 10 دولار شهرياً.",
     heroBtnPlans: "شاهد الأسعار", heroBtnTrial: "تجربة مجانية 24 ساعة",
     heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 من +12,000 عميل • ضمان الرضا",
     trialBadge: "تجربة مجانية",
@@ -414,7 +414,7 @@ const dict: Record<Locale, Copy> = {
       { s: "Netflix Premium", p: "$22.99", live: "0", vod: true, hd: true, sup: "دردشة" },
       { s: "Disney+ Premium", p: "$15.99", live: "0", vod: true, hd: true, sup: "دردشة" },
       { s: "OSN+", p: "$15.99", live: "~80", vod: true, hd: true, sup: "دردشة" },
-      { s: "Best IPTV VIP", p: "من $8.25", live: "+20k", vod: true, hd: true, sup: "واتساب", hi: true },
+      { s: "Best IPTV VIP", p: "من $5", live: "+20k", vod: true, hd: true, sup: "واتساب", hi: true },
     ],
     channelsTitle: "استكشف القنوات",
     channelsSub: "اختر منطقة",
@@ -430,7 +430,7 @@ const dict: Record<Locale, Copy> = {
     countriesSub: "اختر بلدك — شاهد القنوات واطلب عبر واتساب",
     countriesHint: "👆 اضغط على بلد لمشاهدة القنوات",
     modalChannels: "📺 القنوات المدرجة",
-    modalPrice: "السعر: من $8.25/شهر",
+    modalPrice: "السعر: من $5/شهر",
     modalPriceSub: "كل القنوات • تجربة 24 ساعة • بدون عقد",
     modalOrder: (n) => `💬 اطلب ${n} — واتساب`,
     modalTrial: "🧪 تجربة 24 ساعة",
@@ -728,7 +728,8 @@ export default function Page() {
             {PLANS.map(p => {
               const perMo = (p.price / p.months);
               const display = perMo.toFixed(2).replace(/\.00$/, "");
-              const save = Math.round((1 - perMo / 14) * 100);
+              const basePerMo = PLANS[0].price / PLANS[0].months;
+          const save = basePerMo > 0 ? Math.round((1 - perMo / basePerMo) * 100) : 0;
               return (
                 <article key={p.key} className={`plan ${p.highlight ? "highlight" : ""}`}>
                   {save > 0 && <div className="plan-badge">{t.planSave} {save}%</div>}
