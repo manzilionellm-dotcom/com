@@ -1,4 +1,5 @@
 "use client";
+
 import React, {
   createContext,
   useContext,
@@ -2745,8 +2746,7 @@ export default function Page() {
             .miliFab { bottom: max(12px, env(safe-area-inset-bottom, 0px)); left: auto; right: 12px; }
             .miliTeaser { bottom: max(86px, env(safe-area-inset-bottom, 0px) + 70px); left: auto; right: 12px; width: min(280px, calc(100vw - 24px)); }
             .miliBox { bottom: max(86px, env(safe-area-inset-bottom, 0px) + 70px); left: 10px; right: 10px; width: auto; max-height: 70vh; }
-            .fabText { display: none; }
-.fabContent { padding: 8px; gap: 0; }
+            .fabText { display: none; }.fabContent { padding: 8px; gap: 0; }
             .pwaBar { left: 10px; right: 10px; bottom: max(12px, env(safe-area-inset-bottom, 0px)); width: auto; transform: none; padding: 10px 12px; }
             .pwaBarIOS { bottom: max(80px, env(safe-area-inset-bottom, 0px) + 70px); }
             .mobileMenu { padding-top: calc(70px + env(safe-area-inset-top, 0px)); }
@@ -2765,6 +2765,41 @@ export default function Page() {
             .trustGrid { grid-template-columns: 1fr; }
             .statsGrid { grid-template-columns: 1fr; }
           }
+          .cinWrap { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; }
+          .cinWrap.cinExit { animation: cinFadeOut 0.42s cubic-bezier(0.4,0,1,1) forwards; }
+          @keyframes cinFadeOut { to { opacity: 0; transform: scale(1.04); } }
+          .cinBg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, #1a0a14 0%, #0a0008 55%, #000 100%); }
+          .cinVignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0,0,0,0.85) 100%); pointer-events: none; }
+          .cinParticles { position: absolute; inset: 0; pointer-events: none; }
+          .cinParticle { position: absolute; border-radius: 50%; background: var(--gold); animation: cinFloat linear infinite; }
+          @keyframes cinFloat { 0% { transform: translateY(0) scale(1); opacity: 0; } 8% { opacity: 0.55; } 90% { opacity: 0.3; } 100% { transform: translateY(-105vh) scale(0.4); opacity: 0; } }
+          .cinLensFlare { position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.04), rgba(212,175,55,0.09), transparent); animation: cinLens 0.7s ease-out 1.0s forwards; pointer-events: none; }
+          @keyframes cinLens { to { left: 140%; } }
+          .cinEmblemWrap { position: relative; margin-bottom: 28px; filter: drop-shadow(0 0 24px rgba(212,175,55,0.5)); }
+          .cinEmblemGlow { position: absolute; inset: -30px; border-radius: 50%; background: radial-gradient(ellipse, rgba(212,175,55,0.18) 0%, transparent 70%); animation: cinGlowPulse 2s ease-in-out 1.1s infinite; }
+          @keyframes cinGlowPulse { 0%,100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.15); opacity: 1; } }
+          .cinContent { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
+          .cinTitleWrap { margin-bottom: 14px; }
+          .cinTitle { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 900; letter-spacing: 0.22em; color: var(--gold); text-shadow: 0 0 32px rgba(212,175,55,0.7), 0 0 64px rgba(212,175,55,0.28); margin: 0 0 8px; opacity: 0; animation: cinTitleIn 0.48s cubic-bezier(0.16,1,0.3,1) 1.2s forwards; }
+          @keyframes cinTitleIn { 0% { opacity: 0; letter-spacing: 0.45em; transform: scale(1.04); filter: blur(6px); } 100% { opacity: 1; letter-spacing: 0.22em; transform: scale(1); filter: blur(0); } }
+          .cinTitleLine { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); width: 0; margin: 0 auto; animation: cinLineExpand 0.38s ease 1.5s forwards; }
+          @keyframes cinLineExpand { to { width: 240px; } }
+          .cinTagline { font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.62); font-weight: 400; margin: 0 0 8px; opacity: 0; animation: cinFadeUp 0.35s ease 1.7s forwards; }
+          .cinSub { font-size: 11px; letter-spacing: 0.08em; color: rgba(212,175,55,0.5); margin: 0; opacity: 0; animation: cinFadeUp 0.3s ease 1.9s forwards; }
+          @keyframes cinFadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+          .cinSkip { position: absolute; bottom: 28px; right: 20px; background: rgba(0,0,0,0.35); border: 1px solid rgba(212,175,55,0.3); color: rgba(212,175,55,0.65); font-size: 12px; letter-spacing: 0.08em; padding: 8px 18px; border-radius: 20px; cursor: pointer; z-index: 10; min-height: 40px; opacity: 0; animation: fadeIn 0.3s ease 0.6s forwards; }
+          .cinSkip:hover { border-color: var(--gold); color: var(--gold); background: rgba(212,175,55,0.06); }
+          @media (prefers-reduced-motion: reduce) { .cinWrap { display: none !important; } }
+          .pwaBar { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); width: min(460px, calc(100vw - 32px)); background: var(--card-hi); border: 1px solid var(--border-accent); border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; z-index: 1050; box-shadow: 0 8px 32px rgba(0,0,0,0.5); animation: pwaSlideUp 0.4s cubic-bezier(0.16,1,0.3,1); }
+          @keyframes pwaSlideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+          .pwaIcon { font-size: 24px; flex-shrink: 0; }
+          .pwaText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+          .pwaText strong { font-size: 13px; font-weight: 700; color: var(--fg); }
+          .pwaText span { font-size: 11px; color: var(--muted); }
+          .pwaAccept { background: linear-gradient(135deg, var(--gold), #A8862A); color: #050507; border: none; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+          .pwaDismiss { background: none; border: none; color: var(--muted); font-size: 14px; cursor: pointer; padding: 4px 6px; flex-shrink: 0; }
+          .pwaBarIOS { bottom: 150px; }
+          .iosShareIcon { display: inline-block; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); border-radius: 4px; padding: 1px 5px; font-size: 11px; color: var(--gold); margin: 0 1px; vertical-align: middle; }
         `}</style>
       </div>
     </LanguageContext.Provider>
