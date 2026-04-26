@@ -2,10 +2,15 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const SITE_URL = "https://bestiptv-vip.com";
+// /favicon.ico is the only icon asset shipped today.
+// When real PNGs are added (icon-192.png, icon-512.png, og-image.png),
+// swap LOGO_URL / OG_IMAGE_URL below. Keeping /favicon.ico guarantees no 404.
+const LOGO_URL = `${SITE_URL}/favicon.ico`;
+const OG_IMAGE_URL = `${SITE_URL}/favicon.ico`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Best IPTV VIP — Premium 4K IPTV Subscription Worldwide",
+  title: "Best IPTV VIP \u2014 Premium 4K IPTV Subscription Worldwide",
   description:
     "Premium IPTV service with 4K streaming, live sports, movies & 20,000+ channels worldwide. Compatible with Smart TV, Firestick, Android & iOS. 24H free trial.",
   keywords: [
@@ -43,16 +48,26 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Best IPTV VIP",
-    title: "Best IPTV VIP — Premium 4K IPTV Subscription Worldwide",
+    title: "Best IPTV VIP \u2014 Premium 4K IPTV Subscription Worldwide",
     description:
       "Premium IPTV service with 4K streaming, live sports, movies & 20,000+ channels worldwide. 24H free trial available.",
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1200,
+        height: 630,
+        alt: "Best IPTV VIP \u2014 Premium IPTV",
+        type: "image/x-icon",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best IPTV VIP — Premium 4K IPTV Subscription",
+    title: "Best IPTV VIP \u2014 Premium 4K IPTV Subscription",
     description:
       "Premium IPTV streaming for VIP viewers worldwide. 4K HD, all devices, 24H free trial.",
     creator: "@bestiptvvip",
+    images: [OG_IMAGE_URL],
   },
   robots: {
     index: true,
@@ -67,6 +82,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/favicon.ico" }],
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/favicon.ico" }],
   },
   manifest: "/manifest.json",
   appleWebApp: {
@@ -91,6 +108,8 @@ const jsonLdOrganization = {
   "@type": "Organization",
   name: "Best IPTV VIP",
   url: SITE_URL,
+  logo: LOGO_URL,
+  image: LOGO_URL,
   description:
     "Premium IPTV streaming service with 4K HD channels, live sports, movies and global content.",
   contactPoint: {
@@ -117,12 +136,14 @@ const jsonLdWebsite = {
 const jsonLdProduct = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Best IPTV VIP — Premium IPTV Subscription",
+  name: "Best IPTV VIP \u2014 Premium IPTV Subscription",
   description:
     "Premium 4K IPTV service with 20,000+ live channels, sports, movies, and series worldwide. Compatible with Smart TV, Firestick, Android, iOS, and PC.",
+  image: [OG_IMAGE_URL],
   brand: {
     "@type": "Brand",
     name: "Best IPTV VIP",
+    logo: LOGO_URL,
   },
   aggregateRating: {
     "@type": "AggregateRating",
@@ -238,13 +259,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ background: "#050507", colorScheme: "dark" }}>
-      <head>        <link rel="manifest" href="/manifest.json" />
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
         <meta name="application-name" content="Best IPTV VIP" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Best IPTV VIP" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#050507" />
+        <meta name="msapplication-TileImage" content="/favicon.ico" />
         <meta name="msapplication-tap-highlight" content="no" />
         {/* Anti-flash : applique le fond noir avant tout paint */}
         <style
