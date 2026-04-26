@@ -135,7 +135,15 @@ const jsonLdProduct = {
     {
       "@type": "Offer",
       name: "1 Month Plan",
-      price: "14.99",
+      price: "10",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: SITE_URL,
+    },
+    {
+      "@type": "Offer",
+      name: "3 Months Plan",
+      price: "25",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: SITE_URL,
@@ -143,7 +151,7 @@ const jsonLdProduct = {
     {
       "@type": "Offer",
       name: "6 Months Plan",
-      price: "59.99",
+      price: "35",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: SITE_URL,
@@ -151,7 +159,7 @@ const jsonLdProduct = {
     {
       "@type": "Offer",
       name: "12 Months Plan",
-      price: "99.99",
+      price: "60",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: SITE_URL,
