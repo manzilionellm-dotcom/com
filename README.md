@@ -1,32 +1,58 @@
-A simple [Next.js](https://nextjs.org) chatbot app to demonstrate the use of the Vercel AI Gateway with the [AI SDK](https://sdk.vercel.ai).
+# Best IPTV VIP
 
-## Getting Started
+Marketing landing page for **Best IPTV VIP** built with Next.js 15 (App Router), React 19, TypeScript and Tailwind CSS 4. Deployed on Vercel.
 
-### One-time setup
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-sdk-gateway-demo)
+- Single-page localized site (EN / FR / AR with RTL)
+- Country-specific channel modal
+- WhatsApp ordering flow
+- Tailwind 4 + Radix UI primitives
+- SEO: structured data (Organization, WebSite, Product, FAQPage), `sitemap.ts`, `robots.ts`, hreflang
 
-1. Clone this repository with the Deploy button above
-1. Install the [Vercel CLI](https://vercel.com/docs/cli) if you don't already have it
-1. Clone the repository you created above: `git clone <repo-url>`
-1. Link it to a Vercel project: `vc link` or `vc deploy`
+## Stack
 
-### Usage
-1. Install packages with `pnpm i` (or `npm i` or `yarn i`) and run the development server with `vc dev`
-1. Open http://localhost:3000 to try the chatbot
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 15.3.8 (App Router) |
+| Language | TypeScript 5.8 |
+| UI | React 19, Tailwind CSS 4, Radix UI, lucide-react |
+| Hosting | Vercel |
+| Package manager | pnpm 10 |
 
-### FAQ
+## Local development
 
-1. If you prefer running your local development server directly rather than using `vc dev`, you'll need to run `vc env pull` to fetch the project's OIDC authentication token locally
-   1. the token expires every 12h, so you'll need to re-run this command periodically.
-   1. if you use `vc dev` it will auto-refresh the token for you, so you don't need to fetch it manually
-1. If you're linking to an existing, older project, you may need to enable the OIDC token feature in your project settings.
-   1. visit the project settings page (rightmost tab in your project's dashboard)
-   1. search for 'OIDC' in settings
-   1. toggle the button under "Secure Backend Access with OIDC Federation" to Enabled and click the "Save" button
+```bash
+pnpm install
+pnpm dev
+# open http://localhost:3000
+```
 
-## Authors
+## Build
 
-This repository is maintained by the [Vercel](https://vercel.com) team and community contributors. 
+```bash
+pnpm build
+pnpm start
+```
 
-Contributions are welcome! Feel free to open issues or submit pull requests to enhance functionality or fix bugs.
+## Project layout
+
+```
+app/
+  layout.tsx     # Metadata, JSON-LD (Organization + WebSite), hreflang
+  page.tsx       # Single-page UI (EN/FR/AR dictionary)
+  sitemap.ts     # /sitemap.xml
+  robots.ts      # /robots.txt
+  globals.css
+components/      # Reusable UI primitives
+lib/             # Helpers
+public/          # Static assets (favicon, manifest, sw)
+```
+
+## Deployment
+
+The production site is deployed on Vercel from the `main` branch. Pull requests get preview deployments automatically.
+
+## License
+
+See `LICENSE`.
