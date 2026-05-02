@@ -2,11 +2,20 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const SITE_URL = "https://bestiptv-vip.com";
-// /favicon.ico is the only icon asset shipped today.
-// When real PNGs are added (icon-192.png, icon-512.png, og-image.png),
-// swap LOGO_URL / OG_IMAGE_URL below. Keeping /favicon.ico guarantees no 404.
+
+// Use real PNG assets when available; fall back to favicon.ico to avoid 404.
+// IMPORTANT: when /og-image.png (1200x630) and /icon-512.png are added to /public,
+// update OG_IMAGE_URL and LOGO_URL accordingly.
 const LOGO_URL = `${SITE_URL}/favicon.ico`;
-const OG_IMAGE_URL = `${SITE_URL}/favicon.ico`;
+const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+
+// Single source of truth for ratings (avoid JSON-LD conflicts).
+const RATING = {
+  value: "4.9",
+  count: "2847",
+  best: "5",
+  worst: "1",
+} as const;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,11 +35,6 @@ export const metadata: Metadata = {
     "IPTV for iPhone",
     "IPTV streaming service",
     "IPTV channels worldwide",
-    "IPTV Smarters Pro",
-    "TiviMate IPTV Player",
-    "IBO Player IPTV",
-    "Smart IPTV app",
-    "XCIPTV player",
   ],
   authors: [{ name: "Best IPTV VIP" }],
   creator: "Best IPTV VIP",
@@ -42,10 +46,17 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      "en-US": `${SITE_URL}/?lang=en`,
+      "fr-FR": `${SITE_URL}/?lang=fr`,
+      "ar":    `${SITE_URL}/?lang=ar`,
+      "x-default": SITE_URL,
+    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
+    alternateLocale: ["fr_FR", "ar_AR"],
     url: SITE_URL,
     siteName: "Best IPTV VIP",
     title: "Best IPTV VIP \u2014 Premium 4K IPTV Subscription Worldwide",
@@ -57,7 +68,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Best IPTV VIP \u2014 Premium IPTV",
-        type: "image/x-icon",
+        type: "image/png",
       },
     ],
   },
@@ -103,6 +114,11 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+// ---------------------------------------------------------------
+// JSON-LD : Organization + WebSite only.
+// Product and FAQPage schemas are emitted ONCE from app/page.tsx
+// to avoid duplicate / conflicting structured data.
+// ---------------------------------------------------------------
 const jsonLdOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -116,9 +132,16 @@ const jsonLdOrganization = {
     "@type": "ContactPoint",
     telephone: "+44-7307-410512",
     contactType: "customer support",
-    availableLanguage: ["English", "French", "Spanish", "Arabic"],
+    availableLanguage: ["English", "French", "Arabic"],
   },
   sameAs: ["https://wa.me/447307410512"],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: RATING.value,
+    reviewCount: RATING.count,
+    bestRating: RATING.best,
+    worstRating: RATING.worst,
+  },
 };
 
 const jsonLdWebsite = {
@@ -126,130 +149,7 @@ const jsonLdWebsite = {
   "@type": "WebSite",
   name: "Best IPTV VIP",
   url: SITE_URL,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const jsonLdProduct = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Best IPTV VIP \u2014 Premium IPTV Subscription",
-  description:
-    "Premium 4K IPTV service with 20,000+ live channels, sports, movies, and series worldwide. Compatible with Smart TV, Firestick, Android, iOS, and PC.",
-  image: [OG_IMAGE_URL],
-  brand: {
-    "@type": "Brand",
-    name: "Best IPTV VIP",
-    logo: LOGO_URL,
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "2847",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "1 Month Plan",
-      price: "10",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: SITE_URL,
-    },
-    {
-      "@type": "Offer",
-      name: "3 Months Plan",
-      price: "25",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: SITE_URL,
-    },
-    {
-      "@type": "Offer",
-      name: "6 Months Plan",
-      price: "35",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: SITE_URL,
-    },
-    {
-      "@type": "Offer",
-      name: "12 Months Plan",
-      price: "60",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: SITE_URL,
-    },
-  ],
-};
-
-const jsonLdBreadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Pricing",
-      item: `${SITE_URL}#pricing`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Free Trial",
-      item: `${SITE_URL}#trial`,
-    },
-  ],
-};
-
-const jsonLdFAQ = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is Best IPTV VIP?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Best IPTV VIP is a premium IPTV streaming service that delivers over 20,000 live channels, sports, movies, and series in HD, Full HD, and 4K to viewers worldwide.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you offer a free trial?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. We offer a 24-hour free trial so you can test our premium IPTV servers, channel quality, and streaming speed before subscribing.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Which devices are compatible?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our service works on Smart TVs, Amazon Firestick, Android boxes, iOS devices, Windows PCs, Mac, MAG boxes, and more. It is compatible with popular IPTV players such as IPTV Smarters Pro, TiviMate, IBO Player, Smart IPTV, and XCIPTV.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How fast is activation?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Activation is typically completed within minutes after your request via WhatsApp.",
-      },
-    },
-  ],
+  inLanguage: ["en", "fr", "ar"],
 };
 
 export default function RootLayout({
@@ -264,6 +164,11 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
+        {/* hreflang (locale switching is client-side via ?lang=) */}
+        <link rel="alternate" hrefLang="en" href={`${SITE_URL}/?lang=en`} />
+        <link rel="alternate" hrefLang="fr" href={`${SITE_URL}/?lang=fr`} />
+        <link rel="alternate" hrefLang="ar" href={`${SITE_URL}/?lang=ar`} />
+        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
         <meta name="application-name" content="Best IPTV VIP" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -287,18 +192,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProduct) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
         />
       </head>
       <body style={{ background: "#050507", margin: 0 }}>{children}</body>
