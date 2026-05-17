@@ -187,33 +187,6 @@ const jsonLdWebsite = {
   },
 };
 
-const jsonLdService = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": `${SITE_URL}#service`,
-  serviceType: "IPTV Streaming Subscription",
-  provider: { "@id": `${SITE_URL}#organization` },
-  areaServed: { "@type": "Place", name: "Worldwide" },
-  description:
-    "Premium IPTV subscription with 22,000+ live channels, 120,000+ movies/series, 4K UHD streaming, full EPG, multi-device support.",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "IPTV Subscription Plans",
-    itemListElement: [
-      { "@type": "Offer", name: "1 Month", price: "10", priceCurrency: "USD" },
-      { "@type": "Offer", name: "3 Months", price: "25", priceCurrency: "USD" },
-      { "@type": "Offer", name: "6 Months", price: "35", priceCurrency: "USD" },
-      { "@type": "Offer", name: "12 Months", price: "60", priceCurrency: "USD" },
-    ],
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: String(SITE.ratingValue),
-    reviewCount: String(SITE.reviewCount),
-    bestRating: "5",
-    worstRating: "1",
-  },
-};
 
 const jsonLdProduct = {
   "@context": "https://schema.org",
@@ -237,24 +210,36 @@ const jsonLdProduct = {
   review: [
     {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       author: { "@type": "Person", name: "John M." },
+      datePublished: "2026-03-14",
+      itemReviewed: { "@id": `${SITE_URL}#product` },
+      publisher: { "@id": `${SITE_URL}#organization` },
       reviewBody:
         "Setup took 10 minutes. ESPN, NFL and HBO in 4K. Saving $80/month vs cable.",
+      name: "Best IPTV I've used",
     },
     {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       author: { "@type": "Person", name: "Fatima A." },
+      datePublished: "2026-02-22",
+      itemReviewed: { "@id": `${SITE_URL}#product` },
+      publisher: { "@id": `${SITE_URL}#organization` },
       reviewBody:
         "All Arabic channels plus international content. MBC, beIN — excellent quality.",
+      name: "Excellent Arabic coverage",
     },
     {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       author: { "@type": "Person", name: "Mohammed K." },
+      datePublished: "2026-04-05",
+      itemReviewed: { "@id": `${SITE_URL}#product` },
+      publisher: { "@id": `${SITE_URL}#organization` },
       reviewBody:
         "TiviMate worked instantly. 4K on Firestick, no buffering. Best IPTV in 3 years.",
+      name: "No buffering on Firestick",
     },
   ],
   offers: {
@@ -285,26 +270,26 @@ const jsonLdFAQ = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is Best IPTV VIP?",
+      name: "Which channels are included?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Best IPTV VIP is a premium IPTV streaming service delivering over 22,000 live channels, sports, movies and series in HD, Full HD and 4K UHD to viewers worldwide, with instant WhatsApp activation.",
+        text: "All major worldwide: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — plus 20,000+ in HD/4K.",
       },
     },
     {
       "@type": "Question",
-      name: "Do you offer a free trial?",
+      name: "Compatible with TiviMate / IPTV Smarters?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We offer a 24-hour free trial — no credit card required — so you can test channel quality, 4K streaming and EPG before subscribing.",
+        text: "Yes. We support TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. M3U link sent via WhatsApp.",
       },
     },
     {
       "@type": "Question",
-      name: "Which devices are compatible?",
+      name: "Which devices?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Smart TVs (Samsung, LG, Sony), Amazon Firestick, Android boxes, iOS devices (iPhone/iPad), Windows PC, Mac, MAG boxes, Enigma2. Compatible with IPTV Smarters Pro, TiviMate, IBO Player, Smart IPTV, XCIPTV, GSE Smart IPTV.",
+        text: "Firestick, Smart TV (Samsung/LG/Sony), Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac.",
       },
     },
     {
@@ -312,23 +297,47 @@ const jsonLdFAQ = {
       name: "How fast is activation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Activation is completed in under 10 minutes after your WhatsApp request, 7 days a week.",
+        text: "Usually 5–10 min after WhatsApp order, even on weekends.",
       },
     },
     {
       "@type": "Question",
-      name: "Which payment methods are accepted?",
+      name: "Is EPG included?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "PayPal, credit/debit card (Visa, Mastercard), cryptocurrency (Bitcoin, USDT, Ethereum) and bank transfer. Orders confirmed via WhatsApp.",
+        text: "Yes. Full Electronic Programme Guide included on all plans.",
       },
     },
     {
       "@type": "Question",
-      name: "Is the service stable and 4K?",
+      name: "Does it work in my country?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Our anti-freeze servers deliver 99.9% uptime with dedicated 4K UHD channels and 10+ Gbps backbone. No buffering on a 25 Mbps connection.",
+        text: "Yes — worldwide. USA, UK, Canada, Europe, MENA, Asia, LATAM, Africa, Oceania.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I pay?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Via WhatsApp. We accept PayPal, credit card, crypto, bank transfer.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Sports channels included?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes! Premier League, La Liga, Champions League, NBA, NFL, MLB, UFC, F1.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I cancel?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No contract. Pay once, service expires automatically.",
       },
     },
   ],
@@ -386,10 +395,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }}
         />
         <script
           type="application/ld+json"
