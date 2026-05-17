@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import CheckoutButton from "../../components/CheckoutButton";
 import { SITE, waLink } from "../../lib/site";
 
 export const metadata: Metadata = {
@@ -53,8 +54,14 @@ export default function PricingPage() {
                     <li key={perk}><span className="check">✓</span> {perk}</li>
                   ))}
                 </ul>
+                <CheckoutButton
+                  planKey={p.key}
+                  planLabel={`$${p.price}`}
+                  className="btn btn-gold plan-cta btn-block"
+                />
                 <a
                   className="btn btn-white plan-cta btn-block"
+                  style={{ marginTop: 8 }}
                   href={waLink(`Hi! I want ${p.name} ($${p.price}).`, `Pricing-${p.key}`)}
                   target="_blank"
                   rel="noreferrer noopener"
