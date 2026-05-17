@@ -187,26 +187,6 @@ const jsonLdWebsite = {
   },
 };
 
-const jsonLdService = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": `${SITE_URL}#service`,
-  serviceType: "IPTV Streaming Subscription",
-  provider: { "@id": `${SITE_URL}#organization` },
-  areaServed: { "@type": "Place", name: "Worldwide" },
-  description:
-    "Premium IPTV subscription with 22,000+ live channels, 120,000+ movies/series, 4K UHD streaming, full EPG, multi-device support.",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "IPTV Subscription Plans",
-    itemListElement: [
-      { "@type": "Offer", name: "1 Month", price: "10", priceCurrency: "USD" },
-      { "@type": "Offer", name: "3 Months", price: "25", priceCurrency: "USD" },
-      { "@type": "Offer", name: "6 Months", price: "35", priceCurrency: "USD" },
-      { "@type": "Offer", name: "12 Months", price: "60", priceCurrency: "USD" },
-    ],
-  },
-};
 
 const jsonLdProduct = {
   "@context": "https://schema.org",
@@ -415,10 +395,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }}
         />
         <script
           type="application/ld+json"
