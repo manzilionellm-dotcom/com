@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { SITE as SITE_CFG, waLink as waLinkShared } from "../lib/site";
 
 /* ============================================================
    Types
@@ -92,9 +94,9 @@ type Copy = {
    Site config
    ============================================================ */
 const SITE = {
-  brand: "Best IPTV VIP",
-  domain: "https://bestiptv-vip.com",
-  whatsapp: "447307410512",
+  brand: SITE_CFG.brand,
+  domain: SITE_CFG.domain,
+  whatsapp: SITE_CFG.whatsapp,
 } as const;
 
 const PLANS: { key: PlanKey; price: number; months: number; highlight?: boolean }[] = [
@@ -147,7 +149,7 @@ const dict: Record<Locale, Copy> = {
     heroTitle2: "Fast. Stable. Simple.",
     heroLead: "Stop overpaying for cable. 20,000+ live channels, premium sports, movies & 100,000+ series — from $10/month worldwide.",
     heroBtnPlans: "See Pricing", heroBtnTrial: "Free 24h Trial",
-    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 from 12,000+ customers worldwide • Satisfaction guarantee",
+    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 from 12,847 customers worldwide • Satisfaction guarantee",
     trialBadge: "Free Trial",
     trialTitle: "Try free for 24 hours",
     trialDesc: "No credit card required. Contact us on WhatsApp and test on Firestick, Smart TV, Android or iPhone.",
@@ -260,7 +262,7 @@ const dict: Record<Locale, Copy> = {
     heroTitle2: "Rapide. Stable. Simple.",
     heroLead: "Arrêtez de surpayer le câble. 20 000+ chaînes, sport premium, films & 100 000+ séries — dès 10 $/mois.",
     heroBtnPlans: "Voir les Offres", heroBtnTrial: "Essai Gratuit 24h",
-    heroTrust: "⭐⭐⭐⭐⭐ 4,9/5 par 12 000+ clients • Garantie satisfaction",
+    heroTrust: "⭐⭐⭐⭐⭐ 4,9/5 par 12 847 clients • Garantie satisfaction",
     trialBadge: "Essai Gratuit",
     trialTitle: "Essayez gratuitement 24 heures",
     trialDesc: "Aucune carte requise. Contactez-nous sur WhatsApp et testez sur Firestick, Smart TV, Android ou iPhone.",
@@ -373,7 +375,7 @@ const dict: Record<Locale, Copy> = {
     heroTitle2: "سريع. مستقر. بسيط.",
     heroLead: "توقف عن دفع الكثير للكابل. +20,000 قناة، رياضة بريميوم، أفلام و+100,000 مسلسل — من 10 دولار شهرياً.",
     heroBtnPlans: "شاهد الأسعار", heroBtnTrial: "تجربة مجانية 24 ساعة",
-    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 من +12,000 عميل • ضمان الرضا",
+    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 من +12,847 عميل • ضمان الرضا",
     trialBadge: "تجربة مجانية",
     trialTitle: "جرب مجاناً 24 ساعة",
     trialDesc: "بدون بطاقة ائتمان. تواصل معنا على واتساب وجرب على Firestick أو Smart TV أو Android أو iPhone.",
@@ -482,14 +484,8 @@ const dict: Record<Locale, Copy> = {
 /* ============================================================
    Helpers
    ============================================================ */
-function isMobile(ua: string) {
-  return /Android|iPhone|iPad|iPod/i.test(ua);
-}
-function waLink(msg: string, ua: string, ref?: string) {
-  const text = encodeURIComponent(msg + (ref ? ` | Ref: ${ref}` : ""));
-  return isMobile(ua)
-    ? `https://wa.me/${SITE.whatsapp}?text=${text}`
-    : `https://api.whatsapp.com/send?phone=${SITE.whatsapp}&text=${text}`;
+function waLink(msg: string, _ua: string, ref?: string) {
+  return waLinkShared(msg, ref);
 }
 function detectLang(): Locale {
   if (typeof window === "undefined") return "en";
@@ -515,17 +511,25 @@ function CountryModal({ country, lang, ua, onClose }: { country: Country; lang: 
     return () => { document.body.style.overflow = ""; };
   }, []);
   return (
-    <div className="modal-overlay" onClick={(e) => {
-      if ((e.target as HTMLElement).classList.contains("modal-overlay")) onClose();
-    }}>
+    <div
+      className="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="country-modal-title"
+      onClick={(e) => {
+        if ((e.target as HTMLElement).classList.contains("modal-overlay")) onClose();
+      }}
+    >
       <div className="modal-box">
         <div className="modal-head">
-          <span className="modal-flag">{country.flag}</span>
+          <span className="modal-flag" aria-hidden="true">{country.flag}</span>
           <div className="modal-tb">
-            <h2>{country.name}</h2>
+            <h2 id="country-modal-title">{country.name}</h2>
             <p>{country.desc}</p>
           </div>
-          <button className="modal-close" onClick={onClose}>✕</button>
+          <button className="modal-close" onClick={onClose} aria-label="Close country dialog" type="button">
+            <span aria-hidden="true">✕</span>
+          </button>
         </div>
         <div className="modal-body">
           <div className="modal-section">
@@ -599,7 +603,7 @@ export default function Page() {
     brand: { "@type": "Brand", name: SITE.brand },
     description: "20,000+ live channels, 100,000+ movies & series, 4K UHD, EPG. Activation in 10 min via WhatsApp.",
     image: `${SITE.domain}/favicon.ico`,
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "12000", bestRating: "5" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: String(SITE_CFG.ratingValue), reviewCount: String(SITE_CFG.reviewCount), bestRating: "5" },
     offers: PLANS.map(p => ({
       "@type": "Offer", name: t.planNames[p.key],
       price: String(p.price), priceCurrency: "USD",
@@ -616,11 +620,12 @@ export default function Page() {
     })),
   }), [t]);
 
-  const navLinks = [
-    { href: "#plans", label: t.navPlans },
-    { href: "#channels", label: t.navChannels },
+  const navLinks: { href: string; label: string; external?: boolean }[] = [
+    { href: "/pricing", label: t.navPlans, external: true },
+    { href: "/channels", label: t.navChannels, external: true },
     { href: "#countries", label: t.navCountries },
-    { href: "#devices", label: t.navDevices },
+    { href: "/devices", label: t.navDevices, external: true },
+    { href: "/blog", label: "Blog", external: true },
     { href: "#faq", label: t.navFaq },
   ];
 
@@ -646,7 +651,10 @@ export default function Page() {
             <span className="brand-text">BEST IPTV <b>VIP</b></span>
           </a>
           <div className="nav-links">
-            {navLinks.map(l => <a key={l.href} href={l.href}>{l.label}</a>)}
+            {navLinks.map(l => l.external
+              ? <Link key={l.href} href={l.href}>{l.label}</Link>
+              : <a key={l.href} href={l.href}>{l.label}</a>
+            )}
           </div>
           <div className="lang-switch desktop-only">
             {(["en", "fr", "ar"] as Locale[]).map(l => (
@@ -655,15 +663,24 @@ export default function Page() {
               </button>
             ))}
           </div>
-          <button className="hamburger" onClick={() => setMenuOpen(v => !v)} aria-label="Menu">
-            {menuOpen ? "✕" : "☰"}
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            type="button"
+          >
+            <span aria-hidden="true">{menuOpen ? "✕" : "☰"}</span>
           </button>
         </nav>
       </header>
 
       {menuOpen && (
-        <div className="mobile-menu" onClick={() => setMenuOpen(false)}>
-          {navLinks.map(l => <a key={l.href} href={l.href}>{l.label}</a>)}
+        <div className="mobile-menu" onClick={() => setMenuOpen(false)} role="dialog" aria-label="Mobile menu">
+          {navLinks.map(l => l.external
+            ? <Link key={l.href} href={l.href}>{l.label}</Link>
+            : <a key={l.href} href={l.href}>{l.label}</a>
+          )}
           <div className="mobile-lang">
             {(["en", "fr", "ar"] as Locale[]).map(l => (
               <button key={l} className={`lang-btn ${lang === l ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); setLang(l); setMenuOpen(false); }}>
@@ -685,8 +702,8 @@ export default function Page() {
           <h1>{t.heroTitle1}<br /><span className="accent">{t.heroTitle2}</span></h1>
           <p className="lead">{t.heroLead}</p>
           <div className="hero-actions">
-            <a className="btn btn-gold" href="#plans">{t.heroBtnPlans}</a>
-            <a className="btn btn-green" href={waLink(t.whatsappTrial, ua, "Hero-Trial")} target="_blank" rel="noreferrer">{t.heroBtnTrial}</a>
+            <Link className="btn btn-gold" href="/pricing">{t.heroBtnPlans}</Link>
+            <a className="btn btn-green" href={waLink(t.whatsappTrial, ua, "Hero-Trial")} target="_blank" rel="noreferrer noopener">{t.heroBtnTrial}</a>
           </div>
           <div className="hero-trust">{t.heroTrust}</div>
         </section>
@@ -736,6 +753,11 @@ export default function Page() {
                   <div className="plan-head">
                     <h3>{t.planNames[p.key]}</h3>
                     {p.highlight && <span className="plan-best">{t.planBest}</span>}
+                  </div>
+                  <div style={{ textAlign: "center", margin: "0 0 10px" }}>
+                    <span style={{ display: "inline-block", background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.35)", color: "var(--green)", fontSize: 10, fontWeight: 800, padding: "3px 8px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                      ⚡ Instant activation
+                    </span>
                   </div>
                   <div className="plan-price">
                     <span className="cur">$</span>
@@ -916,20 +938,93 @@ export default function Page() {
         </section>
       </main>
 
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} {SITE.brand}. {t.footerRights}</p>
-        <p style={{ marginTop: 6 }}>{t.footerNote}</p>
-        <div className="footer-links">
-          <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noreferrer">WhatsApp</a>
-          <a href="#plans">{t.navPlans}</a>
-          <a href="#faq">{t.navFaq}</a>
+      <footer className="footer-rich" role="contentinfo">
+        <div className="footer-grid">
+          <div>
+            <div className="brand" style={{ marginBottom: 10 }}>
+              <span className="brand-logo" aria-hidden="true">B</span>
+              <span className="brand-text">BEST IPTV <b>VIP</b></span>
+            </div>
+            <p style={{ color: "#888", fontSize: 12, lineHeight: 1.6 }}>{t.footerNote}</p>
+            <a
+              className="btn btn-green"
+              href={`https://wa.me/${SITE.whatsapp}`}
+              target="_blank"
+              rel="noreferrer noopener"
+              style={{ marginTop: 12, padding: "8px 14px", fontSize: 12 }}
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
+          <div>
+            <h5>Service</h5>
+            <ul>
+              <li><Link href="/pricing">Pricing</Link></li>
+              <li><Link href="/free-trial">Free 24h Trial</Link></li>
+              <li><Link href="/channels">All Channels</Link></li>
+              <li><Link href="/devices">Compatible Devices</Link></li>
+              <li><Link href="/status">Network Status</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Install Guides</h5>
+            <ul>
+              <li><Link href="/guides/firestick">Firestick</Link></li>
+              <li><Link href="/guides/smart-tv">Smart TV</Link></li>
+              <li><Link href="/guides/android">Android TV</Link></li>
+              <li><Link href="/guides/ios">iPhone / iPad</Link></li>
+              <li><Link href="/guides/mag-box">MAG Box</Link></li>
+              <li><Link href="/guides/pc-mac">PC / Mac</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5>By Region</h5>
+            <ul>
+              <li><Link href="/channels/english">English (US/UK)</Link></li>
+              <li><Link href="/channels/french">French IPTV</Link></li>
+              <li><Link href="/channels/arabic">Arabic IPTV</Link></li>
+              <li><Link href="/channels/spanish">Spanish IPTV</Link></li>
+              <li><Link href="/channels/german">German IPTV</Link></li>
+              <li><Link href="/channels/turkish">Turkish IPTV</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Company</h5>
+            <ul>
+              <li><Link href="/blog">Blog</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+              <li><Link href="/terms">Terms of Service</Link></li>
+              <li><Link href="/refund">Refund Policy</Link></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} {SITE.brand}. {t.footerRights}</p>
+          <p style={{ marginTop: 6 }}>{t.footerNote}</p>
         </div>
       </footer>
 
       {/* Floating WhatsApp button */}
-      <a className="fab" href={waLink(t.whatsappGeneric, ua, "FAB")} target="_blank" rel="noreferrer" aria-label="WhatsApp">
-        💬
+      <a className="fab" href={waLink(t.whatsappGeneric, ua, "FAB")} target="_blank" rel="noreferrer noopener" aria-label="Chat on WhatsApp">
+        <span aria-hidden="true">💬</span>
       </a>
+
+      {/* Sticky mobile CTA */}
+      <div className="sticky-mobile-cta" role="region" aria-label="Quick actions">
+        <Link className="btn btn-gold" href="/pricing" style={{ flex: 1, padding: "11px 14px", fontSize: 13 }}>
+          {t.heroBtnPlans}
+        </Link>
+        <a
+          className="btn btn-green"
+          href={waLink(t.whatsappTrial, ua, "Sticky-CTA")}
+          target="_blank"
+          rel="noreferrer noopener"
+          style={{ flex: 1, padding: "11px 14px", fontSize: 13 }}
+        >
+          {t.heroBtnTrial}
+        </a>
+      </div>
 
       {/* Country modal */}
       {selectedCountry && (

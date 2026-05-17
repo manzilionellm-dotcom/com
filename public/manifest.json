@@ -1,53 +1,88 @@
 {
-    "name": "Best IPTV VIP — Premium Worldwide IPTV",
-    "short_name": "Best IPTV VIP",
-    "description": "Premium IPTV streaming worldwide. 20,000+ channels, 4K UHD, sports, movies, series. WhatsApp support.",
-    "start_url": "/?source=pwa",
-    "scope": "/",
-    "display": "standalone",
-    "orientation": "portrait-primary",
-    "background_color": "#050507",
-    "theme_color": "#050507",
-    "lang": "en",
-    "dir": "ltr",
-    "categories": [
-          "entertainment",
-          "video",
-          "lifestyle"
-    ],
-    "icons": [
-          {
-                  "src": "/favicon.ico",
-                  "sizes": "any",
-                  "type": "image/x-icon",
-                  "purpose": "any"
-          },
-          {
-                  "src": "/favicon.ico",
-                  "sizes": "192x192",
-                  "type": "image/x-icon",
-                  "purpose": "any maskable"
-          },
-          {
-                  "src": "/favicon.ico",
-                  "sizes": "512x512",
-                  "type": "image/x-icon",
-                  "purpose": "any maskable"
-          }
-    ],
-    "shortcuts": [
-          {
-                  "name": "Free 24h Trial",
-                  "short_name": "Free Trial",
-                  "description": "Get a free 24h IPTV trial via WhatsApp",
-                  "url": "/?source=pwa-trial"
-          },
-          {
-                  "name": "Pricing",
-                  "short_name": "Plans",
-                  "description": "View VIP plans",
-                  "url": "/?source=pwa-plans#offers"
-          }
-    ],
-    "prefer_related_applications": false
+  "name": "Best IPTV VIP — #1 Premium Worldwide IPTV",
+  "short_name": "Best IPTV VIP",
+  "description": "World's #1 premium IPTV — 22,000+ live channels in 4K UHD, sports, movies, series. 24h free trial, WhatsApp support, instant activation.",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#050507",
+  "theme_color": "#050507",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["entertainment", "video", "lifestyle", "sports", "news"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Free 24h Trial",
+      "short_name": "Free Trial",
+      "description": "Get a free 24h IPTV trial via WhatsApp",
+      "url": "/free-trial?source=pwa",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Pricing",
+      "short_name": "Plans",
+      "description": "View VIP IPTV plans",
+      "url": "/pricing?source=pwa",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Installation Guides",
+      "short_name": "Guides",
+      "description": "Install IPTV on any device",
+      "url": "/guides/firestick?source=pwa",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "WhatsApp Support",
+      "short_name": "Support",
+      "description": "Contact us instantly on WhatsApp",
+      "url": "/contact?source=pwa",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Best IPTV VIP — Premium IPTV worldwide"
+    }
+  ],
+  "prefer_related_applications": false
 }
