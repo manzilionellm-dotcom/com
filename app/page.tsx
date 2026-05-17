@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SITE as SITE_CFG, waLink as waLinkShared } from "../lib/site";
 
@@ -596,30 +596,6 @@ export default function Page() {
   const t = dict[lang];
   const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
 
-  const productSchema = useMemo(() => ({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: `${SITE.brand} — Premium Worldwide IPTV`,
-    brand: { "@type": "Brand", name: SITE.brand },
-    description: "20,000+ live channels, 100,000+ movies & series, 4K UHD, EPG. Activation in 10 min via WhatsApp.",
-    image: `${SITE.domain}/favicon.ico`,
-    aggregateRating: { "@type": "AggregateRating", ratingValue: String(SITE_CFG.ratingValue), reviewCount: String(SITE_CFG.reviewCount), bestRating: "5" },
-    offers: PLANS.map(p => ({
-      "@type": "Offer", name: t.planNames[p.key],
-      price: String(p.price), priceCurrency: "USD",
-      availability: "https://schema.org/InStock", url: SITE.domain,
-    })),
-  }), [t]);
-
-  const faqSchema = useMemo(() => ({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: t.faqs.map(f => ({
-      "@type": "Question", name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  }), [t]);
-
   const navLinks: { href: string; label: string; external?: boolean }[] = [
     { href: "/pricing", label: t.navPlans, external: true },
     { href: "/channels", label: t.navChannels, external: true },
@@ -631,9 +607,7 @@ export default function Page() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <div className="bg-glow" />
+      <div className="bg-glow" aria-hidden="true" />
 
       {/* Top status */}
       <div className="topbar">
