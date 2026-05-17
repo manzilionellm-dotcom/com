@@ -42,7 +42,7 @@ export default function CheckoutButton({ planKey, planLabel, className }: Props)
         className={className}
         aria-busy={loading}
       >
-        {loading ? "Loading…" : `Pay ${planLabel} — Card / Crypto`}
+        {loading ? "Loading…" : `Pay ${planLabel} via Card`}
       </button>
       {error && (
         <div
