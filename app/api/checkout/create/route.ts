@@ -18,7 +18,7 @@ function siteUrl(): string {
 }
 
 export async function POST(req: Request) {
-  let body: { plan?: string; email?: string };
+  let body: { plan?: string; email?: string; utm?: Record<string, string> };
   try {
     body = await req.json();
   } catch {
@@ -39,6 +39,32 @@ export async function POST(req: Request) {
   const orderId = `biv-${planKey}-${Date.now()}-${crypto
     .randomBytes(4)
     .toString("hex")}`;
+
+  // Attribution log — links the Cryptomus order_id to the originating
+  // campaign so the webhook can later report Purchase events back to ad
+  // platforms (CAPI, Google Offline Conversions, etc.).
+  const utm =
+    body.utm && typeof body.utm === "object"
+      ? Object.fromEntries(
+          Object.entries(body.utm)
+            .filter(([, v]) => typeof v === "string")
+            .slice(0, 20)
+            .map(([k, v]) => [String(k).slice(0, 40), String(v).slice(0, 200)]),
+        )
+      : {};
+  console.log(
+    "[checkout]",
+    JSON.stringify({
+      type: "checkout_start",
+      orderId,
+      plan: planKey,
+      amount: plan.price,
+      currency: "USD",
+      email: email || undefined,
+      utm,
+      ts: new Date().toISOString(),
+    }),
+  );
 
   const base = siteUrl();
 

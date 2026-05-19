@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import PageShell from "../../components/PageShell";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import { SITE, waLink } from "../../lib/site";
+import LeadForm from "../../components/LeadForm";
+import WhatsAppCTA from "../../components/WhatsAppCTA";
+import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Contact — 24/7 IPTV Support via WhatsApp & Email",
@@ -23,17 +25,17 @@ export default function ContactPage() {
         </p>
 
         <div className="trust-grid">
-          <a
+          <WhatsAppCTA
+            source="contact-card"
+            event="whatsapp_click"
+            message="Hi Best IPTV VIP! I need help."
             className="trust-card"
-            href={waLink("Hi Best IPTV VIP! I need help.", "Contact-WA")}
-            target="_blank"
-            rel="noreferrer noopener"
             style={{ textDecoration: "none" }}
           >
             <div className="ic">💬</div>
             <h4>WhatsApp (fastest)</h4>
             <p>+{SITE.whatsapp}<br />Reply &lt;10 min, 24/7</p>
-          </a>
+          </WhatsAppCTA>
           <a
             className="trust-card"
             href={`mailto:${SITE.email}`}
@@ -50,9 +52,29 @@ export default function ContactPage() {
           </div>
         </div>
 
+        <section className="section" style={{ marginTop: 36 }}>
+          <h2>Send us a message</h2>
+          <p style={{ color: "var(--muted)", fontSize: 14, marginBottom: 20 }}>
+            Not on WhatsApp right now? Drop your details and we&apos;ll reply within 1 hour.
+          </p>
+          <div style={{ maxWidth: 520 }}>
+            <LeadForm
+              intent="contact"
+              source="contact-form"
+              heading="Get in touch"
+              subheading="Tell us what you need — installation, billing, channel request, troubleshooting."
+              ctaLabel="Send message"
+              showDevice
+            />
+          </div>
+        </section>
+
         <section className="section">
           <h2>Common questions, instant answers</h2>
-          <p style={{ color: "var(--muted)", fontSize: 14 }}>Before reaching out, check our FAQ on the homepage and our install guides — most answers are there.</p>
+          <p style={{ color: "var(--muted)", fontSize: 14 }}>
+            Before reaching out, check our FAQ on the homepage and our install guides — most answers
+            are there.
+          </p>
         </section>
       </article>
     </PageShell>

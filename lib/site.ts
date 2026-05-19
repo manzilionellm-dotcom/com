@@ -45,6 +45,15 @@ export const BLOG_SLUGS = [
 ] as const;
 export type BlogSlug = (typeof BLOG_SLUGS)[number];
 
+export const COMPARE_SLUGS = [
+  "iptv-vs-cable-tv",
+  "iptv-vs-netflix",
+  "iptv-vs-disney-plus",
+  "iptv-vs-sling-tv",
+  "iptv-vs-youtube-tv",
+] as const;
+export type CompareSlug = (typeof COMPARE_SLUGS)[number];
+
 export function waLink(message: string, ref?: string) {
   const text = encodeURIComponent(message + (ref ? ` | Ref: ${ref}` : ""));
   return `https://wa.me/${SITE.whatsapp}?text=${text}`;

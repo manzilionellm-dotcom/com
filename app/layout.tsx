@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { SITE, LOCALES } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
+import TrackingProvider from "../components/TrackingProvider";
 
 const SITE_URL = SITE.domain;
 const LOGO_URL = `${SITE_URL}/icon-512.png`;
@@ -161,15 +162,11 @@ const jsonLdOrganization = {
     availableLanguage: ["English", "French", "Arabic", "Spanish", "German"],
     areaServed: "Worldwide",
   },
-  sameAs: [
-    `https://wa.me/${SITE.whatsapp}`,
-    "https://twitter.com/bestiptvvip",
-    "https://www.facebook.com/bestiptvvip",
-    "https://www.instagram.com/bestiptvvip",
-  ],
+  // TODO(entity): only the WhatsApp profile is verified. Re-add Twitter /
+  // Facebook / Instagram URLs once those accounts are confirmed live.
+  sameAs: [`https://wa.me/${SITE.whatsapp}`],
   foundingDate: "2019",
-  numberOfEmployees: { "@type": "QuantitativeValue", value: 25 },
-  award: ["Top IPTV Provider 2025", "Best 4K IPTV Service 2026"],
+  // numberOfEmployees and award fields removed — keep only verifiable claims.
 };
 
 const jsonLdWebsite = {
@@ -180,11 +177,7 @@ const jsonLdWebsite = {
   url: SITE_URL,
   inLanguage: ["en", "fr", "ar", "es", "de"],
   publisher: { "@id": `${SITE_URL}#organization` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
+  // SearchAction removed — site has no /search route. Re-add when search ships.
 };
 
 
@@ -410,6 +403,7 @@ export default function RootLayout({
         />
       </head>
       <body style={{ background: "#050507", margin: 0 }}>
+        <TrackingProvider />
         {children}
         <CookieConsent />
         {ga4 && (
