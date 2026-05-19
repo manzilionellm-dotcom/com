@@ -5,6 +5,7 @@ import {
   DEVICE_SLUGS,
   COUNTRY_SLUGS,
   BLOG_SLUGS,
+  COMPARE_SLUGS,
 } from "../lib/site";
 
 function alt(path: string) {
@@ -61,6 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${SITE.domain}/compare`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${SITE.domain}/contact`,
       lastModified: now,
       changeFrequency: "yearly",
@@ -109,5 +116,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...base, ...guides, ...countries, ...blog];
+  const compare = COMPARE_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/compare/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  return [...base, ...guides, ...countries, ...blog, ...compare];
 }

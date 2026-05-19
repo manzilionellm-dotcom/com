@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SITE as SITE_CFG, waLink as waLinkShared } from "../lib/site";
+import { track, buildWhatsAppText } from "../lib/analytics";
 
 /* ============================================================
    Types
@@ -487,6 +488,26 @@ const dict: Record<Locale, Copy> = {
 function waLink(msg: string, _ua: string, ref?: string) {
   return waLinkShared(msg, ref);
 }
+
+// Click handler used by every WhatsApp anchor on the homepage: fires
+// analytics, enriches the WhatsApp text with UTM, then opens WhatsApp.
+function waClick(
+  event: "whatsapp_click" | "trial_request" | "cta_click",
+  source: string,
+  message: string,
+  meta: Record<string, unknown> = {},
+) {
+  return (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    track(event, { source, label: message, ...meta });
+    if (typeof window !== "undefined") {
+      const url = `https://wa.me/${SITE_CFG.whatsapp}?text=${encodeURIComponent(
+        buildWhatsAppText(message, source),
+      )}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
+}
 function detectLang(): Locale {
   if (typeof window === "undefined") return "en";
   try {
@@ -553,10 +574,60 @@ function CountryModal({ country, lang, ua, onClose }: { country: Country; lang: 
           </div>
         </div>
         <div className="modal-foot">
-          <a className="btn btn-green" href={waLink(`Hi! I want ${country.name} channels.`, ua, `Country-${country.slug}`)} target="_blank" rel="noreferrer">
+          <a
+            className="btn btn-green"
+            href={waLink(`Hi! I want ${country.name} channels.`, ua, `Country-${country.slug}`)}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+              track("cta_click", {
+                source: `home-country-${country.slug}-order`,
+                label: country.name,
+                country: country.slug,
+              });
+              if (typeof window !== "undefined") {
+                window.open(
+                  `https://wa.me/${SITE_CFG.whatsapp}?text=${encodeURIComponent(
+                    buildWhatsAppText(
+                      `Hi! I want ${country.name} channels.`,
+                      `home-country-${country.slug}`,
+                    ),
+                  )}`,
+                  "_blank",
+                  "noopener,noreferrer",
+                );
+              }
+            }}
+          >
             {t.modalOrder(country.name)}
           </a>
-          <a className="btn btn-ghost" href={waLink(`${t.whatsappTrial} (${country.name})`, ua, `Trial-${country.slug}`)} target="_blank" rel="noreferrer">
+          <a
+            className="btn btn-ghost"
+            href={waLink(`${t.whatsappTrial} (${country.name})`, ua, `Trial-${country.slug}`)}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+              track("trial_request", {
+                source: `home-country-${country.slug}-trial`,
+                label: country.name,
+                country: country.slug,
+              });
+              if (typeof window !== "undefined") {
+                window.open(
+                  `https://wa.me/${SITE_CFG.whatsapp}?text=${encodeURIComponent(
+                    buildWhatsAppText(
+                      `${t.whatsappTrial} (${country.name})`,
+                      `home-country-${country.slug}-trial`,
+                    ),
+                  )}`,
+                  "_blank",
+                  "noopener,noreferrer",
+                );
+              }
+            }}
+          >
             {t.modalTrial}
           </a>
         </div>
@@ -676,8 +747,22 @@ export default function Page() {
           <h1>{t.heroTitle1}<br /><span className="accent">{t.heroTitle2}</span></h1>
           <p className="lead">{t.heroLead}</p>
           <div className="hero-actions">
-            <Link className="btn btn-gold" href="/pricing">{t.heroBtnPlans}</Link>
-            <a className="btn btn-green" href={waLink(t.whatsappTrial, ua, "Hero-Trial")} target="_blank" rel="noreferrer noopener">{t.heroBtnTrial}</a>
+            <Link
+              className="btn btn-gold"
+              href="/pricing"
+              onClick={() => track("cta_click", { source: "hero-pricing", label: t.heroBtnPlans })}
+            >
+              {t.heroBtnPlans}
+            </Link>
+            <a
+              className="btn btn-green"
+              href={waLink(t.whatsappTrial, ua, "Hero-Trial")}
+              target="_blank"
+              rel="noreferrer noopener"
+              onClick={waClick("trial_request", "hero-trial", t.whatsappTrial)}
+            >
+              {t.heroBtnTrial}
+            </a>
           </div>
           <div className="hero-trust">{t.heroTrust}</div>
         </section>
@@ -689,7 +774,13 @@ export default function Page() {
             <h3>{t.trialTitle}</h3>
             <p>{t.trialDesc}</p>
             <p className="trial-note">{t.trialNote}</p>
-            <a className="btn btn-green" href={waLink(t.whatsappTrial, ua, "Trial-Banner")} target="_blank" rel="noreferrer">
+            <a
+              className="btn btn-green"
+              href={waLink(t.whatsappTrial, ua, "Trial-Banner")}
+              target="_blank"
+              rel="noreferrer"
+              onClick={waClick("trial_request", "trial-banner", t.whatsappTrial)}
+            >
               {t.trialCta}
             </a>
           </div>
@@ -746,7 +837,18 @@ export default function Page() {
                       <li key={perk}><span className="check">✓</span> {perk}</li>
                     ))}
                   </ul>
-                  <a className="btn btn-white plan-cta btn-block" href={waLink(t.whatsappOrder(t.planNames[p.key], p.price), ua, `Plan-${p.key}`)} target="_blank" rel="noreferrer">
+                  <a
+                    className="btn btn-white plan-cta btn-block"
+                    href={waLink(t.whatsappOrder(t.planNames[p.key], p.price), ua, `Plan-${p.key}`)}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={waClick(
+                      "cta_click",
+                      `home-plan-${p.key}`,
+                      t.whatsappOrder(t.planNames[p.key], p.price),
+                      { plan: p.key, value: p.price, currency: "USD" },
+                    )}
+                  >
                     {t.planOrder}
                   </a>
                 </article>
@@ -830,7 +932,14 @@ export default function Page() {
           </div>
           <div className="countries-grid">
             {COUNTRIES.map(c => (
-              <button key={c.slug} className="country-card" onClick={() => setSelectedCountry(c)}>
+              <button
+                key={c.slug}
+                className="country-card"
+                onClick={() => {
+                  track("country_view", { source: "home-country-card", country: c.slug, label: c.name });
+                  setSelectedCountry(c);
+                }}
+              >
                 <span className="flag">{c.flag}</span>
                 <div className="country-info">
                   <div className="country-name">{c.name}</div>
@@ -894,7 +1003,13 @@ export default function Page() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 20 }}>
-            <a className="btn btn-gold" href={waLink(t.whatsappGeneric, ua, "Setup-CTA")} target="_blank" rel="noreferrer">
+            <a
+              className="btn btn-gold"
+              href={waLink(t.whatsappGeneric, ua, "Setup-CTA")}
+              target="_blank"
+              rel="noreferrer"
+              onClick={waClick("whatsapp_click", "home-setup", t.whatsappGeneric)}
+            >
               {t.setupCta}
             </a>
           </div>
@@ -904,7 +1019,15 @@ export default function Page() {
         <section id="faq" className="section">
           <div className="section-head"><h2>{t.faqTitle}</h2></div>
           {t.faqs.map((f, i) => (
-            <details key={i} className="faq-item">
+            <details
+              key={i}
+              className="faq-item"
+              onToggle={(e) => {
+                if ((e.currentTarget as HTMLDetailsElement).open) {
+                  track("faq_open", { source: "home-faq", label: f.q });
+                }
+              }}
+            >
               <summary className="faq-q">{f.q}</summary>
               <p className="faq-a">{f.a}</p>
             </details>
@@ -926,6 +1049,7 @@ export default function Page() {
               target="_blank"
               rel="noreferrer noopener"
               style={{ marginTop: 12, padding: "8px 14px", fontSize: 12 }}
+              onClick={waClick("whatsapp_click", "home-footer", "Hi Best IPTV VIP!")}
             >
               Chat on WhatsApp
             </a>
@@ -980,13 +1104,25 @@ export default function Page() {
       </footer>
 
       {/* Floating WhatsApp button */}
-      <a className="fab" href={waLink(t.whatsappGeneric, ua, "FAB")} target="_blank" rel="noreferrer noopener" aria-label="Chat on WhatsApp">
+      <a
+        className="fab"
+        href={waLink(t.whatsappGeneric, ua, "FAB")}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="Chat on WhatsApp"
+        onClick={waClick("whatsapp_click", "home-fab", t.whatsappGeneric)}
+      >
         <span aria-hidden="true">💬</span>
       </a>
 
       {/* Sticky mobile CTA */}
       <div className="sticky-mobile-cta" role="region" aria-label="Quick actions">
-        <Link className="btn btn-gold" href="/pricing" style={{ flex: 1, padding: "11px 14px", fontSize: 13 }}>
+        <Link
+          className="btn btn-gold"
+          href="/pricing"
+          style={{ flex: 1, padding: "11px 14px", fontSize: 13 }}
+          onClick={() => track("cta_click", { source: "home-sticky-pricing", label: t.heroBtnPlans })}
+        >
           {t.heroBtnPlans}
         </Link>
         <a
@@ -995,6 +1131,7 @@ export default function Page() {
           target="_blank"
           rel="noreferrer noopener"
           style={{ flex: 1, padding: "11px 14px", fontSize: 13 }}
+          onClick={waClick("trial_request", "home-sticky-trial", t.whatsappTrial)}
         >
           {t.heroBtnTrial}
         </a>

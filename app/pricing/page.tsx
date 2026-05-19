@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import PageShell from "../../components/PageShell";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import CheckoutButton from "../../components/CheckoutButton";
-import { SITE, waLink } from "../../lib/site";
+import WhatsAppCTA from "../../components/WhatsAppCTA";
+import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "IPTV Pricing — Best 4K IPTV Plans From $5/month",
@@ -22,6 +24,14 @@ const PLANS = [
 export default function PricingPage() {
   return (
     <PageShell>
+      <Script id="pricing-view" strategy="afterInteractive">
+        {`(function(){try{
+          var ev = { event:'plan_view', source:'pricing-page', label:'pricing-list', ts: Date.now(), path:'/pricing' };
+          (window.dataLayer=window.dataLayer||[]).push(ev);
+          if (typeof window.gtag==='function') window.gtag('event','view_item_list',{item_list_name:'Pricing plans'});
+          if (typeof window.fbq==='function') window.fbq('track','ViewContent',{content_name:'Pricing',content_category:'pricing'});
+        } catch(e){}})();`}
+      </Script>
       <Breadcrumbs items={[{ name: "Pricing", href: "/pricing" }]} />
       <article className="article">
         <h1 style={{ textAlign: "center", fontSize: "clamp(1.7rem,5vw,2.6rem)" }}>
@@ -57,17 +67,19 @@ export default function PricingPage() {
                 <CheckoutButton
                   planKey={p.key}
                   planLabel={`$${p.price}`}
+                  planValue={p.price}
                   className="btn btn-gold plan-cta btn-block"
                 />
-                <a
+                <WhatsAppCTA
+                  source={`pricing-${p.key}-wa`}
+                  event="cta_click"
+                  message={`Hi! I want ${p.name} ($${p.price}).`}
                   className="btn btn-white plan-cta btn-block"
                   style={{ marginTop: 8 }}
-                  href={waLink(`Hi! I want ${p.name} ($${p.price}).`, `Pricing-${p.key}`)}
-                  target="_blank"
-                  rel="noreferrer noopener"
+                  meta={{ plan: p.key, value: p.price, currency: "USD" }}
                 >
                   Order via WhatsApp
-                </a>
+                </WhatsAppCTA>
               </div>
             );
           })}

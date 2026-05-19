@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import { SITE, waLink } from "../../lib/site";
+import LeadForm from "../../components/LeadForm";
+import WhatsAppCTA from "../../components/WhatsAppCTA";
+import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Free 24h IPTV Trial — No Credit Card Required",
@@ -26,22 +28,46 @@ export default function FreeTrialPage() {
           Test Best IPTV VIP with 22,000+ live channels, 4K UHD streaming, full EPG and instant catch-up. We send your trial credentials on WhatsApp in under 10 minutes.
         </p>
 
-        <div style={{ textAlign: "center", marginBottom: 36 }}>
-          <a
-            className="btn btn-green"
-            href={waLink("Hi! I want a free 24h IPTV trial. My device is: __", "Trial-CTA")}
-            target="_blank"
-            rel="noreferrer noopener"
-            style={{ fontSize: 16, padding: "16px 32px" }}
-          >
-            💬 Start free trial on WhatsApp
-          </a>
+        <div
+          style={{
+            display: "grid",
+            gap: 24,
+            gridTemplateColumns: "minmax(280px, 1fr)",
+            alignItems: "start",
+            maxWidth: 920,
+            margin: "0 auto 36px",
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <WhatsAppCTA
+              source="trial-hero"
+              event="trial_request"
+              message="Hi! I want a free 24h IPTV trial. My device is: __"
+              className="btn btn-green"
+              style={{ fontSize: 16, padding: "16px 32px" }}
+            >
+              💬 Start free trial on WhatsApp
+            </WhatsAppCTA>
+            <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 10 }}>
+              Prefer not to use WhatsApp? Use the form below.
+            </p>
+          </div>
+
+          <LeadForm
+            intent="free_trial"
+            source="trial-form"
+            heading="Or request your trial without WhatsApp"
+            subheading="Drop your WhatsApp number or email and we'll send your credentials within 10 minutes."
+            ctaLabel="Send me my free trial"
+            showDevice
+            showCountry
+          />
         </div>
 
         <section className="section">
           <h2>How it works</h2>
           <div className="steps-grid">
-            <div className="step"><div className="step-num">1</div><p>Click the WhatsApp button above and tell us your device (Firestick, Smart TV, Android, iOS…).</p></div>
+            <div className="step"><div className="step-num">1</div><p>Click the WhatsApp button above (or fill the form) and tell us your device (Firestick, Smart TV, Android, iOS…).</p></div>
             <div className="step"><div className="step-num">2</div><p>We send your free trial M3U link, Xtream Codes API and setup guide within 10 minutes.</p></div>
             <div className="step"><div className="step-num">3</div><p>Install IPTV Smarters / TiviMate, enter your credentials, enjoy 22,000+ channels free for 24h.</p></div>
           </div>
