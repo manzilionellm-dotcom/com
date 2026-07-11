@@ -442,3 +442,93 @@ Modified (4): `lib/analytics.ts`, `app/layout.tsx`, `app/sitemap.ts`,
 3. Add answer-blocks + `LeadForm` to every blog post and country page.
 4. Localize `/watch` and `/best` bodies (currently English under `?lang=`).
 5. Build `/alternatives/<competitor>` (different intent from `/compare`).
+
+---
+
+## Pass 4 — 2026-07-11 — Alternatives surface + answer-blocks & lead capture on existing pages
+
+### Rationale
+
+Working the site as an owner would: two moves this pass. (1) Open a third
+programmatic SEO surface — `/alternatives/<competitor>` — capturing "leaving X"
+intent that `/compare` (head-to-head) does not. (2) Retrofit the conversion +
+AI-Overview pattern proven on `/watch` and `/best` onto the pages that already
+get traffic (blog posts, country pages), so existing sessions convert instead
+of only bouncing to WhatsApp. Directly executes items 3 & 5 of Pass 3's
+next-recommended list.
+
+### Implemented changes
+
+**A. `/alternatives/<slug>` surface (SEO — migration intent):**
+- `lib/content/alternatives.ts` — `ALTERNATIVES` registry of 8 switch guides:
+  netflix, cable, sling-tv, youtube-tv, disney-plus, hulu, directv-stream,
+  fubotv. Migration-framed (why-leaving / what-you-keep / what-you-gain /
+  3-step move / FAQ) — distinct angle from `/compare`, with competitor
+  price points for relevance.
+- `app/alternatives/[slug]/page.tsx` — Article + FAQPage JSON-LD, AnswerBlock,
+  keep-vs-gain grid, migration steps, embedded LeadForm, cross-links.
+- `app/alternatives/page.tsx` — hub with CollectionPage JSON-LD.
+
+**B. Reusable answer-block:**
+- `components/AnswerBlock.tsx` — extracted the "Quick answer" box as a shared
+  presentational component (used by alternatives + blog; watch/best keep their
+  inline copies).
+
+**C. Conversion + AI-Overview retrofit on existing pages:**
+- `lib/content/blog.ts` — added a concise `keyTakeaway` (direct-answer) to all
+  5 posts.
+- `app/blog/[slug]/page.tsx` — renders `AnswerBlock` (from keyTakeaway) high on
+  the page + a `LeadForm` before "Read next". Blog was WhatsApp-only before.
+- `app/channels/[country]/page.tsx` — added a `LeadForm` before "Other regions"
+  on all 8 country pages (were WhatsApp-only).
+
+**Wiring / distribution:**
+- `app/sitemap.ts` — `/alternatives` (0.88) + 8 `/alternatives/<slug>` (0.82,
+  hreflang). Total indexable URLs now 74.
+- `components/SiteHeader.tsx` — "Alternatives" nav item (replaced "Devices",
+  still reachable via footer).
+- `components/SiteFooter.tsx` — "Compare" + "IPTV Alternatives" added to the
+  Service column.
+
+### Files changed (11 total)
+
+Created (4): `lib/content/alternatives.ts`, `app/alternatives/page.tsx`,
+`app/alternatives/[slug]/page.tsx`, `components/AnswerBlock.tsx`.
+Modified (7): `lib/content/blog.ts`, `app/blog/[slug]/page.tsx`,
+`app/channels/[country]/page.tsx`, `app/sitemap.ts`,
+`components/SiteHeader.tsx`, `components/SiteFooter.tsx`.
+
+### Validation
+
+- `pnpm type-check` — clean. `pnpm lint` — 0 warnings/errors.
+- `pnpm build` — 83 static pages (was 74). 8 `/alternatives/<slug>` + hub
+  generated.
+- Prod smoke test (`pnpm start`):
+  - `GET /alternatives/netflix` → 200, title, Article + FAQPage JSON-LD,
+    migration content.
+  - `GET /blog/best-iptv-2026` → answer-block ("Quick answer") + LeadForm.
+  - `GET /channels/arabic` → LeadForm rendered.
+  - `POST /api/lead` (blog-form source) → `{"ok":true}`.
+  - `GET /sitemap.xml` → 74 `<loc>` incl. 8 `/alternatives`.
+
+### Unresolved risks / manual follow-ups
+
+1. **Leads still land in server logs only.** `LEAD_WEBHOOK_URL` remains
+   unconfigured — now the single highest-leverage manual step, because the new
+   blog/country/alternatives LeadForms plus referral + exit-intent all feed it.
+   Point it at Zapier/n8n/CRM to activate the "clients" side of the machine.
+2. **Competitor names + price points** in `alternatives.ts` are used
+   comparatively (nominative fair use, standard for the category) and will
+   date — refresh prices periodically.
+3. **Blog `keyTakeaway`** is optional in the type; the 5 current posts have it,
+   any new post should add one to get the answer-block.
+
+### Next recommended pass
+
+1. **Wire `LEAD_WEBHOOK_URL`** (blocking the whole lead machine) — needs a
+   destination URL from the operator.
+2. Server-side Meta CAPI + Google Enhanced Conversions in the Cryptomus webhook.
+3. Localize `/watch`, `/best`, `/alternatives` bodies (English under `?lang=`).
+4. Add FAQ/answer-blocks to `/pricing` and `/free-trial`.
+5. Seed the referral loop: a post-purchase "share your code" prompt on
+   `/checkout/success`.

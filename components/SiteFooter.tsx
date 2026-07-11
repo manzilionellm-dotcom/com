@@ -70,6 +70,8 @@ export default function SiteFooter() {
             <li><Link href="/pricing">Pricing</Link></li>
             <li><Link href="/free-trial">Free 24h Trial</Link></li>
             <li><Link href="/channels">All Channels</Link></li>
+            <li><Link href="/compare">Compare</Link></li>
+            <li><Link href="/alternatives">IPTV Alternatives</Link></li>
             <li><Link href="/devices">Compatible Devices</Link></li>
             <li><Link href="/status">Network Status</Link></li>
           </ul>

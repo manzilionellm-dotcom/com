@@ -29,7 +29,7 @@ export default function SiteHeader() {
           <Link href="/best">Best IPTV</Link>
           <Link href="/channels">Channels</Link>
           <Link href="/compare">Compare</Link>
-          <Link href="/devices">Devices</Link>
+          <Link href="/alternatives">Alternatives</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/referral">Refer &amp; earn</Link>
         </div>

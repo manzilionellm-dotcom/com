@@ -9,6 +9,7 @@ import {
 } from "../lib/site";
 import { WATCH_SLUGS } from "../lib/content/sports";
 import { BEST_SLUGS } from "../lib/content/best";
+import { ALTERNATIVE_SLUGS } from "../lib/content/alternatives";
 
 function alt(path: string) {
   const languages: Record<string, string> = {};
@@ -82,6 +83,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: { languages: alt("/best") },
+    },
+    {
+      url: `${SITE.domain}/alternatives`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.88,
+      alternates: { languages: alt("/alternatives") },
     },
     {
       url: `${SITE.domain}/referral`,
@@ -161,5 +169,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: alt(`/best/${slug}`) },
   }));
 
-  return [...base, ...guides, ...countries, ...blog, ...compare, ...watch, ...best];
+  const alternatives = ALTERNATIVE_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/alternatives/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.82,
+    alternates: { languages: alt(`/alternatives/${slug}`) },
+  }));
+
+  return [
+    ...base,
+    ...guides,
+    ...countries,
+    ...blog,
+    ...compare,
+    ...watch,
+    ...best,
+    ...alternatives,
+  ];
 }

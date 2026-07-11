@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import PageShell from "../../../components/PageShell";
 import Breadcrumbs from "../../../components/Breadcrumbs";
+import LeadForm from "../../../components/LeadForm";
 import { COUNTRY_PAGES } from "../../../lib/content/countries";
 import { SITE, COUNTRY_SLUGS, waLink, type CountrySlug } from "../../../lib/site";
 
@@ -167,6 +168,16 @@ export default async function CountryPage({
               Free trial
             </a>
           </div>
+        </section>
+
+        <section className="section" style={{ maxWidth: 560, margin: "0 auto" }}>
+          <LeadForm
+            intent="free_trial"
+            source={`country-${page.slug}-form`}
+            heading={`Get ${page.name} IPTV — free 24h trial`}
+            subheading="No card. We send your login to WhatsApp or email within 10 minutes."
+            showCountry={false}
+          />
         </section>
 
         <section className="section">

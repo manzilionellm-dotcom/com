@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import PageShell from "../../../components/PageShell";
 import Breadcrumbs from "../../../components/Breadcrumbs";
+import AnswerBlock from "../../../components/AnswerBlock";
+import LeadForm from "../../../components/LeadForm";
 import { BLOG_POSTS } from "../../../lib/content/blog";
 import { SITE, BLOG_SLUGS, waLink, type BlogSlug } from "../../../lib/site";
 
@@ -88,6 +90,8 @@ export default async function BlogPostPage({
           By {post.author} • {new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
         </p>
 
+        {post.keyTakeaway && <AnswerBlock>{post.keyTakeaway}</AnswerBlock>}
+
         <p className="lead" style={{ fontSize: "1.05rem", marginBottom: 28 }}>{post.intro}</p>
 
         {post.sections.map((s, i) => (
@@ -113,6 +117,15 @@ export default async function BlogPostPage({
               Free 24h trial
             </a>
           </div>
+        </section>
+
+        <section className="section" style={{ maxWidth: 560, margin: "0 auto" }}>
+          <LeadForm
+            intent="free_trial"
+            source={`blog-${post.slug}-form`}
+            heading="Get your free 24h trial"
+            subheading="No card. We send credentials to WhatsApp or email within 10 minutes."
+          />
         </section>
 
         <section className="section">

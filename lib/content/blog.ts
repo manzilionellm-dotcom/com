@@ -9,6 +9,8 @@ export type BlogPost = {
   readTime: string;
   category: string;
   hero: string;
+  /** Concise direct answer for AI Overviews / featured snippets. */
+  keyTakeaway?: string;
   intro: string;
   sections: { heading: string; body: string[] }[];
   conclusion: string;
@@ -25,6 +27,8 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
     readTime: "12 min",
     category: "Buyer Guide",
     hero: "What is the best IPTV service in 2026?",
+    keyTakeaway:
+      "The best IPTV service in 2026 delivers stable 4K UHD at peak hours, 22,000+ well-curated channels with reliable EPG, 7-day catch-up, and works on Firestick, Smart TV, Android, iOS and MAG. Judge providers on uptime and support, not just channel count — and always test on a free trial before paying.",
     intro:
       "Choosing the best IPTV in 2026 is harder than ever — there are thousands of providers, but only a handful deliver real 4K UHD without buffering, full EPG, 7-day catch-up, and instant 10-minute activation. In this guide we test the top 10 IPTV services head-to-head on uptime, channel count, sports coverage and customer support.",
     sections: [
@@ -68,6 +72,8 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
     readTime: "9 min",
     category: "Troubleshooting",
     hero: "Why does my IPTV keep buffering and how to fix it permanently",
+    keyTakeaway:
+      "IPTV buffering is almost always fixed by one of five things: use Ethernet or 5GHz Wi-Fi, raise your speed to 25+ Mbps for 4K, switch DNS to 8.8.8.8, clear the player cache, or ask your provider to move you to a nearer server. If it only buffers on one channel, it's the source; if on all channels, it's your network or device.",
     intro:
       "Buffering ruins IPTV. The good news: 90% of buffering is fixable in under 10 minutes. We listed the 12 most effective fixes ranked by impact, from internet speed tests to advanced DNS tricks.",
     sections: [
@@ -118,6 +124,8 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
     readTime: "8 min",
     category: "Comparison",
     hero: "IPTV vs cable TV — which one wins in 2026?",
+    keyTakeaway:
+      "IPTV beats cable in 2026 on price ($5–$10/month vs $80–$160), channel count (22,000+ vs ~500) and 4K coverage, saving roughly $1,500/year. Cable still wins on guaranteed local affiliates and polished multi-room DVR. For sports, movies and international viewers, IPTV is the clear winner.",
     intro:
       "Cable TV averages $130/month in the USA. Premium IPTV is $5-10/month for the same channels in 4K plus 120,000 movies on demand. We did the math — here's why 40% of US households are cutting the cord in 2026.",
     sections: [
@@ -168,6 +176,8 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
     readTime: "10 min",
     category: "Tutorial",
     hero: "Watch IPTV in true 4K UHD — hardware, bandwidth, player guide",
+    keyTakeaway:
+      "To watch IPTV in true 4K you need a 4K device (Firestick 4K Max, Nvidia Shield or a modern Smart TV), a 25+ Mbps connection, a player that supports UHD like TiviMate, and a provider that carries genuine 4K source feeds rather than upscaled 1080p. Ethernet beats Wi-Fi for stable UHD.",
     intro:
       "4K IPTV looks incredible — when it works. This guide covers everything: minimum hardware, internet, player settings and which channels are actually 4K (not 1080p upscaled).",
     sections: [
@@ -222,6 +232,8 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
     readTime: "7 min",
     category: "Comparison",
     hero: "IPTV Smarters Pro vs TiviMate Premium — the verdict",
+    keyTakeaway:
+      "TiviMate is the better IPTV player for Android TV and Firestick — superior EPG, catch-up, recording and multi-view — but it's Android-only and its best features need the paid Premium tier. IPTV Smarters Pro is simpler, free and cross-platform (including iOS), making it the better pick for iPhone, iPad and casual users.",
     intro:
       "Two giants dominate IPTV in 2026: IPTV Smarters Pro (free, on iOS too) and TiviMate Premium ($20/year, Android TV only). We tested both for 6 months — here's the honest verdict.",
     sections: [
