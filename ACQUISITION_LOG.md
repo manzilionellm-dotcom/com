@@ -243,6 +243,84 @@ Modified (13):
     `gtag('consent', 'update', ...)` so denied users still get modeled
     conversions (Google's preferred pattern).
 
+---
+
+## Pass 2 — 2026-07-11 — "Watch live sports" programmatic SEO surface
+
+### Rationale
+
+The highest commercial-intent IPTV query class is **"how to watch &lt;league&gt;
+live / online / in 4K"** — buyers searching this are minutes from paying. Pass 1
+built the `/compare/<slug>` transactional surface; this pass builds the parallel
+`/watch/<slug>` surface for live-sport intent, which for IPTV converts even
+harder than comparison queries.
+
+Unlike ad platforms (all closed to unlicensed IPTV), organic search is not
+subject to platform moderation, so programmatic SEO remains the durable growth
+channel for this business. This pass deliberately widens the indexable footprint
+on the queries most likely to convert.
+
+### Implemented changes
+
+**New content registry:**
+- `lib/content/sports.ts` — `WATCH_GUIDES` registry of 16 sport/league guides.
+  Each entry is deliberately differentiated (real competitions, marquee
+  teams/drivers/fighters, actual broadcaster feeds, season windows, sport-
+  specific "why" bullets and FAQ) to avoid thin-duplicate penalties. Exports
+  `WATCH_SLUGS`, `WATCH_GUIDE_LIST`.
+  - Football: premier-league, champions-league, europa-league, la-liga,
+    serie-a, bundesliga, ligue-1
+  - US sports: nfl, nba, mlb, nhl
+  - Motorsport: formula-1 · Combat: ufc, boxing · Cricket · Tennis
+
+**New pages (programmatic):**
+- `app/watch/[slug]/page.tsx` — per-sport landing page. AI-Overview answer
+  block, "what's included" (competitions/teams/feeds), "why watch on us",
+  4-step how-to, sport-specific FAQ, dual CTA (pricing + tracked WhatsApp
+  trial), related-sport internal links. JSON-LD: Article + FAQPage + HowTo +
+  BreadcrumbList.
+- `app/watch/page.tsx` — hub index grouped by category, CollectionPage JSON-LD,
+  cross-links every guide.
+
+**Internal linking / distribution:**
+- `components/SiteHeader.tsx` — "Watch Sports" added to primary nav.
+- `components/SiteFooter.tsx` — new "Watch Live" column (6 top sports + hub
+  link) on every page footer.
+- `app/sitemap.ts` — `/watch` (priority 0.9) + 16 `/watch/<slug>` (priority
+  0.85, weekly, hreflang alternates for 5 locales).
+
+### Files changed (5 total)
+
+Created (3): `lib/content/sports.ts`, `app/watch/page.tsx`,
+`app/watch/[slug]/page.tsx`.
+Modified (2 components + sitemap): `components/SiteHeader.tsx`,
+`components/SiteFooter.tsx`, `app/sitemap.ts`.
+
+### Validation
+
+- `pnpm type-check` — clean.
+- `pnpm lint` — 0 warnings, 0 errors.
+- `pnpm build` — 16 new `/watch/<slug>` pages + `/watch` hub generated as
+  static HTML (SSG). Total indexable pages now ~61.
+- Prod smoke test (`pnpm start`):
+  - `GET /watch/premier-league` → 200, correct `<title>`, Article + FAQPage +
+    HowTo + BreadcrumbList JSON-LD all present, unique body copy.
+  - `GET /sitemap.xml` → 16 unique `/watch/<slug>` URLs + `/watch`, all with
+    hreflang alternates.
+
+### Unresolved risks / manual follow-ups
+
+1. **Broadcaster names in copy** (Sky Sports, ESPN, DAZN, beIN, etc.) are used
+   descriptively to signal which feeds carry each sport. This is standard for
+   the category but is trademark-adjacent; if the operator wants to reduce
+   legal surface, soften to generic "premium sports feeds" phrasing.
+2. **Season windows / marquee names** (drivers, champions) will date. Refresh
+   `lib/content/sports.ts` each season; `lastModified` in the sitemap already
+   rebuilds on deploy.
+3. **hreflang points at `?lang=` variants** but `/watch/<slug>` copy is served
+   in English regardless of `lang` (same limitation as existing compare/guide
+   pages). A future i18n pass could localize the guide bodies.
+
 ### Next recommended pass
 
 1. Wire `LEAD_WEBHOOK_URL` + `ANALYTICS_WEBHOOK_URL` to a real destination

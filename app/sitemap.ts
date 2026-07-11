@@ -7,6 +7,7 @@ import {
   BLOG_SLUGS,
   COMPARE_SLUGS,
 } from "../lib/site";
+import { WATCH_SLUGS } from "../lib/content/sports";
 
 function alt(path: string) {
   const languages: Record<string, string> = {};
@@ -68,6 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE.domain}/watch`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      alternates: { languages: alt("/watch") },
+    },
+    {
       url: `${SITE.domain}/contact`,
       lastModified: now,
       changeFrequency: "yearly",
@@ -123,5 +131,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...base, ...guides, ...countries, ...blog, ...compare];
+  const watch = WATCH_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/watch/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+    alternates: { languages: alt(`/watch/${slug}`) },
+  }));
+
+  return [...base, ...guides, ...countries, ...blog, ...compare, ...watch];
 }

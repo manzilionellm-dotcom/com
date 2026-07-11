@@ -1,5 +1,15 @@
 import Link from "next/link";
 import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS } from "../lib/site";
+import { WATCH_GUIDES } from "../lib/content/sports";
+
+const FOOTER_WATCH_SLUGS = [
+  "premier-league",
+  "champions-league",
+  "nfl",
+  "nba",
+  "formula-1",
+  "ufc",
+];
 
 const deviceLabel: Record<string, string> = {
   firestick: "Amazon Firestick",
@@ -68,6 +78,15 @@ export default function SiteFooter() {
             {COUNTRY_SLUGS.map((s) => (
               <li key={s}><Link href={`/channels/${s}`}>{countryLabel[s]} IPTV</Link></li>
             ))}
+          </ul>
+        </div>
+        <div>
+          <h5>Watch Live</h5>
+          <ul>
+            {FOOTER_WATCH_SLUGS.map((s) => (
+              <li key={s}><Link href={`/watch/${s}`}>Watch {WATCH_GUIDES[s].short}</Link></li>
+            ))}
+            <li><Link href="/watch">All sports →</Link></li>
           </ul>
         </div>
         <div>

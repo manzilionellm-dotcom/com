@@ -25,6 +25,7 @@ export default function SiteHeader() {
         </Link>
         <div className="nav-links">
           <Link href="/pricing">Pricing</Link>
+          <Link href="/watch">Watch Sports</Link>
           <Link href="/channels">Channels</Link>
           <Link href="/compare">Compare</Link>
           <Link href="/devices">Devices</Link>
