@@ -26,12 +26,12 @@ export default function SiteHeader() {
         <div className="nav-links">
           <Link href="/pricing">Pricing</Link>
           <Link href="/watch">Watch Sports</Link>
+          <Link href="/best">Best IPTV</Link>
           <Link href="/channels">Channels</Link>
           <Link href="/compare">Compare</Link>
           <Link href="/devices">Devices</Link>
-          <Link href="/guides/firestick">Guides</Link>
           <Link href="/blog">Blog</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/referral">Refer &amp; earn</Link>
         </div>
         <a
           className="btn btn-green"

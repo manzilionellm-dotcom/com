@@ -19,6 +19,10 @@ export type FunnelEvent =
   | "device_view"
   | "compare_view"
   | "blog_view"
+  | "best_view"
+  | "watch_view"
+  | "referral_share"
+  | "exit_intent_view"
   | "search";
 
 export type EventPayload = {

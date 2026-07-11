@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS } from "../lib/site";
 import { WATCH_GUIDES } from "../lib/content/sports";
+import { BEST_GUIDES } from "../lib/content/best";
 
 const FOOTER_WATCH_SLUGS = [
   "premier-league",
@@ -9,6 +10,15 @@ const FOOTER_WATCH_SLUGS = [
   "nba",
   "formula-1",
   "ufc",
+];
+
+const FOOTER_BEST_SLUGS = [
+  "best-iptv-for-firestick",
+  "best-iptv-for-smart-tv",
+  "best-iptv-for-sports",
+  "best-iptv-uk",
+  "best-iptv-usa",
+  "cheap-iptv",
 ];
 
 const deviceLabel: Record<string, string> = {
@@ -90,8 +100,18 @@ export default function SiteFooter() {
           </ul>
         </div>
         <div>
+          <h5>Best IPTV Guides</h5>
+          <ul>
+            {FOOTER_BEST_SLUGS.map((s) => (
+              <li key={s}><Link href={`/best/${s}`}>Best for {BEST_GUIDES[s].short}</Link></li>
+            ))}
+            <li><Link href="/best">All guides →</Link></li>
+          </ul>
+        </div>
+        <div>
           <h5>Company</h5>
           <ul>
+            <li><Link href="/referral">Refer &amp; earn</Link></li>
             <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/privacy">Privacy Policy</Link></li>

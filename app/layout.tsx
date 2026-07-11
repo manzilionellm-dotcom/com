@@ -4,6 +4,7 @@ import "./globals.css";
 import { SITE, LOCALES } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
 import TrackingProvider from "../components/TrackingProvider";
+import ExitIntentModal from "../components/ExitIntentModal";
 
 const SITE_URL = SITE.domain;
 const LOGO_URL = `${SITE_URL}/icon-512.png`;
@@ -405,6 +406,7 @@ export default function RootLayout({
       <body style={{ background: "#050507", margin: 0 }}>
         <TrackingProvider />
         {children}
+        <ExitIntentModal />
         <CookieConsent />
         {ga4 && (
           <>

@@ -337,3 +337,108 @@ Modified (2 components + sitemap): `components/SiteHeader.tsx`,
 6. Add an exit-intent or scroll-depth lead modal pointing at `/api/lead`.
 7. Build a `/blog/<slug>` answer-block + add `LeadForm` to bottom of every
    blog post.
+
+---
+
+## Pass 3 — 2026-07-11 — "Best IPTV for X" surface + referral loop + exit-intent capture
+
+### Rationale
+
+Pass 2 added the live-sport surface. This pass completes the "SEO + client
+machine" with three coordinated systems:
+
+1. **Acquisition (SEO):** the "best IPTV for &lt;device/use-case/region/price&gt;"
+   query class — the highest-volume commercial modifier after "how to watch".
+2. **Acquisition (viral):** a referral loop, the only compliant word-of-mouth
+   mechanism available to this category (ad platforms are closed to it).
+3. **Conversion:** a site-wide exit-intent capture so abandoning traffic that
+   the SEO pages attract is not lost.
+
+### Implemented changes
+
+**A. `/best/<slug>` programmatic surface (SEO):**
+- `lib/content/best.ts` — `BEST_GUIDES` registry of 11 differentiated buyer
+  guides across four groups:
+  - Devices: firestick, smart-tv, android-tv, iphone-ipad
+  - Use cases: sports, 4k
+  - Regions: uk, usa, arabic
+  - Value: cheap-iptv, with-free-trial
+  Each entry has a use-case-specific answer block, buyer-criteria checklist,
+  reasons, FAQ, related links and deep-links into `/watch`, `/guides`,
+  `/channels`, `/blog`.
+- `app/best/[slug]/page.tsx` — page with Article + FAQPage JSON-LD, answer
+  block, criteria grid, reasons, an embedded `LeadForm` (converts on the
+  page, not just via WhatsApp), and cross-links.
+- `app/best/page.tsx` — hub grouped by category, CollectionPage JSON-LD.
+
+**B. Referral loop (viral acquisition):**
+- `components/ReferralWidget.tsx` — client widget. Derives a stable referral
+  code from the customer's contact (deterministic FNV hash, no RNG), registers
+  them as a `referral` lead via `/api/lead`, and produces a one-tap WhatsApp
+  share + copy-invite pointing at `/free-trial?ref=CODE`. The existing UTM
+  capture persists that `ref` on the friend's first visit → attribution loop
+  closed. Fires `referral_share`.
+- `app/referral/page.tsx` — server page with HowTo + FAQPage JSON-LD wrapping
+  the widget; "you both get a free month" offer.
+
+**C. Exit-intent capture (conversion):**
+- `components/ExitIntentModal.tsx` — site-wide, mounted once in `layout.tsx`.
+  Desktop trigger: cursor exits viewport top. Mobile trigger: fast scroll-up
+  after 50% depth. One-field capture → `/api/lead` (`intent:free_trial`,
+  `source:exit-intent`) plus WhatsApp fallback. 7-day cooldown via
+  `localStorage`; fires `exit_intent_view`, `lead_submit`, `trial_request`.
+
+**Wiring / distribution:**
+- `lib/analytics.ts` — added `best_view`, `watch_view`, `referral_share`,
+  `exit_intent_view` to the `FunnelEvent` union.
+- `components/SiteHeader.tsx` — "Best IPTV" + "Refer & earn" nav items.
+- `components/SiteFooter.tsx` — new "Best IPTV Guides" column (6 links + hub)
+  and "Refer & earn" under Company, on every page.
+- `app/sitemap.ts` — `/best` (0.9) + 11 `/best/<slug>` (0.85, hreflang) +
+  `/referral` (0.6). Total indexable URLs now 65.
+
+### Files changed (10 total)
+
+Created (6): `lib/content/best.ts`, `app/best/page.tsx`,
+`app/best/[slug]/page.tsx`, `app/referral/page.tsx`,
+`components/ReferralWidget.tsx`, `components/ExitIntentModal.tsx`.
+Modified (4): `lib/analytics.ts`, `app/layout.tsx`, `app/sitemap.ts`,
+`components/SiteHeader.tsx`, `components/SiteFooter.tsx`.
+
+### Validation
+
+- `pnpm type-check` — clean. `pnpm lint` — 0 warnings/errors.
+- `pnpm build` — 74 static pages (was 44 at Pass-1 baseline). 11 new
+  `/best/<slug>` + `/best` hub + `/referral` generated.
+- Prod smoke test (`pnpm start`):
+  - `GET /best/best-iptv-for-firestick` → 200, correct title, Article +
+    FAQPage JSON-LD, unique body ("Downloader app", "Firestick Lite").
+  - `GET /referral` → 200, HowTo JSON-LD, widget renders ("Generate my code").
+  - `GET /sitemap.xml` → 65 `<loc>` incl. 11 `/best`, `/referral`.
+
+### Unresolved risks / manual follow-ups
+
+1. **Referral reward is operator-fulfilled.** The widget registers the referrer
+   and emits the code, but crediting the free month is a manual step in the
+   operator's WhatsApp/CRM flow. No self-serve billing integration — by design,
+   since subscriptions are WhatsApp/Cryptomus based.
+2. **Referral code collisions** are theoretically possible (6-char base36 space
+   ≈ 2B) but negligible at this scale; codes are for human matching, not auth.
+3. **Exit-intent frequency** is capped to once / 7 days per browser. Tune
+   `COOLDOWN_MS` if it feels too aggressive; consider suppressing on
+   `/checkout/*` in a later pass.
+4. **"Best IPTV" claims** are self-referential marketing copy (standard for the
+   category). Same trademark-adjacency note as Pass 2 applies to broadcaster
+   names used in `best.ts`.
+5. **hreflang → `?lang=` variants** but `/best` and `/watch` bodies are English
+   regardless of `lang` (same limitation as compare/guides). Future i18n pass.
+
+### Next recommended pass
+
+1. Wire `LEAD_WEBHOOK_URL` + `ANALYTICS_WEBHOOK_URL` to a real CRM / Zapier so
+   the new `referral` and `exit-intent` leads leave the server logs.
+2. Server-side Meta CAPI + Google Enhanced Conversions in
+   `app/api/checkout/webhook/route.ts` to close paid-conversion attribution.
+3. Add answer-blocks + `LeadForm` to every blog post and country page.
+4. Localize `/watch` and `/best` bodies (currently English under `?lang=`).
+5. Build `/alternatives/<competitor>` (different intent from `/compare`).
