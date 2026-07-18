@@ -26,9 +26,9 @@ export default function SiteHeader() {
         <div className="nav-links">
           <Link href="/pricing">Pricing</Link>
           <Link href="/channels">Channels</Link>
-          <Link href="/compare">Compare</Link>
+          <Link href="/apps">Apps</Link>
           <Link href="/devices">Devices</Link>
-          <Link href="/guides/firestick">Guides</Link>
+          <Link href="/help">Help</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/contact">Contact</Link>
         </div>

@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "engine": "MOTEUR 1 — INTEL",
+    "purpose": "Validated keyword/intent map. MOTEUR 3 (BUILD) may ONLY generate a page whose primary keyword exists here AND passes the QUALITY GATE.",
+    "lastValidated": "2026-07-18",
+    "qualityGate": "info nouvelle + tuto complet + exemples reels + FAQ originale + illustrations. Sinon: refuser la generation.",
+    "funnelRule": "Chaque page = >=1 lien contextuel vers l'essai + >=1 vers la money page du device concerne."
+  },
+  "clusters": {
+    "apps_players_niveau1": {
+      "level": 1,
+      "intent": "transactional-high",
+      "note": "Intention d'achat la plus forte. A construire en premier.",
+      "entries": [
+        { "slug": "tivimate", "keyword": "tivimate iptv setup", "questions": ["how to setup tivimate", "tivimate xtream codes", "is tivimate free", "tivimate epg not working"], "monthlyVolume": 74000, "difficulty": "medium", "funnelDevice": "android", "status": "built" },
+        { "slug": "iptv-smarters-pro", "keyword": "iptv smarters pro setup", "questions": ["how to install iptv smarters pro", "iptv smarters xtream codes login", "iptv smarters pro firestick", "iptv smarters not working"], "monthlyVolume": 165000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "ibo-player", "keyword": "ibo player pro setup", "questions": ["how to add playlist ibo player", "ibo player mac address", "ibo player samsung tv", "ibo player device key"], "monthlyVolume": 40000, "difficulty": "low", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "xciptv", "keyword": "xciptv player setup", "questions": ["how to setup xciptv", "xciptv xtream codes", "xciptv vs tivimate", "xciptv firestick"], "monthlyVolume": 22000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "duplex-play", "keyword": "duplex play iptv setup", "questions": ["how to add playlist duplex play", "duplex play samsung lg", "duplex play device key url", "duplex play not loading"], "monthlyVolume": 18000, "difficulty": "low", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "sparkle-tv", "keyword": "sparkle tv iptv setup", "questions": ["how to setup sparkle tv", "sparkle tv playlist", "sparkle tv samsung", "sparkle tv activation"], "monthlyVolume": 6600, "difficulty": "low", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "formuler-z", "keyword": "formuler z iptv setup", "questions": ["formuler z8 setup", "mytvonline formuler", "formuler z portal url", "formuler z stalker"], "monthlyVolume": 14000, "difficulty": "medium", "funnelDevice": "android", "status": "built" },
+        { "slug": "stb-emulator", "keyword": "stb emulator setup", "questions": ["stb emulator portal url", "stb emulator mac address", "stb emulator profile setup", "stbemu firestick"], "monthlyVolume": 33000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" }
+      ]
+    },
+    "help_center": {
+      "level": 0,
+      "intent": "problem-solving",
+      "note": "Capte le trafic probleme. Format answer-first -> lien support WhatsApp.",
+      "entries": [
+        { "slug": "cant-connect", "keyword": "iptv cannot connect", "questions": ["iptv wont connect", "iptv login failed", "xtream codes authorization failed"], "monthlyVolume": 27000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "playback-stops", "keyword": "iptv keeps stopping", "questions": ["iptv stream freezes", "iptv playback stops", "iptv channel keeps loading"], "monthlyVolume": 19000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "buffering", "keyword": "iptv buffering fix", "questions": ["why does iptv buffer", "stop iptv buffering", "iptv lag fix"], "monthlyVolume": 49000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "black-screen", "keyword": "iptv black screen", "questions": ["iptv black screen with sound", "iptv no picture", "iptv screen black fix"], "monthlyVolume": 12000, "difficulty": "low", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "network-error", "keyword": "iptv network error", "questions": ["iptv network error firestick", "iptv connection timed out", "iptv dns error"], "monthlyVolume": 9900, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "update-app", "keyword": "update iptv app", "questions": ["how to update tivimate", "update iptv smarters", "iptv app out of date"], "monthlyVolume": 8100, "difficulty": "low", "funnelDevice": "android", "status": "built" },
+        { "slug": "change-device", "keyword": "move iptv to new device", "questions": ["transfer iptv subscription", "iptv on second device", "change iptv device"], "monthlyVolume": 6600, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "account-recovery", "keyword": "recover iptv account", "questions": ["lost iptv login", "iptv subscription expired", "recover xtream codes"], "monthlyVolume": 5400, "difficulty": "low", "funnelDevice": "firestick", "status": "built" }
+      ]
+    },
+    "knowledge_base": {
+      "level": 0,
+      "intent": "informational",
+      "note": "Questions les plus recherchees. Answer-first + FAQPage schema + date visible.",
+      "entries": [
+        { "slug": "how-to-install-iptv", "keyword": "how to install iptv", "questions": ["how to set up iptv", "how does iptv work", "iptv setup guide"], "monthlyVolume": 90000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "which-device-for-iptv", "keyword": "best device for iptv", "questions": ["what device to watch iptv", "best box for iptv", "firestick vs android box iptv"], "monthlyVolume": 33000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "internet-speed-for-iptv", "keyword": "internet speed for iptv", "questions": ["how much internet for iptv", "iptv bandwidth 4k", "iptv minimum speed"], "monthlyVolume": 22000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "improve-video-quality", "keyword": "improve iptv video quality", "questions": ["iptv 4k not working", "iptv quality settings", "how to get hd iptv"], "monthlyVolume": 14000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "xtream-codes-vs-m3u", "keyword": "xtream codes vs m3u", "questions": ["what is xtream codes", "m3u url iptv", "xtream codes api login"], "monthlyVolume": 27000, "difficulty": "medium", "funnelDevice": "android", "status": "built" },
+        { "slug": "what-is-epg", "keyword": "what is epg iptv", "questions": ["iptv epg not showing", "how to add epg", "iptv tv guide"], "monthlyVolume": 18000, "difficulty": "low", "funnelDevice": "android", "status": "built" }
+      ]
+    }
+  }
+}

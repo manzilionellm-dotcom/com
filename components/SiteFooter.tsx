@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS } from "../lib/site";
+import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS, APP_SLUGS } from "../lib/site";
 
 const deviceLabel: Record<string, string> = {
   firestick: "Amazon Firestick",
@@ -8,6 +8,17 @@ const deviceLabel: Record<string, string> = {
   ios: "iPhone / iPad",
   "mag-box": "MAG Box",
   "pc-mac": "PC / Mac",
+};
+
+const appLabel: Record<string, string> = {
+  tivimate: "TiviMate",
+  "iptv-smarters-pro": "IPTV Smarters Pro",
+  "ibo-player": "IBO Player Pro",
+  xciptv: "XCIPTV",
+  "duplex-play": "Duplex Play",
+  "sparkle-tv": "Sparkle TV",
+  "formuler-z": "Formuler Z",
+  "stb-emulator": "STB Emulator",
 };
 
 const countryLabel: Record<string, string> = {
@@ -51,6 +62,9 @@ export default function SiteFooter() {
             <li><Link href="/free-trial">Free 24h Trial</Link></li>
             <li><Link href="/channels">All Channels</Link></li>
             <li><Link href="/devices">Compatible Devices</Link></li>
+            <li><Link href="/apps">IPTV Apps &amp; Boxes</Link></li>
+            <li><Link href="/help">Help Center</Link></li>
+            <li><Link href="/kb">Knowledge Base</Link></li>
             <li><Link href="/status">Network Status</Link></li>
           </ul>
         </div>
@@ -59,6 +73,14 @@ export default function SiteFooter() {
           <ul>
             {DEVICE_SLUGS.map((s) => (
               <li key={s}><Link href={`/guides/${s}`}>{deviceLabel[s]}</Link></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h5>IPTV Apps</h5>
+          <ul>
+            {APP_SLUGS.slice(0, 6).map((s) => (
+              <li key={s}><Link href={`/apps/${s}`}>{appLabel[s]}</Link></li>
             ))}
           </ul>
         </div>

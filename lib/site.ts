@@ -54,6 +54,46 @@ export const COMPARE_SLUGS = [
 ] as const;
 export type CompareSlug = (typeof COMPARE_SLUGS)[number];
 
+// MOTEUR 3 (BUILD) — Content Hub. Every slug below is validated in
+// ./data/content-map.json (MOTEUR 1 INTEL). No entry there = no page.
+
+// Device Hub — Niveau 1: IPTV apps/players (highest buy intent).
+export const APP_SLUGS = [
+  "tivimate",
+  "iptv-smarters-pro",
+  "ibo-player",
+  "xciptv",
+  "duplex-play",
+  "sparkle-tv",
+  "formuler-z",
+  "stb-emulator",
+] as const;
+export type AppSlug = (typeof APP_SLUGS)[number];
+
+// Help Center — dépannage (capte le trafic problème).
+export const HELP_SLUGS = [
+  "cant-connect",
+  "playback-stops",
+  "buffering",
+  "black-screen",
+  "network-error",
+  "update-app",
+  "change-device",
+  "account-recovery",
+] as const;
+export type HelpSlug = (typeof HELP_SLUGS)[number];
+
+// Knowledge Base — questions les plus recherchées.
+export const KB_SLUGS = [
+  "how-to-install-iptv",
+  "which-device-for-iptv",
+  "internet-speed-for-iptv",
+  "improve-video-quality",
+  "xtream-codes-vs-m3u",
+  "what-is-epg",
+] as const;
+export type KbSlug = (typeof KB_SLUGS)[number];
+
 export function waLink(message: string, ref?: string) {
   const text = encodeURIComponent(message + (ref ? ` | Ref: ${ref}` : ""));
   return `https://wa.me/${SITE.whatsapp}?text=${text}`;
