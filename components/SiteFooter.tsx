@@ -63,6 +63,17 @@ export default function SiteFooter() {
           </ul>
         </div>
         <div>
+          <h5>Setup &amp; Help</h5>
+          <ul>
+            <li><Link href="/apps">IPTV Apps &amp; Players</Link></li>
+            <li><Link href="/apps/iptv-smarters-pro">IPTV Smarters Pro</Link></li>
+            <li><Link href="/apps/tivimate">TiviMate Setup</Link></li>
+            <li><Link href="/help">Help Center</Link></li>
+            <li><Link href="/kb">Knowledge Base</Link></li>
+            <li><Link href="/kb/what-is-iptv">What is IPTV?</Link></li>
+          </ul>
+        </div>
+        <div>
           <h5>By Region</h5>
           <ul>
             {COUNTRY_SLUGS.map((s) => (

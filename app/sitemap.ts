@@ -6,6 +6,9 @@ import {
   COUNTRY_SLUGS,
   BLOG_SLUGS,
   COMPARE_SLUGS,
+  APP_SLUGS,
+  HELP_SLUGS,
+  KB_SLUGS,
 } from "../lib/site";
 
 function alt(path: string) {
@@ -54,6 +57,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: alt("/devices") },
+    },
+    {
+      url: `${SITE.domain}/apps`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: { languages: alt("/apps") },
+    },
+    {
+      url: `${SITE.domain}/help`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+      alternates: { languages: alt("/help") },
+    },
+    {
+      url: `${SITE.domain}/kb`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+      alternates: { languages: alt("/kb") },
     },
     {
       url: `${SITE.domain}/blog`,
@@ -123,5 +147,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...base, ...guides, ...countries, ...blog, ...compare];
+  const apps = APP_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/apps/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    alternates: { languages: alt(`/apps/${slug}`) },
+  }));
+
+  const help = HELP_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/help/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  const kb = KB_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/kb/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [...base, ...guides, ...countries, ...blog, ...compare, ...apps, ...help, ...kb];
 }

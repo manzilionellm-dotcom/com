@@ -1,0 +1,105 @@
+{
+  "$comment": "MOTEUR 1 (INTEL) output — validated keyword/intent map that governs MOTEUR 3 (BUILD). RÈGLE D'OR: a page may only be generated if its keyword appears here AND status == 'approved'. status 'refused' = quality gate not met. status 'deferred' = justified but not yet built (staged per ORDRE DE CONSTRUCTION).",
+  "version": "2026.07",
+  "updatedAt": "2026-07-18",
+  "gate": {
+    "criteria": [
+      "new-info",
+      "complete-tutorial",
+      "real-examples",
+      "original-faq",
+      "illustrations",
+      "funnel-trial",
+      "funnel-money-page"
+    ],
+    "note": "A page ships only when every criterion is satisfied. Illustrations = at least schematic step visuals / device iconography until real screenshots land (tracked in MAINTENANCE)."
+  },
+  "clusters": [
+    {
+      "id": "apps",
+      "label": "Device Niveau 1 — Apps / Players / Boxes",
+      "buyIntent": "very-high",
+      "order": 1,
+      "route": "/apps/{slug}",
+      "moneyPage": "/pricing",
+      "pages": [
+        { "slug": "tivimate", "keyword": "tivimate iptv setup", "intent": "install", "monthlySearch": 74000, "priority": 1, "status": "approved" },
+        { "slug": "iptv-smarters-pro", "keyword": "iptv smarters pro setup", "intent": "install", "monthlySearch": 110000, "priority": 1, "status": "approved" },
+        { "slug": "ibo-player", "keyword": "ibo player pro activation", "intent": "install", "monthlySearch": 33000, "priority": 1, "status": "approved" },
+        { "slug": "xciptv", "keyword": "xciptv player setup", "intent": "install", "monthlySearch": 22000, "priority": 2, "status": "approved" },
+        { "slug": "duplex-iptv", "keyword": "duplex iptv setup mac address", "intent": "install", "monthlySearch": 18000, "priority": 2, "status": "approved" },
+        { "slug": "sparkle-tv", "keyword": "sparkle iptv player setup", "intent": "install", "monthlySearch": 9900, "priority": 3, "status": "approved" },
+        { "slug": "stb-emulator", "keyword": "stb emulator portal setup", "intent": "install", "monthlySearch": 27000, "priority": 2, "status": "approved" },
+        { "slug": "formuler-z", "keyword": "formuler z8 iptv setup", "intent": "install", "monthlySearch": 14000, "priority": 2, "status": "approved" }
+      ]
+    },
+    {
+      "id": "help",
+      "label": "Help Center — troubleshooting (trafic problème → contact)",
+      "buyIntent": "medium",
+      "order": 3,
+      "route": "/help/{slug}",
+      "moneyPage": "/pricing",
+      "support": "whatsapp",
+      "pages": [
+        { "slug": "iptv-not-connecting", "keyword": "iptv not connecting", "intent": "fix", "monthlySearch": 40000, "priority": 1, "status": "approved" },
+        { "slug": "iptv-buffering", "keyword": "iptv buffering fix", "intent": "fix", "monthlySearch": 60000, "priority": 1, "status": "approved" },
+        { "slug": "iptv-black-screen", "keyword": "iptv black screen", "intent": "fix", "monthlySearch": 18000, "priority": 1, "status": "approved" },
+        { "slug": "iptv-channels-not-loading", "keyword": "iptv channels not loading", "intent": "fix", "monthlySearch": 22000, "priority": 2, "status": "approved" },
+        { "slug": "iptv-app-crashing", "keyword": "iptv app keeps crashing", "intent": "fix", "monthlySearch": 12000, "priority": 2, "status": "approved" },
+        { "slug": "iptv-audio-video-out-of-sync", "keyword": "iptv audio out of sync", "intent": "fix", "monthlySearch": 8100, "priority": 3, "status": "approved" },
+        { "slug": "iptv-frozen-playback", "keyword": "iptv freezing stuttering", "intent": "fix", "monthlySearch": 14000, "priority": 2, "status": "approved" },
+        { "slug": "iptv-change-device", "keyword": "move iptv subscription to new device", "intent": "account", "monthlySearch": 6600, "priority": 3, "status": "approved" }
+      ]
+    },
+    {
+      "id": "kb",
+      "label": "Knowledge Base — questions les plus recherchées",
+      "buyIntent": "medium",
+      "order": 4,
+      "route": "/kb/{slug}",
+      "moneyPage": "/pricing",
+      "pages": [
+        { "slug": "what-is-iptv", "keyword": "what is iptv and how does it work", "intent": "learn", "monthlySearch": 165000, "priority": 1, "status": "approved" },
+        { "slug": "how-to-install-iptv", "keyword": "how to install iptv", "intent": "learn", "monthlySearch": 90000, "priority": 1, "status": "approved" },
+        { "slug": "iptv-internet-speed-requirements", "keyword": "iptv internet speed requirements", "intent": "learn", "monthlySearch": 27000, "priority": 1, "status": "approved" },
+        { "slug": "how-to-improve-iptv-video-quality", "keyword": "how to improve iptv picture quality", "intent": "learn", "monthlySearch": 18000, "priority": 2, "status": "approved" },
+        { "slug": "xtream-codes-vs-m3u", "keyword": "xtream codes vs m3u url", "intent": "learn", "monthlySearch": 14000, "priority": 2, "status": "approved" },
+        { "slug": "what-is-epg-iptv", "keyword": "what is epg in iptv", "intent": "learn", "monthlySearch": 12000, "priority": 2, "status": "approved" },
+        { "slug": "is-iptv-legal", "keyword": "is iptv legal", "intent": "learn", "monthlySearch": 74000, "priority": 1, "status": "approved" },
+        { "slug": "how-to-setup-vpn-for-iptv", "keyword": "best vpn for iptv setup", "intent": "learn", "monthlySearch": 33000, "priority": 2, "status": "approved" }
+      ]
+    },
+    {
+      "id": "devices-l2",
+      "label": "Device Niveau 2 — plateformes grand public",
+      "buyIntent": "high",
+      "order": 2,
+      "route": "/guides/{slug}",
+      "note": "Firestick, Smart TV, Android, iOS, MAG, PC/Mac already shipped under /guides. Fire TV Cube / Google TV / Apple TV 4K / NVIDIA Shield deep-dives deferred until real screenshots + volume split confirmed.",
+      "pages": [
+        { "slug": "google-tv", "keyword": "install iptv on google tv", "intent": "install", "monthlySearch": 22000, "priority": 2, "status": "deferred" },
+        { "slug": "nvidia-shield", "keyword": "iptv nvidia shield setup", "intent": "install", "monthlySearch": 14000, "priority": 3, "status": "deferred" }
+      ]
+    },
+    {
+      "id": "devices-l4",
+      "label": "Device Niveau 4 — compatibilité limitée (angle honnête)",
+      "buyIntent": "low",
+      "order": 5,
+      "route": "/guides/{slug}",
+      "pages": [
+        { "slug": "roku", "keyword": "iptv on roku", "intent": "install", "monthlySearch": 33000, "priority": 3, "status": "deferred", "gateNote": "EEAT: must state limited support + honest workaround, never oversell." },
+        { "slug": "chromecast", "keyword": "iptv chromecast", "intent": "install", "monthlySearch": 18000, "priority": 3, "status": "deferred", "gateNote": "EEAT: casting workaround only, no native app." }
+      ]
+    },
+    {
+      "id": "refused",
+      "label": "Refused by quality gate",
+      "pages": [
+        { "slug": "free-iptv-links-2026", "keyword": "free iptv m3u links", "reason": "No original info, no funnel value, EEAT/liability risk. REFUSED.", "status": "refused" },
+        { "slug": "iptv-generator", "keyword": "iptv code generator", "reason": "Deceptive intent, cannot pass gate honestly. REFUSED.", "status": "refused" }
+      ]
+    }
+  ]
+}
