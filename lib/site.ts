@@ -91,6 +91,19 @@ export const KB_SLUGS = [
   "improve-video-quality",
   "xtream-codes-vs-m3u",
   "what-is-epg",
+  // seo_answers cluster — high-volume searched questions
+  "what-is-iptv",
+  "is-iptv-legal",
+  "is-iptv-safe",
+  "do-i-need-a-vpn-for-iptv",
+  "how-much-does-iptv-cost",
+  "iptv-free-trial",
+  "best-iptv-for-firestick",
+  "best-iptv-for-sports",
+  "iptv-on-multiple-devices",
+  "does-iptv-support-4k",
+  "what-is-catch-up-tv",
+  "how-to-pay-for-iptv-safely",
 ] as const;
 export type KbSlug = (typeof KB_SLUGS)[number];
 

@@ -49,6 +49,25 @@
         { "slug": "xtream-codes-vs-m3u", "keyword": "xtream codes vs m3u", "questions": ["what is xtream codes", "m3u url iptv", "xtream codes api login"], "monthlyVolume": 27000, "difficulty": "medium", "funnelDevice": "android", "status": "built" },
         { "slug": "what-is-epg", "keyword": "what is epg iptv", "questions": ["iptv epg not showing", "how to add epg", "iptv tv guide"], "monthlyVolume": 18000, "difficulty": "low", "funnelDevice": "android", "status": "built" }
       ]
+    },
+    "seo_answers": {
+      "level": 0,
+      "intent": "mixed-informational-commercial",
+      "note": "SEO/GEO answer-first pages. High-volume searched questions -> concise answer + FAQPage schema + funnel. Rendered under /kb.",
+      "entries": [
+        { "slug": "what-is-iptv", "keyword": "what is iptv", "questions": ["what does iptv mean", "how does iptv work", "iptv meaning"], "monthlyVolume": 246000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "is-iptv-legal", "keyword": "is iptv legal", "questions": ["is iptv legal in uk", "is iptv legal in usa", "iptv legality"], "monthlyVolume": 60000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "is-iptv-safe", "keyword": "is iptv safe", "questions": ["is iptv safe to use", "are iptv services safe", "iptv scams"], "monthlyVolume": 14000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "do-i-need-a-vpn-for-iptv", "keyword": "do i need a vpn for iptv", "questions": ["best vpn for iptv", "does iptv need vpn", "iptv vpn"], "monthlyVolume": 33000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "how-much-does-iptv-cost", "keyword": "how much does iptv cost", "questions": ["iptv price", "how much is iptv per month", "cheap iptv"], "monthlyVolume": 27000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "iptv-free-trial", "keyword": "iptv free trial", "questions": ["free iptv trial 24 hours", "iptv trial no credit card", "test iptv before buying"], "monthlyVolume": 40000, "difficulty": "low", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "best-iptv-for-firestick", "keyword": "best iptv for firestick", "questions": ["iptv on firestick", "firestick iptv app", "best iptv service firestick"], "monthlyVolume": 49000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "best-iptv-for-sports", "keyword": "best iptv for sports", "questions": ["iptv for live sports", "iptv sports channels", "watch football on iptv"], "monthlyVolume": 22000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "iptv-on-multiple-devices", "keyword": "iptv on multiple devices", "questions": ["iptv multiple connections", "watch iptv on two tvs", "iptv second device"], "monthlyVolume": 8100, "difficulty": "low", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "does-iptv-support-4k", "keyword": "4k iptv", "questions": ["does iptv have 4k", "iptv uhd channels", "4k iptv service"], "monthlyVolume": 12000, "difficulty": "low", "funnelDevice": "android", "status": "built" },
+        { "slug": "what-is-catch-up-tv", "keyword": "iptv catch up tv", "questions": ["what is catch up on iptv", "iptv replay", "iptv rewind live tv"], "monthlyVolume": 6600, "difficulty": "low", "funnelDevice": "android", "status": "built" },
+        { "slug": "how-to-pay-for-iptv-safely", "keyword": "how to pay for iptv", "questions": ["iptv payment methods", "pay iptv with paypal", "buy iptv with crypto"], "monthlyVolume": 5400, "difficulty": "low", "funnelDevice": "firestick", "status": "built" }
+      ]
     }
   }
 }
