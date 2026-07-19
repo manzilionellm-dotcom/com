@@ -1,17 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import "./globals.css";
-import { SITE, LOCALES } from "../lib/site";
+import { SITE, LOCALES, PLANS } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
+import ConsentedAnalytics from "../components/ConsentedAnalytics";
 import TrackingProvider from "../components/TrackingProvider";
 
 const SITE_URL = SITE.domain;
 const LOGO_URL = `${SITE_URL}/icon-512.png`;
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
+// Numbers derive from the central config so metadata never drifts from the UI.
+const fmt = (n: number) => new Intl.NumberFormat("en-US").format(n);
+const CHANNELS = `${fmt(SITE.channelsCount)}+`;
+const VOD = `${fmt(SITE.vodCount)}+`;
+const PLAN_LOW = Math.min(...PLANS.map((p) => p.price));
+const PLAN_HIGH = Math.max(...PLANS.map((p) => p.price));
+
 const TITLE = "Best IPTV VIP — #1 Premium 4K IPTV Subscription Worldwide";
 const DESCRIPTION =
-  "World's #1 premium IPTV service. 22,000+ live channels, 120,000+ movies & series, 4K UHD, EPG included. Compatible with Smart TV, Firestick, Android, iOS, MAG. 24h free trial, instant activation.";
+  `World's #1 premium IPTV service. ${CHANNELS} live channels, ${VOD} movies & series, 4K UHD, EPG included. Compatible with Smart TV, Firestick, Android, iOS, MAG. ${SITE.trialHours}h free trial, instant activation.`;
 
 function languageAlternates(path = "/") {
   const out: Record<string, string> = {};
@@ -187,7 +194,7 @@ const jsonLdProduct = {
   "@id": `${SITE_URL}#product`,
   name: "Best IPTV VIP — Premium IPTV Subscription",
   description:
-    "Premium 4K IPTV with 22,000+ live channels, 120,000+ movies and series. Works on Smart TV, Firestick, Android, iOS, MAG Box, PC, Mac. Activation in under 10 minutes.",
+    `Premium 4K IPTV with ${CHANNELS} live channels, ${VOD} movies and series. Works on Smart TV, Firestick, Android, iOS, MAG Box, PC, Mac. Activation in under ${SITE.activationMinutes} minutes.`,
   image: [OG_IMAGE_URL, LOGO_URL],
   brand: { "@type": "Brand", name: SITE.brand, logo: LOGO_URL },
   sku: "BIVIP-PREMIUM",
@@ -238,11 +245,11 @@ const jsonLdProduct = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "USD",
-    lowPrice: "5",
-    highPrice: "60",
-    offerCount: "4",
+    lowPrice: String(PLAN_LOW),
+    highPrice: String(PLAN_HIGH),
+    offerCount: String(PLANS.length),
     availability: "https://schema.org/InStock",
-    url: SITE_URL,
+    url: `${SITE_URL}/pricing`,
     priceValidUntil: "2026-12-31",
   },
 };
@@ -257,6 +264,8 @@ const jsonLdBreadcrumb = {
   ],
 };
 
+// Mirror of the on-page homepage FAQ (EN). Keep in sync with app/page.tsx
+// `dict.en.faqs` so the FAQPage rich result matches visible content.
 const jsonLdFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -266,7 +275,7 @@ const jsonLdFAQ = {
       name: "Which channels are included?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "All major worldwide: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — plus 20,000+ in HD/4K.",
+        text: "All major worldwide: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — plus thousands more in HD/4K.",
       },
     },
     {
@@ -290,7 +299,7 @@ const jsonLdFAQ = {
       name: "How fast is activation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Usually 5–10 min after WhatsApp order, even on weekends.",
+        text: "Usually 5–10 minutes after your WhatsApp order, even on weekends.",
       },
     },
     {
@@ -314,15 +323,7 @@ const jsonLdFAQ = {
       name: "How do I pay?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Via WhatsApp. We accept PayPal, credit card, crypto, bank transfer.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Sports channels included?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes! Premier League, La Liga, Champions League, NBA, NFL, MLB, UFC, F1.",
+        text: "Card or crypto at checkout, or PayPal / bank transfer via WhatsApp.",
       },
     },
     {
@@ -330,7 +331,7 @@ const jsonLdFAQ = {
       name: "Can I cancel?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No contract. Pay once, service expires automatically.",
+        text: "No contract. Pay once, the service expires automatically.",
       },
     },
   ],
@@ -406,22 +407,8 @@ export default function RootLayout({
         <TrackingProvider />
         {children}
         <CookieConsent />
-        {ga4 && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga4}',{anonymize_ip:true});`}
-            </Script>
-          </>
-        )}
-        {pixel && (
-          <Script id="meta-pixel" strategy="afterInteractive">
-            {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixel}');fbq('track','PageView');`}
-          </Script>
-        )}
+        {/* GA4 + Meta Pixel are injected ONLY after analytics consent. */}
+        <ConsentedAnalytics ga4={ga4} pixel={pixel} />
       </body>
     </html>
   );

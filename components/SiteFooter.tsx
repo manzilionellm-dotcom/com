@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS } from "../lib/site";
+import CookieSettingsLink from "./CookieSettingsLink";
+
+const fmt = (n: number) => new Intl.NumberFormat("en-US").format(n);
 
 const deviceLabel: Record<string, string> = {
   firestick: "Amazon Firestick",
@@ -32,7 +35,7 @@ export default function SiteFooter() {
             <span className="brand-text">BEST IPTV <b>VIP</b></span>
           </div>
           <p style={{ color: "#888", fontSize: 12, lineHeight: 1.6 }}>
-            World&apos;s #1 premium IPTV. 22,000+ live channels, 120,000+ movies and series, 4K UHD streaming, 24/7 WhatsApp support.
+            World&apos;s #1 premium IPTV. {fmt(SITE.channelsCount)}+ live channels, {fmt(SITE.vodCount)}+ movies and series, 4K UHD streaming, 24/7 WhatsApp support.
           </p>
           <a
             className="btn btn-green"
@@ -78,6 +81,7 @@ export default function SiteFooter() {
             <li><Link href="/privacy">Privacy Policy</Link></li>
             <li><Link href="/terms">Terms of Service</Link></li>
             <li><Link href="/refund">Refund Policy</Link></li>
+            <li><CookieSettingsLink label="Cookie settings" className="footer-linklike" /></li>
           </ul>
         </div>
       </div>

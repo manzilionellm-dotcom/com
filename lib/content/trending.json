@@ -1,0 +1,15 @@
+{
+  "note": "Top-10 catalogue highlights shown in the homepage carousel. Data-driven — edit here, not in the component. `kind` and the live/uhd flags are localized in the UI (no language strings stored here). `hue` (0-360) drives the CSS poster gradient. Replace `poster` with a WebP thumbnail path (e.g. /posters/champions-league.webp) to swap the CSS tile for a real image.",
+  "items": [
+    { "rank": 1, "title": "UEFA Champions League", "kind": "sport", "hue": 214, "uhd": true, "live": true, "poster": "" },
+    { "rank": 2, "title": "Premier League", "kind": "sport", "hue": 268, "uhd": true, "live": true, "poster": "" },
+    { "rank": 3, "title": "NBA & NFL", "kind": "sport", "hue": 20, "uhd": true, "live": true, "poster": "" },
+    { "rank": 4, "title": "Formula 1", "kind": "sport", "hue": 356, "uhd": true, "live": true, "poster": "" },
+    { "rank": 5, "title": "4K Blockbusters", "kind": "film", "hue": 42, "uhd": true, "live": false, "poster": "" },
+    { "rank": 6, "title": "Trending Series", "kind": "series", "hue": 292, "uhd": true, "live": false, "poster": "" },
+    { "rank": 7, "title": "Kids & Family", "kind": "kids", "hue": 172, "uhd": false, "live": false, "poster": "" },
+    { "rank": 8, "title": "True-Crime Docs", "kind": "doc", "hue": 200, "uhd": true, "live": false, "poster": "" },
+    { "rank": 9, "title": "Latest Movies 2026", "kind": "film", "hue": 328, "uhd": true, "live": false, "poster": "" },
+    { "rank": 10, "title": "Live News 24/7", "kind": "news", "hue": 8, "uhd": false, "live": true, "poster": "" }
+  ]
+}
