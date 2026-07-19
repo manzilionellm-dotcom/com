@@ -63,6 +63,7 @@ export default function SiteFooter() {
             <li><Link href="/channels">All Channels</Link></li>
             <li><Link href="/devices">Compatible Devices</Link></li>
             <li><Link href="/apps">IPTV Apps &amp; Boxes</Link></li>
+            <li><Link href="/platforms">Install by Platform</Link></li>
             <li><Link href="/help">Help Center</Link></li>
             <li><Link href="/kb">Knowledge Base</Link></li>
             <li><Link href="/status">Network Status</Link></li>

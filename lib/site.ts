@@ -83,6 +83,28 @@ export const HELP_SLUGS = [
 ] as const;
 export type HelpSlug = (typeof HELP_SLUGS)[number];
 
+// Device Hub — Niveau 2 (platforms) + Niveau 3–4 (OS + limited support).
+export const PLATFORM_SLUGS = [
+  // Niveau 2 — mainstream platforms
+  "fire-tv",
+  "android-tv",
+  "google-tv",
+  "apple-tv",
+  "samsung-tv",
+  "lg-tv",
+  "nvidia-shield",
+  // Niveau 3 — operating systems
+  "windows",
+  "macos",
+  "android-phone",
+  "iphone",
+  "ipad",
+  // Niveau 4 — limited compatibility (honest angle)
+  "roku",
+  "chromecast",
+] as const;
+export type PlatformSlug = (typeof PLATFORM_SLUGS)[number];
+
 // Knowledge Base — questions les plus recherchées.
 export const KB_SLUGS = [
   "how-to-install-iptv",

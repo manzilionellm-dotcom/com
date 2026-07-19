@@ -68,6 +68,34 @@
         { "slug": "what-is-catch-up-tv", "keyword": "iptv catch up tv", "questions": ["what is catch up on iptv", "iptv replay", "iptv rewind live tv"], "monthlyVolume": 6600, "difficulty": "low", "funnelDevice": "android", "status": "built" },
         { "slug": "how-to-pay-for-iptv-safely", "keyword": "how to pay for iptv", "questions": ["iptv payment methods", "pay iptv with paypal", "buy iptv with crypto"], "monthlyVolume": 5400, "difficulty": "low", "funnelDevice": "firestick", "status": "built" }
       ]
+    },
+    "platforms_niveau2": {
+      "level": 2,
+      "intent": "transactional-high",
+      "note": "Plateformes grand public (fort volume). Page par plateforme -> app recommandee + funnel money page.",
+      "entries": [
+        { "slug": "fire-tv", "keyword": "install iptv on fire tv", "questions": ["iptv fire tv stick", "best iptv app fire tv", "fire tv cube iptv"], "monthlyVolume": 60000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built" },
+        { "slug": "android-tv", "keyword": "install iptv on android tv", "questions": ["android tv iptv app", "iptv android tv box", "best iptv android tv"], "monthlyVolume": 40000, "difficulty": "medium", "funnelDevice": "android", "status": "built" },
+        { "slug": "google-tv", "keyword": "install iptv on google tv", "questions": ["chromecast with google tv iptv", "google tv iptv app", "onn 4k iptv"], "monthlyVolume": 18000, "difficulty": "low", "funnelDevice": "android", "status": "built" },
+        { "slug": "apple-tv", "keyword": "install iptv on apple tv", "questions": ["apple tv 4k iptv", "best iptv app apple tv", "iptv smarters apple tv"], "monthlyVolume": 22000, "difficulty": "medium", "funnelDevice": "ios", "status": "built" },
+        { "slug": "samsung-tv", "keyword": "install iptv on samsung smart tv", "questions": ["samsung tizen iptv", "iptv app samsung tv", "smart iptv samsung"], "monthlyVolume": 49000, "difficulty": "medium", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "lg-tv", "keyword": "install iptv on lg smart tv", "questions": ["lg webos iptv", "iptv app lg tv", "lg content store iptv"], "monthlyVolume": 33000, "difficulty": "medium", "funnelDevice": "smart-tv", "status": "built" },
+        { "slug": "nvidia-shield", "keyword": "install iptv on nvidia shield", "questions": ["nvidia shield iptv app", "best iptv shield tv", "shield pro iptv 4k"], "monthlyVolume": 9900, "difficulty": "low", "funnelDevice": "android", "status": "built" }
+      ]
+    },
+    "platforms_niveau34": {
+      "level": 3,
+      "intent": "transactional-medium",
+      "note": "OS (Niveau 3) + compatibilite limitee (Niveau 4). Angle honnete obligatoire pour Roku/Chromecast (protege l'EEAT).",
+      "entries": [
+        { "slug": "windows", "keyword": "iptv on windows pc", "questions": ["iptv player windows", "watch iptv on pc", "iptv smarters windows"], "monthlyVolume": 27000, "difficulty": "low", "funnelDevice": "pc-mac", "status": "built" },
+        { "slug": "macos", "keyword": "iptv on mac", "questions": ["iptv player mac", "watch iptv on macbook", "iptv smarters mac"], "monthlyVolume": 14000, "difficulty": "low", "funnelDevice": "pc-mac", "status": "built" },
+        { "slug": "android-phone", "keyword": "iptv on android phone", "questions": ["iptv app android", "watch iptv on phone", "best iptv android mobile"], "monthlyVolume": 33000, "difficulty": "low", "funnelDevice": "android", "status": "built" },
+        { "slug": "iphone", "keyword": "iptv on iphone", "questions": ["iptv app iphone", "best iptv ios", "watch iptv on iphone"], "monthlyVolume": 40000, "difficulty": "medium", "funnelDevice": "ios", "status": "built" },
+        { "slug": "ipad", "keyword": "iptv on ipad", "questions": ["iptv app ipad", "watch iptv on ipad", "best iptv ipad"], "monthlyVolume": 12000, "difficulty": "low", "funnelDevice": "ios", "status": "built" },
+        { "slug": "roku", "keyword": "iptv on roku", "questions": ["can you get iptv on roku", "iptv app roku", "roku iptv workaround"], "monthlyVolume": 27000, "difficulty": "medium", "funnelDevice": "firestick", "status": "built", "note": "Support limite -> angle honnete + contournement." },
+        { "slug": "chromecast", "keyword": "iptv on chromecast", "questions": ["cast iptv to chromecast", "chromecast iptv app", "iptv chromecast with google tv"], "monthlyVolume": 14000, "difficulty": "medium", "funnelDevice": "android", "status": "built", "note": "Distinguer Chromecast basique (cast) vs Chromecast with Google TV (Android TV)." }
+      ]
     }
   }
 }

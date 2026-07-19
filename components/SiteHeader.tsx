@@ -27,7 +27,7 @@ export default function SiteHeader() {
           <Link href="/pricing">Pricing</Link>
           <Link href="/channels">Channels</Link>
           <Link href="/apps">Apps</Link>
-          <Link href="/devices">Devices</Link>
+          <Link href="/platforms">Platforms</Link>
           <Link href="/help">Help</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/contact">Contact</Link>

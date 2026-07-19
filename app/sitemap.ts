@@ -7,6 +7,7 @@ import {
   BLOG_SLUGS,
   COMPARE_SLUGS,
   APP_SLUGS,
+  PLATFORM_SLUGS,
   HELP_SLUGS,
   KB_SLUGS,
 } from "../lib/site";
@@ -64,6 +65,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: { languages: alt("/apps") },
+    },
+    {
+      url: `${SITE.domain}/platforms`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      alternates: { languages: alt("/platforms") },
     },
     {
       url: `${SITE.domain}/help`,
@@ -155,6 +163,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: alt(`/apps/${slug}`) },
   }));
 
+  const platforms = PLATFORM_SLUGS.map((slug) => ({
+    url: `${SITE.domain}/platforms/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+    alternates: { languages: alt(`/platforms/${slug}`) },
+  }));
+
   const help = HELP_SLUGS.map((slug) => ({
     url: `${SITE.domain}/help/${slug}`,
     lastModified: now,
@@ -169,5 +185,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...base, ...guides, ...countries, ...blog, ...compare, ...apps, ...help, ...kb];
+  return [...base, ...guides, ...countries, ...blog, ...compare, ...apps, ...platforms, ...help, ...kb];
 }
