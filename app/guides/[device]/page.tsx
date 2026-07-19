@@ -18,20 +18,23 @@ export async function generateMetadata({
   const { device } = await params;
   const guide = DEVICE_GUIDES[device as DeviceSlug];
   if (!guide) return {};
-  const title = `${guide.hero} | Best IPTV VIP`;
+  // Document title relies on the root template ("%s | Best IPTV VIP"); OG/Twitter
+  // titles don't use the template, so they carry the brand explicitly.
+  const title = guide.hero;
+  const ogTitle = `${guide.hero} | Best IPTV VIP`;
   return {
     title,
     description: guide.description,
     alternates: { canonical: `${SITE.domain}/guides/${guide.slug}` },
     openGraph: {
-      title,
+      title: ogTitle,
       description: guide.description,
       url: `${SITE.domain}/guides/${guide.slug}`,
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: ogTitle,
       description: guide.description,
     },
   };

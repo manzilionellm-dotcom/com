@@ -18,13 +18,15 @@ export async function generateMetadata({
   const { country } = await params;
   const page = COUNTRY_PAGES[country as CountrySlug];
   if (!page) return {};
-  const title = `${page.hero} | Best IPTV VIP`;
+  // Root template appends "| Best IPTV VIP"; OG title carries the brand itself.
+  const title = page.hero;
+  const ogTitle = `${page.hero} | Best IPTV VIP`;
   return {
     title,
     description: page.description,
     alternates: { canonical: `${SITE.domain}/channels/${page.slug}` },
     openGraph: {
-      title,
+      title: ogTitle,
       description: page.description,
       url: `${SITE.domain}/channels/${page.slug}`,
     },

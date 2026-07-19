@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { SITE, LOCALES, PLANS } from "../lib/site";
+import { SITE, PLANS } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
 import ConsentedAnalytics from "../components/ConsentedAnalytics";
 import TrackingProvider from "../components/TrackingProvider";
@@ -19,13 +19,6 @@ const PLAN_HIGH = Math.max(...PLANS.map((p) => p.price));
 const TITLE = "Best IPTV VIP — #1 Premium 4K IPTV Subscription Worldwide";
 const DESCRIPTION =
   `World's #1 premium IPTV service. ${CHANNELS} live channels, ${VOD} movies & series, 4K UHD, EPG included. Compatible with Smart TV, Firestick, Android, iOS, MAG. ${SITE.trialHours}h free trial, instant activation.`;
-
-function languageAlternates(path = "/") {
-  const out: Record<string, string> = {};
-  for (const l of LOCALES) out[l] = `${SITE_URL}${path}?lang=${l}`;
-  out["x-default"] = `${SITE_URL}${path}`;
-  return out;
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -74,12 +67,10 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   alternates: {
     canonical: SITE_URL,
-    languages: languageAlternates("/"),
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    alternateLocale: ["fr_FR", "ar_AE", "es_ES", "de_DE"],
     url: SITE_URL,
     siteName: SITE.brand,
     title: TITLE,
@@ -182,7 +173,7 @@ const jsonLdWebsite = {
   "@id": `${SITE_URL}#website`,
   name: SITE.brand,
   url: SITE_URL,
-  inLanguage: ["en", "fr", "ar", "es", "de"],
+  inLanguage: ["en"],
   publisher: { "@id": `${SITE_URL}#organization` },
   // SearchAction removed — site has no /search route. Re-add when search ships.
 };
@@ -348,16 +339,10 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ background: "#050507", colorScheme: "dark" }}>
       <head>
-        <link rel="canonical" href={SITE_URL} />
-        {LOCALES.map((l) => (
-          <link
-            key={l}
-            rel="alternate"
-            hrefLang={l}
-            href={`${SITE_URL}/?lang=${l}`}
-          />
-        ))}
-        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
+        {/* Single indexable language (en). No fr/ar/es/de hreflang alternates
+            are emitted because every URL serves English HTML server-side —
+            declaring alternates that resolve to English is the #1 hreflang
+            defect. The FR/AR homepage toggle is client-side UX only. */}
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="preconnect" href="https://wa.me" crossOrigin="" />
         <meta name="theme-color" content="#050507" />
