@@ -75,9 +75,9 @@ type Copy = {
   devicesTitle: string;
   devicesSub: string;
   devices: { ic: string; n: string }[];
-  reviewsTitle: string;
-  reviewsSub: string;
-  reviews: { name: string; city: string; stars: number; plan: string; text: string }[];
+  proofTitle: string;
+  proofSub: string;
+  proofPoints: { t: string; d: string }[];
   setupTitle: string;
   setupSub: string;
   setupSteps: { n: string; t: string }[];
@@ -142,15 +142,15 @@ const COUNTRIES: Country[] = [
    ============================================================ */
 const dict: Record<Locale, Copy> = {
   en: {
-    status: "System: Online • Instant WhatsApp support",
+    status: "24h free trial • WhatsApp support every day",
     urgency: "🎁 Launch price guaranteed — Free 24h trial",
     navPlans: "Plans", navChannels: "Channels", navCountries: "Countries", navDevices: "Devices", navFaq: "FAQ", navWhatsapp: "WhatsApp",
-    heroPill: "WhatsApp support • 4K UHD • 20,000+ channels",
-    heroTitle1: "World's #1 Premium IPTV",
+    heroPill: "WhatsApp support • 4K UHD • 22,000+ channels",
+    heroTitle1: "Premium IPTV, Worldwide",
     heroTitle2: "Fast. Stable. Simple.",
-    heroLead: "Stop overpaying for cable. 20,000+ live channels, premium sports, movies & 100,000+ series — from $10/month worldwide.",
+    heroLead: "Stop overpaying for cable. 22,000+ live channels, premium sports, movies & 120,000+ series — from $10/month worldwide.",
     heroBtnPlans: "See Pricing", heroBtnTrial: "Free 24h Trial",
-    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 from 12,847 customers worldwide • Satisfaction guarantee",
+    heroTrust: "✔ 24h free trial before you pay • No contract • 24h money-back guarantee",
     trialBadge: "Free Trial",
     trialTitle: "Try free for 24 hours",
     trialDesc: "No credit card required. Contact us on WhatsApp and test on Firestick, Smart TV, Android or iPhone.",
@@ -166,17 +166,17 @@ const dict: Record<Locale, Copy> = {
       { ic: "🌐", t: "Works worldwide", d: "Compatible with all ISPs." },
     ],
     plansTitle: "Choose your plan",
-    plansSub: "All plans include 20,000+ channels, VOD, EPG and WhatsApp support.",
+    plansSub: "All plans include 22,000+ channels, VOD, EPG and WhatsApp support.",
     planNames: { p1: "1 Month", p3: "3 Months", p6: "6 Months", p12: "12 Months" },
     planPerks: {
-      p1: ["20,000+ live channels", "4K/UHD quality", "EPG included", "WhatsApp support", "No contract"],
-      p3: ["Most popular", "20,000+ channels", "100,000+ movies & series", "Priority support", "Guided setup"],
-      p6: ["Best value", "20,000+ channels", "Multi-device", "EPG + Catch-up", "All channels"],
-      p12: ["Ultimate value", "VIP premium access", "20,000+ channels", "VIP 24/7 support", "Free upgrades"],
+      p1: ["22,000+ live channels", "4K/UHD quality", "EPG included", "WhatsApp support", "No contract"],
+      p3: ["Most popular", "22,000+ channels", "120,000+ movies & series", "Priority support", "Guided setup"],
+      p6: ["Best value", "22,000+ channels", "Multi-device", "EPG + Catch-up", "All channels"],
+      p12: ["Ultimate value", "VIP premium access", "22,000+ channels", "VIP 24/7 support", "Free upgrades"],
     },
     planOrder: "Order via WhatsApp", planSave: "SAVE", planBest: "BEST SELLER",
     planBilled: "Billed", planTotal: "one-time", planMo: "/mo",
-    vodTitle: "100,000+ movies & series on demand",
+    vodTitle: "120,000+ movies & series on demand",
     vodSub: "New content added weekly. Watch anytime, anywhere.",
     vodStats: [
       { v: "100k+", l: "Movies & series" },
@@ -195,7 +195,7 @@ const dict: Record<Locale, Copy> = {
     ],
     channelsTitle: "Explore channels worldwide",
     channelsSub: "Pick a region",
-    channelsMore: "…and 20,000+ more",
+    channelsMore: "…and 22,000+ more",
     channelsRegions: [
       { name: "USA & Canada", channels: ["ESPN HD", "NBC", "CBS HD", "FOX Sports", "HBO", "AMC", "TSN", "Sportsnet"] },
       { name: "UK & Ireland", channels: ["BBC One HD", "Sky Sports HD", "BT Sport 4K", "ITV HD", "Sky Cinema", "TNT Sports"] },
@@ -221,12 +221,13 @@ const dict: Record<Locale, Copy> = {
       { ic: "💻", n: "PC / Mac" },
       { ic: "📡", n: "MAG Box" },
     ],
-    reviewsTitle: "What customers say",
-    reviewsSub: "Reviews from VIP customers worldwide",
-    reviews: [
-      { name: "John M.", city: "New York", stars: 5, plan: "3 months", text: "Setup took 10 minutes. ESPN, NFL and HBO in 4K. Saving $80/month vs cable." },
-      { name: "Fatima A.", city: "Dubai", stars: 5, plan: "6 months", text: "All Arabic channels plus international content. MBC, beIN — excellent quality." },
-      { name: "Mohammed K.", city: "London", stars: 5, plan: "12 months", text: "TiviMate worked instantly. 4K on Firestick, no buffering. Best IPTV in 3 years." },
+    proofTitle: "Check it yourself before you pay",
+    proofSub: "No star badges, no customer counter — only claims you can verify.",
+    proofPoints: [
+      { t: "24-hour free trial", d: "Test the channels you actually watch, on your own device, before sending any money." },
+      { t: "24h money-back guarantee", d: "Full refund if the service does not match what we advertised and support cannot fix it." },
+      { t: "No contract, no auto-renewal", d: "You pay once. The subscription simply expires at the end of the term you chose." },
+      { t: "A human on WhatsApp", d: "Setup help and support in the same chat you ordered from — not a ticket queue." },
     ],
     setupTitle: "Setup in 10 minutes",
     setupSub: "Works on Firestick, Smart TV, iPhone, Android. We guide you.",
@@ -238,7 +239,7 @@ const dict: Record<Locale, Copy> = {
     setupCta: "Get Setup Help Now",
     faqTitle: "FAQ",
     faqs: [
-      { q: "Which channels are included?", a: "All major worldwide: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — plus 20,000+ in HD/4K." },
+      { q: "Which channels are included?", a: "All major worldwide: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — plus 22,000+ in HD/4K." },
       { q: "Compatible with TiviMate / IPTV Smarters?", a: "Yes. We support TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. M3U link sent via WhatsApp." },
       { q: "Which devices?", a: "Firestick, Smart TV (Samsung/LG/Sony), Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac." },
       { q: "How fast is activation?", a: "Usually 5–10 min after WhatsApp order, even on weekends." },
@@ -255,15 +256,15 @@ const dict: Record<Locale, Copy> = {
     whatsappOrder: (p, pr) => `Hi Best IPTV VIP! I want to order ${p} ($${pr}). Help me start.`,
   },
   fr: {
-    status: "Système : En ligne • Support WhatsApp instantané",
+    status: "Essai gratuit 24 h • Support WhatsApp tous les jours",
     urgency: "🎁 Prix de lancement garanti — Essai gratuit 24h",
     navPlans: "Offres", navChannels: "Chaînes", navCountries: "Pays", navDevices: "Appareils", navFaq: "FAQ", navWhatsapp: "WhatsApp",
-    heroPill: "Support WhatsApp • 4K UHD • 20 000+ chaînes",
-    heroTitle1: "L'IPTV Premium #1 mondial",
+    heroPill: "Support WhatsApp • 4K UHD • 22 000+ chaînes",
+    heroTitle1: "L'IPTV Premium, partout",
     heroTitle2: "Rapide. Stable. Simple.",
-    heroLead: "Arrêtez de surpayer le câble. 20 000+ chaînes, sport premium, films & 100 000+ séries — dès 10 $/mois.",
+    heroLead: "Arrêtez de surpayer le câble. 22 000+ chaînes, sport premium, films & 120 000+ séries — dès 10 $/mois.",
     heroBtnPlans: "Voir les Offres", heroBtnTrial: "Essai Gratuit 24h",
-    heroTrust: "⭐⭐⭐⭐⭐ 4,9/5 par 12 847 clients • Garantie satisfaction",
+    heroTrust: "✔ Essai gratuit 24 h avant paiement • Sans engagement • Remboursement 24 h",
     trialBadge: "Essai Gratuit",
     trialTitle: "Essayez gratuitement 24 heures",
     trialDesc: "Aucune carte requise. Contactez-nous sur WhatsApp et testez sur Firestick, Smart TV, Android ou iPhone.",
@@ -279,17 +280,17 @@ const dict: Record<Locale, Copy> = {
       { ic: "🌐", t: "Mondial", d: "Compatible avec tous les FAI." },
     ],
     plansTitle: "Choisissez votre offre",
-    plansSub: "Toutes incluent 20 000+ chaînes, VOD, EPG et support WhatsApp.",
+    plansSub: "Toutes incluent 22 000+ chaînes, VOD, EPG et support WhatsApp.",
     planNames: { p1: "1 mois", p3: "3 mois", p6: "6 mois", p12: "12 mois" },
     planPerks: {
-      p1: ["20 000+ chaînes live", "Qualité 4K/UHD", "EPG inclus", "Support WhatsApp", "Sans engagement"],
-      p3: ["Le plus populaire", "20 000+ chaînes", "100 000+ films & séries", "Support prioritaire", "Installation guidée"],
-      p6: ["Meilleur rapport qualité/prix", "20 000+ chaînes", "Multi-appareils", "EPG + Catch-up", "Toutes les chaînes"],
-      p12: ["Valeur ultime", "Accès VIP premium", "20 000+ chaînes", "Support VIP 24/7", "Mises à jour gratuites"],
+      p1: ["22 000+ chaînes live", "Qualité 4K/UHD", "EPG inclus", "Support WhatsApp", "Sans engagement"],
+      p3: ["Le plus populaire", "22 000+ chaînes", "120 000+ films & séries", "Support prioritaire", "Installation guidée"],
+      p6: ["Meilleur rapport qualité/prix", "22 000+ chaînes", "Multi-appareils", "EPG + Catch-up", "Toutes les chaînes"],
+      p12: ["Valeur ultime", "Accès VIP premium", "22 000+ chaînes", "Support VIP 24/7", "Mises à jour gratuites"],
     },
     planOrder: "Commander via WhatsApp", planSave: "ÉCO", planBest: "POPULAIRE",
     planBilled: "Facturé", planTotal: "paiement unique", planMo: "/mois",
-    vodTitle: "100 000+ films & séries à la demande",
+    vodTitle: "120 000+ films & séries à la demande",
     vodSub: "Nouveau contenu chaque semaine. Regardez quand vous voulez.",
     vodStats: [
       { v: "100k+", l: "Films & séries" },
@@ -308,7 +309,7 @@ const dict: Record<Locale, Copy> = {
     ],
     channelsTitle: "Aperçu des chaînes",
     channelsSub: "Choisissez une région",
-    channelsMore: "…et 20 000+ autres",
+    channelsMore: "…et 22 000+ autres",
     channelsRegions: [
       { name: "USA & Canada", channels: ["ESPN HD", "NBC", "CBS HD", "FOX Sports", "HBO", "AMC", "TSN", "Sportsnet"] },
       { name: "UK & Irlande", channels: ["BBC One HD", "Sky Sports HD", "BT Sport 4K", "ITV HD", "Sky Cinema"] },
@@ -334,12 +335,13 @@ const dict: Record<Locale, Copy> = {
       { ic: "💻", n: "PC / Mac" },
       { ic: "📡", n: "MAG Box" },
     ],
-    reviewsTitle: "Ce que disent nos clients",
-    reviewsSub: "Avis de clients VIP dans le monde",
-    reviews: [
-      { name: "John M.", city: "New York", stars: 5, plan: "3 mois", text: "Installation en 10 min. ESPN, NFL et HBO en 4K. J'économise 80 $/mois vs câble." },
-      { name: "Fatima A.", city: "Dubaï", stars: 5, plan: "6 mois", text: "Toutes les chaînes arabes plus international. MBC, beIN — qualité excellente." },
-      { name: "Mohammed K.", city: "Londres", stars: 5, plan: "12 mois", text: "TiviMate immédiat. 4K sur Firestick sans buffering. Meilleur IPTV en 3 ans." },
+    proofTitle: "Vérifiez par vous-même avant de payer",
+    proofSub: "Ni étoiles, ni compteur de clients — uniquement ce que vous pouvez vérifier.",
+    proofPoints: [
+      { t: "Essai gratuit 24 h", d: "Testez les chaînes que vous regardez vraiment, sur votre appareil, avant tout paiement." },
+      { t: "Garantie 24 h satisfait ou remboursé", d: "Remboursement intégral si le service ne correspond pas à l'annonce et que le support ne peut pas le corriger." },
+      { t: "Sans engagement, sans reconduction", d: "Vous payez une fois. L'abonnement expire de lui-même à la fin de la durée choisie." },
+      { t: "Un humain sur WhatsApp", d: "Installation et support dans la conversation où vous avez commandé — pas un ticket." },
     ],
     setupTitle: "Installation en 10 minutes",
     setupSub: "Fonctionne sur Firestick, Smart TV, iPhone, Android.",
@@ -351,7 +353,7 @@ const dict: Record<Locale, Copy> = {
     setupCta: "Obtenir l'aide installation",
     faqTitle: "Questions fréquentes",
     faqs: [
-      { q: "Quelles chaînes sont incluses ?", a: "Toutes les grandes : ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — 20 000+ en HD/4K." },
+      { q: "Quelles chaînes sont incluses ?", a: "Toutes les grandes : ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — 22 000+ en HD/4K." },
       { q: "Compatible TiviMate / IPTV Smarters ?", a: "Oui. TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. Lien M3U envoyé via WhatsApp." },
       { q: "Quels appareils ?", a: "Firestick, Smart TV (Samsung/LG/Sony), Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac." },
       { q: "Activation rapide ?", a: "Habituellement 5 à 10 min après commande WhatsApp, même le week-end." },
@@ -368,15 +370,15 @@ const dict: Record<Locale, Copy> = {
     whatsappOrder: (p, pr) => `Bonjour Best IPTV VIP ! Je veux commander ${p} (${pr} $).`,
   },
   ar: {
-    status: "النظام: متصل • دعم WhatsApp فوري",
+    status: "تجربة مجانية 24 ساعة • دعم WhatsApp يومياً",
     urgency: "🎁 سعر الإطلاق مضمون — تجربة مجانية 24 ساعة",
     navPlans: "الباقات", navChannels: "القنوات", navCountries: "الدول", navDevices: "الأجهزة", navFaq: "الأسئلة", navWhatsapp: "واتساب",
-    heroPill: "دعم واتساب • 4K UHD • +20,000 قناة",
+    heroPill: "دعم واتساب • 4K UHD • +22,000 قناة",
     heroTitle1: "IPTV الأول عالمياً",
     heroTitle2: "سريع. مستقر. بسيط.",
-    heroLead: "توقف عن دفع الكثير للكابل. +20,000 قناة، رياضة بريميوم، أفلام و+100,000 مسلسل — من 10 دولار شهرياً.",
+    heroLead: "توقف عن دفع الكثير للكابل. +22,000 قناة، رياضة بريميوم، أفلام و+120,000 مسلسل — من 10 دولار شهرياً.",
     heroBtnPlans: "شاهد الأسعار", heroBtnTrial: "تجربة مجانية 24 ساعة",
-    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 من +12,847 عميل • ضمان الرضا",
+    heroTrust: "✔ تجربة مجانية 24 ساعة قبل الدفع • بدون عقد • ضمان استرداد 24 ساعة",
     trialBadge: "تجربة مجانية",
     trialTitle: "جرب مجاناً 24 ساعة",
     trialDesc: "بدون بطاقة ائتمان. تواصل معنا على واتساب وجرب على Firestick أو Smart TV أو Android أو iPhone.",
@@ -392,17 +394,17 @@ const dict: Record<Locale, Copy> = {
       { ic: "🌐", t: "يعمل عالمياً", d: "متوافق مع كل المزودين." },
     ],
     plansTitle: "اختر باقتك",
-    plansSub: "كل الباقات تشمل +20,000 قناة، VOD، EPG ودعم واتساب.",
+    plansSub: "كل الباقات تشمل +22,000 قناة، VOD، EPG ودعم واتساب.",
     planNames: { p1: "شهر واحد", p3: "3 أشهر", p6: "6 أشهر", p12: "12 شهر" },
     planPerks: {
-      p1: ["+20,000 قناة مباشرة", "جودة 4K/UHD", "EPG مدرج", "دعم واتساب", "بدون عقد"],
-      p3: ["الأكثر شعبية", "+20,000 قناة", "+100,000 فيلم ومسلسل", "دعم بأولوية", "تثبيت موجه"],
-      p6: ["أفضل قيمة", "+20,000 قناة", "أجهزة متعددة", "EPG + Catch-up", "كل القنوات"],
-      p12: ["القيمة القصوى", "وصول VIP بريميوم", "+20,000 قناة", "دعم VIP 24/7", "تحديثات مجانية"],
+      p1: ["+22,000 قناة مباشرة", "جودة 4K/UHD", "EPG مدرج", "دعم واتساب", "بدون عقد"],
+      p3: ["الأكثر شعبية", "+22,000 قناة", "+120,000 فيلم ومسلسل", "دعم بأولوية", "تثبيت موجه"],
+      p6: ["أفضل قيمة", "+22,000 قناة", "أجهزة متعددة", "EPG + Catch-up", "كل القنوات"],
+      p12: ["القيمة القصوى", "وصول VIP بريميوم", "+22,000 قناة", "دعم VIP 24/7", "تحديثات مجانية"],
     },
     planOrder: "اطلب عبر واتساب", planSave: "وفر", planBest: "الأكثر مبيعاً",
     planBilled: "مفوتر", planTotal: "دفعة واحدة", planMo: "/شهر",
-    vodTitle: "+100,000 فيلم ومسلسل عند الطلب",
+    vodTitle: "+120,000 فيلم ومسلسل عند الطلب",
     vodSub: "محتوى جديد كل أسبوع. شاهد متى تشاء.",
     vodStats: [
       { v: "+100k", l: "أفلام ومسلسلات" },
@@ -421,7 +423,7 @@ const dict: Record<Locale, Copy> = {
     ],
     channelsTitle: "استكشف القنوات",
     channelsSub: "اختر منطقة",
-    channelsMore: "…و+20,000 قناة أخرى",
+    channelsMore: "…و+22,000 قناة أخرى",
     channelsRegions: [
       { name: "USA & Canada", channels: ["ESPN HD", "NBC", "CBS HD", "FOX Sports", "HBO", "AMC", "TSN"] },
       { name: "UK & Ireland", channels: ["BBC One HD", "Sky Sports HD", "BT Sport 4K", "ITV HD", "Sky Cinema"] },
@@ -447,12 +449,13 @@ const dict: Record<Locale, Copy> = {
       { ic: "💻", n: "PC / Mac" },
       { ic: "📡", n: "MAG Box" },
     ],
-    reviewsTitle: "ماذا يقول العملاء",
-    reviewsSub: "آراء عملاء VIP حول العالم",
-    reviews: [
-      { name: "جون م.", city: "نيويورك", stars: 5, plan: "3 أشهر", text: "التثبيت 10 دقائق. ESPN و NFL و HBO بـ 4K. أوفر 80 دولار شهرياً." },
-      { name: "فاطمة أ.", city: "دبي", stars: 5, plan: "6 أشهر", text: "كل القنوات العربية ومحتوى دولي. MBC و beIN — جودة ممتازة." },
-      { name: "محمد ك.", city: "لندن", stars: 5, plan: "12 شهر", text: "TiviMate يعمل فوراً. 4K بدون تقطيع. أفضل IPTV في 3 سنوات." },
+    proofTitle: "تحقّق بنفسك قبل الدفع",
+    proofSub: "لا نجوم ولا عدّاد عملاء — فقط ما يمكنك التحقّق منه.",
+    proofPoints: [
+      { t: "تجربة مجانية 24 ساعة", d: "جرّب القنوات التي تشاهدها فعلاً على جهازك قبل دفع أي مبلغ." },
+      { t: "ضمان استرداد خلال 24 ساعة", d: "استرداد كامل إذا لم تطابق الخدمة ما أعلنّا عنه ولم يتمكّن الدعم من إصلاحه." },
+      { t: "بدون عقد وبدون تجديد تلقائي", d: "تدفع مرة واحدة. ينتهي الاشتراك تلقائياً في نهاية المدة التي اخترتها." },
+      { t: "إنسان حقيقي على واتساب", d: "المساعدة في التثبيت والدعم في نفس المحادثة التي طلبت منها." },
     ],
     setupTitle: "التثبيت في 10 دقائق",
     setupSub: "يعمل على Firestick, Smart TV, iPhone, Android.",
@@ -464,7 +467,7 @@ const dict: Record<Locale, Copy> = {
     setupCta: "احصل على المساعدة الآن",
     faqTitle: "الأسئلة الشائعة",
     faqs: [
-      { q: "ما هي القنوات المدرجة؟", a: "كل القنوات الكبرى: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC — +20,000 في HD/4K." },
+      { q: "ما هي القنوات المدرجة؟", a: "كل القنوات الكبرى: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC — +22,000 في HD/4K." },
       { q: "متوافق مع TiviMate / IPTV Smarters؟", a: "نعم. TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. رابط M3U عبر واتساب." },
       { q: "أي أجهزة؟", a: "Firestick, Smart TV, Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac." },
       { q: "سرعة التفعيل؟", a: "عادة 5-10 دقائق بعد الطلب على واتساب." },
@@ -648,7 +651,8 @@ export default function Page() {
   useEffect(() => {
     const detected = detectLang();
     setLang(detected);
-    try { localStorage.setItem("lang", detected); } catch {}
+    // Auto-detection alone is not a user request, so it is not persisted.
+    // Only an explicit click on the language switcher stores a preference.
     if (typeof document !== "undefined") {
       document.documentElement.lang = detected;
       document.documentElement.dir = detected === "ar" ? "rtl" : "ltr";
@@ -657,12 +661,18 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    try { localStorage.setItem("lang", lang); } catch {}
     if (typeof document !== "undefined") {
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     }
   }, [lang]);
+
+  // Storing the language the visitor explicitly picked is a user-requested
+  // preference, so it is written on click rather than on every render.
+  function chooseLang(next: Locale) {
+    setLang(next);
+    try { localStorage.setItem("lang", next); } catch {}
+  }
 
   const t = dict[lang];
   const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
@@ -703,7 +713,7 @@ export default function Page() {
           </div>
           <div className="lang-switch desktop-only">
             {(["en", "fr", "ar"] as Locale[]).map(l => (
-              <button key={l} className={`lang-btn ${lang === l ? "active" : ""}`} onClick={() => setLang(l)}>
+              <button key={l} className={`lang-btn ${lang === l ? "active" : ""}`} onClick={() => chooseLang(l)}>
                 {l.toUpperCase()}
               </button>
             ))}
@@ -728,7 +738,7 @@ export default function Page() {
           )}
           <div className="mobile-lang">
             {(["en", "fr", "ar"] as Locale[]).map(l => (
-              <button key={l} className={`lang-btn ${lang === l ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); setLang(l); setMenuOpen(false); }}>
+              <button key={l} className={`lang-btn ${lang === l ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); chooseLang(l); setMenuOpen(false); }}>
                 {l.toUpperCase()}
               </button>
             ))}
@@ -967,22 +977,19 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Reviews */}
+        {/* Verifiable trust — replaces the unverifiable testimonial block */}
         <section className="section">
           <div className="section-head">
-            <h2>{t.reviewsTitle}</h2>
-            <p>{t.reviewsSub}</p>
+            <h2>{t.proofTitle}</h2>
+            <p>{t.proofSub}</p>
           </div>
           <div className="reviews-grid">
-            {t.reviews.map((r, i) => (
+            {t.proofPoints.map((p, i) => (
               <article key={i} className="review">
-                <div className="review-stars">{"⭐".repeat(r.stars)}</div>
-                <p>&ldquo;{r.text}&rdquo;</p>
                 <div className="review-meta">
-                  <span className="review-name">{r.name}</span>
-                  <span className="review-city">— {r.city}</span>
-                  <span className="review-plan">{r.plan}</span>
+                  <span className="review-name">{p.t}</span>
                 </div>
+                <p>{p.d}</p>
               </article>
             ))}
           </div>

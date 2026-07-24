@@ -17,7 +17,7 @@ export type BlogPost = {
 export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
   "best-iptv-2026": {
     slug: "best-iptv-2026",
-    title: "Best IPTV Service in 2026 — Complete Buyer's Guide",
+    title: "Best IPTV Service in 2026 — Complete Guide",
     description:
       "Looking for the best IPTV in 2026? Compare top providers, 4K UHD quality, channel counts, EPG, pricing and reliability. Updated for 2026 with real test results.",
     date: "2026-04-12",
@@ -47,7 +47,7 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
         ],
       },
       {
-        heading: "Why Best IPTV VIP is the #1 choice in 2026",
+        heading: "How Best IPTV VIP scores against the criteria above",
         body: [
           "Best IPTV VIP combines 22,000+ live channels (3,500 in 4K UHD), 120,000+ movies and series, instant WhatsApp activation under 10 minutes, and a 24h free trial with no credit card.",
           "Our infrastructure uses 12 dedicated 4K servers across Europe, USA and MENA with HEVC H.265 transcoding to deliver smooth playback even on 25 Mbps connections.",
@@ -60,9 +60,9 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
   },
   "how-to-fix-iptv-buffering": {
     slug: "how-to-fix-iptv-buffering",
-    title: "How to Fix IPTV Buffering — 12 Proven Solutions (2026)",
+    title: "How to Fix IPTV Buffering — 12 Fixes (2026)",
     description:
-      "IPTV buffering, freezing or lag? Follow this complete 2026 guide with 12 proven fixes — internet speed, DNS, player settings, hardware decoder, EPG cache, server load.",
+      "IPTV buffering, freezing or lag? Follow this 2026 guide with 12 proven fixes — internet speed, DNS, player settings, hardware decoder, EPG cache, server load.",
     date: "2026-03-28",
     author: "Best IPTV VIP Team",
     readTime: "9 min",
@@ -112,7 +112,7 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
     slug: "iptv-vs-cable-tv",
     title: "IPTV vs Cable TV in 2026 — Save $1,500/year",
     description:
-      "Should you cut the cable in 2026? Honest comparison: IPTV vs cable TV — price, channels, 4K quality, sports, support. Save $1,500/year without losing your favorite shows.",
+      "Should you cut the cable in 2026? Honest comparison: IPTV vs cable TV — price, channels, 4K quality, sports, support. Save $1,500/year without losing your shows.",
     date: "2026-04-02",
     author: "Best IPTV VIP Team",
     readTime: "8 min",
@@ -160,9 +160,9 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
   },
   "how-to-watch-iptv-in-4k": {
     slug: "how-to-watch-iptv-in-4k",
-    title: "How to Watch IPTV in 4K UHD — Complete Setup (2026)",
+    title: "How to Watch IPTV in 4K UHD — 2026 Setup",
     description:
-      "Stream IPTV in true 4K UHD without buffering. Complete setup: hardware, internet speed, player settings, HDR, 60fps sports. Tested on Firestick 4K Max, NVIDIA Shield, Apple TV 4K.",
+      "Stream IPTV in true 4K UHD without buffering: hardware, internet speed, player settings, HDR and 60fps sports, tested on Firestick 4K Max and Apple TV 4K.",
     date: "2026-04-18",
     author: "Best IPTV VIP Team",
     readTime: "10 min",
@@ -214,7 +214,7 @@ export const BLOG_POSTS: Record<BlogSlug, BlogPost> = {
   },
   "iptv-smarters-vs-tivimate": {
     slug: "iptv-smarters-vs-tivimate",
-    title: "IPTV Smarters Pro vs TiviMate — Best Player in 2026",
+    title: "IPTV Smarters vs TiviMate — Best Player 2026",
     description:
       "IPTV Smarters Pro vs TiviMate Premium — which is the best IPTV player in 2026? Honest comparison on EPG, recording, UI, Firestick vs Android TV compatibility.",
     date: "2026-04-25",

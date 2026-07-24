@@ -18,7 +18,8 @@ export async function generateMetadata({
   const { country } = await params;
   const page = COUNTRY_PAGES[country as CountrySlug];
   if (!page) return {};
-  const title = `${page.hero} | Best IPTV VIP`;
+  // Brand suffix is added by the root layout title template — do not repeat it.
+  const title = `${page.name.split(" (")[0]} — Channel List`;
   return {
     title,
     description: page.description,
@@ -46,11 +47,8 @@ export default async function CountryPage({
     name: page.hero,
     description: page.description,
     brand: { "@type": "Brand", name: SITE.brand },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: String(SITE.ratingValue),
-      reviewCount: String(SITE.reviewCount),
-    },
+    // No aggregateRating: we hold no verifiable review corpus. Re-add only
+    // when ratings come from a real, auditable review source.
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",

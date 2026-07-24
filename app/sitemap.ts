@@ -1,21 +1,11 @@
 import type { MetadataRoute } from "next";
 import {
   SITE,
-  LOCALES,
   DEVICE_SLUGS,
   COUNTRY_SLUGS,
   BLOG_SLUGS,
   COMPARE_SLUGS,
 } from "../lib/site";
-
-function alt(path: string) {
-  const languages: Record<string, string> = {};
-  for (const l of LOCALES) {
-    languages[l] = `${SITE.domain}${path}?lang=${l}`;
-  }
-  languages["x-default"] = `${SITE.domain}${path}`;
-  return languages;
-}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -25,35 +15,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "daily",
       priority: 1.0,
-      alternates: { languages: alt("/") },
     },
     {
       url: `${SITE.domain}/pricing`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.95,
-      alternates: { languages: alt("/pricing") },
     },
     {
       url: `${SITE.domain}/free-trial`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.95,
-      alternates: { languages: alt("/free-trial") },
     },
     {
       url: `${SITE.domain}/channels`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
-      alternates: { languages: alt("/channels") },
     },
     {
       url: `${SITE.domain}/devices`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: { languages: alt("/devices") },
     },
     {
       url: `${SITE.domain}/blog`,
@@ -66,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.85,
+    },
+    {
+      url: `${SITE.domain}/status`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.4,
     },
     {
       url: `${SITE.domain}/contact`,
@@ -98,7 +89,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.85,
-    alternates: { languages: alt(`/guides/${slug}`) },
   }));
 
   const countries = COUNTRY_SLUGS.map((slug) => ({
@@ -106,7 +96,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.85,
-    alternates: { languages: alt(`/channels/${slug}`) },
   }));
 
   const blog = BLOG_SLUGS.map((slug) => ({

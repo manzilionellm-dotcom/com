@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { SITE } from "../../../../lib/site";
 import { createPayment } from "../../../../lib/cryptomus";
+import { emitEvent, serverEvent } from "../../../../lib/server/events";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,7 +19,12 @@ function siteUrl(): string {
 }
 
 export async function POST(req: Request) {
-  let body: { plan?: string; email?: string; utm?: Record<string, string> };
+  let body: {
+    plan?: string;
+    email?: string;
+    ref_id?: string;
+    utm?: Record<string, string>;
+  };
   try {
     body = await req.json();
   } catch {
@@ -36,9 +42,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
+  // The attribution reference travels inside the order id, so the payment
+  // webhook can tie a confirmed payment back to the page that produced it
+  // without holding any customer identifier.
+  const ref = typeof body.ref_id === "string" && /^[A-Z2-9]{6}$/.test(body.ref_id)
+    ? body.ref_id
+    : null;
+
   const orderId = `biv-${planKey}-${Date.now()}-${crypto
     .randomBytes(4)
-    .toString("hex")}`;
+    .toString("hex")}${ref ? `-r${ref}` : ""}`;
 
   // Attribution log — links the Cryptomus order_id to the originating
   // campaign so the webhook can later report Purchase events back to ad
@@ -52,19 +65,23 @@ export async function POST(req: Request) {
             .map(([k, v]) => [String(k).slice(0, 40), String(v).slice(0, 200)]),
         )
       : {};
+  // The customer's email is passed to the payment provider but never written
+  // to application logs.
   console.log(
     "[checkout]",
     JSON.stringify({
-      type: "checkout_start",
+      type: "checkout_started",
       orderId,
       plan: planKey,
       amount: plan.price,
       currency: "USD",
-      email: email || undefined,
+      has_email: Boolean(email),
+      ref_id: ref ?? undefined,
       utm,
       ts: new Date().toISOString(),
     }),
   );
+  await emitEvent(serverEvent("checkout_started", { plan: planKey, ref_id: ref ?? undefined }));
 
   const base = siteUrl();
 

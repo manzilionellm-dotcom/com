@@ -18,7 +18,9 @@ export async function generateMetadata({
   const { device } = await params;
   const guide = DEVICE_GUIDES[device as DeviceSlug];
   if (!guide) return {};
-  const title = `${guide.hero} | Best IPTV VIP`;
+  // The brand suffix comes from the root layout title template — appending it
+  // here too is what produced "… | Best IPTV VIP | Best IPTV VIP".
+  const title = `IPTV on ${guide.name}: Setup Guide`;
   return {
     title,
     description: guide.description,

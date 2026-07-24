@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "site_id": "bestiptv-vip",
+  "domain": "https://bestiptv-vip.com",
+  "brand": "Best IPTV VIP",
+  "markets": ["worldwide-en"],
+  "languages_server_rendered": ["en"],
+  "languages_client_only": ["en", "fr", "ar", "es", "de"],
+  "currency": "USD",
+  "conversion_channel": "whatsapp+cryptomus",
+  "transformation_done": false,
+  "qualified_visitor_definition": {
+    "version": 1,
+    "rule": "non-bot session, >=1 page view over 10 seconds"
+  },
+  "created_run": "run-001"
+}

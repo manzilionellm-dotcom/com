@@ -21,9 +21,34 @@ const PLANS = [
   { key: "p12", name: "12 Months", price: 60, months: 12, perks: ["Ultimate value", "VIP premium access", "Up to 3 devices", "VIP 24/7 support", "Free upgrades"] },
 ];
 
+// Offers are derived from the PLANS array above, so the markup can never drift
+// from the prices actually shown on the page. No aggregateRating: no auditable
+// review source exists.
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": `${SITE.domain}/pricing#product`,
+  name: `${SITE.brand} — Premium IPTV Subscription`,
+  description:
+    "Premium IPTV subscription with 22,000+ live channels, 120,000+ movies and series, 4K UHD and full EPG. Works on Smart TV, Firestick, Android, iOS, MAG, PC and Mac.",
+  brand: { "@type": "Brand", name: SITE.brand },
+  offers: PLANS.map((p) => ({
+    "@type": "Offer",
+    name: `${p.name} IPTV subscription`,
+    price: String(p.price),
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: `${SITE.domain}/pricing`,
+  })),
+};
+
 export default function PricingPage() {
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <Script id="pricing-view" strategy="afterInteractive">
         {`(function(){try{
           var ev = { event:'plan_view', source:'pricing-page', label:'pricing-list', ts: Date.now(), path:'/pricing' };
@@ -103,7 +128,7 @@ export default function PricingPage() {
             <li>✓ 120,000+ movies and series on demand (VOD)</li>
             <li>✓ Full EPG (Electronic Programme Guide) — 7 days forward</li>
             <li>✓ 7-day catch-up TV on major channels</li>
-            <li>✓ Anti-freeze servers — 99.9% uptime SLA</li>
+            <li>✓ 24h free trial before you pay — test reliability yourself</li>
             <li>✓ Compatible with Firestick, Smart TV, Android TV, iOS, MAG, PC, Mac</li>
             <li>✓ Supports IPTV Smarters Pro, TiviMate, IBO Player, Smart IPTV, XCIPTV</li>
             <li>✓ Up to 3 connected devices (12-month plan)</li>

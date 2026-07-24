@@ -41,3 +41,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# Sales and event data — customer records never belong in Git.
+.company/data/sales/
+.company/data/revenue/
+outbox/

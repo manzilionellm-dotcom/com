@@ -3,15 +3,17 @@ export const SITE = {
   domain: "https://bestiptv-vip.com",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "447307410512",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "support@bestiptv-vip.com",
-  reviewCount: 12847,
-  ratingValue: 4.9,
+  // reviewCount / ratingValue removed: no auditable review source exists, and
+  // publishing invented ratings breaks Google's structured-data policy.
   channelsCount: 22000,
   vodCount: 120000,
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "",
   metaPixel: process.env.NEXT_PUBLIC_META_PIXEL_ID || "",
 } as const;
 
-export const LOCALES = ["en", "fr", "ar", "es", "de"] as const;
+// Locales the homepage switcher actually renders. Server-rendered HTML is
+// English only, so these produce no separate URLs and no hreflang cluster.
+export const LOCALES = ["en", "fr", "ar"] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const DEVICE_SLUGS = [

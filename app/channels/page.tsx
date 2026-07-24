@@ -6,9 +6,9 @@ import { COUNTRY_PAGES } from "../../lib/content/countries";
 import { SITE, COUNTRY_SLUGS } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "All Channels — 22,000+ Live IPTV Channels Worldwide",
+  title: "All Channels — 22,000+ Live IPTV Channels",
   description:
-    "Browse Best IPTV VIP's complete catalog of 22,000+ live channels — USA, UK, France, Germany, Spain, Arabic, Turkish, Indian, African. Sports, news, movies, kids — all in 4K UHD.",
+    "Browse our full catalog of 22,000+ live channels — USA, UK, France, Germany, Spain, Arabic, Turkish, Indian and African. Sports, news, movies and kids in 4K UHD.",
   alternates: { canonical: `${SITE.domain}/channels` },
 };
 

@@ -52,12 +52,6 @@ export async function POST(req: Request) {
     }
   }
 
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    req.headers.get("x-real-ip") ||
-    "unknown";
-  const ua = req.headers.get("user-agent") || "unknown";
-
   const lead = {
     type: "lead",
     intent,
@@ -69,14 +63,25 @@ export async function POST(req: Request) {
     note,
     page,
     utm,
-    ip,
-    ua,
     ts: new Date().toISOString(),
   };
 
-  // Structured log so it can be picked up by Vercel/Cloudflare log drains and
-  // forwarded to a CRM. Replace with direct CRM webhook if/when configured.
-  console.log("[lead]", JSON.stringify(lead));
+  // The lead body holds the contact details the visitor gave us, so it goes to
+  // the CRM webhook and nowhere else. Application logs get a PII-free trace
+  // only: no name, no contact, no note, no IP, no user-agent.
+  console.log(
+    "[lead]",
+    JSON.stringify({
+      type: "lead",
+      intent,
+      source,
+      page,
+      contact_kind: EMAIL_RE.test(contact) ? "email" : "phone",
+      has_name: Boolean(name),
+      utm_source: utm.utm_source,
+      ts: lead.ts,
+    }),
+  );
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
   if (webhook) {

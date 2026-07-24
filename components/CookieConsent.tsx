@@ -12,14 +12,15 @@ export default function CookieConsent() {
     } catch {}
   }, []);
 
-  function accept() {
-    try { localStorage.setItem("cookie-consent", "accepted"); } catch {}
+  // ConsentedAnalytics listens for this so the tags mount on acceptance
+  // without a reload — and, just as importantly, never before it.
+  function record(choice: "accepted" | "rejected") {
+    try { localStorage.setItem("cookie-consent", choice); } catch {}
+    try { window.dispatchEvent(new Event("cookie-consent-change")); } catch {}
     setOpen(false);
   }
-  function reject() {
-    try { localStorage.setItem("cookie-consent", "rejected"); } catch {}
-    setOpen(false);
-  }
+  const accept = () => record("accepted");
+  const reject = () => record("rejected");
 
   if (!open) return null;
   return (

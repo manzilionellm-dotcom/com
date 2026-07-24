@@ -1,5 +1,5 @@
 /* Best IPTV VIP — Service Worker (PWA) */
-const CACHE = "bestiptv-vip-v4";
+const CACHE = "bestiptv-vip-v5";
 const PRECACHE = ["/", "/manifest.json", "/favicon.ico"];
 
 self.addEventListener("install", (event) => {

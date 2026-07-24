@@ -22,7 +22,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇸🇦",
     hero: "Best Arabic IPTV — MBC, beIN, OSN, Rotana, Al Jazeera in 4K",
     description:
-      "Premium Arabic IPTV with 3,500+ MENA channels — MBC, beIN Sports 4K, OSN, Rotana, Al Jazeera, Saudi 1, Dubai TV, Abu Dhabi, Nile Drama, Iqraa. Full Khaleeji, Levant, Egyptian, Maghreb coverage with EPG.",
+      "Premium Arabic IPTV with 3,500+ MENA channels — MBC, beIN Sports 4K, OSN, Rotana, Al Jazeera, Dubai TV and Abu Dhabi, with full Arabic EPG and 7-day catch-up.",
     channelsHero: ["MBC 1 HD", "MBC 2 HD", "MBC Drama", "MBC Action", "MBC Max", "MBC Bollywood"],
     sportsChannels: ["beIN Sports 1 4K", "beIN Sports 2 4K", "beIN Sports MAX", "Abu Dhabi Sports", "Dubai Sports", "Saudi Sports", "Al Kass HD"],
     newsChannels: ["Al Jazeera HD", "Al Jazeera English", "Al Arabiya HD", "Sky News Arabia", "BBC Arabic", "France 24 Arabic", "Al Hadath"],
@@ -41,7 +41,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇺🇸",
     hero: "Best English IPTV — ESPN, NFL, Sky Sports, HBO, BBC, FOX",
     description:
-      "Premium USA and UK IPTV with 4,000+ English channels — ESPN, NFL Network, NBA TV, Sky Sports, BT Sport 4K, HBO Max, BBC One HD, ITV HD, CBS, NBC, FOX, ABC. Includes full EPG and 7-day catch-up.",
+      "Premium USA and UK IPTV with 4,000+ English channels — ESPN, NFL Network, NBA TV, Sky Sports, BT Sport 4K, HBO, BBC One HD and ITV HD, with full EPG and catch-up.",
     channelsHero: ["ESPN HD", "Sky Sports Main Event 4K", "BBC One HD", "HBO Max", "Netflix US Mirror", "Disney+"],
     sportsChannels: ["ESPN", "ESPN 2", "NFL Network", "NBA TV", "MLB Network", "FOX Sports 1", "Sky Sports Premier League", "BT Sport 4K", "TNT Sports UK", "TSN Canada"],
     newsChannels: ["CNN", "Fox News", "MSNBC", "BBC News", "Sky News UK", "CNBC", "Bloomberg"],
@@ -60,7 +60,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇫🇷",
     hero: "Meilleur IPTV Français — Canal+, beIN, RMC Sport, TF1",
     description:
-      "IPTV français premium avec 2,500+ chaînes — Canal+ 4K, Canal+ Sport, beIN Sports, RMC Sport, TF1, M6, France 2/3/4/5, OCS, RMC Story, BFM TV. EPG complet et replay 7 jours.",
+      "IPTV français premium avec 2,500+ chaînes — Canal+ 4K, Canal+ Sport, beIN Sports, RMC Sport, TF1, M6, France 2/3/4/5, OCS et BFM TV. EPG complet et replay 7 jours.",
     channelsHero: ["Canal+ 4K", "TF1 HD", "France 2 HD", "M6 HD", "beIN Sports 1", "RMC Sport 1"],
     sportsChannels: ["Canal+ Sport", "beIN Sports 1/2/3", "RMC Sport 1/2/3/4", "L'Équipe", "Eurosport 1/2", "Multisports"],
     newsChannels: ["BFM TV", "CNEWS", "LCI", "France Info", "TV5 Monde"],
@@ -79,7 +79,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇪🇸",
     hero: "Mejor IPTV Español — LaLiga, Movistar, DAZN, TVE",
     description:
-      "IPTV español premium con 2,000+ canales — LaLiga TV, Movistar+, DAZN España, TVE 1, Antena 3, Telecinco, Cuatro, Univision, Telemundo. Cobertura completa España y LATAM.",
+      "IPTV español premium con 2,000+ canales — LaLiga TV, Movistar+, DAZN España, TVE 1, Antena 3, Telecinco, Univision, Telemundo. Cobertura completa España y LATAM.",
     channelsHero: ["LaLiga TV 4K", "Movistar+ Liga", "DAZN ES", "TVE 1 HD", "Antena 3 HD", "Telecinco HD"],
     sportsChannels: ["LaLiga TV", "Movistar Liga de Campeones", "DAZN La Liga", "DAZN F1", "Movistar Deportes", "Eurosport ES"],
     newsChannels: ["TVE 24h", "Antena 3 Noticias", "La Sexta Noticias", "TeleSur", "CNN Español"],
@@ -97,7 +97,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇹🇷",
     hero: "En İyi Türk IPTV — beIN Sports, TRT, Show TV, Kanal D",
     description:
-      "Premium Türk IPTV — 1,500+ kanal: TRT 1 HD, Show TV, Kanal D, Star TV, ATV, FOX Türkiye, beIN Sports Türkiye, A Spor. Tüm Süper Lig, Avrupa Kupası, Türk dizileri ve filmleri.",
+      "Premium Türk IPTV — 1,500+ kanal: TRT 1 HD, Show TV, Kanal D, Star TV, ATV, beIN Sports Türkiye, A Spor. Tüm Süper Lig, Avrupa Kupası, Türk dizileri ve filmleri.",
     channelsHero: ["TRT 1 HD", "Show TV", "Kanal D", "Star TV", "ATV", "beIN Sports 1 TR"],
     sportsChannels: ["beIN Sports 1/2/3/4 TR", "S Sport", "A Spor", "TRT Spor", "Tivibu Spor"],
     newsChannels: ["TRT Haber", "CNN Türk", "NTV", "Haber Türk", "A Haber"],
@@ -115,7 +115,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇮🇳",
     hero: "Best Indian IPTV — Star, Sony, Zee, Colors, Hotstar",
     description:
-      "Premium Indian IPTV with 2,500+ channels — Star Plus HD, Sony Entertainment, Zee TV, Colors, Star Sports, Aaj Tak. Hindi, Tamil, Telugu, Punjabi, Bengali, Malayalam content with Bollywood VOD.",
+      "Premium Indian IPTV with 2,500+ channels — Star Plus HD, Sony, Zee TV, Colors, Star Sports and Aaj Tak, plus Hindi, Tamil, Telugu and Punjabi Bollywood VOD.",
     channelsHero: ["Star Plus HD", "Sony Entertainment HD", "Zee TV HD", "Colors HD", "Star Sports 1 HD", "Sony SAB"],
     sportsChannels: ["Star Sports 1/2/3 HD", "Sony Six", "Sony Ten 1/2/3", "DSport", "Eurosport India"],
     newsChannels: ["Aaj Tak", "NDTV 24x7", "Times Now", "Republic TV", "India Today"],
@@ -133,7 +133,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇩🇪",
     hero: "Bestes IPTV Deutschland — Sky Bundesliga, DAZN, ZDF, RTL",
     description:
-      "Premium IPTV Deutschland — 1,800+ Sender: ZDF HD, ARD HD, RTL, Pro7, Sat.1, Sky Bundesliga, Sky Sport, DAZN, Sport1. Volle Bundesliga, Champions League, DFB-Pokal Abdeckung.",
+      "Premium IPTV Deutschland — 1,800+ Sender: ZDF HD, ARD HD, RTL, Pro7, Sat.1, Sky Bundesliga, DAZN, Sport1. Volle Bundesliga, Champions League, DFB-Pokal Abdeckung.",
     channelsHero: ["ZDF HD", "ARD HD", "RTL HD", "Pro7 HD", "Sat.1 HD", "Sky Bundesliga 4K"],
     sportsChannels: ["Sky Bundesliga 1-10", "Sky Sport News", "DAZN 1/2", "Sport1", "Eurosport 1/2 DE"],
     newsChannels: ["ZDF Heute", "Tagesschau 24", "N-TV", "Welt", "Phoenix"],
@@ -151,7 +151,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🌍",
     hero: "Best African IPTV — Canal+ Afrique, SuperSport, RTS, NTA",
     description:
-      "Premium African IPTV with 1,200+ channels covering francophone and anglophone Africa — Canal+ Afrique, SuperSport, RTS Sénégal, TFM, AFROTV, NTA Nigeria, Nollywood TV, Africa 24, TV5 Afrique.",
+      "Premium African IPTV with 1,200+ channels for francophone and anglophone Africa — Canal+ Afrique, SuperSport, RTS Sénégal, TFM, NTA Nigeria and Nollywood TV.",
     channelsHero: ["Canal+ Afrique", "SuperSport Premier League", "RTS 1 Sénégal", "TFM Sénégal", "AFROTV", "NTA Nigeria"],
     sportsChannels: ["SuperSport 1/2/3", "Canal+ Sport Afrique", "beIN Sports Afrique", "Eurosport Africa"],
     newsChannels: ["Africa 24", "Africanews", "TV5 Monde Afrique", "France 24", "BBC Africa", "CGTN Africa"],

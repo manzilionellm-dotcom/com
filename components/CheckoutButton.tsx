@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { track } from "../lib/analytics";
 import { readUTMFlat } from "../lib/utm";
+import { getRefId } from "../lib/ref";
 
 type Props = {
   planKey: string;
@@ -34,7 +35,7 @@ export default function CheckoutButton({ planKey, planLabel, planValue, classNam
       const res = await fetch("/api/checkout/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan: planKey, utm }),
+        body: JSON.stringify({ plan: planKey, utm, ref_id: getRefId() }),
       });
       const data = (await res.json()) as { checkoutUrl?: string; error?: string };
       if (!res.ok || !data.checkoutUrl) {

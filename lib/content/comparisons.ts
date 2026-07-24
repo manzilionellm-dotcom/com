@@ -32,7 +32,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     competitor: "Cable TV",
     competitorShort: "Cable",
     h1: "IPTV vs Cable TV — Honest 2026 Comparison",
-    metaTitle: "IPTV vs Cable TV (2026) — Save $1,500/year? Honest Comparison",
+    metaTitle: "IPTV vs Cable TV (2026) — Honest Comparison",
     metaDescription:
       "IPTV vs cable TV in 2026: price, channel count, 4K quality, sports coverage and support. See where IPTV wins and where cable still has the edge.",
     answer:
@@ -117,7 +117,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     competitor: "Netflix",
     competitorShort: "Netflix",
     h1: "IPTV vs Netflix — Which One Should You Pay For?",
-    metaTitle: "IPTV vs Netflix (2026) — Live TV + VOD vs On-Demand-Only",
+    metaTitle: "IPTV vs Netflix (2026) — Live TV vs On-Demand",
     metaDescription:
       "Netflix is on-demand only. IPTV gives you 22,000+ live channels plus 120,000+ movies and series. Honest comparison: price, content, quality, sports.",
     answer:
@@ -276,7 +276,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     h1: "IPTV vs Sling TV — Worldwide Live TV Compared",
     metaTitle: "IPTV vs Sling TV (2026) — Channels, Price, Sports",
     metaDescription:
-      "Sling TV is US-only at $40+/month for ~50 channels. IPTV gives 22,000+ worldwide channels in 4K from $10/month. Honest 2026 comparison.",
+      "Sling TV is US-only at $40+/month for ~50 channels. IPTV gives 22,000+ worldwide channels in 4K from $10/month. Honest 2026 comparison of price, DVR and sports.",
     answer:
       "Sling TV is a US-only live-TV streamer at $40–$60/month for Sling Orange + Blue (~50 channels). Best IPTV VIP costs $5–$10/month, covers 22,000+ channels worldwide including the same US networks Sling carries, all major sports leagues in 4K, plus international content and a 120,000-title VOD library. For US-only news/sports Sling is convenient; for everything else IPTV wins on price and breadth.",
     verdict: [
@@ -352,7 +352,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     h1: "IPTV vs YouTube TV — 2026 Cord-Cutter Comparison",
     metaTitle: "IPTV vs YouTube TV (2026) — Price, Channels, 4K",
     metaDescription:
-      "YouTube TV costs $82.99/month for ~100 US channels. IPTV covers 22,000+ channels worldwide from $10/month. Side-by-side comparison.",
+      "YouTube TV costs $82.99/month for ~100 US channels. IPTV covers 22,000+ channels worldwide from $10/month. Side-by-side 2026 comparison of price, 4K and DVR.",
     answer:
       "YouTube TV is Google's US cord-cutter at $82.99/month for ~100 channels, with unlimited cloud DVR and family sharing. Best IPTV VIP is $5–$10/month for 22,000+ channels worldwide including the same US networks, plus international, sports and a 120,000-title VOD library. YouTube TV wins on polish and unlimited DVR; IPTV wins by ~$70/month and on global breadth.",
     verdict: [

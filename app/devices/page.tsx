@@ -8,7 +8,7 @@ import { SITE, DEVICE_SLUGS } from "../../lib/site";
 export const metadata: Metadata = {
   title: "Compatible Devices — Install IPTV on Any Device",
   description:
-    "Best IPTV VIP works on every device — Firestick, Smart TV (Samsung, LG, Sony), Android TV, iPhone, iPad, Apple TV, MAG box, PC, Mac, Linux. Step-by-step guides for each.",
+    "Best IPTV VIP works on every device — Firestick, Smart TV (Samsung, LG, Sony), Android TV, iPhone, Apple TV, MAG box, PC, Mac, Linux. Step-by-step guides for each.",
   alternates: { canonical: `${SITE.domain}/devices` },
 };
 

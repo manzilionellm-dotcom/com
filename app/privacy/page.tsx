@@ -5,7 +5,8 @@ import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Best IPTV VIP privacy policy — what data we collect, how we use it, GDPR rights, contact for data requests.",
+  description:
+    "Best IPTV VIP privacy policy — what personal data we collect, how we use and store it, cookies, your GDPR rights, and how to contact us with a data request.",
   alternates: { canonical: `${SITE.domain}/privacy` },
 };
 

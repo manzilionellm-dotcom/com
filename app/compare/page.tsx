@@ -6,7 +6,7 @@ import { COMPARISONS, COMPARE_SLUGS } from "../../lib/content/comparisons";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "IPTV Comparisons — vs Cable, Netflix, Disney+, Sling, YouTube TV",
+  title: "IPTV Comparisons — Cable, Netflix, Disney+",
   description:
     "Compare Best IPTV VIP head-to-head against cable TV, Netflix, Disney+, Sling TV and YouTube TV. Price, channels, 4K coverage, sports, support — honest 2026 verdicts.",
   alternates: { canonical: `${SITE.domain}/compare` },
