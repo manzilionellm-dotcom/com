@@ -51,7 +51,10 @@ WhatsApp + Cryptomus conversion, USD.
       zero pages matching the fabricated-claim patterns, max title length 65, zero
       pages repeating the brand in the title. No secret in the repo or in `.company/`.
 - [x] **Delivery** — committed to `claude/usine-v10-iptv-setup-h1sp35` and pushed;
-      opened as a PR against `main`. No direct push to `main`, no force push.
+      opened as PR #5 against `main`; the `verify` job (type-check, gate self-test,
+      build, publication gates) is green on 8bdda41. No direct push to `main`, no
+      force push. The first CI run failed in setup because the workflow pinned a pnpm
+      version that package.json already pinned; fixed by removing the duplicate pin.
 
 ## Carried forward
 
