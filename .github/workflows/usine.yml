@@ -17,9 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # No `version` input: package.json already pins pnpm through
+      # `packageManager`, and specifying both makes the action refuse to run.
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10.6.2
 
       - uses: actions/setup-node@v4
         with:
