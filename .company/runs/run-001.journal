@@ -42,10 +42,16 @@ WhatsApp + Cryptomus conversion, USD.
       source. Under the zero-fabrication rule the pass was deferred rather than filled
       with plausible-looking data: `.company/intel/*` state plainly that they hold no
       data and specify the evidence required. Queued as `BL-001` and roadmap item 1.
-- [ ] **T9 — pre-publication gate** — all three gates run to exit 0; no indexed URL
-      removed (removals were head-tag and JSON-LD only, no route deleted, so no 301 was
-      required); no secret in the repo or in `.company/`.
-- [ ] **Delivery** — shipped by PR against `main`; no direct push, no force push.
+- [x] **T9 — pre-publication gate** — verified on the final tree: `pnpm type-check`
+      exit 0, `node scripts/qa-gates.mjs --self-test` exit 0, `pnpm build` exit 0,
+      `node scripts/qa-gates.mjs` exit 0 across 37 pages with 0 failures and 0 warnings.
+      Route count 37 before and 37 after, so no indexed URL was removed and no 301 was
+      required (the removals were head tags and JSON-LD, never a route). Built-HTML
+      checks: exactly one canonical per page pointing at itself, zero hreflang tags,
+      zero pages matching the fabricated-claim patterns, max title length 65, zero
+      pages repeating the brand in the title. No secret in the repo or in `.company/`.
+- [x] **Delivery** — committed to `claude/usine-v10-iptv-setup-h1sp35` and pushed;
+      opened as a PR against `main`. No direct push to `main`, no force push.
 
 ## Carried forward
 

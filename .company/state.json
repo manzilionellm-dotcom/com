@@ -1,7 +1,58 @@
 {
   "schema_version": 1,
-  "applied_optimizations": [],
+  "applied_optimizations": [
+    "canonical:remove-hardcoded-layout-link",
+    "hreflang:remove-lang-query-alternates",
+    "schema:move-product-faq-breadcrumb-to-owning-pages",
+    "trust:remove-aggregate-rating-and-testimonials",
+    "trust:rewrite-status-page-without-invented-uptime",
+    "title:remove-double-brand-suffix",
+    "title:bring-all-titles-under-65-chars",
+    "meta:bring-descriptions-into-140-165-band",
+    "privacy:stop-logging-ip-ua-contact-email",
+    "privacy:gate-ga4-and-pixel-behind-consent",
+    "privacy:consent-gate-attribution-storage",
+    "measure:first-party-event-endpoint-with-bot-filter",
+    "measure:ref-id-attribution-through-checkout-and-webhook",
+    "measure:sale-ledger-and-revenue-rollup",
+    "content:unify-channel-counts-sitewide"
+  ],
   "experiments": [],
-  "refused_actions": [],
-  "last_run": {}
+  "refused_actions": [
+    {
+      "action": "Publish competitor names, offers and scores in .company/intel/",
+      "reason": "The competitive pass was not run, so no value has a dated source URL. Writing plausible competitor data would be fabrication.",
+      "run": "run-001"
+    },
+    {
+      "action": "Report an indexation rate",
+      "reason": "No Search Console access exists. An estimate presented as a measurement would misdirect every later decision.",
+      "run": "run-001"
+    },
+    {
+      "action": "Keep the review count and star rating in a softened form",
+      "reason": "No auditable review source exists at any value. The fix for an unverifiable number is removal, not a smaller number.",
+      "run": "run-001"
+    },
+    {
+      "action": "Send renewal or follow-up messages automatically",
+      "reason": "Outbound commercial messaging without provable consent risks CASL/GDPR penalties and a WhatsApp Business ban, which would kill the conversion channel. Drafts go to outbox/ for a human to send.",
+      "run": "run-001"
+    }
+  ],
+  "last_run": {
+    "id": "run-001",
+    "date": "2026-07-24",
+    "mode": "T",
+    "result": "GO",
+    "pages_built": 37,
+    "pages_lost": 0,
+    "gates": {
+      "type_check": "exit 0",
+      "qa_gates_self_test": "exit 0",
+      "build": "exit 0",
+      "qa_gates": "exit 0, 37 pages, 0 failures, 0 warnings"
+    },
+    "deferred": ["T-CI competitive intelligence"]
+  }
 }

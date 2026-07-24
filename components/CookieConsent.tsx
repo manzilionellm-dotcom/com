@@ -10,6 +10,11 @@ export default function CookieConsent() {
       const v = localStorage.getItem("cookie-consent");
       if (!v) setOpen(true);
     } catch {}
+    // The footer "Cookie settings" control reopens this so consent can be
+    // withdrawn as easily as it was given.
+    const reopen = () => setOpen(true);
+    window.addEventListener("cookie-consent-open", reopen);
+    return () => window.removeEventListener("cookie-consent-open", reopen);
   }, []);
 
   // ConsentedAnalytics listens for this so the tags mount on acceptance
