@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "qa-gates": "node scripts/qa-gates.mjs",
+    "qa-gates:self-test": "node scripts/qa-gates.mjs --self-test",
+    "verify": "pnpm type-check && pnpm build && node scripts/qa-gates.mjs",
+    "revenue": "node scripts/revenue-rollup.mjs",
+    "sale": "node scripts/sale.mjs"
   },
   "dependencies": {
     "next": "15.3.8",

@@ -1,86 +1,97 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Network Status — 99.9% IPTV Uptime, 12 Servers Worldwide",
+  title: "Service Status & Outage Reporting",
   description:
-    "Live status of Best IPTV VIP servers across Europe, USA, MENA. 99.9% uptime SLA, 10+ Gbps backbone, anti-freeze technology, automatic failover.",
+    "How Best IPTV VIP reports service problems: what we publish, what we do not yet measure automatically, how to report an outage on WhatsApp and what happens next.",
   alternates: { canonical: `${SITE.domain}/status` },
 };
-
-const SERVERS = [
-  { name: "Europe-West (Paris)", region: "🇫🇷 FR", status: "Operational", uptime: "99.98%", load: "42%" },
-  { name: "Europe-North (Amsterdam)", region: "🇳🇱 NL", status: "Operational", uptime: "99.99%", load: "38%" },
-  { name: "Europe-South (Madrid)", region: "🇪🇸 ES", status: "Operational", uptime: "99.97%", load: "51%" },
-  { name: "UK (London)", region: "🇬🇧 UK", status: "Operational", uptime: "99.99%", load: "60%" },
-  { name: "North America-East (NYC)", region: "🇺🇸 US", status: "Operational", uptime: "99.96%", load: "55%" },
-  { name: "North America-West (LA)", region: "🇺🇸 US", status: "Operational", uptime: "99.98%", load: "47%" },
-  { name: "Canada (Toronto)", region: "🇨🇦 CA", status: "Operational", uptime: "99.99%", load: "33%" },
-  { name: "MENA (Dubai)", region: "🇦🇪 AE", status: "Operational", uptime: "99.97%", load: "63%" },
-  { name: "MENA (Riyadh)", region: "🇸🇦 SA", status: "Operational", uptime: "99.95%", load: "58%" },
-  { name: "Turkey (Istanbul)", region: "🇹🇷 TR", status: "Operational", uptime: "99.96%", load: "40%" },
-  { name: "Asia (Singapore)", region: "🇸🇬 SG", status: "Operational", uptime: "99.99%", load: "35%" },
-  { name: "Africa (Lagos)", region: "🇳🇬 NG", status: "Operational", uptime: "99.92%", load: "44%" },
-];
 
 export default function StatusPage() {
   return (
     <PageShell>
-      <Breadcrumbs items={[{ name: "Network Status", href: "/status" }]} />
+      <Breadcrumbs items={[{ name: "Service Status", href: "/status" }]} />
       <article className="article">
-        <div style={{ textAlign: "center", marginBottom: 16 }}>
-          <span className="hero-pill" style={{ background: "rgba(34,197,94,0.1)", borderColor: "rgba(34,197,94,0.4)", color: "var(--green)" }}>
-            ● ALL SYSTEMS OPERATIONAL
-          </span>
-        </div>
         <h1 style={{ textAlign: "center", fontSize: "clamp(1.6rem,5vw,2.4rem)" }}>
-          Network Status — 99.9% Uptime SLA
+          Service status and outage reporting
         </h1>
-        <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 28px" }}>
-          12 dedicated IPTV servers across Europe, USA, MENA, Asia and Africa. 10+ Gbps backbone with anti-freeze HEVC transcoding and automatic failover.
+        <p className="lead" style={{ textAlign: "center", maxWidth: 760, margin: "12px auto 28px" }}>
+          This page tells you exactly how to reach a human when something stops working, and
+          exactly what we do and do not measure. We do not publish an automated live status
+          dashboard yet, so you will not find invented uptime percentages here.
         </p>
 
-        <div className="stats-grid" style={{ marginBottom: 32 }}>
-          <div className="stat"><div className="stat-val" style={{ color: "var(--green)" }}>99.97%</div><div className="stat-lbl">30-day uptime</div></div>
-          <div className="stat"><div className="stat-val">12</div><div className="stat-lbl">Datacenters</div></div>
-          <div className="stat"><div className="stat-val">10+ Gbps</div><div className="stat-lbl">Backbone capacity</div></div>
-          <div className="stat"><div className="stat-val">&lt;50ms</div><div className="stat-lbl">Average latency</div></div>
+        <section className="section">
+          <h2>What we publish today</h2>
+          <p>
+            Streaming quality depends on three separate things: our delivery servers, the route
+            between them and your internet provider, and your own device and connection. A single
+            site-wide green badge would hide which of the three is actually
+            failing on your line, so instead of a synthetic green light we give you a direct
+            reporting channel and a diagnosis path. A single green badge would tell you nothing
+            useful at the moment your stream freezes.
+          </p>
+          <p>
+            Automated per-region monitoring with a public history is on our roadmap. Until the
+            monitoring is real and independently recorded, we publish no uptime figure, no
+            datacenter count and no latency number. If you see those numbers quoted anywhere about
+            this service, they did not come from a measurement.
+          </p>
+        </section>
+
+        <section className="section">
+          <h2>Report a problem — what to send</h2>
+          <p>
+            Message support on WhatsApp with these four details. They cut diagnosis time
+            dramatically, because they separate a delivery problem from a local one:
+          </p>
+          <ul>
+            <li>The exact channel or title that fails, and the time it failed.</li>
+            <li>Your device and app (for example Firestick with TiviMate, or Samsung Smart TV).</li>
+            <li>Whether other channels play normally at the same moment.</li>
+            <li>Whether the problem persists on mobile data instead of Wi-Fi.</li>
+          </ul>
+          <p>
+            If the last point fixes it, the issue is on your local network rather than the stream,
+            and our{" "}
+            <Link href="/blog/how-to-fix-iptv-buffering">buffering troubleshooting guide</Link>{" "}
+            usually resolves it faster than waiting for a reply.
+          </p>
+        </section>
+
+        <section className="section">
+          <h2>What happens after you report</h2>
+          <p>
+            Support answers in the same WhatsApp conversation you ordered from. If the fault is on
+            our side and we cannot fix it, our{" "}
+            <Link href="/refund">24-hour money-back guarantee</Link> applies as written — it is a
+            policy you can read in full, not a slogan. If the fault is on your device, we walk
+            through the fix step by step using the{" "}
+            <Link href="/guides/firestick">device setup guides</Link>.
+          </p>
+          <p>
+            Not a customer yet and want to test reliability before paying? Take the{" "}
+            <Link href="/free-trial">24-hour free trial</Link> and watch the channels you actually
+            care about, at the hours you actually watch them. That is a better reliability test
+            than any status page.
+          </p>
+        </section>
+
+        <div style={{ textAlign: "center", marginTop: 28 }}>
+          <WhatsAppCTA
+            source="status-report"
+            message="Hi! I want to report a problem with my IPTV service."
+            className="btn btn-green"
+            event="cta_click"
+          >
+            Report a problem on WhatsApp
+          </WhatsAppCTA>
         </div>
-
-        <section className="section">
-          <h2>Server status</h2>
-          <div className="compare-wrap">
-            <table className="compare-table">
-              <thead>
-                <tr>
-                  <th>Server</th>
-                  <th>Region</th>
-                  <th>Status</th>
-                  <th>30d Uptime</th>
-                  <th>Load</th>
-                </tr>
-              </thead>
-              <tbody>
-                {SERVERS.map((s) => (
-                  <tr key={s.name}>
-                    <td>{s.name}</td>
-                    <td>{s.region}</td>
-                    <td style={{ color: "var(--green)" }}>● {s.status}</td>
-                    <td>{s.uptime}</td>
-                    <td>{s.load}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className="section">
-          <h2>Recent incidents</h2>
-          <p style={{ color: "var(--muted)", fontSize: 14 }}>No incidents in the last 30 days. Last maintenance window: 2026-04-02, 03:00-04:00 UTC (Europe-West).</p>
-        </section>
       </article>
     </PageShell>
   );

@@ -1,0 +1,43 @@
+name: usine
+
+# One pipeline at a time: two concurrent runs would race on the deploy marker
+# check and could report a rollback as green.
+concurrency:
+  group: usine-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # No `version` input: package.json already pins pnpm through
+      # `packageManager`, and specifying both makes the action refuse to run.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Gate self-test
+        # Verifies the gates still detect what they claim to detect. A gate that
+        # silently stops matching is worse than no gate at all.
+        run: node scripts/qa-gates.mjs --self-test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Publication gates
+        run: node scripts/qa-gates.mjs

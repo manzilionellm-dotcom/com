@@ -28,6 +28,45 @@ type StoredAttribution = {
   expires_at: number;
 };
 
+/**
+ * Attribution is written to localStorage only after the visitor has accepted
+ * optional storage. Without consent it stays in memory for the page session:
+ * under ePrivacy, marketing attribution is not "strictly necessary" storage,
+ * and this site serves EU visitors.
+ */
+function hasStorageConsent(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem("cookie-consent") === "accepted";
+  } catch {
+    return false;
+  }
+}
+
+let memoryAttribution: StoredAttribution | null = null;
+
+function persist(record: StoredAttribution): void {
+  memoryAttribution = record;
+  if (!hasStorageConsent()) return;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+  } catch {}
+}
+
+function readStored(): StoredAttribution | null {
+  if (memoryAttribution && memoryAttribution.expires_at > Date.now()) return memoryAttribution;
+  if (!hasStorageConsent()) return null;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as StoredAttribution;
+    if (!parsed || parsed.expires_at < Date.now()) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
 export function captureFromLocation(): void {
   if (typeof window === "undefined") return;
   try {
@@ -39,14 +78,7 @@ export function captureFromLocation(): void {
     }
     const hasIncoming = Object.keys(incoming).length > 0;
 
-    let existing: StoredAttribution | null = null;
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as StoredAttribution;
-        if (parsed && parsed.expires_at > Date.now()) existing = parsed;
-      }
-    } catch {}
+    const existing = readStored();
 
     // First-touch attribution: only overwrite when we receive new params
     if (hasIncoming) {
@@ -57,7 +89,7 @@ export function captureFromLocation(): void {
         referrer: document.referrer || undefined,
         expires_at: Date.now() + TTL_MS,
       };
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+      persist(record);
     } else if (!existing) {
       // No params, no record yet — still capture landing page + referrer
       const record: StoredAttribution = {
@@ -67,7 +99,7 @@ export function captureFromLocation(): void {
         referrer: document.referrer || undefined,
         expires_at: Date.now() + TTL_MS,
       };
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+      persist(record);
     }
 
     // Per-session landing page (always overwrite if missing for current session)
@@ -88,15 +120,7 @@ export function captureFromLocation(): void {
 
 export function readAttribution(): StoredAttribution | null {
   if (typeof window === "undefined") return null;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as StoredAttribution;
-    if (!parsed || parsed.expires_at < Date.now()) return null;
-    return parsed;
-  } catch {
-    return null;
-  }
+  return readStored();
 }
 
 export function readUTMFlat(): Record<string, string> {

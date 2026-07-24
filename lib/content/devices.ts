@@ -20,7 +20,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     emoji: "🔥",
     hero: "Install IPTV on Amazon Firestick in under 5 minutes",
     description:
-      "Step-by-step guide to install Best IPTV VIP on your Amazon Firestick (4K Max, Lite, Cube) using IPTV Smarters Pro, TiviMate or Downloader. Watch 22,000+ live channels and 120,000+ movies in 4K UHD without buffering.",
+      "Step-by-step guide to install Best IPTV VIP on your Amazon Firestick (4K Max, Lite, Cube) with IPTV Smarters Pro or TiviMate. Watch 22,000+ live channels in 4K UHD.",
     apps: ["IPTV Smarters Pro", "TiviMate", "XCIPTV", "IBO Player Pro"],
     steps: [
       {
@@ -62,7 +62,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     emoji: "📺",
     hero: "Install IPTV on Smart TV (Samsung, LG, Sony, Hisense)",
     description:
-      "Install Best IPTV VIP on Samsung Tizen, LG webOS, Android TV (Sony, Hisense, TCL, Philips) using Smart IPTV, SS IPTV or IBO Player Pro. Get 22,000+ channels in 4K UHD with full EPG.",
+      "Install Best IPTV VIP on Samsung Tizen, LG webOS and Android TV (Sony, Hisense, TCL) using Smart IPTV or IBO Player Pro. Get 22,000+ channels in 4K UHD with EPG.",
     apps: ["Smart IPTV (SIPTV)", "IBO Player Pro", "SS IPTV", "Set IPTV"],
     steps: [
       {
@@ -100,7 +100,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     emoji: "🤖",
     hero: "Install IPTV on Android TV, NVIDIA Shield, Xiaomi Mi Box",
     description:
-      "Complete guide to install Best IPTV VIP on Android TV boxes (NVIDIA Shield, Xiaomi Mi Box, Chromecast with Google TV, Onn 4K Pro) using TiviMate Premium or IPTV Smarters Pro.",
+      "Complete guide to install Best IPTV VIP on Android TV boxes (NVIDIA Shield, Xiaomi Mi Box, Chromecast with Google TV) using TiviMate Premium or IPTV Smarters Pro.",
     apps: ["TiviMate Premium", "IPTV Smarters Pro", "XCIPTV", "OTT Navigator"],
     steps: [
       {

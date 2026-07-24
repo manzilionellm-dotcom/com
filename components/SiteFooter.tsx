@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsLink from "./CookieSettingsLink";
 import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS } from "../lib/site";
 
 const deviceLabel: Record<string, string> = {
@@ -78,6 +79,8 @@ export default function SiteFooter() {
             <li><Link href="/privacy">Privacy Policy</Link></li>
             <li><Link href="/terms">Terms of Service</Link></li>
             <li><Link href="/refund">Refund Policy</Link></li>
+            <li><Link href="/status">Service Status</Link></li>
+            <li><CookieSettingsLink /></li>
           </ul>
         </div>
       </div>

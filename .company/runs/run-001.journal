@@ -1,0 +1,63 @@
+# run-001 — 2026-07-24 — bestiptv-vip.com
+
+Baseline run: truthfulness cleanup, SEO hygiene, measurement foundations, and creation
+of the `.company/` memory. Site: Next.js 15 App Router, 37 pages, English SSR only,
+WhatsApp + Cryptomus conversion, USD.
+
+## Phases
+
+- [x] **Recon / baseline** — inventoried the tree before touching anything: 37 pages,
+      `lib/site.ts` as the site config, `app/layout.tsx` as the source of the global head,
+      `.env.example` for identity and keys. Recorded title lengths (30 over 60 chars),
+      meta description lengths (27 outside 150–160), thin pages (`/compare` 267 words,
+      `/devices` 283, `/status` 296, `/contact` 294), and the absence of any search
+      console. No edit was made before this report existed.
+- [x] **Bootstrap (memory + gates + CI)** — created `.company/` (`meta.json`,
+      `state.json`, `assumptions.md`, `decisions.md`, `roadmap.md`, `backlog.json`,
+      `intel/`, `runs/`) and `CLAUDE.md`. Gates wired: `pnpm build`, `pnpm type-check`,
+      `node scripts/qa-gates.mjs` (SEO/trust gates, non-zero on failure) in CI.
+- [x] **T1 — hreflang truthfulness** — removed the five `?lang=xx` alternates. They
+      pointed at URLs serving identical English HTML: an invalid cluster advertising a
+      multilingual site that does not exist. See `decisions.md` D-001.
+- [x] **T3 — canonical de-duplication** — removed the hard-coded `<link rel="canonical">`
+      from the root layout, which emitted a second homepage-pointing canonical on all 37
+      pages, conflicting with each page's own. See D-002.
+- [x] **T5 — schema hygiene** — removed global `Product` / `FAQPage` / `BreadcrumbList`
+      JSON-LD from the root layout. Schema must describe the page it is on; these
+      appeared on `/privacy`, `/terms` and everywhere else, and duplicated correct
+      per-page blocks. See D-003.
+- [x] **T6 / T8 — removal of unverifiable claims** — removed `AggregateRating`
+      (4.9 / 12,847), three named testimonials, and the invented 12-server uptime table.
+      Untraceable to any source; fake reviews breach Google's structured-data policy and
+      consumer-protection law. Removed, not softened. See D-004 and `assumptions.md`
+      A-006. `channelsCount` / `vodCount` remain flagged as `BL-014`.
+- [x] **MODULE S — measurement foundations** — first-party event endpoint (`/api/e`) with
+      server-side bot filtering and a no-PII payload; random `ref_id` attribution carried
+      in the URL/session into the WhatsApp prefill, with no cookie or `localStorage`
+      write before consent; legitimate interest as legal basis; 13-month retention; IP
+      never stored. Qualified visitor defined in `meta.json` as a non-bot session with
+      ≥1 page view over 10 seconds. See D-005, D-006, D-007.
+- [ ] **T-CI — competitive intelligence** — **DEFERRED.** Outbound SERP fetching was out
+      of scope for run-001, so no competitor value could be traced to a real, dated
+      source. Under the zero-fabrication rule the pass was deferred rather than filled
+      with plausible-looking data: `.company/intel/*` state plainly that they hold no
+      data and specify the evidence required. Queued as `BL-001` and roadmap item 1.
+- [x] **T9 — pre-publication gate** — verified on the final tree: `pnpm type-check`
+      exit 0, `node scripts/qa-gates.mjs --self-test` exit 0, `pnpm build` exit 0,
+      `node scripts/qa-gates.mjs` exit 0 across 37 pages with 0 failures and 0 warnings.
+      Route count 37 before and 37 after, so no indexed URL was removed and no 301 was
+      required (the removals were head tags and JSON-LD, never a route). Built-HTML
+      checks: exactly one canonical per page pointing at itself, zero hreflang tags,
+      zero pages matching the fabricated-claim patterns, max title length 65, zero
+      pages repeating the brand in the title. No secret in the repo or in `.company/`.
+- [x] **Delivery** — committed to `claude/usine-v10-iptv-setup-h1sp35` and pushed;
+      opened as PR #5 against `main`; the `verify` job (type-check, gate self-test,
+      build, publication gates) is green on 8bdda41. No direct push to `main`, no
+      force push. The first CI run failed in setup because the workflow pinned a pnpm
+      version that package.json already pinned; fixed by removing the duplicate pin.
+
+## Carried forward
+
+Indexation remains **UNMEASURED** (no Search Console — `BL-002`). Revenue remains
+unmeasurable until the Cryptomus webhook confirms purchases server-side (`BL-003`); until
+then a CTA click is reported as intent, never as a sale.

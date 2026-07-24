@@ -5,7 +5,8 @@ import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Best IPTV VIP terms of service — subscription terms, acceptable use, liability, dispute resolution.",
+  description:
+    "Best IPTV VIP terms of service — subscription and payment terms, free trial rules, acceptable use, liability limits, refunds and dispute resolution.",
   alternates: { canonical: `${SITE.domain}/terms` },
 };
 
@@ -43,7 +44,7 @@ export default function TermsPage() {
         </ul>
 
         <h2>6. Service quality</h2>
-        <p>We strive for 99.9% uptime but cannot guarantee uninterrupted service. Brief outages may occur due to maintenance, ISP issues, or upstream changes. We work to restore service as fast as possible.</p>
+        <p>We work to keep the service continuously available, but we do not promise uninterrupted service and we publish no uptime figure we cannot evidence. Outages may occur due to maintenance, ISP issues, or upstream changes. Report a problem and we restore service as fast as we can.</p>
 
         <h2>7. Compatibility</h2>
         <p>Customer is responsible for ensuring their device, internet speed (minimum 15 Mbps HD, 25 Mbps 4K) and player software are compatible. We provide install guides on {SITE.domain}/guides.</p>

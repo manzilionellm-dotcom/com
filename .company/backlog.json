@@ -1,0 +1,128 @@
+[
+  {
+    "id": "BL-001",
+    "title": "Run the competitive intelligence pass (T-CI)",
+    "why": "No competitor has ever been observed. Positioning, pricing and title formulas are all set blind. Fill .company/intel/concurrents.md and marches.md with sourced, dated values only.",
+    "impact": 5,
+    "effort": 2,
+    "source": "roadmap#1, assumptions A-004",
+    "status": "open"
+  },
+  {
+    "id": "BL-002",
+    "title": "Connect Google Search Console and Bing Webmaster Tools",
+    "why": "Indexation is UNMEASURED: we cannot confirm the 37 pages are indexed, nor detect a de-indexing caused by our own changes. Also the only source of real query data.",
+    "impact": 5,
+    "effort": 1,
+    "source": "roadmap#2, assumptions A-005",
+    "status": "open"
+  },
+  {
+    "id": "BL-003",
+    "title": "Connect the Cryptomus payment webhook so purchases are confirmed server-side",
+    "why": "Until a payment processor confirms the sale server-side, revenue is unmeasurable and every reported conversion is only a click. Unblocks CRO, retention and attribution work.",
+    "impact": 5,
+    "effort": 3,
+    "source": "roadmap#3, CLAUDE.md section 8",
+    "status": "open"
+  },
+  {
+    "id": "BL-004",
+    "title": "Shorten the 30 page titles currently over 60 characters",
+    "why": "Titles past ~60 characters are truncated in SERPs, so the differentiating words are the ones cut. Mechanical fix, sitewide CTR effect, covered by the qa-gates title check.",
+    "impact": 3,
+    "effort": 2,
+    "source": "qa-gates SEO audit run-001",
+    "status": "open"
+  },
+  {
+    "id": "BL-005",
+    "title": "Bring the 27 out-of-band meta descriptions into 150-160 characters",
+    "why": "Descriptions that are too short waste snippet space and too long get truncated mid-sentence. Rewrite to the 150-160 band with the offer and the CTA inside the visible window.",
+    "impact": 3,
+    "effort": 2,
+    "source": "qa-gates SEO audit run-001",
+    "status": "open"
+  },
+  {
+    "id": "BL-006",
+    "title": "Add depth to the four thin pages (/compare 267w, /devices 283w, /status 296w, /contact 294w)",
+    "why": "All four are commercial or trust pages under 300 words, too thin to rank for their own head terms and too thin to answer a pre-purchase objection. Add real, specific content only.",
+    "impact": 4,
+    "effort": 3,
+    "source": "word-count audit run-001",
+    "status": "open"
+  },
+  {
+    "id": "BL-007",
+    "title": "Add internal links from blog posts to the commercial pages",
+    "why": "The five blog posts currently sit as dead ends: no contextual links to /pricing, /free-trial or /devices, so acquired reading traffic never reaches a conversion path and no internal PageRank flows to the money pages.",
+    "impact": 4,
+    "effort": 1,
+    "source": "internal-link audit run-001",
+    "status": "open"
+  },
+  {
+    "id": "BL-008",
+    "title": "Build /faq-before-buying",
+    "why": "High-intent objection queries (legality, refunds, device support, what happens after payment) currently land on thin or unrelated pages. One page answering them ahead of the WhatsApp conversation shortens the operator's work too.",
+    "impact": 4,
+    "effort": 2,
+    "source": "roadmap#5",
+    "status": "open"
+  },
+  {
+    "id": "BL-009",
+    "title": "Build /renewal",
+    "why": "Existing customers have no self-serve renewal path and must open a WhatsApp conversation for a transaction they already intend to complete. Retained revenue is the cheapest revenue on this site.",
+    "impact": 4,
+    "effort": 2,
+    "source": "roadmap#5",
+    "status": "open"
+  },
+  {
+    "id": "BL-010",
+    "title": "Ship one linkable asset: device-compatibility checker or cable-vs-IPTV savings calculator",
+    "why": "Nothing on the site is worth linking to, so off-site authority is static. Pick exactly one and finish it; the calculator may use only published, citable operator prices.",
+    "impact": 4,
+    "effort": 3,
+    "source": "roadmap#4",
+    "status": "open"
+  },
+  {
+    "id": "BL-011",
+    "title": "Draft renewal reminders into outbox/ (draft only, never send)",
+    "why": "Recovers lapsing subscribers without the system ever transmitting a commercial message. Depends on BL-003 for a trustworthy purchase date.",
+    "impact": 3,
+    "effort": 2,
+    "source": "roadmap#7, CLAUDE.md section 6",
+    "status": "open"
+  },
+  {
+    "id": "BL-012",
+    "title": "Routed server-rendered i18n (/fr/, /ar/, /es/, /de/)",
+    "why": "The client-only homepage dictionaries are invisible to crawlers and cannot be advertised via hreflang (see D-001). Gated: build only once a non-English market is confirmed to convert, via BL-002 or operator-confirmed sales.",
+    "impact": 4,
+    "effort": 5,
+    "source": "roadmap#6, decisions D-001",
+    "status": "open"
+  },
+  {
+    "id": "BL-013",
+    "title": "CRO experiment on the pricing page",
+    "why": "Pricing layout has never been tested. Gated on the funnel supplying 200 confirmed conversions per arm; below that the result is noise and acting on it is worse than not testing.",
+    "impact": 3,
+    "effort": 3,
+    "source": "roadmap#8",
+    "status": "open"
+  },
+  {
+    "id": "BL-014",
+    "title": "Trace or remove the remaining unsourced counts in lib/site.ts (channelsCount 22000, vodCount 120000)",
+    "why": "Same class of claim as the removed review count: precise figures with no source in the repo. Either an operator confirms them or they go, per the zero-fabrication rule.",
+    "impact": 3,
+    "effort": 1,
+    "source": "assumptions A-006",
+    "status": "open"
+  }
+]

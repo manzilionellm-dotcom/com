@@ -3,6 +3,8 @@
 // mirrors it to Meta Pixel where there is a canonical equivalent.
 // All client-only. Safe to call from SSR — becomes a no-op.
 
+import { getRefId } from "./ref";
+
 export type FunnelEvent =
   | "page_view"
   | "cta_click"
@@ -83,6 +85,7 @@ export function track(event: FunnelEvent, payload: EventPayload = {}): void {
     event,
     ...utm,
     ...payload,
+    ref_id: getRefId(),
     ts: Date.now(),
     path:
       payload.page ||
@@ -118,15 +121,16 @@ export function track(event: FunnelEvent, payload: EventPayload = {}): void {
     }
   }
 
-  // 4. Server-side mirror (fire-and-forget). Useful for offline-conversion
-  //    pipelines and when ad-blockers strip GA/Pixel beacons.
+  // 4. First-party sink (fire-and-forget). This is the measurement of record:
+  //    it survives ad-blockers, and the server strips anything personal and
+  //    labels bot traffic before the event is stored.
   try {
     const body = JSON.stringify(enriched);
     if (typeof navigator !== "undefined" && "sendBeacon" in navigator) {
       const blob = new Blob([body], { type: "application/json" });
-      navigator.sendBeacon("/api/track", blob);
+      navigator.sendBeacon("/api/e", blob);
     } else {
-      void fetch("/api/track", {
+      void fetch("/api/e", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body,
@@ -148,5 +152,11 @@ export function buildWhatsAppText(message: string, source: string): string {
   if (utm.utm_campaign) tag.push(`camp:${utm.utm_campaign}`);
   if (utm.gclid) tag.push(`g:${utm.gclid}`);
   if (utm.fbclid) tag.push(`fb:${utm.fbclid}`);
-  return `${message} | ${tag.join(" / ")}`;
+
+  // The reference is pre-filled into the message rather than left to the
+  // customer to type. It is what lets a confirmed sale be attributed back to
+  // the page that produced it (scripts/sale.mjs confirm <ref_id> …).
+  const ref = getRefId();
+  const refPart = ref ? ` | Ref: ${ref}` : "";
+  return `${message} | ${tag.join(" / ")}${refPart}`;
 }

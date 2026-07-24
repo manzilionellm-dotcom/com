@@ -6,7 +6,7 @@ import { BLOG_POSTS } from "../../lib/content/blog";
 import { SITE, BLOG_SLUGS } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "IPTV Blog — Best IPTV Guides, News & Reviews 2026",
+  title: "IPTV Blog — Setup Guides, News and Reviews",
   description:
     "Expert IPTV guides, troubleshooting, comparisons and 2026 buyer reviews. How to fix buffering, IPTV vs cable, best 4K setup, IPTV Smarters vs TiviMate and more.",
   alternates: { canonical: `${SITE.domain}/blog` },

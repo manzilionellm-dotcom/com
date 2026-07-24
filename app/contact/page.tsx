@@ -6,7 +6,7 @@ import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — 24/7 IPTV Support via WhatsApp & Email",
+  title: "Contact — 24/7 IPTV Support on WhatsApp",
   description:
     "Need help? Best IPTV VIP support is available 24/7 on WhatsApp and email. Replies in under 10 minutes — installation, billing, channel requests, troubleshooting.",
   alternates: { canonical: `${SITE.domain}/contact` },
