@@ -1,10 +1,11 @@
 export const SITE = {
   brand: "Best IPTV VIP",
   domain: "https://bestiptv-vip.com",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "447307410512",
+  whatsapp:
+    process.env.NEXT_PUBLIC_WHATSAPP_VIP ||
+    process.env.NEXT_PUBLIC_WHATSAPP_PHONE ||
+    "447307410512",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "support@bestiptv-vip.com",
-  reviewCount: 12847,
-  ratingValue: 4.9,
   channelsCount: 22000,
   vodCount: 120000,
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "",
