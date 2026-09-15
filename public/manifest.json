@@ -1,7 +1,7 @@
 {
-  "name": "Best IPTV VIP — #1 Premium Worldwide IPTV",
+  "name": "Best IPTV VIP",
   "short_name": "Best IPTV VIP",
-  "description": "World's #1 premium IPTV — 22,000+ live channels in 4K UHD, sports, movies, series. 24h free trial, WhatsApp support, instant activation.",
+  "description": "Live TV via WhatsApp. 24h trial, no card. Plans from $10/month.",
   "id": "/?source=pwa",
   "start_url": "/?source=pwa",
   "scope": "/",

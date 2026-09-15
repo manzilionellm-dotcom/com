@@ -1,7 +1,13 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 import { SITE } from "../lib/site";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const host = (await headers()).get("host") || "";
+  if (host.includes("vercel.app")) {
+    return { rules: { userAgent: "*", disallow: "/" } };
+  }
+
   return {
     rules: [
       {
@@ -9,19 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/_next/", "/admin"],
       },
-      // Explicitly opt-in AI / answer-engine crawlers so we can be cited.
-      { userAgent: "Googlebot", allow: "/" },
-      { userAgent: "Bingbot", allow: "/" },
-      { userAgent: "GPTBot", allow: "/" },
-      { userAgent: "ChatGPT-User", allow: "/" },
-      { userAgent: "OAI-SearchBot", allow: "/" },
-      { userAgent: "ClaudeBot", allow: "/" },
-      { userAgent: "Claude-Web", allow: "/" },
-      { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Perplexity-User", allow: "/" },
-      { userAgent: "Google-Extended", allow: "/" },
-      { userAgent: "Applebot", allow: "/" },
-      { userAgent: "Applebot-Extended", allow: "/" },
     ],
     sitemap: `${SITE.domain}/sitemap.xml`,
     host: SITE.domain,

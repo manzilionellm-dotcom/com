@@ -42,19 +42,14 @@ export default async function CountryPage({
 
   const productJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: page.hero,
     description: page.description,
-    brand: { "@type": "Brand", name: SITE.brand },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: String(SITE.ratingValue),
-      reviewCount: String(SITE.reviewCount),
-    },
+    provider: { "@type": "Organization", name: SITE.brand },
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
-      lowPrice: "5",
+      lowPrice: "10",
       highPrice: "60",
       offerCount: "4",
     },
