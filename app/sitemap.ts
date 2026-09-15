@@ -42,6 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: alt("/free-trial") },
     },
     {
+      url: `${SITE.domain}/refer`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+      alternates: { languages: alt("/refer") },
+    },
+    {
       url: `${SITE.domain}/channels`,
       lastModified: now,
       changeFrequency: "weekly",

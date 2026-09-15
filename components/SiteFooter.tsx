@@ -49,6 +49,7 @@ export default function SiteFooter() {
           <ul>
             <li><Link href="/pricing">Pricing</Link></li>
             <li><Link href="/free-trial">Free 24h Trial</Link></li>
+            <li><Link href="/refer">Refer a friend</Link></li>
             <li><Link href="/channels">All Channels</Link></li>
             <li><Link href="/devices">Compatible Devices</Link></li>
             <li><Link href="/status">Network Status</Link></li>
