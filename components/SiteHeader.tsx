@@ -30,6 +30,7 @@ export default function SiteHeader() {
           <Link href="/devices">Devices</Link>
           <Link href="/guides/firestick">Guides</Link>
           <Link href="/blog">Blog</Link>
+          <Link href="/refer">Refer</Link>
           <Link href="/contact">Contact</Link>
         </div>
         <a

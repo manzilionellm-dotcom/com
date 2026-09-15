@@ -22,18 +22,17 @@ export type FunnelEvent =
   | "search";
 
 export type EventPayload = {
-  // free-form context — kept flat for analytics ingestion
-  source?: string;        // CTA/component identifier (e.g. "fab", "pricing-p3")
-  label?: string;         // human-readable label
-  value?: number;         // monetary value where relevant
-  currency?: string;      // ISO-4217 when value is present
-  plan?: string;          // plan key (p1/p3/p6/p12)
-  device?: string;        // device the user said they own
-  country?: string;       // country slug
+  source?: string;
+  label?: string;
+  value?: number;
+  currency?: string;
+  plan?: string;
+  device?: string;
+  country?: string;
   blog_slug?: string;
   compare_slug?: string;
-  page?: string;          // url path
-  q?: string;             // search query
+  page?: string;
+  q?: string;
   [key: string]: unknown;
 };
 
@@ -91,19 +90,15 @@ export function track(event: FunnelEvent, payload: EventPayload = {}): void {
       typeof document !== "undefined" && document.referrer ? document.referrer : undefined,
   };
 
-  // 1. dataLayer (always — even without consent we keep first-party signal local;
-  //    GA4/GTM tags must be gated by consent themselves via window.gtag('consent'))
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push(enriched);
 
-  // 2. GA4 direct
   if (isConsented() && typeof w.gtag === "function") {
     try {
       w.gtag("event", event, enriched);
     } catch {}
   }
 
-  // 3. Meta Pixel mirror
   if (isConsented() && typeof w.fbq === "function") {
     const pixelEvent = PIXEL_MAP[event];
     if (pixelEvent) {
@@ -116,10 +111,16 @@ export function track(event: FunnelEvent, payload: EventPayload = {}): void {
         });
       } catch {}
     }
+    if (event === "whatsapp_click") {
+      try {
+        w.fbq("trackCustom", "WhatsAppClick", {
+          content_name: payload.label,
+          content_category: payload.source,
+        });
+      } catch {}
+    }
   }
 
-  // 4. Server-side mirror (fire-and-forget). Useful for offline-conversion
-  //    pipelines and when ad-blockers strip GA/Pixel beacons.
   try {
     const body = JSON.stringify(enriched);
     if (typeof navigator !== "undefined" && "sendBeacon" in navigator) {
@@ -136,7 +137,6 @@ export function track(event: FunnelEvent, payload: EventPayload = {}): void {
   } catch {}
 }
 
-// Convenience helper to attach to anchor onClick without preventing navigation.
 export function trackOnClick(event: FunnelEvent, payload: EventPayload = {}) {
   return () => track(event, payload);
 }
