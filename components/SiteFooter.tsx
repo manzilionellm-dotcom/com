@@ -32,7 +32,7 @@ export default function SiteFooter() {
             <span className="brand-text">BEST IPTV <b>VIP</b></span>
           </div>
           <p style={{ color: "#888", fontSize: 12, lineHeight: 1.6 }}>
-            World&apos;s #1 premium IPTV. 22,000+ live channels, 120,000+ movies and series, 4K UHD streaming, 24/7 WhatsApp support.
+            Live TV via WhatsApp. 24h trial, no card. Plans from $10/mo.
           </p>
           <a
             className="btn btn-green"
