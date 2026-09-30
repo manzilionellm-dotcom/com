@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { SITE, LOCALES } from "../lib/site";
+import { SITE } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
 import TrackingProvider from "../components/TrackingProvider";
 import ConsentScripts from "../components/ConsentScripts";
@@ -13,13 +13,6 @@ const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 const TITLE = "Best IPTV VIP — Plans from $10/mo";
 const DESCRIPTION =
   "Live TV subscription via WhatsApp. 24h trial, no card. Plans $10 / $25 / $35 / $60. Firestick, Smart TV, Android, iPhone.";
-
-function languageAlternates(path = "/") {
-  const out: Record<string, string> = {};
-  for (const l of LOCALES) out[l] = `${SITE_URL}${path}?lang=${l}`;
-  out["x-default"] = `${SITE_URL}${path}`;
-  return out;
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -34,7 +27,6 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   alternates: {
     canonical: SITE_URL,
-    languages: languageAlternates("/"),
   },
   openGraph: {
     type: "website",
@@ -100,7 +92,7 @@ const jsonLdOrganization = {
     "@type": "ContactPoint",
     telephone: `+${SITE.whatsapp}`,
     contactType: "customer support",
-    availableLanguage: ["English", "French", "Arabic", "Spanish", "German"],
+    availableLanguage: ["English", "French", "Arabic"],
     areaServed: "Worldwide",
   },
 };
@@ -111,7 +103,7 @@ const jsonLdWebsite = {
   "@id": `${SITE_URL}#website`,
   name: SITE.brand,
   url: SITE_URL,
-  inLanguage: ["en", "fr", "ar", "es", "de"],
+  inLanguage: "en",
   publisher: { "@id": `${SITE_URL}#organization` },
 };
 
@@ -167,10 +159,6 @@ export default function RootLayout({
     <html lang="en" style={{ background: "#050507", colorScheme: "dark" }}>
       <head>
         <link rel="canonical" href={SITE_URL} />
-        {LOCALES.map((l) => (
-          <link key={l} rel="alternate" hrefLang={l} href={`${SITE_URL}/?lang=${l}`} />
-        ))}
-        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }} />
