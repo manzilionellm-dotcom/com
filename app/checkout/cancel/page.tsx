@@ -25,7 +25,7 @@ export default async function CheckoutCancel({
         <h1>Payment not completed</h1>
         <p className="lead">
           Your transaction was cancelled or did not go through. No funds were charged.
-          You can try again or contact us — we accept card, crypto, PayPal and bank transfer.
+          You can try the on-site checkout again (card or crypto, in USD) or write on WhatsApp.
         </p>
 
         {orderId && (

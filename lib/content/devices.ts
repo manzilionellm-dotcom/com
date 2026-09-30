@@ -18,9 +18,9 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     name: "Amazon Firestick",
     short: "Firestick",
     emoji: "🔥",
-    hero: "Install IPTV on Amazon Firestick in under 5 minutes",
+    hero: "Install IPTV on Amazon Firestick",
     description:
-      "Step-by-step guide to install Best IPTV VIP on your Amazon Firestick (4K Max, Lite, Cube) using IPTV Smarters Pro, TiviMate or Downloader. Watch 22,000+ live channels and 120,000+ movies in 4K UHD without buffering.",
+      "Step-by-step guide to install Best IPTV VIP on your Amazon Firestick (4K Max, Lite, Cube) using IPTV Smarters Pro, TiviMate or Downloader. The steps below use the credentials sent on WhatsApp. This page does not promise buffer-free playback or a channel count.",
     apps: ["IPTV Smarters Pro", "TiviMate", "XCIPTV", "IBO Player Pro"],
     steps: [
       {
@@ -33,14 +33,14 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
       },
       {
         title: "Download IPTV Smarters Pro",
-        text: "Open Downloader and enter the URL we send you on WhatsApp. The IPTV Smarters APK will download and install in under a minute.",
+        text: "Open Downloader and enter the URL we send you on WhatsApp. The IPTV Smarters APK will download and install.",
       },
       {
         title: "Add your Best IPTV VIP playlist",
         text: "Launch IPTV Smarters → Login with Xtream Codes API (recommended) using the username, password and server URL you received via WhatsApp.",
       },
       {
-        title: "Enjoy 22,000+ channels in 4K",
+        title: "Open the player",
         text: "Browse live TV, sports, movies, series and VOD with full EPG. Your Firestick will remember your login next time.",
       },
     ],
@@ -62,7 +62,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     emoji: "📺",
     hero: "Install IPTV on Smart TV (Samsung, LG, Sony, Hisense)",
     description:
-      "Install Best IPTV VIP on Samsung Tizen, LG webOS, Android TV (Sony, Hisense, TCL, Philips) using Smart IPTV, SS IPTV or IBO Player Pro. Get 22,000+ channels in 4K UHD with full EPG.",
+      "Install Best IPTV VIP on Samsung Tizen, LG webOS, Android TV (Sony, Hisense, TCL, Philips) using Smart IPTV, SS IPTV or IBO Player Pro. The steps below use the credentials sent on WhatsApp.",
     apps: ["Smart IPTV (SIPTV)", "IBO Player Pro", "SS IPTV", "Set IPTV"],
     steps: [
       {
@@ -78,7 +78,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
         text: "Close and reopen Smart IPTV. Your full Best IPTV VIP playlist with EPG will load automatically.",
       },
       {
-        title: "Enjoy 22,000+ channels in 4K",
+        title: "Open the player",
         text: "Use the TV remote to browse live channels, VOD, series and catch-up TV. Compatible with Samsung Tizen 2017+ and LG webOS 3.0+.",
       },
     ],
@@ -116,7 +116,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
         text: "TiviMate auto-detects the EPG from our server. Enable catch-up to rewind up to 7 days of live TV.",
       },
       {
-        title: "Enjoy 22,000+ channels",
+        title: "Open the player",
         text: "TiviMate is the best UI for Android TV: full EPG, picture-in-picture, parental control, custom groups.",
       },
     ],
@@ -154,7 +154,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
         text: "On iPhone/iPad use AirPlay from the player to send the stream to your Apple TV in 4K.",
       },
       {
-        title: "Enjoy 22,000+ channels",
+        title: "Open the player",
         text: "Full EPG, VOD, series, parental controls. Background audio for radio channels supported.",
       },
     ],
@@ -192,7 +192,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
         text: "Power-cycle the box. On boot, the portal will load and all channels appear automatically.",
       },
       {
-        title: "Enjoy 22,000+ channels",
+        title: "Open the player",
         text: "Full EPG, VOD, series and catch-up are pre-loaded. Use the MAG remote — no extra config needed.",
       },
     ],
@@ -214,7 +214,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     emoji: "💻",
     hero: "Watch Best IPTV VIP on PC, Mac and Linux",
     description:
-      "Stream Best IPTV VIP on Windows, macOS and Linux using VLC Media Player, Kodi or the IPTV Smarters desktop app. 22,000+ channels in 4K with full EPG.",
+      "Stream Best IPTV VIP on Windows, macOS and Linux using VLC Media Player, Kodi or the IPTV Smarters desktop app. the credentials sent on WhatsApp.",
     apps: ["VLC Media Player", "Kodi (PVR IPTV Simple Client)", "IPTV Smarters Pro Desktop", "MyIPTV Player (Windows)"],
     steps: [
       {
@@ -230,7 +230,7 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
         text: "In IPTV Smarters Desktop: New User → Xtream Codes → enter server, username, password. Full EPG loads automatically.",
       },
       {
-        title: "Enjoy 22,000+ channels",
+        title: "Open the player",
         text: "Cast to your TV via Chromecast (Chrome browser), AirPlay (Mac) or HDMI cable.",
       },
     ],

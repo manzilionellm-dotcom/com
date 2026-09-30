@@ -9,7 +9,7 @@ import { SITE } from "../../lib/site";
 export const metadata: Metadata = {
   title: "Free 24h IPTV Trial — No Credit Card Required",
   description:
-    "Get a 100% free 24-hour IPTV trial with 22,000+ live channels in 4K UHD. No credit card, no commitment. Instant WhatsApp activation in under 10 minutes.",
+    "Request a 24-hour IPTV trial with no card. Credentials are sent on WhatsApp. This page does not publish a channel count or a reply time.",
   alternates: { canonical: `${SITE.domain}/free-trial` },
 };
 
@@ -25,7 +25,7 @@ export default function FreeTrialPage() {
           Free 24h IPTV Trial — No Credit Card
         </h1>
         <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 28px" }}>
-          Test Best IPTV VIP with 22,000+ live channels, 4K UHD streaming, full EPG and instant catch-up. We send your trial credentials on WhatsApp in under 10 minutes.
+          Request a 24-hour trial with no card. Credentials are sent on WhatsApp. Channel counts and a reply time are not published here.
         </p>
 
         <div
@@ -57,7 +57,7 @@ export default function FreeTrialPage() {
             intent="free_trial"
             source="trial-form"
             heading="Or request your trial without WhatsApp"
-            subheading="Drop your WhatsApp number or email and we'll send your credentials within 10 minutes."
+            subheading="Leave a WhatsApp number or email. This form does not promise a reply time."
             ctaLabel="Send me my free trial"
             showDevice
             showCountry
@@ -68,21 +68,17 @@ export default function FreeTrialPage() {
           <h2>How it works</h2>
           <div className="steps-grid">
             <div className="step"><div className="step-num">1</div><p>Click the WhatsApp button above (or fill the form) and tell us your device (Firestick, Smart TV, Android, iOS…).</p></div>
-            <div className="step"><div className="step-num">2</div><p>We send your free trial M3U link, Xtream Codes API and setup guide within 10 minutes.</p></div>
-            <div className="step"><div className="step-num">3</div><p>Install IPTV Smarters / TiviMate, enter your credentials, enjoy 22,000+ channels free for 24h.</p></div>
+            <div className="step"><div className="step-num">2</div><p>We send a trial M3U link, Xtream Codes API details and setup notes on WhatsApp.</p></div>
+            <div className="step"><div className="step-num">3</div><p>Install IPTV Smarters or TiviMate, enter the credentials, and use the trial for 24 hours.</p></div>
           </div>
         </section>
 
         <section className="section">
           <h2>What you get during your free 24h</h2>
           <ul className="bullet-list">
-            <li>✓ Full 22,000+ live channels — same as paying customers</li>
-            <li>✓ All 3,500+ 4K UHD channels (sports, movies)</li>
-            <li>✓ Full 120,000+ VOD library access</li>
-            <li>✓ EPG and 7-day catch-up</li>
-            <li>✓ All devices supported</li>
-            <li>✓ No credit card, no automatic charge</li>
-            <li>✓ Switch to paid plan only if you love it</li>
+            <li>✓ The same trial access we send to new customers. A channel count is not published here.</li>
+            <li>✓ No credit card and no automatic charge</li>
+            <li>✓ A paid plan is optional after the trial</li>
           </ul>
         </section>
 
