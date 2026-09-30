@@ -115,49 +115,6 @@ const jsonLdWebsite = {
   publisher: { "@id": `${SITE_URL}#organization` },
 };
 
-const jsonLdService = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": `${SITE_URL}#service`,
-  name: "Best IPTV VIP subscription",
-  serviceType: "IPTV streaming subscription",
-  description: DESCRIPTION,
-  provider: { "@id": `${SITE_URL}#organization` },
-  url: SITE_URL,
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "VIP plans",
-    itemListElement: [
-      { "@type": "Offer", name: "1 Month", price: "10", priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${SITE_URL}/pricing` },
-      { "@type": "Offer", name: "3 Months", price: "25", priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${SITE_URL}/pricing` },
-      { "@type": "Offer", name: "6 Months", price: "35", priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${SITE_URL}/pricing` },
-      { "@type": "Offer", name: "12 Months", price: "60", priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${SITE_URL}/pricing` },
-    ],
-  },
-};
-
-const jsonLdFAQ = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How do I start?",
-      acceptedAnswer: { "@type": "Answer", text: "Message WhatsApp for a 24h trial. No card. After the trial pick a plan and we send the login." },
-    },
-    {
-      "@type": "Question",
-      name: "What are the prices?",
-      acceptedAnswer: { "@type": "Answer", text: "1 month $10, 3 months $25, 6 months $35, 12 months $60. Paid once per term. No auto-renew contract." },
-    },
-    {
-      "@type": "Question",
-      name: "Which devices?",
-      acceptedAnswer: { "@type": "Answer", text: "Firestick, Smart TV, Android, iPhone, iPad, MAG Box, PC/Mac." },
-    },
-  ],
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -173,8 +130,6 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }} />
       </head>
       <body style={{ background: "#050507", margin: 0 }}>
         <TrackingProvider />
