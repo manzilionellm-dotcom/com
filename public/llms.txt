@@ -1,0 +1,134 @@
+# Best IPTV VIP
+
+> Marketing site for an IPTV subscription (live channels, films and series) under the name Best IPTV VIP. Access is requested through WhatsApp or a form on the site. This file lists published URLs on the canonical host, plus the prices, technical points and questions already published on the site or in its source. It does not state ratings, reviews, or a guarantee of stream stability or of the legal status of the streams.
+
+Canonical host: https://bestiptv-vip.com
+
+## Services
+
+- IPTV subscription (live channels, films and series). Ordering and support on WhatsApp: https://wa.me/447307410512
+- Email published on the site: support@bestiptv-vip.com
+- Free 24 hour trial, no card required, as stated on the homepage and on https://bestiptv-vip.com/free-trial
+- Website: https://bestiptv-vip.com/ (homepage copy: en, fr, ar)
+
+## Prices
+
+- 24 hour trial: free ($0) (1 day)
+- 1 Month: $10
+- 3 Months: $25
+- 6 Months: $35
+- 12 Months: $60
+
+The pricing page headline also says plans start from $5 a month. That figure is the 12 month plan at $60 divided across the year on the page. Each paid term is billed once.
+
+## Technical characteristics
+
+- Maximum picture quality: 4K UHD, as stated on the homepage, the pricing page and the device guides. The pricing page also says 3500 plus true 4K UHD channels. The Firestick guide says Firestick Lite is 1080p HD only, and the iPhone guide says iPhone screens are HD or FHD.
+- Devices: Firestick, Smart TV (Samsung, LG, Sony), Android, iPhone, iPad, Android TV Box, MAG Box, PC, Mac
+- Activation: usually 5 to 10 minutes after a WhatsApp order (homepage FAQ). The pricing page and the free trial page say under 10 minutes.
+- Bitrates / minimum bandwidth: not published as a single figure
+- Channel count: 22000 plus on the pricing page, the channels page and in site config (channelsCount). The homepage also says 20000 plus.
+- Films and series on demand: 120000 plus movies and series on the pricing page and in site config (vodCount). The homepage also says 100000 plus.
+
+## Frequently asked questions (10)
+
+### How do I start Best IPTV VIP?
+
+You contact Best IPTV VIP on WhatsApp and ask for the 24 hour trial. The homepage says no credit card is required and there is no automatic charge. The free trial page says the M3U link and Xtream Codes login are sent on WhatsApp in under 10 minutes. After the trial you pick a plan and the login is sent.
+
+### What are the Best IPTV VIP prices?
+
+The site bills four plans: 1 month for $10, 3 months for $25, 6 months for $35 and 12 months for $60. Each term is paid once. The homepage says there is no contract and no automatic charge. The pricing page says plans start from $5 a month. A free 24 hour trial is offered before you pay.
+
+### Which channels are included?
+
+The homepage names ESPN, NBC, BBC, Sky Sports, beIN, Canal Plus, MBC, Star Plus and ZDF, plus more than 20000 live channels in HD and 4K. The pricing page states 22000 plus live channels, including 3500 plus true 4K UHD channels. The homepage also lists Premier League, La Liga, Champions League, NBA, NFL, MLB, UFC and F1.
+
+### Which devices does Best IPTV VIP support?
+
+The homepage FAQ lists Firestick, Smart TV from Samsung, LG and Sony, Android, iPhone, iPad, Android TV Box, MAG Box, PC and Mac. The devices section says you can install on up to 3 devices. Separate guides on the site cover Firestick, Smart TV, Android TV, iPhone and iPad, MAG Box, and PC or Mac.
+
+### Is Best IPTV VIP compatible with TiviMate and IPTV Smarters?
+
+Yes. The homepage says the service supports TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player and XCIPTV, and that the M3U link is sent on WhatsApp. The pricing page also names Smart IPTV. The device guides add setup steps for those apps, including Xtream Codes login with the username, password and server URL sent on WhatsApp.
+
+### How fast is activation?
+
+The homepage FAQ says activation is usually 5 to 10 minutes after a WhatsApp order, including on weekends. The trust row on the homepage says activation is under 10 minutes and is instant via WhatsApp. The pricing page says WhatsApp activation is under 10 minutes. The free trial page says trial credentials are sent within 10 minutes.
+
+### Is the EPG included?
+
+Yes. The homepage says a full Electronic Programme Guide is included on all plans. The pricing page says the EPG covers 7 days forward and that major channels have 7 day catch up TV. The 6 month plan on the homepage lists EPG plus catch up among its features. No separate EPG fee is stated.
+
+### Does Best IPTV VIP work in my country?
+
+Yes. The homepage says the service works worldwide and names the USA, the UK, Canada, Europe, MENA, Asia, LATAM, Africa and Oceania. The trust row says it works worldwide and is compatible with all ISPs. The English channels page says it works with any ISP and that no VPN is required.
+
+### How do I pay for Best IPTV VIP?
+
+The homepage says payment is arranged via WhatsApp and lists PayPal, credit card, crypto and bank transfer. The pricing page adds Visa, Mastercard and AMEX, PayPal balance or card, Bitcoin, Ethereum and USDT on TRC20 or ERC20, plus SEPA, Wise and international wire. Card checkout is described as secure 3D Secure.
+
+### Can I cancel a Best IPTV VIP plan?
+
+The homepage says there is no contract: you pay once and the service expires automatically. The refund page offers a 24 hour money back guarantee on new subscriptions if quality is below the advertised promise and support cannot fix it within 24 hours of activation. The request must be made on WhatsApp inside that window.
+
+## Main pages
+
+- [Home](https://bestiptv-vip.com/): product presentation. The FAQ section is on this page at https://bestiptv-vip.com/#faq. There is no separate /faq URL.
+- [Pricing](https://bestiptv-vip.com/pricing): plan list published by the site.
+- [Free trial](https://bestiptv-vip.com/free-trial): trial request via WhatsApp or a form. There is no /trial or /essai URL.
+- [Refer](https://bestiptv-vip.com/refer): referral page.
+- [Channels](https://bestiptv-vip.com/channels): channel lineup index.
+- [Devices](https://bestiptv-vip.com/devices): device index. Firestick setup is https://bestiptv-vip.com/guides/firestick, not /firestick.
+- [Blog](https://bestiptv-vip.com/blog): article index.
+- [Compare](https://bestiptv-vip.com/compare): comparison index.
+- [Contact](https://bestiptv-vip.com/contact): WhatsApp number and email published on this page.
+- [Privacy](https://bestiptv-vip.com/privacy): privacy text published by the site.
+- [Terms](https://bestiptv-vip.com/terms): terms text published by the site.
+- [Refund](https://bestiptv-vip.com/refund): refund text published by the site.
+- [Status](https://bestiptv-vip.com/status): network status page published by the site.
+- [Checkout success](https://bestiptv-vip.com/checkout/success): screen after a payment return.
+- [Checkout cancel](https://bestiptv-vip.com/checkout/cancel): screen when a payment is cancelled.
+
+## Channel lineups
+
+- [Arabic IPTV (MENA)](https://bestiptv-vip.com/channels/arabic)
+- [English IPTV (USA / UK)](https://bestiptv-vip.com/channels/english)
+- [French IPTV (France / Belgique / Suisse)](https://bestiptv-vip.com/channels/french)
+- [Spanish IPTV (España / LATAM)](https://bestiptv-vip.com/channels/spanish)
+- [Turkish IPTV (Türkiye)](https://bestiptv-vip.com/channels/turkish)
+- [Indian IPTV (Hindi / Tamil / Telugu)](https://bestiptv-vip.com/channels/indian)
+- [German IPTV (Deutschland / Österreich / Schweiz)](https://bestiptv-vip.com/channels/german)
+- [African IPTV (Afrique francophone & anglophone)](https://bestiptv-vip.com/channels/african)
+
+## Device guides
+
+- [Amazon Firestick](https://bestiptv-vip.com/guides/firestick)
+- [Smart TV (Samsung, LG, Sony)](https://bestiptv-vip.com/guides/smart-tv)
+- [Android TV / Android Box](https://bestiptv-vip.com/guides/android)
+- [iPhone / iPad / Apple TV](https://bestiptv-vip.com/guides/ios)
+- [MAG Box (Infomir)](https://bestiptv-vip.com/guides/mag-box)
+- [PC / Mac / Linux](https://bestiptv-vip.com/guides/pc-mac)
+
+## Blog
+
+- [Buyer's guide article (2026)](https://bestiptv-vip.com/blog/best-iptv-2026)
+- [Buffering troubleshooting article](https://bestiptv-vip.com/blog/how-to-fix-iptv-buffering)
+- [IPTV and cable TV article](https://bestiptv-vip.com/blog/iptv-vs-cable-tv)
+- [4K setup article](https://bestiptv-vip.com/blog/how-to-watch-iptv-in-4k)
+- [IPTV Smarters and TiviMate article](https://bestiptv-vip.com/blog/iptv-smarters-vs-tivimate)
+
+## Comparisons
+
+- [IPTV vs cable TV](https://bestiptv-vip.com/compare/iptv-vs-cable-tv)
+- [IPTV vs Netflix](https://bestiptv-vip.com/compare/iptv-vs-netflix)
+- [IPTV vs Disney+](https://bestiptv-vip.com/compare/iptv-vs-disney-plus)
+- [IPTV vs Sling TV](https://bestiptv-vip.com/compare/iptv-vs-sling-tv)
+- [IPTV vs YouTube TV](https://bestiptv-vip.com/compare/iptv-vs-youtube-tv)
+
+## Notes
+
+- The homepage includes copy in English, French, and Arabic.
+- Metadata on some pages advertises locales en, fr, ar, es, and de through a ?lang= query. Those queries are not separate pages. Spanish and German body copy is not in the homepage dictionary, so this file does not invent it.
+- /ops exists, is marked noindex, and is disallowed in robots.txt. It is not listed here.
+- Prices above are the amounts in the site source (homepage plans, pricing page, and the existing Offer JSON-LD). Where the homepage rounds a count and another page gives a different count, both are stated.
