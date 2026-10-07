@@ -6,6 +6,7 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import CheckoutButton from "../../components/CheckoutButton";
 import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
+import { SalesFaq } from "../../components/SalesFaq";
 
 export const metadata: Metadata = {
   title: "IPTV Pricing — Best 4K IPTV Plans From $5/month",
@@ -50,7 +51,7 @@ export default function PricingPage() {
               <div key={p.key} className={`plan ${p.highlight ? "highlight" : ""}`}>
                 {save > 0 && <div className="plan-badge">SAVE {save}%</div>}
                 <div className="plan-head">
-                  <h3>{p.name}</h3>
+                  <p className="plan-name">{p.name}</p>
                   {p.highlight && <span className="plan-best">BEST SELLER</span>}
                 </div>
                 <div className="plan-price">
@@ -87,6 +88,7 @@ export default function PricingPage() {
 
         <section className="section">
           <h2>Payment methods accepted</h2>
+          <p className="aio-kicker">Card, PayPal, cryptocurrency and bank transfer, as listed on this page.</p>
           <div className="trust-grid">
             <div className="trust-card"><div className="ic">💳</div><h4>Credit / Debit Card</h4><p>Visa, Mastercard, AMEX — secure 3D Secure checkout</p></div>
             <div className="trust-card"><div className="ic">🅿️</div><h4>PayPal</h4><p>Pay with PayPal balance, bank account or card</p></div>
@@ -97,6 +99,7 @@ export default function PricingPage() {
 
         <section className="section">
           <h2>What you get with every plan</h2>
+          <p className="aio-kicker">Items the pricing page says are included.</p>
           <ul className="bullet-list">
             <li>✓ 22,000+ premium live channels worldwide</li>
             <li>✓ 3,500+ true 4K UHD channels (sports, movies)</li>
@@ -112,6 +115,8 @@ export default function PricingPage() {
             <li>✓ No contract — cancel anytime</li>
           </ul>
         </section>
+
+        <SalesFaq title="FAQ" />
 
         <section className="section cta-section">
           <h2>Not sure? Try 24h free</h2>

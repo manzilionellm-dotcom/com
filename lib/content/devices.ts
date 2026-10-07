@@ -46,12 +46,10 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     ],
     troubleshooting: [
       {
-        q: "Why is my Firestick buffering?",
-        a: "Check internet speed (min 25 Mbps for 4K), enable Auto Hardware Decoder in Smarters settings, and clear the app cache weekly.",
+        q: "Why is my Firestick buffering?", a: "The Firestick guide says to check internet speed, with a minimum of 25 Mbps for 4K, to enable Auto Hardware Decoder in Smarters settings, and to clear the app cache weekly. The guide uses IPTV Smarters Pro or TiviMate and adds the playlist with the Xtream Codes username, password and server URL sent on WhatsApp.",
       },
       {
-        q: "Can I install on Firestick Lite?",
-        a: "Yes — Firestick Lite supports up to 1080p HD streaming. For 4K UHD use Firestick 4K Max or Fire TV Cube.",
+        q: "Can I install on Firestick Lite?", a: "Yes. The Firestick guide says Firestick Lite supports up to 1080p HD streaming, and that 4K UHD needs a Firestick 4K Max or a Fire TV Cube. The install steps still enable Unknown Sources, install Downloader, then IPTV Smarters Pro, and sign in with the login sent on WhatsApp.",
       },
     ],
   },
@@ -84,12 +82,10 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     ],
     troubleshooting: [
       {
-        q: "Samsung removed Smart IPTV from the store, what now?",
-        a: "Use IBO Player Pro or Set IPTV, both still available on Samsung Smart Hub. We support all three.",
+        q: "Samsung removed Smart IPTV from the store, what now?", a: "The Smart TV guide says to use IBO Player Pro or Set IPTV, which it says are still on Samsung Smart Hub, and that Smart IPTV is supported too. You read the MAC address in the app, send it on WhatsApp, and restart the app so the Best IPTV VIP playlist loads.",
       },
       {
-        q: "Channels are slow to load on my Smart TV",
-        a: "Use a wired Ethernet cable if possible — Smart TV Wi-Fi chips are often weak. Restart the router and clear app cache.",
+        q: "Channels are slow to load on my Smart TV?", a: "The Smart TV guide says the Wi Fi chips in many sets are weak, so use a wired Ethernet cable if you can, restart the router, and clear the app cache. Playlist setup is the MAC address you send on WhatsApp. The apps named are Smart IPTV, IBO Player Pro, SS IPTV and Set IPTV.",
       },
     ],
   },
@@ -122,12 +118,10 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     ],
     troubleshooting: [
       {
-        q: "Should I use TiviMate or IPTV Smarters?",
-        a: "TiviMate has the best EPG and remote-friendly UI. IPTV Smarters is simpler. Both work perfectly with Best IPTV VIP.",
+        q: "Should I use TiviMate or IPTV Smarters?", a: "The Android guide says TiviMate has the best EPG and a remote friendly interface, while IPTV Smarters is simpler, and that both work with Best IPTV VIP. TiviMate comes from the Play Store. You add Xtream Codes with the server URL, username and password sent on WhatsApp.",
       },
       {
-        q: "How do I enable 4K on NVIDIA Shield?",
-        a: "Shield Pro auto-detects 4K HDR. In TiviMate settings, set Decoder to Hardware+ for smooth 4K HEVC playback.",
+        q: "How do I enable 4K on NVIDIA Shield?", a: "The Android guide says Shield Pro auto detects 4K HDR, and that TiviMate should use the Hardware plus decoder for smooth 4K HEVC playback. The same guide covers NVIDIA Shield, Xiaomi Mi Box, Chromecast with Google TV and Onn 4K Pro, with TiviMate or IPTV Smarters Pro.",
       },
     ],
   },
@@ -160,12 +154,10 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     ],
     troubleshooting: [
       {
-        q: "GSE Smart IPTV vs IPTV Smarters on iOS?",
-        a: "GSE has more advanced features (recording on iPad, EPG color coding). Smarters is simpler. Both supported.",
+        q: "GSE Smart IPTV vs IPTV Smarters on iOS?", a: "The iPhone guide says GSE has more advanced features, including recording on iPad and EPG color coding, while Smarters is simpler, and that both are supported. IPTV Smarters Pro comes from the App Store. You add Xtream Codes with the server URL, username and password from WhatsApp.",
       },
       {
-        q: "Why no 4K on iPhone?",
-        a: "iPhone screens are HD/FHD. To get 4K, AirPlay to Apple TV 4K or use the native Apple TV app.",
+        q: "Why no 4K on iPhone?", a: "The iPhone guide says iPhone screens are HD and FHD, and that 4K needs AirPlay to an Apple TV 4K or the native Apple TV app. The guide installs IPTV Smarters Pro or GSE Smart IPTV from the App Store and signs in with the Xtream Codes details sent on WhatsApp.",
       },
     ],
   },
@@ -198,12 +190,10 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     ],
     troubleshooting: [
       {
-        q: "MAG portal not loading?",
-        a: "Set portal URL manually in Settings → Servers → Portals: ask our support on WhatsApp for the current URL.",
+        q: "MAG portal not loading?", a: "The MAG guide says to set the portal URL manually under Settings, then Servers, then Portals, and to ask WhatsApp support for the current URL. You send the MAC address from System Info and power cycle the box. The guide covers MAG 254, 322, 420w, 522 and 524.",
       },
       {
-        q: "Does MAG support 4K?",
-        a: "MAG 420w, 522 and 524 support 4K HEVC. MAG 254 is HD/FHD only.",
+        q: "Does MAG support 4K?", a: "The MAG guide says MAG 420w, 522 and 524 support 4K HEVC, while MAG 254 is HD and FHD only. You send the MAC address on WhatsApp and restart the box. The guide says EPG, VOD, series and catch up are already loaded in the built in portal.",
       },
     ],
   },
@@ -236,12 +226,10 @@ export const DEVICE_GUIDES: Record<DeviceSlug, DeviceGuide> = {
     ],
     troubleshooting: [
       {
-        q: "VLC freezes on 4K channels",
-        a: "Enable Hardware Decoding in VLC: Tools → Preferences → Input/Codecs → Hardware-accelerated decoding: Automatic.",
+        q: "VLC freezes on 4K channels?", a: "The PC guide says to turn on hardware decoding in VLC, under Tools, then Preferences, then Input and Codecs, and set it to Automatic. It also describes IPTV Smarters Desktop, where Xtream Codes login loads the EPG, on Windows, Mac and Linux, for the 22000 plus channels it states in 4K.",
       },
       {
-        q: "Kodi PVR setup?",
-        a: "Install PVR IPTV Simple Client → Configure → M3U URL: paste our link. EPG URL is auto-detected from Xtream API.",
+        q: "Kodi PVR setup?", a: "The PC guide says to install the PVR IPTV Simple Client in Kodi, open Configure, and paste the M3U URL. It says the EPG URL is auto detected from the Xtream API. VLC can open that same M3U from Media, then Open Network Stream, using the link sent on WhatsApp.",
       },
     ],
   },

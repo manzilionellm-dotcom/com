@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SITE as SITE_CFG, waLink as waLinkShared } from "../lib/site";
 import { track, buildWhatsAppText } from "../lib/analytics";
+import { SalesFaq } from "../components/SalesFaq";
 
 /* ============================================================
    Types
@@ -83,7 +84,6 @@ type Copy = {
   setupSteps: { n: string; t: string }[];
   setupCta: string;
   faqTitle: string;
-  faqs: { q: string; a: string }[];
   footerRights: string;
   footerNote: string;
   whatsappGeneric: string;
@@ -184,7 +184,7 @@ const dict: Record<Locale, Copy> = {
       { v: "4K UHD", l: "Max quality" },
       { v: "< 10 min", l: "Activation" },
     ],
-    compareTitle: "Why choose us?",
+    compareTitle: "Why choose us",
     compareSub: "Comparison vs traditional services",
     compareHeaders: ["Service", "Price/mo", "Live", "VOD", "4K", "Support"],
     compareRows: [
@@ -237,17 +237,6 @@ const dict: Record<Locale, Copy> = {
     ],
     setupCta: "Get Setup Help Now",
     faqTitle: "FAQ",
-    faqs: [
-      { q: "Which channels are included?", a: "All major worldwide: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — plus 20,000+ in HD/4K." },
-      { q: "Compatible with TiviMate / IPTV Smarters?", a: "Yes. We support TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. M3U link sent via WhatsApp." },
-      { q: "Which devices?", a: "Firestick, Smart TV (Samsung/LG/Sony), Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac." },
-      { q: "How fast is activation?", a: "Usually 5–10 min after WhatsApp order, even on weekends." },
-      { q: "Is EPG included?", a: "Yes. Full Electronic Programme Guide included on all plans." },
-      { q: "Does it work in my country?", a: "Yes — worldwide. USA, UK, Canada, Europe, MENA, Asia, LATAM, Africa, Oceania." },
-      { q: "How do I pay?", a: "Via WhatsApp. We accept PayPal, credit card, crypto, bank transfer." },
-      { q: "Sports channels included?", a: "Yes! Premier League, La Liga, Champions League, NBA, NFL, MLB, UFC, F1." },
-      { q: "Can I cancel?", a: "No contract. Pay once, service expires automatically." },
-    ],
     footerRights: "All rights reserved.",
     footerNote: "Optimized for fast and stable streaming worldwide.",
     whatsappGeneric: "Hi Best IPTV VIP! I need help.",
@@ -297,7 +286,7 @@ const dict: Record<Locale, Copy> = {
       { v: "4K UHD", l: "Qualité max" },
       { v: "< 10 min", l: "Activation" },
     ],
-    compareTitle: "Pourquoi nous choisir ?",
+    compareTitle: "Pourquoi nous choisir",
     compareSub: "Comparaison vs services traditionnels",
     compareHeaders: ["Service", "Prix/mois", "Live", "VOD", "4K", "Support"],
     compareRows: [
@@ -350,17 +339,6 @@ const dict: Record<Locale, Copy> = {
     ],
     setupCta: "Obtenir l'aide installation",
     faqTitle: "Questions fréquentes",
-    faqs: [
-      { q: "Quelles chaînes sont incluses ?", a: "Toutes les grandes : ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC, Star Plus, ZDF — 20 000+ en HD/4K." },
-      { q: "Compatible TiviMate / IPTV Smarters ?", a: "Oui. TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. Lien M3U envoyé via WhatsApp." },
-      { q: "Quels appareils ?", a: "Firestick, Smart TV (Samsung/LG/Sony), Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac." },
-      { q: "Activation rapide ?", a: "Habituellement 5 à 10 min après commande WhatsApp, même le week-end." },
-      { q: "EPG inclus ?", a: "Oui. Guide EPG complet inclus dans toutes les offres." },
-      { q: "Fonctionne dans mon pays ?", a: "Oui — mondialement. USA, UK, Canada, Europe, MENA, Asie, LATAM, Afrique, Océanie." },
-      { q: "Comment payer ?", a: "Via WhatsApp. Nous acceptons PayPal, carte, crypto, virement." },
-      { q: "Chaînes sport ?", a: "Oui ! Premier League, La Liga, Champions League, NBA, NFL, UFC, F1." },
-      { q: "Puis-je annuler ?", a: "Aucun engagement. Vous payez une fois, le service expire automatiquement." },
-    ],
     footerRights: "Tous droits réservés.",
     footerNote: "Optimisé pour un streaming rapide et stable mondialement.",
     whatsappGeneric: "Bonjour Best IPTV VIP ! J'ai besoin d'aide.",
@@ -410,7 +388,7 @@ const dict: Record<Locale, Copy> = {
       { v: "4K UHD", l: "أعلى جودة" },
       { v: "< 10 د", l: "التفعيل" },
     ],
-    compareTitle: "لماذا تختارنا؟",
+    compareTitle: "لماذا تختارنا",
     compareSub: "مقارنة مع الخدمات التقليدية",
     compareHeaders: ["الخدمة", "السعر/شهر", "مباشر", "VOD", "4K", "الدعم"],
     compareRows: [
@@ -463,17 +441,6 @@ const dict: Record<Locale, Copy> = {
     ],
     setupCta: "احصل على المساعدة الآن",
     faqTitle: "الأسئلة الشائعة",
-    faqs: [
-      { q: "ما هي القنوات المدرجة؟", a: "كل القنوات الكبرى: ESPN, NBC, BBC, Sky Sports, beIN, Canal+, MBC — +20,000 في HD/4K." },
-      { q: "متوافق مع TiviMate / IPTV Smarters؟", a: "نعم. TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player, XCIPTV. رابط M3U عبر واتساب." },
-      { q: "أي أجهزة؟", a: "Firestick, Smart TV, Android, iPhone, iPad, Android TV Box, MAG Box, PC/Mac." },
-      { q: "سرعة التفعيل؟", a: "عادة 5-10 دقائق بعد الطلب على واتساب." },
-      { q: "EPG مدرج؟", a: "نعم. دليل EPG كامل في كل الباقات." },
-      { q: "يعمل في بلدي؟", a: "نعم — عالمياً. USA, UK, Canada, Europe, MENA, Asia, LATAM, Africa." },
-      { q: "كيف أدفع؟", a: "عبر واتساب. PayPal, بطاقة, عملات رقمية, تحويل." },
-      { q: "قنوات رياضية؟", a: "نعم! Premier League, La Liga, Champions, NBA, NFL, UFC, F1." },
-      { q: "هل يمكنني الإلغاء؟", a: "بدون عقد. تدفع مرة واحدة، الخدمة تنتهي تلقائياً." },
-    ],
     footerRights: "كل الحقوق محفوظة.",
     footerNote: "محسن للبث السريع والمستقر عالمياً.",
     whatsappGeneric: "مرحباً Best IPTV VIP! أحتاج مساعدة.",
@@ -816,7 +783,7 @@ export default function Page() {
                 <article key={p.key} className={`plan ${p.highlight ? "highlight" : ""}`}>
                   {save > 0 && <div className="plan-badge">{t.planSave} {save}%</div>}
                   <div className="plan-head">
-                    <h3>{t.planNames[p.key]}</h3>
+                    <p className="plan-name">{t.planNames[p.key]}</p>
                     {p.highlight && <span className="plan-best">{t.planBest}</span>}
                   </div>
                   <div style={{ textAlign: "center", margin: "0 0 10px" }}>
@@ -1015,24 +982,8 @@ export default function Page() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section id="faq" className="section">
-          <div className="section-head"><h2>{t.faqTitle}</h2></div>
-          {t.faqs.map((f, i) => (
-            <details
-              key={i}
-              className="faq-item"
-              onToggle={(e) => {
-                if ((e.currentTarget as HTMLDetailsElement).open) {
-                  track("faq_open", { source: "home-faq", label: f.q });
-                }
-              }}
-            >
-              <summary className="faq-q">{f.q}</summary>
-              <p className="faq-a">{f.a}</p>
-            </details>
-          ))}
-        </section>
+        {/* FAQ — Citation Hooks, visible without JavaScript */}
+        <SalesFaq lang={lang} title={t.faqTitle} centered />
       </main>
 
       <footer className="footer-rich" role="contentinfo">

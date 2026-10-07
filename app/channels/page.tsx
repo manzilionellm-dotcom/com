@@ -4,6 +4,7 @@ import PageShell from "../../components/PageShell";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { COUNTRY_PAGES } from "../../lib/content/countries";
 import { SITE, COUNTRY_SLUGS } from "../../lib/site";
+import { SalesFaq } from "../../components/SalesFaq";
 
 export const metadata: Metadata = {
   title: "All Channels — 22,000+ Live IPTV Channels Worldwide",
@@ -33,6 +34,7 @@ export default function ChannelsIndex() {
 
         <section className="section">
           <h2>Browse by region</h2>
+          <p className="aio-kicker">Language lineups published on this site.</p>
           <div className="countries-grid">
             {COUNTRY_SLUGS.map((s) => {
               const p = COUNTRY_PAGES[s];
@@ -52,6 +54,7 @@ export default function ChannelsIndex() {
 
         <section className="section">
           <h2>Top categories</h2>
+          <p className="aio-kicker">Sports, movies, news, kids, entertainment and documentary, as grouped on this page.</p>
           <div className="trust-grid">
             <div className="trust-card"><div className="ic">⚽</div><h4>Sports</h4><p>Premier League, La Liga, NFL, NBA, MLB, UFC, F1, MotoGP, Champions League</p></div>
             <div className="trust-card"><div className="ic">🎬</div><h4>Movies</h4><p>HBO, Showtime, Cinemax, Canal+ Cinéma, OSN Movies, Sky Cinema, Disney+</p></div>
@@ -61,6 +64,8 @@ export default function ChannelsIndex() {
             <div className="trust-card"><div className="ic">📚</div><h4>Documentary</h4><p>Discovery, National Geographic, History, Arte, Animal Planet</p></div>
           </div>
         </section>
+
+        <SalesFaq title="FAQ" />
       </article>
     </PageShell>
   );

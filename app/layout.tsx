@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SITE, LOCALES } from "../lib/site";
+import { buildProductGraph, jsonLdString } from "../lib/aio";
 import CookieConsent from "../components/CookieConsent";
 import TrackingProvider from "../components/TrackingProvider";
 import ConsentScripts from "../components/ConsentScripts";
@@ -136,28 +137,6 @@ const jsonLdService = {
   },
 };
 
-const jsonLdFAQ = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How do I start?",
-      acceptedAnswer: { "@type": "Answer", text: "Message WhatsApp for a 24h trial. No card. After the trial pick a plan and we send the login." },
-    },
-    {
-      "@type": "Question",
-      name: "What are the prices?",
-      acceptedAnswer: { "@type": "Answer", text: "1 month $10, 3 months $25, 6 months $35, 12 months $60. Paid once per term. No auto-renew contract." },
-    },
-    {
-      "@type": "Question",
-      name: "Which devices?",
-      acceptedAnswer: { "@type": "Answer", text: "Firestick, Smart TV, Android, iPhone, iPad, MAG Box, PC/Mac." },
-    },
-  ],
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -174,7 +153,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(buildProductGraph()) }} />
       </head>
       <body style={{ background: "#050507", margin: 0 }}>
         <TrackingProvider />

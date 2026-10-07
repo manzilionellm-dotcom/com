@@ -30,9 +30,9 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["MBC 3", "Spacetoon", "Cartoon Network Arabic", "Baraem", "Jeem TV"],
     vodHighlights: ["Latest Arabic series Ramadan 2026", "Egyptian classic cinema", "Turkish drama dubbed in Arabic", "Khaleeji series", "Islamic content & Quran TV"],
     faq: [
-      { q: "Do you have beIN Sports 4K?", a: "Yes — all beIN Sports premium channels in 4K UHD, including Champions League, La Liga, Premier League." },
-      { q: "Does it work in Saudi Arabia, UAE, Kuwait?", a: "Yes — works perfectly in all GCC countries. We recommend a stable 25 Mbps connection." },
-      { q: "Arabic EPG included?", a: "Yes — full Arabic Electronic Programme Guide for 7 days in advance." },
+      { q: "Do you have beIN Sports 4K?", a: "Yes. This Arabic channels page says the beIN Sports premium channels are in 4K UHD, including Champions League, La Liga and the Premier League. The sports list names beIN Sports 1 4K, beIN Sports 2 4K, beIN Sports MAX, Abu Dhabi Sports, Dubai Sports, Saudi Sports and Al Kass HD." },
+      { q: "Does it work in Saudi Arabia, UAE, Kuwait?", a: "Yes. The Arabic channels page says it works in all GCC countries and recommends a stable 25 Mbps connection. The description says the lineup covers Khaleeji, Levant, Egyptian and Maghreb channels, including MBC, OSN, Rotana, Al Jazeera, Saudi 1, Dubai TV and Abu Dhabi, with an EPG." },
+      { q: "Arabic EPG included?", a: "Yes. The Arabic channels page says a full Arabic Electronic Programme Guide is included for 7 days in advance. The description says the lineup includes that EPG with MBC, beIN Sports 4K, OSN, Rotana, Al Jazeera, Saudi 1, Dubai TV, Abu Dhabi, Nile Drama and Iqraa." },
     ],
   },
   english: {
@@ -49,9 +49,9 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["Cartoon Network", "Nickelodeon", "Disney Channel", "Boomerang", "CBeebies"],
     vodHighlights: ["Latest Netflix releases", "HBO Max originals", "Premier League replays", "NBA full games on demand", "British drama box-sets"],
     faq: [
-      { q: "Does it have NFL Sunday Ticket and Premier League?", a: "Yes — all NFL games, Sunday Ticket, Premier League, NBA, MLB, NHL, UFC, PPV included." },
-      { q: "Can I watch HBO Max and Showtime?", a: "Yes — HBO, Showtime, Starz, AMC+ premium channels with VOD library." },
-      { q: "Does it work in USA, UK, Ireland, Canada, Australia?", a: "Yes — works worldwide with any ISP. No VPN required." },
+      { q: "Does it have NFL Sunday Ticket and Premier League?", a: "Yes. The English channels page says all NFL games, Sunday Ticket, Premier League, NBA, MLB, NHL, UFC and PPV are included. The sports list names ESPN, ESPN 2, NFL Network, NBA TV, MLB Network, FOX Sports 1, Sky Sports Premier League, BT Sport 4K, TNT Sports UK and TSN Canada." },
+      { q: "Can I watch HBO Max and Showtime?", a: "Yes. The English channels page says HBO, Showtime, Starz and AMC Plus are included with a VOD library. The entertainment list names HBO, AMC, FX, Showtime, Starz, Sky Cinema, Sky Atlantic and Channel 4. The description also places HBO Max among the English channels on this page." },
+      { q: "Does it work in USA, UK, Ireland, Canada, Australia?", a: "Yes. The English channels page says it works worldwide with any ISP and that no VPN is required. The description calls it USA and UK IPTV with a full EPG and 7 day catch up, and it names ESPN, Sky Sports, BT Sport 4K, BBC One HD, CBS, NBC, FOX and ABC." },
     ],
   },
   french: {
@@ -68,9 +68,9 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["Gulli", "Canal J", "Tiji", "Boomerang", "Disney Channel France"],
     vodHighlights: ["Films français récents", "Séries Canal+ Créations Originales", "Replay TF1 / M6 / France TV", "Documentaires Arte"],
     faq: [
-      { q: "Canal+ Sport et beIN Sports inclus ?", a: "Oui — toutes les chaînes Canal+ Sport, beIN Sports 1/2/3, RMC Sport 1-4 en HD/4K." },
-      { q: "Fonctionne en France, Belgique, Suisse, Maroc, Algérie ?", a: "Oui — partout dans le monde francophone avec n'importe quel opérateur." },
-      { q: "EPG français inclus ?", a: "Oui — guide TV français complet sur 7 jours avec replay." },
+      { q: "Canal+ Sport et beIN Sports inclus ?", a: "Oui. La page chaînes françaises dit que Canal Plus Sport, beIN Sports 1, 2 et 3, et RMC Sport 1 à 4 sont inclus en HD et 4K. La liste sport cite aussi L'Équipe, Eurosport 1 et 2, et Multisports. La description cite Canal Plus 4K, TF1, M6, France 2, France 3, France 4 et France 5." },
+      { q: "Fonctionne en France, Belgique, Suisse, Maroc, Algérie ?", a: "Oui. La page dit que le service fonctionne dans le monde francophone avec n'importe quel opérateur. La description annonce un EPG complet et un replay de 7 jours, et elle cite Canal Plus 4K, beIN Sports, RMC Sport, TF1, M6, France 2, OCS, RMC Story et BFM TV." },
+      { q: "EPG français inclus ?", a: "Oui. La page dit qu'un guide TV français complet est inclus sur 7 jours avec replay. La description confirme cet EPG et ce replay pour les chaînes citées, dont Canal Plus 4K, beIN Sports, RMC Sport, TF1, M6, France 2, France 3, OCS et BFM TV." },
     ],
   },
   spanish: {
@@ -87,8 +87,8 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["Clan TVE", "Boing", "Disney Channel ES", "Cartoon Network ES"],
     vodHighlights: ["Películas españolas estreno", "Series Movistar+ originales", "Telenovelas latinoamericanas", "Fútbol LaLiga catch-up 7 días"],
     faq: [
-      { q: "¿Incluye LaLiga y Champions?", a: "Sí — LaLiga TV completa, Champions League, Copa del Rey, F1, MotoGP en HD/4K." },
-      { q: "¿Funciona en España, México, Argentina, Colombia?", a: "Sí — funciona en todo el mundo hispanohablante." },
+      { q: "¿Incluye LaLiga y Champions?", a: "Sí. La página dice que incluye LaLiga TV completa, la Champions League, la Copa del Rey, la F1 y MotoGP en HD y 4K. La lista de deportes nombra LaLiga TV, Movistar Liga de Campeones, DAZN La Liga, DAZN F1, Movistar Deportes y Eurosport ES. La descripción cita también TVE 1 y Antena 3." },
+      { q: "¿Funciona en España, México, Argentina, Colombia?", a: "Sí. La página dice que funciona en todo el mundo hispanohablante. La descripción habla de una cobertura de España y LATAM con LaLiga TV, Movistar Plus, DAZN España, TVE 1, Antena 3, Telecinco, Cuatro, Univision y Telemundo entre los canales publicados." },
     ],
   },
   turkish: {
@@ -105,8 +105,8 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["TRT Çocuk", "Cartoon Network TR", "Nickelodeon TR", "Disney Channel TR"],
     vodHighlights: ["Türk dizileri en yeni bölümler", "BluTV / Exxen içerikleri", "Türk filmleri klasik & yeni"],
     faq: [
-      { q: "Süper Lig ve Avrupa Kupası dahil mi?", a: "Evet — tüm beIN Sports Türkiye kanalları, S Sport, Tivibu Spor dahil." },
-      { q: "Türkiye dışında çalışır mı?", a: "Evet — Almanya, Hollanda, Fransa, ABD'deki Türk gurbetçiler için mükemmel." },
+      { q: "Süper Lig ve Avrupa Kupası dahil mi?", a: "Evet. Sayfa, beIN Sports Türkiye kanallarının, S Sport ve Tivibu Spor kanallarının dahil olduğunu söyler. Spor listesi beIN Sports TR, S Sport, A Spor, TRT Spor ve Tivibu Spor adlarını verir. Açıklama Süper Lig, Avrupa Kupası, Türk dizileri ve filmlerini de bu sayfada yazar." },
+      { q: "Türkiye dışında çalışır mı?", a: "Evet. Sayfa, hizmetin Almanya, Hollanda, Fransa ve ABD içindeki Türk izleyiciler için uygun olduğunu söyler. Açıklama 1500 üzerinde kanal yazar ve TRT 1 HD, Show TV, Kanal D, Star TV, ATV, FOX Türkiye, beIN Sports Türkiye ve A Spor adlarını sayar." },
     ],
   },
   indian: {
@@ -123,8 +123,8 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["Cartoon Network India", "Pogo", "Nick India", "Disney India", "Hungama"],
     vodHighlights: ["Latest Bollywood movies", "Star Plus serials catch-up", "Tamil Sun TV content", "Telugu ETV", "Punjabi PTC"],
     faq: [
-      { q: "Tamil, Telugu, Malayalam kanaal includ?", a: "Yes — Sun TV, ETV, Asianet, Surya TV, Mazhavil Manorama all in HD." },
-      { q: "Cricket matches included (IPL, T20)?", a: "Yes — all Star Sports cricket, IPL live, T20 World Cup, Test matches in HD." },
+      { q: "Are Tamil, Telugu and Malayalam channels included?", a: "Yes. The Indian channels page says Sun TV, ETV, Asianet, Surya TV and Mazhavil Manorama are included in HD. The description says the lineup covers Hindi, Tamil, Telugu, Punjabi, Bengali and Malayalam, plus Bollywood VOD. The highlights name Tamil Sun TV content and Telugu ETV." },
+      { q: "Cricket matches included (IPL, T20)?", a: "Yes. The Indian channels page says all Star Sports cricket is included, plus IPL live, the T20 World Cup and Test matches in HD. The sports list names Star Sports HD, Sony Six, Sony Ten, DSport and Eurosport India among the sports channels published on this page." },
     ],
   },
   german: {
@@ -141,8 +141,8 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["KiKA", "Super RTL", "Disney Channel DE", "Nickelodeon DE"],
     vodHighlights: ["Sky Originals deutsche Serien", "Tatort Mediathek", "ZDF Mediathek Inhalte", "Bundesliga Highlights"],
     faq: [
-      { q: "Sky Bundesliga und DAZN enthalten?", a: "Ja — alle Sky Bundesliga Kanäle in 4K, plus DAZN 1 & 2 für Champions League." },
-      { q: "Funktioniert in Deutschland, Österreich, Schweiz?", a: "Ja — funktioniert in DACH-Region und weltweit mit jedem Internetanbieter." },
+      { q: "Sky Bundesliga und DAZN enthalten?", a: "Ja. Die Seite sagt, dass alle Sky Bundesliga Kanäle in 4K enthalten sind, plus DAZN 1 und 2 für die Champions League. Die Sportliste nennt Sky Bundesliga, Sky Sport News, DAZN, Sport1 und Eurosport DE. Die Beschreibung nennt die Bundesliga, die Champions League und den DFB Pokal." },
+      { q: "Funktioniert in Deutschland, Österreich, Schweiz?", a: "Ja. Die Seite sagt, dass der Dienst in der DACH Region und weltweit mit jedem Internetanbieter funktioniert. Die Beschreibung nennt über 1800 Sender, darunter ZDF HD, ARD HD, RTL, Pro7, Sat.1, Sky Bundesliga, Sky Sport, DAZN und Sport1 auf dieser Seite." },
     ],
   },
   african: {
@@ -159,8 +159,8 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     kidsChannels: ["Tiji Afrique", "Disney Channel Afrique", "JimJam"],
     vodHighlights: ["Films Nollywood récents", "Séries africaines francophones", "Documentaires sur l'Afrique"],
     faq: [
-      { q: "Canal+ Afrique inclus ?", a: "Oui — bouquet Canal+ Afrique complet : Canal+ Sport, Cinéma, Family, Décalé." },
-      { q: "Fonctionne au Sénégal, Côte d'Ivoire, Maroc, Nigeria ?", a: "Oui — partout en Afrique avec une connexion 10 Mbps minimum." },
+      { q: "Canal+ Afrique inclus ?", a: "Oui. La page dit que le bouquet Canal Plus Afrique complet est inclus, avec Canal Plus Sport, Cinéma, Family et Décalé. La description cite aussi SuperSport, RTS Sénégal, TFM, AFROTV, NTA Nigeria, Nollywood TV, Africa 24 et TV5 Afrique parmi les chaînes de cette page." },
+      { q: "Fonctionne au Sénégal, Côte d'Ivoire, Maroc, Nigeria ?", a: "Oui. La page dit que le service fonctionne partout en Afrique avec une connexion de 10 Mbps au minimum. La description couvre l'Afrique francophone et anglophone et cite Canal Plus Afrique, SuperSport, RTS Sénégal, TFM, AFROTV, NTA Nigeria, Nollywood TV et Africa 24." },
     ],
   },
 };
