@@ -8,17 +8,17 @@ import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "IPTV Pricing — Best 4K IPTV Plans From $5/month",
+  title: "IPTV Pricing — Plans From $5/month",
   description:
-    "Best IPTV VIP pricing — 1, 3, 6 and 12 month premium IPTV plans from $5/month. 22,000+ channels, 4K UHD, EPG, multi-device. 24h free trial, no contract.",
+    "Best IPTV VIP prices: 1 month $10, 3 months $25, 6 months $35, 12 months $60. 24h trial, no card. A counted channel catalog is not published on this page.",
   alternates: { canonical: `${SITE.domain}/pricing` },
 };
 
 const PLANS = [
-  { key: "p1", name: "1 Month", price: 10, months: 1, perks: ["22,000+ live channels", "4K UHD quality", "EPG included", "WhatsApp support", "No contract"] },
-  { key: "p3", name: "3 Months", price: 25, months: 3, highlight: true, perks: ["Most popular", "22,000+ channels", "120,000+ movies & series", "Priority support", "Guided setup"] },
-  { key: "p6", name: "6 Months", price: 35, months: 6, perks: ["Best value", "22,000+ channels", "Multi-device", "EPG + 7-day catch-up", "All premium channels"] },
-  { key: "p12", name: "12 Months", price: 60, months: 12, perks: ["Ultimate value", "VIP premium access", "Up to 3 devices", "VIP 24/7 support", "Free upgrades"] },
+  { key: "p1", name: "1 Month", price: 10, months: 1, perks: ["Live channels", "EPG included", "WhatsApp support", "No contract"] },
+  { key: "p3", name: "3 Months", price: 25, months: 3, highlight: true, perks: ["Live channels", "On-demand titles", "WhatsApp support", "Guided setup"] },
+  { key: "p6", name: "6 Months", price: 35, months: 6, perks: ["Live channels", "More than one device", "EPG and catch-up", "WhatsApp support"] },
+  { key: "p12", name: "12 Months", price: 60, months: 12, perks: ["Live channels", "On-demand titles", "Up to 3 devices", "WhatsApp support"] },
 ];
 
 export default function PricingPage() {
@@ -38,7 +38,7 @@ export default function PricingPage() {
           IPTV Plans — From $5/month
         </h1>
         <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 28px" }}>
-          Every plan includes 22,000+ live channels, 120,000+ movies and series, 4K UHD, full EPG, WhatsApp support and a 24h free trial. No contract. Cancel anytime.
+          1 month $10, 3 months $25, 6 months $35, 12 months $60. The $5 figure is $60 divided by 12. No automatic renewal. 24h trial, no card. Channel counts are not published here.
         </p>
 
         <div className="plans-grid">
@@ -88,28 +88,20 @@ export default function PricingPage() {
         <section className="section">
           <h2>Payment methods accepted</h2>
           <div className="trust-grid">
-            <div className="trust-card"><div className="ic">💳</div><h4>Credit / Debit Card</h4><p>Visa, Mastercard, AMEX — secure 3D Secure checkout</p></div>
-            <div className="trust-card"><div className="ic">🅿️</div><h4>PayPal</h4><p>Pay with PayPal balance, bank account or card</p></div>
-            <div className="trust-card"><div className="ic">₿</div><h4>Cryptocurrency</h4><p>Bitcoin, Ethereum, USDT (TRC20/ERC20)</p></div>
-            <div className="trust-card"><div className="ic">🏦</div><h4>Bank Transfer</h4><p>SEPA, Wise, international wire</p></div>
+            <div className="trust-card"><div className="ic">💳</div><h4>Card</h4><p>The pricing buttons open the on-site checkout.</p></div>
+            <div className="trust-card"><div className="ic">₿</div><h4>Cryptocurrency</h4><p>The same checkout is created in USD and settled toward USDT.</p></div>
           </div>
         </section>
 
         <section className="section">
           <h2>What you get with every plan</h2>
           <ul className="bullet-list">
-            <li>✓ 22,000+ premium live channels worldwide</li>
-            <li>✓ 3,500+ true 4K UHD channels (sports, movies)</li>
-            <li>✓ 120,000+ movies and series on demand (VOD)</li>
-            <li>✓ Full EPG (Electronic Programme Guide) — 7 days forward</li>
-            <li>✓ 7-day catch-up TV on major channels</li>
-            <li>✓ Anti-freeze servers — 99.9% uptime SLA</li>
-            <li>✓ Compatible with Firestick, Smart TV, Android TV, iOS, MAG, PC, Mac</li>
-            <li>✓ Supports IPTV Smarters Pro, TiviMate, IBO Player, Smart IPTV, XCIPTV</li>
-            <li>✓ Up to 3 connected devices (12-month plan)</li>
-            <li>✓ Instant WhatsApp activation under 10 minutes</li>
-            <li>✓ 24/7 support in English, French, Arabic, Spanish, German</li>
-            <li>✓ No contract — cancel anytime</li>
+            <li>✓ Live channels and on-demand titles. Counts are not published on this page.</li>
+            <li>✓ Programme guide on these plans</li>
+            <li>✓ Players named in the install guides: Firestick, Smart TV, Android TV, iOS, MAG, PC, Mac</li>
+            <li>✓ Up to 3 connected devices on the 12-month plan</li>
+            <li>✓ Access is sent on WhatsApp. No response-time promise is stated here.</li>
+            <li>✓ No automatic renewal</li>
           </ul>
         </section>
 

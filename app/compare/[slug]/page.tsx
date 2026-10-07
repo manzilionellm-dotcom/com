@@ -239,8 +239,7 @@ export default async function ComparePage({
         <section className="section cta-section">
           <h2>Test it for 24h — free, no card</h2>
           <p>
-            Try the same channels and 4K quality our paid customers get. Credentials sent on
-            WhatsApp in under 10 minutes.
+            Request a 24h trial with no card. Credentials are sent on WhatsApp. No reply time is promised.
           </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link className="btn btn-gold" href="/pricing">See pricing</Link>
