@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         <p style={{ color: "var(--muted)", fontSize: 13 }}>Last updated: 17 May 2026</p>
 
         <h2>1. Who we are</h2>
-        <p>Best IPTV VIP (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates {SITE.domain}. We provide premium IPTV subscription services worldwide. Contact: {SITE.email}.</p>
+        <p>Best IPTV VIP (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates {SITE.domain}. We provide premium IPTV subscription services worldwide. Contact us via WhatsApp (+{SITE.whatsapp}).</p>
 
         <h2>2. Data we collect</h2>
         <ul>
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
         </ul>
 
         <h2>4. Legal basis (GDPR)</h2>
-        <p>We process data based on: contract performance (order, delivery), legitimate interest (security, fraud prevention) and consent (analytics, marketing). You can withdraw consent any time via {SITE.email}.</p>
+        <p>We process data based on: contract performance (order, delivery), legitimate interest (security, fraud prevention) and consent (analytics, marketing). You can withdraw consent any time via WhatsApp (+{SITE.whatsapp}).</p>
 
         <h2>5. Data sharing</h2>
         {/* À CONFIRMER: other processors besides Cryptomus, the site host, and WhatsApp. */}
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
           <li>Object / restrict — stop certain processing.</li>
           <li>Withdraw consent at any time.</li>
         </ul>
-        <p>Submit requests to {SITE.email}.</p>
+        <p>Submit requests via WhatsApp (+{SITE.whatsapp}).</p>
 
         <h2>8. Cookies</h2>
         <p>We use minimal essential cookies (language, session). Analytics cookies (GA4, Meta Pixel) are loaded only after you accept the cookie banner. You can withdraw consent any time by clicking &quot;Cookie settings&quot; in the footer.</p>
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
         <p>We may update this policy. Material changes will be notified via WhatsApp or email. The &quot;Last updated&quot; date will reflect any change.</p>
 
         <h2>12. Contact</h2>
-        <p>Questions or data requests: {SITE.email} or WhatsApp +{SITE.whatsapp}.</p>
+        <p>Questions or data requests: contact us via WhatsApp (+{SITE.whatsapp}).</p>
       </article>
     </PageShell>
   );

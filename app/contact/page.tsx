@@ -6,9 +6,9 @@ import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — WhatsApp and Email",
+  title: "Contact — WhatsApp",
   description:
-    "Contact Best IPTV VIP on WhatsApp or by email for installation, billing and playback questions. No response-time promise is published on this page.",
+    "Contact Best IPTV VIP on WhatsApp for installation, billing and playback questions. No response-time promise is published on this page.",
   alternates: { canonical: `${SITE.domain}/contact` },
 };
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
           Contact Best IPTV VIP
         </h1>
         <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 32px" }}>
-          Write on WhatsApp or email. This page does not promise a reply time or a list of support languages.
+          Write on WhatsApp. This page does not promise a reply time or a list of support languages.
         </p>
 
         <div className="trust-grid">
@@ -36,15 +36,6 @@ export default function ContactPage() {
             <h4>WhatsApp (fastest)</h4>
             <p>+{SITE.whatsapp}</p>
           </WhatsAppCTA>
-          <a
-            className="trust-card"
-            href={`mailto:${SITE.email}`}
-            style={{ textDecoration: "none" }}
-          >
-            <div className="ic">✉️</div>
-            <h4>Email</h4>
-            <p>{SITE.email}</p>
-          </a>
           <div className="trust-card">
             <div className="ic">🌍</div>
             <h4>Worldwide coverage</h4>
