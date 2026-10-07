@@ -4,8 +4,6 @@ import { SITE, LOCALES } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
 import TrackingProvider from "../components/TrackingProvider";
 import ConsentScripts from "../components/ConsentScripts";
-import ProcessProof from "../components/ProcessProof";
-
 const SITE_URL = SITE.domain;
 const LOGO_URL = `${SITE_URL}/icon-512.png`;
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
@@ -179,7 +177,6 @@ export default function RootLayout({
       <body style={{ background: "#050507", margin: 0 }}>
         <TrackingProvider />
         {children}
-        <ProcessProof />
         <CookieConsent />
         <ConsentScripts />
       </body>
