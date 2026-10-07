@@ -5,7 +5,6 @@ export const SITE = {
     process.env.NEXT_PUBLIC_WHATSAPP_VIP ||
     process.env.NEXT_PUBLIC_WHATSAPP_PHONE ||
     "447307410512",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "support@bestiptv-vip.com",
   // À CONFIRMER: no measurement source in this repo. Do not render these numbers.
   channelsCount: 22000,
   vodCount: 120000,

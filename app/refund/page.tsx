@@ -50,7 +50,7 @@ export default function RefundPage() {
         <p>For 6 or 12 month plans, after the first 24 hours: if you wish to cancel due to a service degradation on our side, we may issue a pro-rata refund for the unused months at our discretion.</p>
 
         <h2>7. Contact</h2>
-        <p>WhatsApp +{SITE.whatsapp} (fastest) or {SITE.email}.</p>
+        <p>Contact us via WhatsApp (+{SITE.whatsapp}).</p>
       </article>
     </PageShell>
   );

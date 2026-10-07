@@ -88,8 +88,6 @@ export default function SiteFooter() {
         <p>© {year} {SITE.brand}. All rights reserved.</p>
         <p style={{ marginTop: 4 }}>
           Optimized for fast, stable 4K streaming worldwide.
-          {" "}
-          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
         </p>
       </div>
     </footer>

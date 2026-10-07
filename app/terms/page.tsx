@@ -68,7 +68,7 @@ export default function TermsPage() {
         <p>We may update these Terms. Material changes will be notified via WhatsApp or email at least 14 days in advance.</p>
 
         <h2>14. Contact</h2>
-        <p>Questions: {SITE.email} or WhatsApp +{SITE.whatsapp}.</p>
+        <p>Questions: contact us via WhatsApp (+{SITE.whatsapp}).</p>
       </article>
     </PageShell>
   );
