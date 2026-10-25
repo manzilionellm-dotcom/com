@@ -4,7 +4,8 @@ import { SITE } from "../lib/site";
 
 const PUBLIC_CRAWL: { allow: string; disallow: string[] } = {
   allow: "/",
-  disallow: ["/api/", "/_next/", "/admin", "/ops"],
+  // Public Next.js assets are needed to render pages in Google Search.
+  disallow: ["/api/", "/admin", "/ops"],
 };
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
