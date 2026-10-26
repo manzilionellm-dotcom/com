@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   publisher: SITE.brand,
   formatDetection: { email: false, address: false, telephone: false },
   alternates: {
-    canonical: SITE_URL,
+    canonical: "/",
     languages: languageAlternates("/"),
   },
   openGraph: {
@@ -166,7 +166,6 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ background: "#050507", colorScheme: "dark" }}>
       <head>
-        <link rel="canonical" href={SITE_URL} />
         {LOCALES.map((l) => (
           <link key={l} rel="alternate" hrefLang={l} href={`${SITE_URL}/?lang=${l}`} />
         ))}
