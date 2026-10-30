@@ -5,6 +5,7 @@ import PageShell from "../../../components/PageShell";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import { DEVICE_GUIDES } from "../../../lib/content/devices";
 import { SITE, DEVICE_SLUGS, waLink, type DeviceSlug } from "../../../lib/site";
+import { CitationList } from "../../../components/CitationList";
 
 export function generateStaticParams() {
   return DEVICE_SLUGS.map((device) => ({ device }));
@@ -60,6 +61,7 @@ export default async function GuidePage({
       position: i + 1,
       name: s.title,
       text: s.text,
+      url: `${SITE.domain}/guides/${guide.slug}#step-${i + 1}`,
     })),
   };
 
@@ -110,6 +112,7 @@ export default async function GuidePage({
 
         <section className="section">
           <h2>Supported IPTV apps</h2>
+          <p className="aio-kicker">{guide.apps.join(", ")}.</p>
           <ul className="bullet-list">
             {guide.apps.map((a) => <li key={a}>✓ {a}</li>)}
           </ul>
@@ -117,9 +120,10 @@ export default async function GuidePage({
 
         <section className="section">
           <h2>Step-by-step installation</h2>
+          <p className="aio-kicker">Steps published for {guide.name}.</p>
           <ol className="steps-list">
             {guide.steps.map((s, i) => (
-              <li key={i}>
+              <li key={i} id={`step-${i + 1}`}>
                 <strong>{s.title}</strong>
                 <p>{s.text}</p>
               </li>
@@ -127,18 +131,14 @@ export default async function GuidePage({
           </ol>
         </section>
 
-        <section className="section">
+        <section className="section faq-static">
           <h2>Troubleshooting</h2>
-          {guide.troubleshooting.map((f, i) => (
-            <details key={i} className="faq-item">
-              <summary className="faq-q">{f.q}</summary>
-              <p className="faq-a">{f.a}</p>
-            </details>
-          ))}
+          <p className="aio-kicker">Notes published for {guide.name}.</p>
+          <CitationList items={guide.troubleshooting} />
         </section>
 
         <section className="section cta-section">
-          <h2>Ready to watch in 4K?</h2>
+          <h2>Ready to watch in 4K</h2>
           <p>Get instant Best IPTV VIP credentials via WhatsApp — free 24h trial, no credit card.</p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link className="btn btn-gold" href="/pricing">See pricing</Link>
@@ -155,6 +155,7 @@ export default async function GuidePage({
 
         <section className="section">
           <h2>Other install guides</h2>
+          <p className="aio-kicker">Other device guides published on this site.</p>
           <div className="link-grid">
             {DEVICE_SLUGS.filter((s) => s !== guide.slug).map((s) => (
               <Link key={s} href={`/guides/${s}`} className="link-card">

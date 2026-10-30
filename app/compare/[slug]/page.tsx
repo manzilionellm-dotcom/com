@@ -6,6 +6,7 @@ import Breadcrumbs from "../../../components/Breadcrumbs";
 import WhatsAppCTA from "../../../components/WhatsAppCTA";
 import { COMPARISONS, COMPARE_SLUGS } from "../../../lib/content/comparisons";
 import { SITE } from "../../../lib/site";
+import { CitationList } from "../../../components/CitationList";
 
 export function generateStaticParams() {
   return COMPARE_SLUGS.map((slug) => ({ slug }));
@@ -138,6 +139,7 @@ export default async function ComparePage({
 
         <section className="section">
           <h2>{usLabel} vs {themLabel} — feature comparison</h2>
+          <p className="aio-kicker">Features, price and coverage published for this matchup.</p>
           <div className="compare-wrap">
             <table className="compare-table">
               <thead>
@@ -175,6 +177,7 @@ export default async function ComparePage({
 
         <section className="section">
           <h2>Verdict by use case</h2>
+          <p className="aio-kicker">Who this page says should pick which service.</p>
           <div className="trust-grid">
             {c.verdict.map((v, i) => (
               <div key={i} className="trust-card">
@@ -192,6 +195,7 @@ export default async function ComparePage({
 
         <section className="section">
           <h2>Pros and cons</h2>
+          <p className="aio-kicker">Points this page lists for each service.</p>
           <div
             style={{
               display: "grid",
@@ -226,14 +230,10 @@ export default async function ComparePage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section faq-static">
           <h2>FAQ — {usLabel} vs {themLabel}</h2>
-          {c.faq.map((f, i) => (
-            <details key={i} className="faq-item">
-              <summary className="faq-q">{f.q}</summary>
-              <p className="faq-a">{f.a}</p>
-            </details>
-          ))}
+          <p className="aio-kicker">Questions answered from this comparison.</p>
+          <CitationList items={c.faq} />
         </section>
 
         <section className="section cta-section">
@@ -258,6 +258,7 @@ export default async function ComparePage({
 
         <section className="section">
           <h2>Other comparisons</h2>
+          <p className="aio-kicker">More matchups published on this site.</p>
           <div className="link-grid">
             {COMPARE_SLUGS.filter((s) => s !== c.slug).map((s) => (
               <Link key={s} href={`/compare/${s}`} className="link-card">

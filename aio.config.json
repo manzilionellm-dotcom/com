@@ -1,0 +1,221 @@
+{
+  "_doc": "Source unique AIO (llms.txt, FAQPage, Product, Citation Hooks). Ne mettre ici que des faits lisibles sur le site ou dans le code. Toute valeur inconnue = null et listée dans aio.todo.md.",
+  "siteName": "Best IPTV VIP",
+  "siteUrl": "https://bestiptv-vip.com",
+  "defaultLang": "en",
+  "currency": "USD",
+  "contact": {
+    "whatsapp": "https://wa.me/447307410512",
+    "email": "support@bestiptv-vip.com"
+  },
+  "plans": [
+    {
+      "id": "trial-24h",
+      "price": 0,
+      "durationDays": 1,
+      "name": {
+        "en": "24 hour trial",
+        "fr": "Essai 24 heures",
+        "ar": "تجربة 24 ساعة"
+      }
+    },
+    {
+      "id": "1-month",
+      "price": 10,
+      "durationDays": null,
+      "name": {
+        "en": "1 Month",
+        "fr": "1 mois",
+        "ar": "شهر واحد"
+      }
+    },
+    {
+      "id": "3-months",
+      "price": 25,
+      "durationDays": null,
+      "name": {
+        "en": "3 Months",
+        "fr": "3 mois",
+        "ar": "3 أشهر"
+      }
+    },
+    {
+      "id": "6-months",
+      "price": 35,
+      "durationDays": null,
+      "name": {
+        "en": "6 Months",
+        "fr": "6 mois",
+        "ar": "6 أشهر"
+      }
+    },
+    {
+      "id": "12-months",
+      "price": 60,
+      "durationDays": null,
+      "name": {
+        "en": "12 Months",
+        "fr": "12 mois",
+        "ar": "12 شهرا"
+      }
+    }
+  ],
+  "tech": {
+    "maxResolution": "4K UHD, as stated on the homepage, the pricing page and the device guides. The pricing page also says 3500 plus true 4K UHD channels. The Firestick guide says Firestick Lite is 1080p HD only, and the iPhone guide says iPhone screens are HD or FHD.",
+    "devices": [
+      "Firestick",
+      "Smart TV (Samsung, LG, Sony)",
+      "Android",
+      "iPhone",
+      "iPad",
+      "Android TV Box",
+      "MAG Box",
+      "PC",
+      "Mac"
+    ],
+    "activationMinutes": "usually 5 to 10 minutes after a WhatsApp order (homepage FAQ). The pricing page and the free trial page say under 10 minutes.",
+    "bitrate": null,
+    "channelCount": "22000 plus on the pricing page, the channels page and in site config (channelsCount). The homepage also says 20000 plus.",
+    "vodCount": "120000 plus movies and series on the pricing page and in site config (vodCount). The homepage also says 100000 plus."
+  },
+  "i18n": {
+    "en": {
+      "description": "Best IPTV VIP is a live TV subscription ordered on WhatsApp, with a free 24 hour trial and no card required. Published prices are $10 for 1 month, $25 for 3 months, $35 for 6 months and $60 for 12 months.",
+      "productDescription": "Best IPTV VIP subscription, term: {name}. Ordered on WhatsApp. The price is the one-time amount published on the site for that term.",
+      "faq": [
+        {
+          "q": "How do I start Best IPTV VIP?",
+          "a": "You contact Best IPTV VIP on WhatsApp and ask for the 24 hour trial. The homepage says no credit card is required and there is no automatic charge. The free trial page says the M3U link and Xtream Codes login are sent on WhatsApp in under 10 minutes. After the trial you pick a plan and the login is sent."
+        },
+        {
+          "q": "What are the Best IPTV VIP prices?",
+          "a": "The site bills four plans: 1 month for $10, 3 months for $25, 6 months for $35 and 12 months for $60. Each term is paid once. The homepage says there is no contract and no automatic charge. The pricing page says plans start from $5 a month. A free 24 hour trial is offered before you pay."
+        },
+        {
+          "q": "Which channels are included?",
+          "a": "The homepage names ESPN, NBC, BBC, Sky Sports, beIN, Canal Plus, MBC, Star Plus and ZDF, plus more than 20000 live channels in HD and 4K. The pricing page states 22000 plus live channels, including 3500 plus true 4K UHD channels. The homepage also lists Premier League, La Liga, Champions League, NBA, NFL, MLB, UFC and F1."
+        },
+        {
+          "q": "Which devices does Best IPTV VIP support?",
+          "a": "The homepage FAQ lists Firestick, Smart TV from Samsung, LG and Sony, Android, iPhone, iPad, Android TV Box, MAG Box, PC and Mac. The devices section says you can install on up to 3 devices. Separate guides on the site cover Firestick, Smart TV, Android TV, iPhone and iPad, MAG Box, and PC or Mac."
+        },
+        {
+          "q": "Is Best IPTV VIP compatible with TiviMate and IPTV Smarters?",
+          "a": "Yes. The homepage says the service supports TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player and XCIPTV, and that the M3U link is sent on WhatsApp. The pricing page also names Smart IPTV. The device guides add setup steps for those apps, including Xtream Codes login with the username, password and server URL sent on WhatsApp."
+        },
+        {
+          "q": "How fast is activation?",
+          "a": "The homepage FAQ says activation is usually 5 to 10 minutes after a WhatsApp order, including on weekends. The trust row on the homepage says activation is under 10 minutes and is instant via WhatsApp. The pricing page says WhatsApp activation is under 10 minutes. The free trial page says trial credentials are sent within 10 minutes."
+        },
+        {
+          "q": "Is the EPG included?",
+          "a": "Yes. The homepage says a full Electronic Programme Guide is included on all plans. The pricing page says the EPG covers 7 days forward and that major channels have 7 day catch up TV. The 6 month plan on the homepage lists EPG plus catch up among its features. No separate EPG fee is stated."
+        },
+        {
+          "q": "Does Best IPTV VIP work in my country?",
+          "a": "Yes. The homepage says the service works worldwide and names the USA, the UK, Canada, Europe, MENA, Asia, LATAM, Africa and Oceania. The trust row says it works worldwide and is compatible with all ISPs. The English channels page says it works with any ISP and that no VPN is required."
+        },
+        {
+          "q": "How do I pay for Best IPTV VIP?",
+          "a": "The homepage says payment is arranged via WhatsApp and lists PayPal, credit card, crypto and bank transfer. The pricing page adds Visa, Mastercard and AMEX, PayPal balance or card, Bitcoin, Ethereum and USDT on TRC20 or ERC20, plus SEPA, Wise and international wire. Card checkout is described as secure 3D Secure."
+        },
+        {
+          "q": "Can I cancel a Best IPTV VIP plan?",
+          "a": "The homepage says there is no contract: you pay once and the service expires automatically. The refund page offers a 24 hour money back guarantee on new subscriptions if quality is below the advertised promise and support cannot fix it within 24 hours of activation. The request must be made on WhatsApp inside that window."
+        }
+      ]
+    },
+    "fr": {
+      "description": "Best IPTV VIP est un abonnement de télévision en direct commandé sur WhatsApp, avec un essai gratuit de 24 heures sans carte. Les prix publiés sont 10 $ pour 1 mois, 25 $ pour 3 mois, 35 $ pour 6 mois et 60 $ pour 12 mois.",
+      "productDescription": "Abonnement Best IPTV VIP, durée : {name}. Commande sur WhatsApp. Le prix est le montant unique publié sur le site pour cette durée.",
+      "faq": [
+        {
+          "q": "Comment commencer avec Best IPTV VIP ?",
+          "a": "Vous contactez Best IPTV VIP sur WhatsApp et demandez l'essai gratuit de 24 heures. La page d'accueil indique qu'aucune carte n'est requise et qu'il n'y a pas de prélèvement automatique. La page essai gratuit dit que le lien M3U et l'identifiant Xtream Codes sont envoyés sur WhatsApp en moins de 10 minutes."
+        },
+        {
+          "q": "Quels sont les prix Best IPTV VIP ?",
+          "a": "Le site facture quatre offres, 1 mois à $10, 3 mois à $25, 6 mois à $35 et 12 mois à $60. La page d'accueil dit qu'il n'y a pas d'engagement et pas de prélèvement automatique. La page tarifs indique des offres dès $5 par mois. Un essai de 24 heures est proposé avant le paiement."
+        },
+        {
+          "q": "Quelles chaînes sont incluses ?",
+          "a": "La page d'accueil cite ESPN, NBC, BBC, Sky Sports, beIN, Canal Plus, MBC, Star Plus et ZDF, et plus de 20000 chaînes en HD et 4K. La page tarifs indique 22000 chaînes, dont 3500 en 4K UHD. Elle cite aussi la Premier League, La Liga, la Champions League, la NBA, la NFL, la MLB, l'UFC et la F1."
+        },
+        {
+          "q": "Quels appareils sont compatibles ?",
+          "a": "La FAQ de la page d'accueil cite Firestick, Smart TV Samsung, LG et Sony, Android, iPhone, iPad, Android TV Box, MAG Box, PC et Mac. La section appareils dit que l'installation peut se faire sur 3 appareils au maximum. Des guides séparés couvrent Firestick, Smart TV, Android TV, iPhone, iPad, MAG Box, PC et Mac."
+        },
+        {
+          "q": "Best IPTV VIP est il compatible avec TiviMate et IPTV Smarters ?",
+          "a": "Oui. La page d'accueil indique TiviMate, IPTV Smarters Pro, GSE Smart IPTV, IBO Player et XCIPTV, et le lien M3U est envoyé sur WhatsApp. La page tarifs cite aussi Smart IPTV. Les guides d'appareils décrivent la connexion Xtream Codes avec le nom d'utilisateur, le mot de passe et l'adresse serveur envoyés sur WhatsApp."
+        },
+        {
+          "q": "En combien de temps l'activation est elle faite ?",
+          "a": "La FAQ indique que l'activation prend en général 5 à 10 minutes après la commande WhatsApp, y compris le week end. Le bandeau de la page d'accueil dit une activation en moins de 10 minutes via WhatsApp. La page tarifs dit une activation WhatsApp en moins de 10 minutes."
+        },
+        {
+          "q": "Le guide EPG est il inclus ?",
+          "a": "Oui. La page d'accueil dit qu'un guide électronique des programmes complet est inclus dans toutes les offres. La page tarifs dit que le guide couvre 7 jours à l'avance et que les grandes chaînes ont un replay de 7 jours. L'offre 6 mois cite le guide plus le replay. Aucun supplément EPG n'est indiqué."
+        },
+        {
+          "q": "Best IPTV VIP fonctionne t il dans mon pays ?",
+          "a": "Oui. La page d'accueil dit que le service fonctionne dans le monde et cite les USA, le Royaume Uni, le Canada, l'Europe, la zone MENA, l'Asie, l'Amérique latine, l'Afrique et l'Océanie. Elle dit aussi une compatibilité avec tous les fournisseurs d'accès. La page chaînes anglaises dit qu'aucun VPN n'est exigé."
+        },
+        {
+          "q": "Comment payer Best IPTV VIP ?",
+          "a": "La page d'accueil dit que le paiement se fait via WhatsApp et cite PayPal, carte bancaire, crypto et virement. La page tarifs ajoute Visa, Mastercard et AMEX, PayPal, Bitcoin, Ethereum et USDT en TRC20 ou ERC20, plus SEPA, Wise et virement international. Le paiement carte est décrit comme un checkout 3D Secure."
+        },
+        {
+          "q": "Puis je annuler une offre Best IPTV VIP ?",
+          "a": "La page d'accueil dit qu'il n'y a pas d'engagement, vous payez une fois et le service expire tout seul. La page remboursement offre une garantie de 24 heures sur les nouveaux abonnements si le support ne peut pas corriger le problème dans les 24 heures. La demande se fait sur WhatsApp."
+        }
+      ]
+    },
+    "ar": {
+      "description": "Best IPTV VIP اشتراك بث مباشر يُطلب عبر واتساب، مع تجربة مجانية لمدة 24 ساعة بدون بطاقة. الأسعار المنشورة هي 10 دولارات لشهر، و25 دولارا لثلاثة أشهر، و35 دولارا لستة أشهر، و60 دولارا لاثني عشر شهرا.",
+      "productDescription": "اشتراك Best IPTV VIP، المدة: {name}. الطلب عبر واتساب. السعر هو المبلغ الوحيد المنشور على الموقع لهذه المدة.",
+      "faq": [
+        {
+          "q": "كيف أبدأ مع Best IPTV VIP؟",
+          "a": "تتواصل مع Best IPTV VIP على واتساب وتطلب التجربة المجانية لمدة 24 ساعة. الصفحة الرئيسية تقول إن البطاقة غير مطلوبة وأنه لا يوجد خصم تلقائي. صفحة التجربة المجانية تقول إن رابط M3U وبيانات Xtream Codes ترسل على واتساب خلال أقل من 10 دقائق. بعد التجربة تختار الباقة ويصل تسجيل الدخول."
+        },
+        {
+          "q": "ما هي أسعار Best IPTV VIP؟",
+          "a": "يفوتر الموقع أربع باقات: شهر واحد بـ $10 و 3 أشهر بـ $25 و 6 أشهر بـ $35 و 12 شهرا بـ $60. كل مدة تدفع مرة واحدة. الصفحة الرئيسية تقول لا يوجد عقد ولا خصم تلقائي. صفحة الأسعار تقول إن الباقات تبدأ من $5 في الشهر. تتوفر تجربة مجانية لمدة 24 ساعة قبل الدفع."
+        },
+        {
+          "q": "ما القنوات المدرجة؟",
+          "a": "الصفحة الرئيسية تذكر ESPN و NBC و BBC و Sky Sports و beIN و Canal Plus و MBC و Star Plus و ZDF وأكثر من 20000 قناة مباشرة بجودة HD و 4K. صفحة الأسعار تذكر 22000 قناة مباشرة منها 3500 قناة 4K UHD. وتذكر Premier League و La Liga و Champions League و NBA و NFL و UFC و F1."
+        },
+        {
+          "q": "ما الأجهزة المتوافقة؟",
+          "a": "أسئلة الصفحة الرئيسية تذكر Firestick و Smart TV من Samsung و LG و Sony و Android و iPhone و iPad و Android TV Box و MAG Box و PC و Mac. قسم الأجهزة يقول إن التثبيت ممكن على 3 أجهزة كحد أقصى. وتوجد أدلة لـ Firestick و Smart TV و Android و iPhone و MAG Box و PC و Mac."
+        },
+        {
+          "q": "هل Best IPTV VIP متوافق مع TiviMate و IPTV Smarters؟",
+          "a": "نعم. الصفحة الرئيسية تقول إن الخدمة تدعم TiviMate و IPTV Smarters Pro و GSE Smart IPTV و IBO Player و XCIPTV وإن رابط M3U يرسل عبر واتساب. صفحة الأسعار تذكر أيضا Smart IPTV. أدلة الأجهزة تشرح دخول Xtream Codes باسم المستخدم وكلمة المرور وعنوان الخادم المرسلة على واتساب."
+        },
+        {
+          "q": "كم يستغرق التفعيل؟",
+          "a": "أسئلة الصفحة الرئيسية تقول إن التفعيل يتم عادة خلال 5 إلى 10 دقائق بعد طلب واتساب حتى في عطلة نهاية الأسبوع. شريط الثقة يقول إن التفعيل أقل من 10 دقائق عبر واتساب. صفحة الأسعار تقول تفعيل واتساب خلال أقل من 10 دقائق. صفحة التجربة تقول إن البيانات ترسل خلال 10 دقائق."
+        },
+        {
+          "q": "هل دليل EPG مدرج؟",
+          "a": "نعم. الصفحة الرئيسية تقول إن دليل البرامج الإلكتروني الكامل مدرج في كل الباقات. صفحة الأسعار تقول إن الدليل يغطي 7 أيام للأمام وإن القنوات الرئيسية فيها إعادة مشاهدة لمدة 7 أيام. باقة 6 أشهر تذكر الدليل مع إعادة المشاهدة. لا توجد رسوم إضافية للدليل في الصفحة."
+        },
+        {
+          "q": "هل يعمل Best IPTV VIP في بلدي؟",
+          "a": "نعم. الصفحة الرئيسية تقول إن الخدمة تعمل حول العالم وتذكر الولايات المتحدة وبريطانيا وكندا وأوروبا والشرق الأوسط وآسيا وأمريكا اللاتينية وأفريقيا وأوقيانوسيا. وتقول إنها متوافقة مع كل مزودي الإنترنت. صفحة القنوات الإنجليزية تقول إنها تعمل مع أي مزود وإن VPN غير مطلوب."
+        },
+        {
+          "q": "كيف أدفع مقابل Best IPTV VIP؟",
+          "a": "الصفحة الرئيسية تقول إن الدفع يتم عبر واتساب وتذكر PayPal والبطاقة والكريبتو والتحويل البنكي. صفحة الأسعار تضيف Visa و Mastercard و AMEX و PayPal و Bitcoin و Ethereum و USDT على TRC20 أو ERC20 إضافة إلى SEPA و Wise والتحويل الدولي. الدفع بالبطاقة موصوف بأنه دفع 3D Secure."
+        },
+        {
+          "q": "هل يمكنني إلغاء باقة Best IPTV VIP؟",
+          "a": "الصفحة الرئيسية تقول إنه لا يوجد عقد: تدفع مرة واحدة وتنتهي الخدمة تلقائيا. صفحة الاسترداد تعرض ضمان استرجاع خلال 24 ساعة للاشتراكات الجديدة إذا كانت الجودة أقل من الوعد ولم يستطع الدعم إصلاح المشكلة خلال 24 ساعة من التفعيل. يقدم الطلب على واتساب داخل هذه المهلة."
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,7 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import LeadForm from "../../components/LeadForm";
 import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
+import { SalesFaq } from "../../components/SalesFaq";
 
 export const metadata: Metadata = {
   title: "Free 24h IPTV Trial — No Credit Card Required",
@@ -66,6 +67,7 @@ export default function FreeTrialPage() {
 
         <section className="section">
           <h2>How it works</h2>
+          <p className="aio-kicker">Tell us your device, then the trial login is sent on WhatsApp.</p>
           <div className="steps-grid">
             <div className="step"><div className="step-num">1</div><p>Click the WhatsApp button above (or fill the form) and tell us your device (Firestick, Smart TV, Android, iOS…).</p></div>
             <div className="step"><div className="step-num">2</div><p>We send your free trial M3U link, Xtream Codes API and setup guide within 10 minutes.</p></div>
@@ -75,6 +77,7 @@ export default function FreeTrialPage() {
 
         <section className="section">
           <h2>What you get during your free 24h</h2>
+          <p className="aio-kicker">The trial page says this includes the same channels as a paid plan.</p>
           <ul className="bullet-list">
             <li>✓ Full 22,000+ live channels — same as paying customers</li>
             <li>✓ All 3,500+ 4K UHD channels (sports, movies)</li>
@@ -85,6 +88,8 @@ export default function FreeTrialPage() {
             <li>✓ Switch to paid plan only if you love it</li>
           </ul>
         </section>
+
+        <SalesFaq title="FAQ" />
 
         <section className="section cta-section">
           <h2>Trial expired? See full pricing</h2>

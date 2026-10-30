@@ -98,16 +98,13 @@ export const COMPARISONS: Record<string, Comparison> = {
     },
     faq: [
       {
-        q: "Is IPTV legal as a cable replacement?",
-        a: "Reputable IPTV providers license their feeds — same as a cable operator. Always pick a provider with a verifiable WhatsApp/email support channel and a refund policy.",
+        q: "Is IPTV legal as a cable replacement?", a: "The cable comparison says reputable IPTV providers license their feeds, as a cable operator does, and that you should pick a provider with a verifiable WhatsApp or email channel and a refund policy. This site publishes a WhatsApp number, a contact email, and a refund page with a 24 hour money back guarantee.",
       },
       {
-        q: "Will I lose live local news with IPTV?",
-        a: "You can still get major national news (CNN, BBC, FOX News, Sky News) in HD. Hyper-local zip-code affiliates are weaker — pair IPTV with a free over-the-air antenna ($25 one-off) for local news.",
+        q: "Will I lose live local news with IPTV?", a: "The cable comparison says you can still get national news in HD, and it names CNN, BBC, FOX News and Sky News. It says hyper local zip code affiliates are weaker, and it suggests a free over the air antenna, which that page prices at $25 once, for local news.",
       },
       {
-        q: "Do I need a smart TV?",
-        a: "No. Any TV with HDMI plus a $40 Firestick or Android box works. Or watch directly on a phone, tablet, PC or MAG box.",
+        q: "Do I need a smart TV?", a: "No. The cable comparison says any TV with HDMI plus a Firestick or Android box works, and that page prices the stick or box at $40. It also says you can watch on a phone, a tablet, a PC or a MAG box. The devices page on this site lists those same families.",
       },
     ],
   },
@@ -179,16 +176,13 @@ export const COMPARISONS: Record<string, Comparison> = {
     },
     faq: [
       {
-        q: "Should I cancel Netflix if I get IPTV?",
-        a: "Most households keep both for the first month and decide. Netflix originals are the only real lock-in — if you don't watch them, you can drop Netflix and save $20+/month.",
+        q: "Should I cancel Netflix if I get IPTV?", a: "The Netflix comparison says most households keep both for the first month and then decide. It says Netflix originals are the lock in, and that you can drop Netflix if you do not watch them. The page puts Best IPTV VIP at $10 a month and Netflix Premium at $22.99.",
       },
       {
-        q: "Can I watch Netflix-style movies on IPTV?",
-        a: "Yes — Best IPTV VIP's VOD library has 120,000+ movies and series across genres, plus catch-up on cable shows you missed.",
+        q: "Can I watch Netflix-style movies on IPTV?", a: "Yes. The Netflix comparison says the VOD library has 120000 plus movies and series, plus catch up on shows you missed. The page says Netflix has no live TV, no sports and no news, while this service adds 22000 plus live channels and costs less than Netflix Premium at $22.99.",
       },
       {
-        q: "Does IPTV replace Disney+, HBO Max, Prime Video too?",
-        a: "Partly — premium movie channels (HBO, Showtime, Sky Cinema, Canal+ Cinéma) are bundled. Studio-exclusive originals stay on their native platforms.",
+        q: "Does IPTV replace Disney+, HBO Max, Prime Video too?", a: "Partly. The Netflix comparison says premium movie channels are bundled, and it names HBO, Showtime, Sky Cinema and Canal Plus Cinéma. It says studio exclusive originals stay on their own platforms. The page says many households keep Netflix for originals and use IPTV for live sports and news.",
       },
     ],
   },
@@ -259,12 +253,10 @@ export const COMPARISONS: Record<string, Comparison> = {
     },
     faq: [
       {
-        q: "Can I watch Disney+ originals on IPTV?",
-        a: "No — studio exclusives like The Mandalorian or Andor are not on any IPTV service. If you must watch those, keep Disney+ and add IPTV for live TV.",
+        q: "Can I watch Disney+ originals on IPTV?", a: "No. The Disney Plus comparison says studio exclusives such as The Mandalorian or Andor are not on any IPTV service. It says to keep Disney Plus for those titles and add IPTV for live TV. The page says kids networks such as Cartoon Network, Nickelodeon and Disney Channel are in the IPTV lineup.",
       },
       {
-        q: "Are kids channels included in Best IPTV VIP?",
-        a: "Yes — Cartoon Network, Nick, Boomerang, Disney Channel (regional feeds), Spacetoon, MBC 3, Gulli, KiKA, JimJam and more.",
+        q: "Are kids channels included in Best IPTV VIP?", a: "Yes. The Disney Plus comparison lists Cartoon Network, Nick, Boomerang, Disney Channel regional feeds, Spacetoon, MBC 3, Gulli, KiKA and JimJam. The page also says IPTV does not include Disney, Marvel or Star Wars originals, and that parental filters depend on the player you install.",
       },
     ],
   },
@@ -335,12 +327,10 @@ export const COMPARISONS: Record<string, Comparison> = {
     },
     faq: [
       {
-        q: "Does Sling TV have Premier League?",
-        a: "Sling Blue carries USA Network and NBC Sports add-on which include selected Premier League matches — but not the full slate. IPTV carries every Premier League match across Sky Sports and TNT Sports feeds.",
+        q: "Does Sling TV have Premier League?", a: "The Sling comparison says Sling Blue carries USA Network and an NBC Sports add on with selected Premier League matches, not the full slate. It says IPTV carries Premier League matches on Sky Sports and TNT Sports feeds. The page prices Sling at $40 to $60 a month and this service at $5 to $10.",
       },
       {
-        q: "Can I watch Sling TV abroad?",
-        a: "No — Sling geo-locks to the US (with limited international packages). IPTV works on any ISP in any country.",
+        q: "Can I watch Sling TV abroad?", a: "No. The Sling comparison says Sling geo locks to the US, with limited international packages, and that IPTV works on any ISP in any country. The page calls Sling US only, about 50 channels from $40 a month, against 22000 plus worldwide channels here.",
       },
     ],
   },
@@ -411,12 +401,10 @@ export const COMPARISONS: Record<string, Comparison> = {
     },
     faq: [
       {
-        q: "Is YouTube TV worth $82.99?",
-        a: "For US households who heavily use cloud DVR and want one-click setup, yes. For cost-conscious viewers or anyone watching international content, IPTV delivers similar live coverage at 10% of the price.",
+        q: "Is YouTube TV worth $82.99?", a: "The YouTube TV comparison says yes for US households who use cloud DVR a lot and want one click setup. It says cost conscious viewers, or anyone watching international channels, get similar live coverage from IPTV at 10% of that price. The page lists YouTube TV at $82.99 a month and this service at $5 to $10.",
       },
       {
-        q: "Can I share IPTV with family like YouTube TV's 6 accounts?",
-        a: "12-month plans support up to 3 simultaneous devices, which covers most households. For more streams, contact us on WhatsApp about multi-stream packs.",
+        q: "Can I share IPTV with family like YouTube TV's 6 accounts?", a: "The YouTube TV comparison says the 12 month plan supports up to 3 devices at the same time, which it says covers most households. For more streams it says to ask on WhatsApp about multi stream packs. The page says YouTube TV includes 6 accounts, and that catch up here is not unlimited cloud DVR.",
       },
     ],
   },

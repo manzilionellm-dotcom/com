@@ -5,6 +5,7 @@ import PageShell from "../../../components/PageShell";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import { COUNTRY_PAGES } from "../../../lib/content/countries";
 import { SITE, COUNTRY_SLUGS, waLink, type CountrySlug } from "../../../lib/site";
+import { CitationList } from "../../../components/CitationList";
 
 export function generateStaticParams() {
   return COUNTRY_SLUGS.map((country) => ({ country }));
@@ -120,6 +121,7 @@ export default async function CountryPage({
         {groups.map((g) => (
           <section key={g.title} className="section">
             <h2>{g.title}</h2>
+            <p className="aio-kicker">{g.items.join(", ")}.</p>
             <div className="modal-channels">
               {g.items.map((c) => (
                 <div key={c} className="modal-chip">
@@ -133,19 +135,16 @@ export default async function CountryPage({
 
         <section className="section">
           <h2>VOD highlights</h2>
+          <p className="aio-kicker">{page.vodHighlights.join(", ")}.</p>
           <ul className="bullet-list">
             {page.vodHighlights.map((v) => <li key={v}>✓ {v}</li>)}
           </ul>
         </section>
 
-        <section className="section">
+        <section className="section faq-static">
           <h2>FAQ</h2>
-          {page.faq.map((f, i) => (
-            <details key={i} className="faq-item">
-              <summary className="faq-q">{f.q}</summary>
-              <p className="faq-a">{f.a}</p>
-            </details>
-          ))}
+          <p className="aio-kicker">Questions published for {page.name}.</p>
+          <CitationList items={page.faq} />
         </section>
 
         <section className="section cta-section">
@@ -166,6 +165,7 @@ export default async function CountryPage({
 
         <section className="section">
           <h2>Other regions</h2>
+          <p className="aio-kicker">Other language lineups published on this site.</p>
           <div className="link-grid">
             {COUNTRY_SLUGS.filter((s) => s !== page.slug).map((s) => (
               <Link key={s} href={`/channels/${s}`} className="link-card">
