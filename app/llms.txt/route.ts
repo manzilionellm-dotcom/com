@@ -73,7 +73,7 @@ function document(): string {
     `${link(origin, "/devices", "Devices")}: device index. Firestick setup is ${origin}/guides/firestick, not /firestick.`,
     `${link(origin, "/blog", "Blog")}: article index.`,
     `${link(origin, "/compare", "Compare")}: comparison index.`,
-    `${link(origin, "/contact", "Contact")}: WhatsApp number and email published on this page.`,
+    `${link(origin, "/contact", "Contact")}: WhatsApp number published on this page.`,
     `${link(origin, "/privacy", "Privacy")}: privacy text published by the site.`,
     `${link(origin, "/terms", "Terms")}: terms text published by the site.`,
     `${link(origin, "/refund", "Refund")}: refund text published by the site.`,
