@@ -1,3 +1,4 @@
+import { guides as reviewedGuides, origin as reviewedOrigin } from "../lib/reviewed-guides";
 import type { MetadataRoute } from "next";
 import {
   SITE,
@@ -112,5 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...base, ...guides, ...countries, ...blog, ...compare];
+  const entries = [...base, ...guides, ...countries, ...blog, ...compare];
+  const listed = new Set(entries.map((entry) => new URL(entry.url).pathname));
+  return [...entries, ...Object.keys(reviewedGuides).filter((path) => !listed.has(path)).map((path) => ({ url: reviewedOrigin + path }))];
 }
