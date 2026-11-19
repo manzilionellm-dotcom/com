@@ -40,21 +40,6 @@ export default async function CountryPage({
   const page = COUNTRY_PAGES[country as CountrySlug];
   if (!page) notFound();
 
-  const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: page.hero,
-    description: page.description,
-    provider: { "@type": "Organization", name: SITE.brand },
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "USD",
-      lowPrice: "10",
-      highPrice: "60",
-      offerCount: "4",
-    },
-  };
-
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -66,7 +51,7 @@ export default async function CountryPage({
   };
 
   const groups: { title: string; items: string[] }[] = [
-    { title: "Top channels", items: page.channelsHero },
+    { title: "Viewing checklist", items: page.channelsHero },
     { title: "Sports", items: page.sportsChannels },
     { title: "News", items: page.newsChannels },
     { title: "Entertainment", items: page.entertainmentChannels },
@@ -74,11 +59,7 @@ export default async function CountryPage({
   ];
 
   return (
-    <PageShell fabMessage={`Hi! I want ${page.name} IPTV.`}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
-      />
+    <PageShell regionalGuide fabMessage={`Can you help me check my device settings for ${page.name}?`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -100,20 +81,18 @@ export default async function CountryPage({
         <div style={{ textAlign: "center", marginBottom: 36 }}>
           <a
             className="btn btn-green"
-            href={waLink(`Hi! I want ${page.name} channels.`, `Country-${page.slug}`)}
+            href={waLink(`Which device settings should I check for ${page.name}?`, `Country-${page.slug}`)}
             target="_blank"
             rel="noreferrer noopener"
           >
-            Order on WhatsApp
+            Ask about device setup
           </a>
           {" "}
           <a
             className="btn btn-ghost"
-            href={waLink(`Hi! I want a free 24h trial for ${page.name}.`, `Country-${page.slug}-Trial`)}
-            target="_blank"
-            rel="noreferrer noopener"
+            href="#region-faq"
           >
-            Free 24h trial
+            Read the regional FAQ
           </a>
         </div>
 
@@ -132,14 +111,14 @@ export default async function CountryPage({
         ))}
 
         <section className="section">
-          <h2>VOD highlights</h2>
+          <h2>On-demand viewing checks</h2>
           <ul className="bullet-list">
             {page.vodHighlights.map((v) => <li key={v}>✓ {v}</li>)}
           </ul>
         </section>
 
         <section className="section">
-          <h2>FAQ</h2>
+          <h2 id="region-faq">FAQ</h2>
           {page.faq.map((f, i) => (
             <details key={i} className="faq-item">
               <summary className="faq-q">{f.q}</summary>
@@ -149,17 +128,17 @@ export default async function CountryPage({
         </section>
 
         <section className="section cta-section">
-          <h2>Start watching {page.name} today</h2>
-          <p>Free 24h trial, no credit card. Activation in under 10 minutes via WhatsApp.</p>
+          <h2>Planning your viewing setup</h2>
+          <p>Read the regional FAQ, no credit card. Activation in under 10 minutes via WhatsApp.</p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link className="btn btn-gold" href="/pricing">See pricing</Link>
+            <Link className="btn btn-gold" href="/devices">Find your device</Link>
             <a
               className="btn btn-green"
-              href={waLink(`Hi! I want a free 24h trial for ${page.name}.`, `Country-${page.slug}-CTA`)}
+              href={waLink(`I need device setup help for ${page.name}.`, `Country-${page.slug}-Support`)}
               target="_blank"
               rel="noreferrer noopener"
             >
-              Free trial
+              Ask for setup help
             </a>
           </div>
         </section>

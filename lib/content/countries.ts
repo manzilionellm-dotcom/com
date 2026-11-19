@@ -16,151 +16,412 @@ export type CountryPage = {
 };
 
 export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
-  arabic: {
-    slug: "arabic",
-    name: "Arabic IPTV (MENA)",
-    flag: "🇸🇦",
-    hero: "Best Arabic IPTV — MBC, beIN, OSN, Rotana, Al Jazeera in 4K",
-    description:
-      "Premium Arabic IPTV with 3,500+ MENA channels — MBC, beIN Sports 4K, OSN, Rotana, Al Jazeera, Saudi 1, Dubai TV, Abu Dhabi, Nile Drama, Iqraa. Full Khaleeji, Levant, Egyptian, Maghreb coverage with EPG.",
-    channelsHero: ["MBC 1 HD", "MBC 2 HD", "MBC Drama", "MBC Action", "MBC Max", "MBC Bollywood"],
-    sportsChannels: ["beIN Sports 1 4K", "beIN Sports 2 4K", "beIN Sports MAX", "Abu Dhabi Sports", "Dubai Sports", "Saudi Sports", "Al Kass HD"],
-    newsChannels: ["Al Jazeera HD", "Al Jazeera English", "Al Arabiya HD", "Sky News Arabia", "BBC Arabic", "France 24 Arabic", "Al Hadath"],
-    entertainmentChannels: ["Rotana Cinema", "Rotana Classic", "Rotana Drama", "Rotana Khalijia", "OSN First", "OSN Movies", "ART Aflam", "ART Cinema"],
-    kidsChannels: ["MBC 3", "Spacetoon", "Cartoon Network Arabic", "Baraem", "Jeem TV"],
-    vodHighlights: ["Latest Arabic series Ramadan 2026", "Egyptian classic cinema", "Turkish drama dubbed in Arabic", "Khaleeji series", "Islamic content & Quran TV"],
-    faq: [
-      { q: "Do you have beIN Sports 4K?", a: "Yes — all beIN Sports premium channels in 4K UHD, including Champions League, La Liga, Premier League." },
-      { q: "Does it work in Saudi Arabia, UAE, Kuwait?", a: "Yes — works perfectly in all GCC countries. We recommend a stable 25 Mbps connection." },
-      { q: "Arabic EPG included?", a: "Yes — full Arabic Electronic Programme Guide for 7 days in advance." },
+  "arabic": {
+    "slug": "arabic",
+    "name": "Arabic IPTV (MENA)",
+    "flag": "🇸🇦",
+    "hero": "Arabic-language television in the Middle East and North Africa",
+    "description": "Check the country of reception, the commentary language and the programme date with the official publisher. A listing for one Gulf country may differ from another.",
+    "channelsHero": [
+      "Arabic audio",
+      "Local schedule",
+      "Subtitle options"
     ],
-  },
-  english: {
-    slug: "english",
-    name: "English IPTV (USA / UK)",
-    flag: "🇺🇸",
-    hero: "Best English IPTV — ESPN, NFL, Sky Sports, HBO, BBC, FOX",
-    description:
-      "Premium USA and UK IPTV with 4,000+ English channels — ESPN, NFL Network, NBA TV, Sky Sports, BT Sport 4K, HBO Max, BBC One HD, ITV HD, CBS, NBC, FOX, ABC. Includes full EPG and 7-day catch-up.",
-    channelsHero: ["ESPN HD", "Sky Sports Main Event 4K", "BBC One HD", "HBO Max", "Netflix US Mirror", "Disney+"],
-    sportsChannels: ["ESPN", "ESPN 2", "NFL Network", "NBA TV", "MLB Network", "FOX Sports 1", "Sky Sports Premier League", "BT Sport 4K", "TNT Sports UK", "TSN Canada"],
-    newsChannels: ["CNN", "Fox News", "MSNBC", "BBC News", "Sky News UK", "CNBC", "Bloomberg"],
-    entertainmentChannels: ["HBO", "AMC", "FX", "Showtime", "Starz", "Sky Cinema", "Sky Atlantic", "Channel 4"],
-    kidsChannels: ["Cartoon Network", "Nickelodeon", "Disney Channel", "Boomerang", "CBeebies"],
-    vodHighlights: ["Latest Netflix releases", "HBO Max originals", "Premier League replays", "NBA full games on demand", "British drama box-sets"],
-    faq: [
-      { q: "Does it have NFL Sunday Ticket and Premier League?", a: "Yes — all NFL games, Sunday Ticket, Premier League, NBA, MLB, NHL, UFC, PPV included." },
-      { q: "Can I watch HBO Max and Showtime?", a: "Yes — HBO, Showtime, Starz, AMC+ premium channels with VOD library." },
-      { q: "Does it work in USA, UK, Ireland, Canada, Australia?", a: "Yes — works worldwide with any ISP. No VPN required." },
+    "sportsChannels": [
+      "Full event",
+      "Highlights",
+      "Local commentary"
     ],
-  },
-  french: {
-    slug: "french",
-    name: "French IPTV (France / Belgique / Suisse)",
-    flag: "🇫🇷",
-    hero: "Meilleur IPTV Français — Canal+, beIN, RMC Sport, TF1",
-    description:
-      "IPTV français premium avec 2,500+ chaînes — Canal+ 4K, Canal+ Sport, beIN Sports, RMC Sport, TF1, M6, France 2/3/4/5, OCS, RMC Story, BFM TV. EPG complet et replay 7 jours.",
-    channelsHero: ["Canal+ 4K", "TF1 HD", "France 2 HD", "M6 HD", "beIN Sports 1", "RMC Sport 1"],
-    sportsChannels: ["Canal+ Sport", "beIN Sports 1/2/3", "RMC Sport 1/2/3/4", "L'Équipe", "Eurosport 1/2", "Multisports"],
-    newsChannels: ["BFM TV", "CNEWS", "LCI", "France Info", "TV5 Monde"],
-    entertainmentChannels: ["Canal+", "Canal+ Cinéma", "OCS Max", "OCS City", "TF1 Séries Films", "6ter", "TFX"],
-    kidsChannels: ["Gulli", "Canal J", "Tiji", "Boomerang", "Disney Channel France"],
-    vodHighlights: ["Films français récents", "Séries Canal+ Créations Originales", "Replay TF1 / M6 / France TV", "Documentaires Arte"],
-    faq: [
-      { q: "Canal+ Sport et beIN Sports inclus ?", a: "Oui — toutes les chaînes Canal+ Sport, beIN Sports 1/2/3, RMC Sport 1-4 en HD/4K." },
-      { q: "Fonctionne en France, Belgique, Suisse, Maroc, Algérie ?", a: "Oui — partout dans le monde francophone avec n'importe quel opérateur." },
-      { q: "EPG français inclus ?", a: "Oui — guide TV français complet sur 7 jours avec replay." },
+    "newsChannels": [
+      "National bulletin",
+      "Local news",
+      "Live or delayed"
     ],
-  },
-  spanish: {
-    slug: "spanish",
-    name: "Spanish IPTV (España / LATAM)",
-    flag: "🇪🇸",
-    hero: "Mejor IPTV Español — LaLiga, Movistar, DAZN, TVE",
-    description:
-      "IPTV español premium con 2,000+ canales — LaLiga TV, Movistar+, DAZN España, TVE 1, Antena 3, Telecinco, Cuatro, Univision, Telemundo. Cobertura completa España y LATAM.",
-    channelsHero: ["LaLiga TV 4K", "Movistar+ Liga", "DAZN ES", "TVE 1 HD", "Antena 3 HD", "Telecinco HD"],
-    sportsChannels: ["LaLiga TV", "Movistar Liga de Campeones", "DAZN La Liga", "DAZN F1", "Movistar Deportes", "Eurosport ES"],
-    newsChannels: ["TVE 24h", "Antena 3 Noticias", "La Sexta Noticias", "TeleSur", "CNN Español"],
-    entertainmentChannels: ["Antena 3", "Telecinco", "Cuatro", "La Sexta", "FOX España", "AXN", "Movistar Series"],
-    kidsChannels: ["Clan TVE", "Boing", "Disney Channel ES", "Cartoon Network ES"],
-    vodHighlights: ["Películas españolas estreno", "Series Movistar+ originales", "Telenovelas latinoamericanas", "Fútbol LaLiga catch-up 7 días"],
-    faq: [
-      { q: "¿Incluye LaLiga y Champions?", a: "Sí — LaLiga TV completa, Champions League, Copa del Rey, F1, MotoGP en HD/4K." },
-      { q: "¿Funciona en España, México, Argentina, Colombia?", a: "Sí — funciona en todo el mundo hispanohablante." },
+    "entertainmentChannels": [
+      "Original audio",
+      "Series schedule",
+      "Film version"
     ],
-  },
-  turkish: {
-    slug: "turkish",
-    name: "Turkish IPTV (Türkiye)",
-    flag: "🇹🇷",
-    hero: "En İyi Türk IPTV — beIN Sports, TRT, Show TV, Kanal D",
-    description:
-      "Premium Türk IPTV — 1,500+ kanal: TRT 1 HD, Show TV, Kanal D, Star TV, ATV, FOX Türkiye, beIN Sports Türkiye, A Spor. Tüm Süper Lig, Avrupa Kupası, Türk dizileri ve filmleri.",
-    channelsHero: ["TRT 1 HD", "Show TV", "Kanal D", "Star TV", "ATV", "beIN Sports 1 TR"],
-    sportsChannels: ["beIN Sports 1/2/3/4 TR", "S Sport", "A Spor", "TRT Spor", "Tivibu Spor"],
-    newsChannels: ["TRT Haber", "CNN Türk", "NTV", "Haber Türk", "A Haber"],
-    entertainmentChannels: ["Show TV", "Kanal D", "Star TV", "FOX Türkiye", "TLC", "Dizimax"],
-    kidsChannels: ["TRT Çocuk", "Cartoon Network TR", "Nickelodeon TR", "Disney Channel TR"],
-    vodHighlights: ["Türk dizileri en yeni bölümler", "BluTV / Exxen içerikleri", "Türk filmleri klasik & yeni"],
-    faq: [
-      { q: "Süper Lig ve Avrupa Kupası dahil mi?", a: "Evet — tüm beIN Sports Türkiye kanalları, S Sport, Tivibu Spor dahil." },
-      { q: "Türkiye dışında çalışır mı?", a: "Evet — Almanya, Hollanda, Fransa, ABD'deki Türk gurbetçiler için mükemmel." },
+    "kidsChannels": [
+      "Age rating",
+      "Child profile",
+      "Parent PIN"
     ],
-  },
-  indian: {
-    slug: "indian",
-    name: "Indian IPTV (Hindi / Tamil / Telugu)",
-    flag: "🇮🇳",
-    hero: "Best Indian IPTV — Star, Sony, Zee, Colors, Hotstar",
-    description:
-      "Premium Indian IPTV with 2,500+ channels — Star Plus HD, Sony Entertainment, Zee TV, Colors, Star Sports, Aaj Tak. Hindi, Tamil, Telugu, Punjabi, Bengali, Malayalam content with Bollywood VOD.",
-    channelsHero: ["Star Plus HD", "Sony Entertainment HD", "Zee TV HD", "Colors HD", "Star Sports 1 HD", "Sony SAB"],
-    sportsChannels: ["Star Sports 1/2/3 HD", "Sony Six", "Sony Ten 1/2/3", "DSport", "Eurosport India"],
-    newsChannels: ["Aaj Tak", "NDTV 24x7", "Times Now", "Republic TV", "India Today"],
-    entertainmentChannels: ["Star Plus", "Zee TV", "Sony Entertainment", "Colors", "&TV", "Sony SAB", "Star Bharat"],
-    kidsChannels: ["Cartoon Network India", "Pogo", "Nick India", "Disney India", "Hungama"],
-    vodHighlights: ["Latest Bollywood movies", "Star Plus serials catch-up", "Tamil Sun TV content", "Telugu ETV", "Punjabi PTC"],
-    faq: [
-      { q: "Tamil, Telugu, Malayalam kanaal includ?", a: "Yes — Sun TV, ETV, Asianet, Surya TV, Mazhavil Manorama all in HD." },
-      { q: "Cricket matches included (IPL, T20)?", a: "Yes — all Star Sports cricket, IPL live, T20 World Cup, Test matches in HD." },
+    "vodHighlights": [
+      "Expiry date for the selected title",
+      "Available audio and subtitle tracks",
+      "Playback on your device"
     ],
+    "faq": [
+      {
+        "q": "Does the listing cover my country?",
+        "a": "Choose the country where the screen will be used. Open the event in the local schedule and check the name of the service selling access."
+      },
+      {
+        "q": "How do I confirm live coverage?",
+        "a": "Find the event, date and time in the authorized provider’s own listing. Check whether the offer includes the full event or only highlights."
+      },
+      {
+        "q": "What should I check before paying?",
+        "a": "Read the territorial restrictions, device list and renewal price on the provider’s offer."
+      }
+    ]
   },
-  german: {
-    slug: "german",
-    name: "German IPTV (Deutschland / Österreich / Schweiz)",
-    flag: "🇩🇪",
-    hero: "Bestes IPTV Deutschland — Sky Bundesliga, DAZN, ZDF, RTL",
-    description:
-      "Premium IPTV Deutschland — 1,800+ Sender: ZDF HD, ARD HD, RTL, Pro7, Sat.1, Sky Bundesliga, Sky Sport, DAZN, Sport1. Volle Bundesliga, Champions League, DFB-Pokal Abdeckung.",
-    channelsHero: ["ZDF HD", "ARD HD", "RTL HD", "Pro7 HD", "Sat.1 HD", "Sky Bundesliga 4K"],
-    sportsChannels: ["Sky Bundesliga 1-10", "Sky Sport News", "DAZN 1/2", "Sport1", "Eurosport 1/2 DE"],
-    newsChannels: ["ZDF Heute", "Tagesschau 24", "N-TV", "Welt", "Phoenix"],
-    entertainmentChannels: ["RTL", "Pro7", "Sat.1", "Vox", "Kabel 1", "Sky One", "Sky Atlantic"],
-    kidsChannels: ["KiKA", "Super RTL", "Disney Channel DE", "Nickelodeon DE"],
-    vodHighlights: ["Sky Originals deutsche Serien", "Tatort Mediathek", "ZDF Mediathek Inhalte", "Bundesliga Highlights"],
-    faq: [
-      { q: "Sky Bundesliga und DAZN enthalten?", a: "Ja — alle Sky Bundesliga Kanäle in 4K, plus DAZN 1 & 2 für Champions League." },
-      { q: "Funktioniert in Deutschland, Österreich, Schweiz?", a: "Ja — funktioniert in DACH-Region und weltweit mit jedem Internetanbieter." },
+  "english": {
+    "slug": "english",
+    "name": "English IPTV (USA / UK)",
+    "flag": "🇺🇸",
+    "hero": "English-language television in the US and UK",
+    "description": "A UK schedule and a US schedule can show different programmes at the same time. Choose the country of reception before checking a live event.",
+    "channelsHero": [
+      "US or UK listing",
+      "Local time",
+      "Audio description"
     ],
-  },
-  african: {
-    slug: "african",
-    name: "African IPTV (Afrique francophone & anglophone)",
-    flag: "🌍",
-    hero: "Best African IPTV — Canal+ Afrique, SuperSport, RTS, NTA",
-    description:
-      "Premium African IPTV with 1,200+ channels covering francophone and anglophone Africa — Canal+ Afrique, SuperSport, RTS Sénégal, TFM, AFROTV, NTA Nigeria, Nollywood TV, Africa 24, TV5 Afrique.",
-    channelsHero: ["Canal+ Afrique", "SuperSport Premier League", "RTS 1 Sénégal", "TFM Sénégal", "AFROTV", "NTA Nigeria"],
-    sportsChannels: ["SuperSport 1/2/3", "Canal+ Sport Afrique", "beIN Sports Afrique", "Eurosport Africa"],
-    newsChannels: ["Africa 24", "Africanews", "TV5 Monde Afrique", "France 24", "BBC Africa", "CGTN Africa"],
-    entertainmentChannels: ["Canal+ Afrique", "Nollywood TV", "AFROTV", "Trace Africa", "Novelas TV"],
-    kidsChannels: ["Tiji Afrique", "Disney Channel Afrique", "JimJam"],
-    vodHighlights: ["Films Nollywood récents", "Séries africaines francophones", "Documentaires sur l'Afrique"],
-    faq: [
-      { q: "Canal+ Afrique inclus ?", a: "Oui — bouquet Canal+ Afrique complet : Canal+ Sport, Cinéma, Family, Décalé." },
-      { q: "Fonctionne au Sénégal, Côte d'Ivoire, Maroc, Nigeria ?", a: "Oui — partout en Afrique avec une connexion 10 Mbps minimum." },
+    "sportsChannels": [
+      "Full event",
+      "Highlights",
+      "Local commentary"
     ],
+    "newsChannels": [
+      "National bulletin",
+      "Local news",
+      "Live or delayed"
+    ],
+    "entertainmentChannels": [
+      "Original audio",
+      "Series schedule",
+      "Film version"
+    ],
+    "kidsChannels": [
+      "Age rating",
+      "Child profile",
+      "Parent PIN"
+    ],
+    "vodHighlights": [
+      "Expiry date for the selected title",
+      "Available audio and subtitle tracks",
+      "Playback on your device"
+    ],
+    "faq": [
+      {
+        "q": "Can I use a UK listing to check a US game?",
+        "a": "Use the US listing for the date of the game. Check for a regional restriction using the location of your television."
+      },
+      {
+        "q": "How do I confirm live coverage?",
+        "a": "Find the event, date and time in the authorized provider’s own listing. Check whether the offer includes the full event or only highlights."
+      },
+      {
+        "q": "What should I check before paying?",
+        "a": "Read the territorial restrictions, device list and renewal price on the provider’s offer."
+      }
+    ]
   },
+  "french": {
+    "slug": "french",
+    "name": "French IPTV (France / Belgique / Suisse)",
+    "flag": "🇫🇷",
+    "hero": "Télévision francophone en France, en Belgique et en Suisse",
+    "description": "Choisissez le pays du téléviseur, puis recherchez la rencontre ou le film dans le programme officiel du service. Les versions françaises et belges peuvent différer.",
+    "channelsHero": [
+      "Pays de réception",
+      "Horaire local",
+      "Piste française"
+    ],
+    "sportsChannels": [
+      "Rencontre intégrale",
+      "Résumé",
+      "Langue du commentaire"
+    ],
+    "newsChannels": [
+      "Journal national",
+      "Actualités locales",
+      "Direct ou différé"
+    ],
+    "entertainmentChannels": [
+      "Version originale",
+      "Horaire de série",
+      "Version du film"
+    ],
+    "kidsChannels": [
+      "Âge conseillé",
+      "Profil enfant",
+      "Code parental"
+    ],
+    "vodHighlights": [
+      "Date de fin de disponibilité",
+      "Langues et sous-titres",
+      "Lecture sur votre appareil"
+    ],
+    "faq": [
+      {
+        "q": "Une programmation française vaut-elle aussi en Belgique ?",
+        "a": "Sélectionnez la Belgique dans le programme officiel. Vérifiez la date, la langue et le mode de diffusion avant de payer."
+      },
+      {
+        "q": "Où vérifier le direct ?",
+        "a": "Recherchez la rencontre dans le programme officiel du service pour votre pays. Vérifiez si la fiche annonce le direct ou le résumé."
+      },
+      {
+        "q": "Que vérifier avant de payer ?",
+        "a": "Consultez les restrictions territoriales, les appareils pris en charge et le prix du renouvellement."
+      }
+    ]
+  },
+  "spanish": {
+    "slug": "spanish",
+    "name": "Spanish IPTV (España / LATAM)",
+    "flag": "🇪🇸",
+    "hero": "Televisión en español en España y América Latina",
+    "description": "El país de recepción determina qué programación debe consultar. Busque el partido o la película por fecha y compruebe el idioma del audio.",
+    "channelsHero": [
+      "País de recepción",
+      "Hora local",
+      "Audio en español"
+    ],
+    "sportsChannels": [
+      "Partido completo",
+      "Resumen",
+      "Idioma del comentario"
+    ],
+    "newsChannels": [
+      "Informativo nacional",
+      "Noticias locales",
+      "En directo o en diferido"
+    ],
+    "entertainmentChannels": [
+      "Audio original",
+      "Horario de la serie",
+      "Versión de la película"
+    ],
+    "kidsChannels": [
+      "Clasificación por edad",
+      "Perfil infantil",
+      "Control parental"
+    ],
+    "vodHighlights": [
+      "Fecha de caducidad",
+      "Audio y subtítulos",
+      "Dispositivos compatibles"
+    ],
+    "faq": [
+      {
+        "q": "¿Sirve una guía española para ver un partido en México?",
+        "a": "Consulte la programación oficial para México. Confirme el horario local y si el partido figura en directo o en diferido."
+      },
+      {
+        "q": "¿Dónde compruebo si se emite en directo?",
+        "a": "Busque el evento en la programación oficial de su país y confirme si se anuncia el partido completo o el resumen."
+      },
+      {
+        "q": "¿Qué conviene revisar antes de pagar?",
+        "a": "Lea las condiciones territoriales, la lista de dispositivos y el precio de renovación."
+      }
+    ]
+  },
+  "turkish": {
+    "slug": "turkish",
+    "name": "Turkish IPTV (Türkiye)",
+    "flag": "🇹🇷",
+    "hero": "Türkçe yayınlar için bölgesel program rehberi",
+    "description": "Televizyonu kullandığınız ülkeyi seçin. Etkinliğin tarihini ve Türkçe ses seçeneğini yayıncının resmî programından kontrol edin.",
+    "channelsHero": [
+      "Yayın bölgesi",
+      "Yerel saat",
+      "Türkçe ses"
+    ],
+    "sportsChannels": [
+      "Tam maç",
+      "Özet",
+      "Yorum dili"
+    ],
+    "newsChannels": [
+      "Ulusal haberler",
+      "Yerel haberler",
+      "Canlı veya banttan"
+    ],
+    "entertainmentChannels": [
+      "Orijinal ses",
+      "Dizi saati",
+      "Film sürümü"
+    ],
+    "kidsChannels": [
+      "Yaş sınırı",
+      "Çocuk profili",
+      "Ebeveyn şifresi"
+    ],
+    "vodHighlights": [
+      "Son izleme tarihi",
+      "Ses ve altyazı",
+      "Desteklenen cihazlar"
+    ],
+    "faq": [
+      {
+        "q": "Yurt dışından bir maçı nasıl kontrol ederim?",
+        "a": "Bulunduğunuz ülkeyi seçerek resmî maç programını açın. Canlı yayın ile daha sonra sunulan özeti ayrı kontrol edin."
+      },
+      {
+        "q": "Canlı yayını nasıl doğrularım?",
+        "a": "Etkinliği ülkenize ait resmî programda bulun. Maçın tamamının mı yoksa özetinin mi sunulduğunu kontrol edin."
+      },
+      {
+        "q": "Ödeme öncesinde neye bakmalıyım?",
+        "a": "Bölgesel koşulları, desteklenen cihazları ve yenileme ücretini kontrol edin."
+      }
+    ]
+  },
+  "indian": {
+    "slug": "indian",
+    "name": "Indian IPTV (Hindi / Tamil / Telugu)",
+    "flag": "🇮🇳",
+    "hero": "Indian television by language and region",
+    "description": "For Hindi, Tamil or Telugu programming, check the title in the original language. Confirm the audio track and subtitle script on the service for your region.",
+    "channelsHero": [
+      "Audio language",
+      "Subtitle script",
+      "Local transmission time"
+    ],
+    "sportsChannels": [
+      "Full event",
+      "Highlights",
+      "Local commentary"
+    ],
+    "newsChannels": [
+      "National bulletin",
+      "Local news",
+      "Live or delayed"
+    ],
+    "entertainmentChannels": [
+      "Original audio",
+      "Series schedule",
+      "Film version"
+    ],
+    "kidsChannels": [
+      "Age rating",
+      "Child profile",
+      "Parent PIN"
+    ],
+    "vodHighlights": [
+      "Expiry date for the selected title",
+      "Available audio and subtitle tracks",
+      "Playback on your device"
+    ],
+    "faq": [
+      {
+        "q": "How do I verify the original audio?",
+        "a": "Open the programme details and inspect the audio options for the exact episode. A translated title alone does not identify the audio track."
+      },
+      {
+        "q": "How do I confirm live coverage?",
+        "a": "Find the event, date and time in the authorized provider’s own listing. Check whether the offer includes the full event or only highlights."
+      },
+      {
+        "q": "What should I check before paying?",
+        "a": "Read the territorial restrictions, device list and renewal price on the provider’s offer."
+      }
+    ]
+  },
+  "german": {
+    "slug": "german",
+    "name": "German IPTV (Deutschland / Österreich / Schweiz)",
+    "flag": "🇩🇪",
+    "hero": "Deutschsprachiges Fernsehen in Deutschland, Österreich und der Schweiz",
+    "description": "Wählen Sie das Empfangsland und prüfen Sie die Sendung im offiziellen Tagesprogramm. Eine deutschsprachige Tonspur allein sagt nichts über die Verfügbarkeit aus.",
+    "channelsHero": [
+      "Empfangsland",
+      "Ortszeit",
+      "Deutsche Tonspur"
+    ],
+    "sportsChannels": [
+      "Einzelspiel",
+      "Zusammenfassung",
+      "Kommentarsprache"
+    ],
+    "newsChannels": [
+      "Nationale Nachrichten",
+      "Lokale Nachrichten",
+      "Live oder zeitversetzt"
+    ],
+    "entertainmentChannels": [
+      "Originalton",
+      "Serientermin",
+      "Filmfassung"
+    ],
+    "kidsChannels": [
+      "Altersfreigabe",
+      "Kinderprofil",
+      "Jugendschutz-PIN"
+    ],
+    "vodHighlights": [
+      "Ablaufdatum",
+      "Tonspuren und Untertitel",
+      "Unterstützte Geräte"
+    ],
+    "faq": [
+      {
+        "q": "Gilt ein deutscher Spielplan auch in Österreich?",
+        "a": "Prüfen Sie das österreichische Programm für den Spieltag. Achten Sie auf Einzelspiel, Zusammenfassung und Wiederholung."
+      },
+      {
+        "q": "Wie prüfe ich die Liveübertragung?",
+        "a": "Suchen Sie das Spiel im offiziellen Programm für Ihr Empfangsland und prüfen Sie, ob das ganze Spiel oder nur eine Zusammenfassung angeboten wird."
+      },
+      {
+        "q": "Was prüfe ich vor dem Kauf?",
+        "a": "Lesen Sie die Gebietsbedingungen, die Geräteliste und den Preis für die Verlängerung."
+      }
+    ]
+  },
+  "african": {
+    "slug": "african",
+    "name": "African IPTV (Afrique francophone & anglophone)",
+    "flag": "🌍",
+    "hero": "Television by country and language in Africa",
+    "description": "Choose the country first, then the programme language. Check the local listing for live coverage, the replay window and any device restrictions.",
+    "channelsHero": [
+      "Reception country",
+      "Commentary language",
+      "Local schedule"
+    ],
+    "sportsChannels": [
+      "Full event",
+      "Highlights",
+      "Local commentary"
+    ],
+    "newsChannels": [
+      "National bulletin",
+      "Local news",
+      "Live or delayed"
+    ],
+    "entertainmentChannels": [
+      "Original audio",
+      "Series schedule",
+      "Film version"
+    ],
+    "kidsChannels": [
+      "Age rating",
+      "Child profile",
+      "Parent PIN"
+    ],
+    "vodHighlights": [
+      "Expiry date for the selected title",
+      "Available audio and subtitle tracks",
+      "Playback on your device"
+    ],
+    "faq": [
+      {
+        "q": "Does one listing cover every country?",
+        "a": "Check the schedule published for the country of reception. A shared language or time zone does not establish the right to stream a programme there."
+      },
+      {
+        "q": "How do I confirm live coverage?",
+        "a": "Find the event, date and time in the authorized provider’s own listing. Check whether the offer includes the full event or only highlights."
+      },
+      {
+        "q": "What should I check before paying?",
+        "a": "Read the territorial restrictions, device list and renewal price on the provider’s offer."
+      }
+    ]
+  }
 };

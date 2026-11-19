@@ -6,29 +6,29 @@ import { COUNTRY_PAGES } from "../../lib/content/countries";
 import { SITE, COUNTRY_SLUGS } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "All Channels — 22,000+ Live IPTV Channels Worldwide",
+  title: "Regional television viewing guides",
   description:
-    "Browse Best IPTV VIP's complete catalog of 22,000+ live channels — USA, UK, France, Germany, Spain, Arabic, Turkish, Indian, African. Sports, news, movies, kids — all in 4K UHD.",
+    "Check programme availability, language and device requirements by region before choosing an authorized service.",
   alternates: { canonical: `${SITE.domain}/channels` },
 };
 
 export default function ChannelsIndex() {
   return (
-    <PageShell>
+    <PageShell regionalGuide fabMessage="I have a device setup question about the regional viewing guides.">
       <Breadcrumbs items={[{ name: "Channels", href: "/channels" }]} />
       <article className="article">
         <h1 style={{ textAlign: "center", fontSize: "clamp(1.7rem,5vw,2.6rem)" }}>
-          22,000+ Live IPTV Channels Worldwide
+          Find a television guide by region
         </h1>
         <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 32px" }}>
-          The world&apos;s largest premium IPTV catalog — sports, news, movies, kids, entertainment in HD and 4K UHD. Pick your region to see channel lists, sample EPG and pricing.
+          Choose a region to check where a programme is listed, which languages are offered and how to verify an authorized streaming option.
         </p>
 
         <div className="stats-grid" style={{ marginBottom: 32 }}>
-          <div className="stat"><div className="stat-val">22,000+</div><div className="stat-lbl">Live channels</div></div>
-          <div className="stat"><div className="stat-val">3,500+</div><div className="stat-lbl">4K UHD channels</div></div>
-          <div className="stat"><div className="stat-val">120,000+</div><div className="stat-lbl">Movies & series VOD</div></div>
-          <div className="stat"><div className="stat-val">50+</div><div className="stat-lbl">Countries covered</div></div>
+          <div className="stat"><div className="stat-val">Location</div><div className="stat-lbl">Reception country</div></div>
+          <div className="stat"><div className="stat-val">Language</div><div className="stat-lbl">Audio tracks</div></div>
+          <div className="stat"><div className="stat-val">Replay</div><div className="stat-lbl">Availability window</div></div>
+          <div className="stat"><div className="stat-val">Device</div><div className="stat-lbl">Playback support</div></div>
         </div>
 
         <section className="section">
@@ -53,12 +53,12 @@ export default function ChannelsIndex() {
         <section className="section">
           <h2>Top categories</h2>
           <div className="trust-grid">
-            <div className="trust-card"><div className="ic">⚽</div><h4>Sports</h4><p>Premier League, La Liga, NFL, NBA, MLB, UFC, F1, MotoGP, Champions League</p></div>
-            <div className="trust-card"><div className="ic">🎬</div><h4>Movies</h4><p>HBO, Showtime, Cinemax, Canal+ Cinéma, OSN Movies, Sky Cinema, Disney+</p></div>
-            <div className="trust-card"><div className="ic">📰</div><h4>News</h4><p>CNN, BBC, Sky News, Al Jazeera, France 24, RT, CNBC, Bloomberg</p></div>
-            <div className="trust-card"><div className="ic">👶</div><h4>Kids</h4><p>Cartoon Network, Nickelodeon, Disney, KiKA, MBC 3, Gulli, Spacetoon</p></div>
-            <div className="trust-card"><div className="ic">🎭</div><h4>Entertainment</h4><p>Star Plus, Sony, Zee, MBC, Show TV, RTL, Pro7, M6, ITV, FOX</p></div>
-            <div className="trust-card"><div className="ic">📚</div><h4>Documentary</h4><p>Discovery, National Geographic, History, Arte, Animal Planet</p></div>
+            <div className="trust-card"><div className="ic">⚽</div><h4>Sports</h4><p>Full events, highlights and commentary language.</p></div>
+            <div className="trust-card"><div className="ic">🎬</div><h4>Movies</h4><p>Release windows, film versions and subtitles.</p></div>
+            <div className="trust-card"><div className="ic">📰</div><h4>News</h4><p>Regional bulletins and local broadcast times.</p></div>
+            <div className="trust-card"><div className="ic">👶</div><h4>Kids</h4><p>Age ratings and parental controls.</p></div>
+            <div className="trust-card"><div className="ic">🎭</div><h4>Entertainment</h4><p>Original audio, episode schedules and replay windows.</p></div>
+            <div className="trust-card"><div className="ic">📚</div><h4>Documentary</h4><p>Subject, language and on-demand availability.</p></div>
           </div>
         </section>
       </article>
