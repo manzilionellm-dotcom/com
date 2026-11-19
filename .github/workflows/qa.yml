@@ -1,0 +1,39 @@
+name: Editorial checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/build.mjs && node scripts/validate.mjs
+      - name: Verify source recovery bundle
+        run: node scripts/backup.mjs backup/pre-reconstruction-20261119-d31507ba
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-recovery
+          path: reports/restore/
+      - name: Mobile Lighthouse
+        run: |
+          mkdir -p reports
+          node scripts/serve.mjs > /tmp/editorial-server.log 2>&1 &
+          for attempt in $(seq 1 20); do curl -fsS http://127.0.0.1:4173/ -o /dev/null && break; sleep 1; done
+          npx -y lighthouse@12.8.2 http://127.0.0.1:4173/ --quiet --chrome-flags="--headless --no-sandbox" --output=json --output-path=reports/mobile.json
+          node -e "const r=require('./reports/mobile.json'); if(r.runtimeError || r.categories.accessibility.score < 0.95 || r.audits['largest-contentful-paint'].numericValue >= 2500 || r.audits['cumulative-layout-shift'].numericValue >= 0.1) process.exit(1)"
+      - name: Accessibility and mobile layout for every page
+        run: |
+          npm install --prefix "$RUNNER_TEMP/editorial-qa" --no-audit --no-fund playwright@1.55.0 axe-core@4.11.0
+          NODE_PATH="$RUNNER_TEMP/editorial-qa/node_modules" node scripts/audit-pages.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-lighthouse
+          path: |
+            reports/mobile.json
+            reports/accessibility.json

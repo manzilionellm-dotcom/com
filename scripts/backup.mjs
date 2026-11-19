@@ -1,0 +1,14 @@
+import { execFileSync } from 'node:child_process';
+import { mkdir, writeFile } from 'node:fs/promises';
+const git=(...args)=>execFileSync('git',args,{encoding:'utf8'}).trim();
+const ref=process.argv[2];
+if(!ref||!ref.startsWith('backup/pre-reconstruction-'))throw Error('Expected a reconstruction backup ref');
+const remote='refs/remotes/origin/'+ref;
+const commit=git('rev-parse',remote+'^{commit}');
+await mkdir('reports/restore',{recursive:true});
+const file='reports/restore/source.bundle';
+git('bundle','create',file,remote);git('bundle','verify',file);
+const sha=execFileSync('sha256sum',[file],{encoding:'utf8'});
+await writeFile('reports/restore/SHA256SUMS',sha.replace(file,'source.bundle'));
+await writeFile('reports/restore/commit.txt',commit+'\n'+remote+'\n');
+console.log('Verified Git bundle for '+commit);
