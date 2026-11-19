@@ -99,8 +99,7 @@ function document(): string {
     "",
     "## Notes",
     "",
-    "- The homepage includes copy in English, French, and Arabic.",
-    "- Metadata on some pages advertises locales en, fr, ar, es, and de through a ?lang= query. Those queries are not separate pages.",
+    "- The homepage language selector displays English, French and Arabic in the browser. The public guides are published in English.",
     "- /ops exists, is marked noindex, and is disallowed in robots.txt. It is not listed here.",
     "",
   ];
