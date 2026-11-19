@@ -1,3 +1,4 @@
+import recrawlPaths from "./lib/recrawl-paths.json";
 import type { NextConfig } from "next";
 
 const CSP_REPORT_ONLY =
@@ -15,6 +16,7 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      ...recrawlPaths.map((source) => ({ source, headers: [{ key: "X-Robots-Tag", value: "noindex" }] })),
       {
         source: "/(.*)",
         headers: [

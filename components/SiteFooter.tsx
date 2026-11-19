@@ -21,7 +21,7 @@ const countryLabel: Record<string, string> = {
   african: "African",
 };
 
-export default function SiteFooter() {
+export default function SiteFooter({ regionalGuide = false }: { regionalGuide?: boolean } = {}) {
   const year = new Date().getFullYear();
   return (
     <footer className="footer-rich" role="contentinfo">
@@ -32,7 +32,7 @@ export default function SiteFooter() {
             <span className="brand-text">BEST IPTV <b>VIP</b></span>
           </div>
           <p style={{ color: "#888", fontSize: 12, lineHeight: 1.6 }}>
-            Live TV via WhatsApp. 24h trial, no card. Plans from $10/mo.
+            {regionalGuide ? "Device setup help and regional programme guides." : "Live TV via WhatsApp. 24h trial, no card. Plans from $10/mo."}
           </p>
           <a
             className="btn btn-green"
@@ -48,7 +48,7 @@ export default function SiteFooter() {
           <h5>Service</h5>
           <ul>
             <li><Link href="/pricing">Pricing</Link></li>
-            <li><Link href="/free-trial">Free 24h Trial</Link></li>
+            <li><Link href={regionalGuide ? "/guides/firestick" : "/free-trial"}>{regionalGuide ? "Device setup guide" : "Free 24h Trial"}</Link></li>
             <li><Link href="/refer">Refer a friend</Link></li>
             <li><Link href="/channels">All Channels</Link></li>
             <li><Link href="/devices">Compatible Devices</Link></li>

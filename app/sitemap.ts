@@ -1,3 +1,4 @@
+import recrawlPaths from "../lib/recrawl-paths.json";
 import { guides as reviewedGuides, origin as reviewedOrigin } from "../lib/reviewed-guides";
 import type { MetadataRoute } from "next";
 import {
@@ -115,5 +116,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries = [...base, ...guides, ...countries, ...blog, ...compare];
   const listed = new Set(entries.map((entry) => new URL(entry.url).pathname));
-  return [...entries, ...Object.keys(reviewedGuides).filter((path) => !listed.has(path)).map((path) => ({ url: reviewedOrigin + path }))];
+  return [...entries, ...Object.keys(reviewedGuides).filter((path) => !listed.has(path)).map((path) => ({ url: reviewedOrigin + path }))].filter((entry) => !recrawlPaths.includes(new URL(entry.url).pathname));
 }

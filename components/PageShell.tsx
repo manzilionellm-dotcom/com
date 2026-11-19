@@ -5,9 +5,11 @@ import Fab from "./Fab";
 export default function PageShell({
   children,
   fabMessage,
+  regionalGuide = false,
 }: {
   children: React.ReactNode;
   fabMessage?: string;
+  regionalGuide?: boolean;
 }) {
   return (
     <>
@@ -16,7 +18,7 @@ export default function PageShell({
       <main className="wrap" style={{ paddingTop: 24, paddingBottom: 80 }}>
         {children}
       </main>
-      <SiteFooter />
+      <SiteFooter regionalGuide={regionalGuide} />
       <Fab message={fabMessage} />
     </>
   );
