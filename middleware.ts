@@ -1,3 +1,4 @@
+import { reviewedPage } from "./lib/reviewed-response";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -7,6 +8,8 @@ export function middleware(req: NextRequest) {
     .trim()
     .toLowerCase();
 
+  const page = reviewedPage(req.nextUrl.pathname, host.endsWith(".vercel.app"));
+  if (page) return page;
   const res = NextResponse.next();
   if (host.endsWith(".vercel.app")) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow");
