@@ -1,0 +1,116 @@
+{
+  "name": "Le Bureau des abonnements",
+  "origin": "https://bestiptv-vip.com",
+  "date": "2026-11-19",
+  "theme": [
+    "#504076",
+    "#f2edf7",
+    "#514077"
+  ],
+  "indexNowKey": "4c65696936f9d9896164654e302e41f6",
+  "editions": [
+    {
+      "lang": "fr",
+      "pages": [
+        {
+          "title": "Choisir un abonnement de streaming",
+          "lead": "Avant de souscrire, identifiez le vendeur, calculez le coût sur votre durée réelle d’usage et retrouvez la procédure de résiliation.",
+          "heading": "Lire l’offre dans le bon ordre",
+          "body": "Commencez par l’entreprise qui facturera. Repérez ensuite la période d’engagement, le tarif après promotion et la date du premier paiement. Une promesse sur un programme sportif demande une confirmation territoriale auprès du service autorisé.",
+          "field": "Préparer sa décision",
+          "example": "Gardez une copie datée des conditions et le montant final du panier. Si deux offres semblent identiques, comparez ce qui reste payable en cas d’arrêt après le premier mois.",
+          "question": "Comment comparer deux périodes différentes ?",
+          "answer": "Utilisez la même date de départ et la même date de fin. Ajoutez les frais obligatoires et indiquez si le paiement est mensuel ou immédiat.",
+          "path": "/",
+          "sources": [
+            "fr"
+          ],
+          "description": "Avant de souscrire, identifiez le vendeur, calculez le coût sur votre durée réelle d’usage et retrouvez la procédure de résiliation."
+        },
+        {
+          "title": "Les dossiers avant et après l’achat",
+          "lead": "Trois dossiers permettent de suivre un abonnement de la première offre jusqu’à son arrêt : le coût, l’identité de l’éditeur et la confirmation de résiliation.",
+          "heading": "Choisir sa pièce de référence",
+          "body": "Le tarif d’une publicité peut expirer. Une facture fixe le montant d’une transaction. Un courriel de confirmation peut préciser la date de fin d’accès. Conservez chaque pièce avec sa fonction.",
+          "field": "Reconstituer la chronologie",
+          "example": "Classez l’offre initiale, la preuve de paiement et la confirmation finale par date. En cas d’écart, revenez au document qui concerne précisément la période contestée.",
+          "question": "Une capture du prix suffit-elle ?",
+          "answer": "Ajoutez la durée et les conditions associées. Deux montants identiques peuvent correspondre à des engagements très différents.",
+          "path": "/dossiers",
+          "sources": [
+            "fr"
+          ],
+          "description": "Préparez vos justificatifs et identifiez la pièce utile à chaque étape de l’abonnement."
+        },
+        {
+          "title": "Calculer le coût d’un engagement",
+          "lead": "Le coût d’un engagement additionne les paiements obligatoires sur sa durée, les frais initiaux et les options que vous choisissez réellement.",
+          "heading": "Décomposer la promotion",
+          "body": "Notez le nombre de mois remisés puis le tarif appliqué ensuite. Vérifiez si la remise suppose un paiement annuel anticipé. Relevez tout montant qui reste dû même si vous cessez d’utiliser le service.",
+          "field": "Faire le calcul sur six mois",
+          "example": "Avec un exemple de 5 € pendant deux mois puis 12 € pendant quatre mois, le total est de 58 € avant tout autre frais. Si l’offre exige douze mois, ce calcul sur six mois ne représente pas l’engagement complet.",
+          "question": "Qu’inscrire si un frais est inconnu ?",
+          "answer": "Marquez-le comme inconnu et conservez la capture du panier. Un total incomplet ne permet pas de départager deux offres au centime près.",
+          "path": "/dossiers/cout-engagement",
+          "sources": [
+            "fr"
+          ],
+          "description": "Le coût d’un engagement additionne les paiements obligatoires sur sa durée, les frais initiaux et les options que vous choisissez réellement."
+        },
+        {
+          "title": "Conserver une preuve de résiliation",
+          "lead": "Une preuve exploitable identifie le contrat, la date de la demande, la réponse reçue et la fin de facturation annoncée.",
+          "heading": "Suivre le parcours du vendeur",
+          "body": "Retrouvez la confirmation d’origine pour identifier l’entité qui facture. Utilisez la procédure mentionnée au contrat. Conservez le récapitulatif de la demande et toute référence fournie.",
+          "field": "Vérifier le paiement suivant",
+          "example": "Ajoutez la date attendue de fin d’accès et le prochain relevé au dossier. Une suppression de l’application seule ne constitue pas un accusé de réception du vendeur.",
+          "question": "Une résiliation équivaut-elle à une rétractation ?",
+          "answer": "Ce sont deux démarches différentes. Pour une transaction relevant du droit français, vérifiez les conditions et exceptions de la rétractation sur Service Public.",
+          "path": "/dossiers/preuve-annulation",
+          "sources": [
+            "fr"
+          ],
+          "description": "Une preuve exploitable identifie le contrat, la date de la demande, la réponse reçue et la fin de facturation annoncée."
+        },
+        {
+          "title": "Identifier l’éditeur avant de payer",
+          "lead": "Retrouvez le nom de l’entité qui facture et vérifiez-le dans les conditions de vente, le panier et la confirmation de commande.",
+          "heading": "Comparer trois emplacements",
+          "body": "Relevez la raison sociale dans les mentions de l’éditeur. Vérifiez qui se présente comme vendeur au paiement et qui traite les questions sur le contrat. Une marque différente mérite une explication écrite.",
+          "field": "Documenter une incohérence",
+          "example": "Gardez le libellé exact et la date. Si le vendeur ne précise pas ses droits sur le programme dans votre pays, consultez une source officielle avant toute souscription. Un logo ne prouve pas une autorisation.",
+          "question": "Une boutique d’applications garantit-elle toute l’offre ?",
+          "answer": "La présence d’un logiciel en boutique identifie un canal de distribution. Le vendeur et les conditions de l’abonnement demandent une vérification distincte.",
+          "path": "/dossiers/verifier-editeur",
+          "sources": [
+            "fr"
+          ],
+          "description": "Retrouvez le nom de l’entité qui facture et vérifiez-le dans les conditions de vente, le panier et la confirmation de commande."
+        },
+        {
+          "title": "Comment le Bureau compare une offre",
+          "lead": "Le Bureau des abonnements examine les documents d’une offre et publie des exemples chiffrés dont chaque hypothèse est visible.",
+          "heading": "Signature et méthode",
+          "body": "Codex signe la rédaction de lancement. Les exemples servent à refaire un calcul ou à préparer un dossier. Aucune note commerciale, aucun témoignage client et aucune certification de fournisseur ne sont utilisés.",
+          "field": "Suivi des sources",
+          "example": "Les références institutionnelles soutiennent une question précise. Pour un contrat réel, le pays, le statut du vendeur et la nature du service déterminent les vérifications à effectuer.",
+          "question": "Le Bureau vend-il les offres examinées ?",
+          "answer": "Cette édition fournit des dossiers de lecture. Elle ne prend ni commande ni paiement pour un abonnement.",
+          "path": "/methode-editoriale",
+          "sources": [
+            "fr"
+          ],
+          "description": "Le Bureau des abonnements examine les documents d’une offre et publie des exemples chiffrés dont chaque hypothèse est visible."
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "fr": [
+      "Service Public · Rétractation et achat à distance",
+      "https://www.service-public.gouv.fr/particuliers/vosdroits/F10485"
+    ]
+  },
+  "style": "bureau",
+  "retiredQuery": false
+}
