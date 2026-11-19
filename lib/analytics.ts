@@ -10,7 +10,6 @@ export type FunnelEvent =
   | "plan_view"
   | "plan_select"
   | "checkout_start"
-  | "checkout_success"
   | "checkout_cancel"
   | "trial_request"
   | "lead_submit"
@@ -48,7 +47,6 @@ const PIXEL_MAP: Partial<Record<FunnelEvent, string>> = {
   trial_request: "Lead",
   lead_submit: "Lead",
   checkout_start: "InitiateCheckout",
-  checkout_success: "Purchase",
   plan_view: "ViewContent",
   search: "Search",
 };
