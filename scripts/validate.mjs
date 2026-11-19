@@ -19,6 +19,11 @@ for(const edition of site.editions) {
  for(const [idx,p] of edition.pages.entries()) {
   const html=await read(p.path==='/'?'index.html':p.path.slice(1)+'.html');
   assert(!names.test(html),p.path);
+  const visible=html.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ');
+  assert(!/\b(?:paypal|stripe|visa|mastercard|interac|klarna|swish|bitcoin|blik|virement|prélèvement|przelew|kryptowaluty)\b|credit card|debit card|carte bancaire|apple pay|google pay/i.test(visible),p.path);
+  const contacts=[...html.matchAll(/href="(https?:\/\/[^"]+)"/g)].map(m=>m[1]);
+  assert(contacts.includes('https://wa.me/447307410512'),p.path);
+  assert(!contacts.some(u=>/https?:\/\/(?:checkout[.]|(?:www[.])?(?:paypal|stripe|t[.]me)[./])/.test(u)||(u.includes('wa.me/')&&u!=='https://wa.me/447307410512')),p.path);
   assert(html.includes('lang="'+edition.lang+'"'));
   assert.equal((html.match(/<h1>/g)||[]).length,1);
   assert(!titles.has(p.title)&&p.title.length<60&&p.title.trim(),p.title); titles.add(p.title);
