@@ -86,8 +86,8 @@ export default async function CheckoutSuccess({
           <ol className="bullet-list">
             <li>1. Open WhatsApp and message support with your order reference above.</li>
             <li>2. Tell us which device you will use (Firestick, Smart TV, Android, iOS, MAG…).</li>
-            <li>3. We send your M3U link + setup guide within minutes.</li>
-            <li>4. Enjoy 22,000+ channels in 4K UHD.</li>
+            <li>3. We send your M3U link and setup notes on WhatsApp.</li>
+            <li>4. Open the player with those credentials.</li>
           </ol>
         </section>
       </article>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE, DEVICE_SLUGS, COUNTRY_SLUGS } from "../lib/site";
+import CookieSettingsButton from "./CookieSettingsButton";
 
 const deviceLabel: Record<string, string> = {
   firestick: "Amazon Firestick",
@@ -43,6 +44,7 @@ export default function SiteFooter() {
           >
             Chat on WhatsApp
           </a>
+          <CookieSettingsButton />
         </div>
         <div>
           <h5>Service</h5>

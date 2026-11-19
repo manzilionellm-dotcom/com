@@ -6,9 +6,9 @@ import WhatsAppCTA from "../../components/WhatsAppCTA";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — 24/7 IPTV Support via WhatsApp & Email",
+  title: "Contact — WhatsApp and Email",
   description:
-    "Need help? Best IPTV VIP support is available 24/7 on WhatsApp and email. Replies in under 10 minutes — installation, billing, channel requests, troubleshooting.",
+    "Contact Best IPTV VIP on WhatsApp or by email for installation, billing and playback questions. No response-time promise is published on this page.",
   alternates: { canonical: `${SITE.domain}/contact` },
 };
 
@@ -18,10 +18,10 @@ export default function ContactPage() {
       <Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} />
       <article className="article">
         <h1 style={{ textAlign: "center", fontSize: "clamp(1.7rem,5vw,2.6rem)" }}>
-          Contact Best IPTV VIP — 24/7 Support
+          Contact Best IPTV VIP
         </h1>
         <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 32px" }}>
-          We respond in under 10 minutes on WhatsApp, 24 hours a day, in English, French, Arabic, Spanish and German.
+          Write on WhatsApp or email. This page does not promise a reply time or a list of support languages.
         </p>
 
         <div className="trust-grid">
@@ -34,7 +34,7 @@ export default function ContactPage() {
           >
             <div className="ic">💬</div>
             <h4>WhatsApp (fastest)</h4>
-            <p>+{SITE.whatsapp}<br />Reply &lt;10 min, 24/7</p>
+            <p>+{SITE.whatsapp}</p>
           </WhatsAppCTA>
           <a
             className="trust-card"
@@ -43,19 +43,19 @@ export default function ContactPage() {
           >
             <div className="ic">✉️</div>
             <h4>Email</h4>
-            <p>{SITE.email}<br />Reply within 1 hour</p>
+            <p>{SITE.email}</p>
           </a>
           <div className="trust-card">
             <div className="ic">🌍</div>
             <h4>Worldwide coverage</h4>
-            <p>Support in 5 languages<br />USA, EU, MENA, Asia, LATAM, Africa</p>
+            <p>The site is in English. The homepage can also be shown in French or Arabic. Coverage by country is not stated here.</p>
           </div>
         </div>
 
         <section className="section" style={{ marginTop: 36 }}>
           <h2>Send us a message</h2>
           <p style={{ color: "var(--muted)", fontSize: 14, marginBottom: 20 }}>
-            Not on WhatsApp right now? Drop your details and we&apos;ll reply within 1 hour.
+            Not on WhatsApp right now? Leave your details. This form does not promise a reply time.
           </p>
           <div style={{ maxWidth: 520 }}>
             <LeadForm

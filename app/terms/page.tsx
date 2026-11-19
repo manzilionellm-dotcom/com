@@ -21,12 +21,13 @@ export default function TermsPage() {
         <p>By ordering or using Best IPTV VIP services, you agree to these Terms. If you do not agree, do not use the service.</p>
 
         <h2>2. Service description</h2>
-        <p>Best IPTV VIP provides a private IPTV streaming subscription — access to 22,000+ live channels, 120,000+ VOD movies and series, delivered via Xtream Codes API and M3U links. Service is delivered as-is. We do not own or claim ownership of any broadcast content.</p>
+        <p>Best IPTV VIP provides a private IPTV streaming subscription, delivered via Xtream Codes API and M3U links. Service is delivered as-is. We do not own or claim ownership of any broadcast content, and this page does not state that we hold a broadcast licence.</p>
 
         <h2>3. Subscriptions and payment</h2>
         <ul>
           <li>Plans are paid in advance (1, 3, 6 or 12 months).</li>
-          <li>Payment via Stripe, PayPal, cryptocurrency or bank transfer.</li>
+          {/* À CONFIRMER: methods agreed only on WhatsApp are not in the checkout code. */}
+          <li>On this site, checkout is in USD (card or crypto via the payment page). Other methods are not listed here.</li>
           <li>No automatic renewal — service expires at the end of the paid period unless you renew manually.</li>
           <li>Prices may change without notice; existing subscriptions are honored at the price paid.</li>
         </ul>
@@ -43,7 +44,7 @@ export default function TermsPage() {
         </ul>
 
         <h2>6. Service quality</h2>
-        <p>We strive for 99.9% uptime but cannot guarantee uninterrupted service. Brief outages may occur due to maintenance, ISP issues, or upstream changes. We work to restore service as fast as possible.</p>
+        <p>Uninterrupted service is not guaranteed. Outages can happen because of maintenance, your internet provider, or upstream sources. Contact support if access fails. No uptime percentage is stated here.</p>
 
         <h2>7. Compatibility</h2>
         <p>Customer is responsible for ensuring their device, internet speed (minimum 15 Mbps HD, 25 Mbps 4K) and player software are compatible. We provide install guides on {SITE.domain}/guides.</p>

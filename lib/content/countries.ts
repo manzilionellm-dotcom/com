@@ -22,7 +22,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     flag: "🇸🇦",
     hero: "Best Arabic IPTV — MBC, beIN, OSN, Rotana, Al Jazeera in 4K",
     description:
-      "Premium Arabic IPTV with 3,500+ MENA channels — MBC, beIN Sports 4K, OSN, Rotana, Al Jazeera, Saudi 1, Dubai TV, Abu Dhabi, Nile Drama, Iqraa. Full Khaleeji, Levant, Egyptian, Maghreb coverage with EPG.",
+      "Arabic channel examples — MBC, beIN Sports 4K, OSN, Rotana, Al Jazeera, Saudi 1, Dubai TV, Abu Dhabi, Nile Drama, Iqraa. Full Khaleeji, Levant, Egyptian, Maghreb coverage with EPG.",
     channelsHero: ["MBC 1 HD", "MBC 2 HD", "MBC Drama", "MBC Action", "MBC Max", "MBC Bollywood"],
     sportsChannels: ["beIN Sports 1 4K", "beIN Sports 2 4K", "beIN Sports MAX", "Abu Dhabi Sports", "Dubai Sports", "Saudi Sports", "Al Kass HD"],
     newsChannels: ["Al Jazeera HD", "Al Jazeera English", "Al Arabiya HD", "Sky News Arabia", "BBC Arabic", "France 24 Arabic", "Al Hadath"],
@@ -31,7 +31,7 @@ export const COUNTRY_PAGES: Record<CountrySlug, CountryPage> = {
     vodHighlights: ["Latest Arabic series Ramadan 2026", "Egyptian classic cinema", "Turkish drama dubbed in Arabic", "Khaleeji series", "Islamic content & Quran TV"],
     faq: [
       { q: "Do you have beIN Sports 4K?", a: "Yes — all beIN Sports premium channels in 4K UHD, including Champions League, La Liga, Premier League." },
-      { q: "Does it work in Saudi Arabia, UAE, Kuwait?", a: "Yes — works perfectly in all GCC countries. We recommend a stable 25 Mbps connection." },
+      { q: "Does it work in Saudi Arabia, UAE, Kuwait?", a: "Playback depends on your connection. This page does not promise coverage in every country." },
       { q: "Arabic EPG included?", a: "Yes — full Arabic Electronic Programme Guide for 7 days in advance." },
     ],
   },

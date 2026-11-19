@@ -13,6 +13,11 @@ export default function CookieConsent() {
     } catch {
       setOpen(true);
     }
+    function reopen() {
+      setOpen(true);
+    }
+    window.addEventListener("open-cookie-settings", reopen);
+    return () => window.removeEventListener("open-cookie-settings", reopen);
   }, []);
 
   function accept() {

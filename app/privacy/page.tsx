@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         <h2>2. Data we collect</h2>
         <ul>
           <li><strong>Contact data:</strong> name (optional), WhatsApp number, email — only when you contact us or place an order.</li>
-          <li><strong>Order data:</strong> chosen plan, device type, payment method (we do not store full card numbers — handled by Stripe/PayPal).</li>
+          <li><strong>Order data:</strong> chosen plan, device type, payment method. Card numbers are handled by the checkout processor, not stored in this site&apos;s code.</li>
           <li><strong>Technical data:</strong> IP address, browser type, device type, pages visited — to prevent abuse and improve service.</li>
           <li><strong>Cookies:</strong> essential cookies (language preference, session) and, with your consent, analytics cookies (Google Analytics 4, Meta Pixel).</li>
         </ul>
@@ -41,10 +41,12 @@ export default function PrivacyPage() {
         <p>We process data based on: contract performance (order, delivery), legitimate interest (security, fraud prevention) and consent (analytics, marketing). You can withdraw consent any time via {SITE.email}.</p>
 
         <h2>5. Data sharing</h2>
-        <p>We share data with strictly necessary processors: payment providers (Stripe, PayPal), hosting (Vercel, Cloudflare), WhatsApp Business (Meta). We never sell your data.</p>
+        {/* À CONFIRMER: other processors besides Cryptomus, the site host, and WhatsApp. */}
+        <p>On-site payments go through Cryptomus. Messages go through WhatsApp (Meta). Other processors are not named here because they are not shown in this repository. We do not state that data is sold.</p>
 
         <h2>6. Data retention</h2>
-        <p>Order data: 5 years (legal requirement). Support chats: 12 months. Analytics: 14 months (Google Analytics standard). You can request deletion any time.</p>
+        {/* À CONFIRMER: retention period under UK law. Do not publish a fixed number until it is sourced. */}
+        <p>This page does not state a fixed retention period. You can request deletion at any time.</p>
 
         <h2>7. Your rights (GDPR / CCPA)</h2>
         <ul>
@@ -55,13 +57,14 @@ export default function PrivacyPage() {
           <li>Object / restrict — stop certain processing.</li>
           <li>Withdraw consent at any time.</li>
         </ul>
-        <p>Submit requests to {SITE.email}. We respond within 30 days.</p>
+        <p>Submit requests to {SITE.email}.</p>
 
         <h2>8. Cookies</h2>
         <p>We use minimal essential cookies (language, session). Analytics cookies (GA4, Meta Pixel) are loaded only after you accept the cookie banner. You can withdraw consent any time by clicking &quot;Cookie settings&quot; in the footer.</p>
 
         <h2>9. International transfers</h2>
-        <p>Some of our processors are outside the EU. We rely on Standard Contractual Clauses approved by the European Commission for these transfers.</p>
+        {/* À CONFIRMER: transfer safeguards. */}
+        <p>Some processors may be outside the UK. This page does not describe a transfer safeguard.</p>
 
         <h2>10. Children</h2>
         <p>Our service is not directed at children under 16. We do not knowingly collect data from minors.</p>

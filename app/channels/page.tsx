@@ -6,9 +6,9 @@ import { COUNTRY_PAGES } from "../../lib/content/countries";
 import { SITE, COUNTRY_SLUGS } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "All Channels — 22,000+ Live IPTV Channels Worldwide",
+  title: "Channels by Region",
   description:
-    "Browse Best IPTV VIP's complete catalog of 22,000+ live channels — USA, UK, France, Germany, Spain, Arabic, Turkish, Indian, African. Sports, news, movies, kids — all in 4K UHD.",
+    "Browse Best IPTV VIP channel examples by region: Arabic, English, French, Spanish, Turkish, Indian, German and African. This page does not publish a total channel count.",
   alternates: { canonical: `${SITE.domain}/channels` },
 };
 
@@ -18,18 +18,11 @@ export default function ChannelsIndex() {
       <Breadcrumbs items={[{ name: "Channels", href: "/channels" }]} />
       <article className="article">
         <h1 style={{ textAlign: "center", fontSize: "clamp(1.7rem,5vw,2.6rem)" }}>
-          22,000+ Live IPTV Channels Worldwide
+          Channels by region
         </h1>
         <p className="lead" style={{ textAlign: "center", maxWidth: 720, margin: "12px auto 32px" }}>
-          The world&apos;s largest premium IPTV catalog — sports, news, movies, kids, entertainment in HD and 4K UHD. Pick your region to see channel lists, sample EPG and pricing.
+          These pages list example channel names. They are not a counted catalog, and this site does not claim to be the largest.
         </p>
-
-        <div className="stats-grid" style={{ marginBottom: 32 }}>
-          <div className="stat"><div className="stat-val">22,000+</div><div className="stat-lbl">Live channels</div></div>
-          <div className="stat"><div className="stat-val">3,500+</div><div className="stat-lbl">4K UHD channels</div></div>
-          <div className="stat"><div className="stat-val">120,000+</div><div className="stat-lbl">Movies & series VOD</div></div>
-          <div className="stat"><div className="stat-val">50+</div><div className="stat-lbl">Countries covered</div></div>
-        </div>
 
         <section className="section">
           <h2>Browse by region</h2>

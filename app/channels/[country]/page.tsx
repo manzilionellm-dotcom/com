@@ -150,7 +150,7 @@ export default async function CountryPage({
 
         <section className="section cta-section">
           <h2>Start watching {page.name} today</h2>
-          <p>Free 24h trial, no credit card. Activation in under 10 minutes via WhatsApp.</p>
+          <p>Free 24h trial, no credit card. Access is sent on WhatsApp. No reply time is promised.</p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link className="btn btn-gold" href="/pricing">See pricing</Link>
             <a

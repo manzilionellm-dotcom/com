@@ -21,7 +21,7 @@ export default function LeadForm({
   intent,
   source,
   heading = "Get your free 24h trial",
-  subheading = "We send credentials to WhatsApp or email within 10 minutes.",
+  subheading = "We reply on WhatsApp or email. No response time is promised.",
   showDevice = true,
   showCountry = false,
   ctaLabel = "Send me my trial",
@@ -90,8 +90,7 @@ export default function LeadForm({
         <div style={{ fontSize: 48, lineHeight: 1 }}>✅</div>
         <h3 style={{ marginTop: 12 }}>Got it — check your WhatsApp</h3>
         <p style={{ color: "var(--muted)", fontSize: 14 }}>
-          Our team will message you within 10 minutes. If you don&apos;t see anything,
-          ping us on WhatsApp directly.
+          If you do not hear back, write on WhatsApp. This form does not promise a reply time.
         </p>
       </div>
     );

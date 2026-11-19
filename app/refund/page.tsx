@@ -4,9 +4,9 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Refund Policy — 24h Full Money-Back Guarantee",
+  title: "Refund Policy — 24h Refund Rules",
   description:
-    "Best IPTV VIP 24-hour money-back guarantee. Full refund if service quality is below promise and we cannot fix the issue. Transparent, fair policy.",
+    "Best IPTV VIP refund rules: ask within 24 hours of activation, after support has tried to fix a problem on our side. Conditions are listed on this page.",
   alternates: { canonical: `${SITE.domain}/refund` },
 };
 
@@ -19,7 +19,7 @@ export default function RefundPage() {
         <p style={{ color: "var(--muted)", fontSize: 13 }}>Last updated: 17 May 2026</p>
 
         <h2>1. Our promise</h2>
-        <p>We offer a <strong>24-hour money-back guarantee</strong> on all new subscriptions. If our service does not meet the quality we advertised (continuous buffering on 25 Mbps Ethernet, missing channels from your plan, repeated downtime) and our support team cannot fix the issue within 24 hours, you receive a full refund — no questions asked.</p>
+        <p>We offer a <strong>24-hour refund</strong> on new subscriptions when the conditions in the next section are met. If support cannot fix a problem on our side within 24 hours of activation, the amount paid for that term is refunded.</p>
 
         <h2>2. Eligibility</h2>
         <ul>
@@ -34,8 +34,8 @@ export default function RefundPage() {
         <h2>4. Refund process</h2>
         <ol>
           <li>Contact us on WhatsApp +{SITE.whatsapp} describing the issue.</li>
-          <li>We will troubleshoot with you (typically &lt;30 minutes).</li>
-          <li>If we cannot fix the issue, we issue a full refund via the original payment method within 3-5 business days (Stripe, PayPal) or up to 7 days for crypto / bank transfer.</li>
+          <li>We will try to troubleshoot with you. No duration is promised.</li>
+          <li>If we cannot fix the issue, the refund uses the original payment method. This page does not name a processor or a day count.</li>
         </ol>
 
         <h2>5. Non-refundable cases</h2>
