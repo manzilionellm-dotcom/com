@@ -14,7 +14,7 @@ jobs:
           node-version: 22
       - run: node scripts/build.mjs && node scripts/validate.mjs
       - name: Verify source recovery bundle
-        run: node scripts/backup.mjs backup/pre-reconstruction-20261119-eba99f4e
+        run: node scripts/backup.mjs backup/pre-reconstruction-20261119-d31507ba
       - uses: actions/upload-artifact@v4
         with:
           name: source-recovery
