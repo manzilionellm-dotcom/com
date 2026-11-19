@@ -36,6 +36,9 @@ const nextConfig: NextConfig = {
         destination: "https://bestiptv-vip.com/:path*",
         permanent: true,
       },
+      // Lot1 ETAPE2-404: alias paths → existing 200 pages (not homepage)
+      { source: "/firestick", destination: "/guides/firestick", permanent: true },
+      { source: "/trial", destination: "/free-trial", permanent: true },
     ];
   },
 };

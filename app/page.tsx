@@ -35,7 +35,6 @@ type Copy = {
   heroLead: string;
   heroBtnPlans: string;
   heroBtnTrial: string;
-  heroTrust: string;
   trialBadge: string;
   trialTitle: string;
   trialDesc: string;
@@ -75,9 +74,6 @@ type Copy = {
   devicesTitle: string;
   devicesSub: string;
   devices: { ic: string; n: string }[];
-  reviewsTitle: string;
-  reviewsSub: string;
-  reviews: { name: string; city: string; stars: number; plan: string; text: string }[];
   setupTitle: string;
   setupSub: string;
   setupSteps: { n: string; t: string }[];
@@ -146,11 +142,10 @@ const dict: Record<Locale, Copy> = {
     urgency: "🎁 Launch price guaranteed — Free 24h trial",
     navPlans: "Plans", navChannels: "Channels", navCountries: "Countries", navDevices: "Devices", navFaq: "FAQ", navWhatsapp: "WhatsApp",
     heroPill: "WhatsApp support • 4K UHD • 20,000+ channels",
-    heroTitle1: "World's #1 Premium IPTV",
+    heroTitle1: "Best IPTV VIP",
     heroTitle2: "Fast. Stable. Simple.",
     heroLead: "Stop overpaying for cable. 20,000+ live channels, premium sports, movies & 100,000+ series — from $10/month worldwide.",
     heroBtnPlans: "See Pricing", heroBtnTrial: "Free 24h Trial",
-    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 from 12,847 customers worldwide • Satisfaction guarantee",
     trialBadge: "Free Trial",
     trialTitle: "Try free for 24 hours",
     trialDesc: "No credit card required. Contact us on WhatsApp and test on Firestick, Smart TV, Android or iPhone.",
@@ -221,13 +216,6 @@ const dict: Record<Locale, Copy> = {
       { ic: "💻", n: "PC / Mac" },
       { ic: "📡", n: "MAG Box" },
     ],
-    reviewsTitle: "What customers say",
-    reviewsSub: "Reviews from VIP customers worldwide",
-    reviews: [
-      { name: "John M.", city: "New York", stars: 5, plan: "3 months", text: "Setup took 10 minutes. ESPN, NFL and HBO in 4K. Saving $80/month vs cable." },
-      { name: "Fatima A.", city: "Dubai", stars: 5, plan: "6 months", text: "All Arabic channels plus international content. MBC, beIN — excellent quality." },
-      { name: "Mohammed K.", city: "London", stars: 5, plan: "12 months", text: "TiviMate worked instantly. 4K on Firestick, no buffering. Best IPTV in 3 years." },
-    ],
     setupTitle: "Setup in 10 minutes",
     setupSub: "Works on Firestick, Smart TV, iPhone, Android. We guide you.",
     setupSteps: [
@@ -259,11 +247,10 @@ const dict: Record<Locale, Copy> = {
     urgency: "🎁 Prix de lancement garanti — Essai gratuit 24h",
     navPlans: "Offres", navChannels: "Chaînes", navCountries: "Pays", navDevices: "Appareils", navFaq: "FAQ", navWhatsapp: "WhatsApp",
     heroPill: "Support WhatsApp • 4K UHD • 20 000+ chaînes",
-    heroTitle1: "L'IPTV Premium #1 mondial",
+    heroTitle1: "Best IPTV VIP",
     heroTitle2: "Rapide. Stable. Simple.",
     heroLead: "Arrêtez de surpayer le câble. 20 000+ chaînes, sport premium, films & 100 000+ séries — dès 10 $/mois.",
     heroBtnPlans: "Voir les Offres", heroBtnTrial: "Essai Gratuit 24h",
-    heroTrust: "⭐⭐⭐⭐⭐ 4,9/5 par 12 847 clients • Garantie satisfaction",
     trialBadge: "Essai Gratuit",
     trialTitle: "Essayez gratuitement 24 heures",
     trialDesc: "Aucune carte requise. Contactez-nous sur WhatsApp et testez sur Firestick, Smart TV, Android ou iPhone.",
@@ -334,13 +321,6 @@ const dict: Record<Locale, Copy> = {
       { ic: "💻", n: "PC / Mac" },
       { ic: "📡", n: "MAG Box" },
     ],
-    reviewsTitle: "Ce que disent nos clients",
-    reviewsSub: "Avis de clients VIP dans le monde",
-    reviews: [
-      { name: "John M.", city: "New York", stars: 5, plan: "3 mois", text: "Installation en 10 min. ESPN, NFL et HBO en 4K. J'économise 80 $/mois vs câble." },
-      { name: "Fatima A.", city: "Dubaï", stars: 5, plan: "6 mois", text: "Toutes les chaînes arabes plus international. MBC, beIN — qualité excellente." },
-      { name: "Mohammed K.", city: "Londres", stars: 5, plan: "12 mois", text: "TiviMate immédiat. 4K sur Firestick sans buffering. Meilleur IPTV en 3 ans." },
-    ],
     setupTitle: "Installation en 10 minutes",
     setupSub: "Fonctionne sur Firestick, Smart TV, iPhone, Android.",
     setupSteps: [
@@ -372,11 +352,10 @@ const dict: Record<Locale, Copy> = {
     urgency: "🎁 سعر الإطلاق مضمون — تجربة مجانية 24 ساعة",
     navPlans: "الباقات", navChannels: "القنوات", navCountries: "الدول", navDevices: "الأجهزة", navFaq: "الأسئلة", navWhatsapp: "واتساب",
     heroPill: "دعم واتساب • 4K UHD • +20,000 قناة",
-    heroTitle1: "IPTV الأول عالمياً",
+    heroTitle1: "Best IPTV VIP",
     heroTitle2: "سريع. مستقر. بسيط.",
     heroLead: "توقف عن دفع الكثير للكابل. +20,000 قناة، رياضة بريميوم، أفلام و+100,000 مسلسل — من 10 دولار شهرياً.",
     heroBtnPlans: "شاهد الأسعار", heroBtnTrial: "تجربة مجانية 24 ساعة",
-    heroTrust: "⭐⭐⭐⭐⭐ 4.9/5 من +12,847 عميل • ضمان الرضا",
     trialBadge: "تجربة مجانية",
     trialTitle: "جرب مجاناً 24 ساعة",
     trialDesc: "بدون بطاقة ائتمان. تواصل معنا على واتساب وجرب على Firestick أو Smart TV أو Android أو iPhone.",
@@ -446,13 +425,6 @@ const dict: Record<Locale, Copy> = {
       { ic: "🤖", n: "Android" },
       { ic: "💻", n: "PC / Mac" },
       { ic: "📡", n: "MAG Box" },
-    ],
-    reviewsTitle: "ماذا يقول العملاء",
-    reviewsSub: "آراء عملاء VIP حول العالم",
-    reviews: [
-      { name: "جون م.", city: "نيويورك", stars: 5, plan: "3 أشهر", text: "التثبيت 10 دقائق. ESPN و NFL و HBO بـ 4K. أوفر 80 دولار شهرياً." },
-      { name: "فاطمة أ.", city: "دبي", stars: 5, plan: "6 أشهر", text: "كل القنوات العربية ومحتوى دولي. MBC و beIN — جودة ممتازة." },
-      { name: "محمد ك.", city: "لندن", stars: 5, plan: "12 شهر", text: "TiviMate يعمل فوراً. 4K بدون تقطيع. أفضل IPTV في 3 سنوات." },
     ],
     setupTitle: "التثبيت في 10 دقائق",
     setupSub: "يعمل على Firestick, Smart TV, iPhone, Android.",
@@ -764,7 +736,7 @@ export default function Page() {
               {t.heroBtnTrial}
             </a>
           </div>
-          <div className="hero-trust">{t.heroTrust}</div>
+
         </section>
 
         {/* Trial banner */}
@@ -963,27 +935,6 @@ export default function Page() {
                 <div className="ic">{d.ic}</div>
                 <div className="name">{d.n}</div>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Reviews */}
-        <section className="section">
-          <div className="section-head">
-            <h2>{t.reviewsTitle}</h2>
-            <p>{t.reviewsSub}</p>
-          </div>
-          <div className="reviews-grid">
-            {t.reviews.map((r, i) => (
-              <article key={i} className="review">
-                <div className="review-stars">{"⭐".repeat(r.stars)}</div>
-                <p>&ldquo;{r.text}&rdquo;</p>
-                <div className="review-meta">
-                  <span className="review-name">{r.name}</span>
-                  <span className="review-city">— {r.city}</span>
-                  <span className="review-plan">{r.plan}</span>
-                </div>
-              </article>
             ))}
           </div>
         </section>

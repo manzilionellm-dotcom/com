@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { SITE, LOCALES } from "../lib/site";
+import { SITE } from "../lib/site";
 import CookieConsent from "../components/CookieConsent";
 import TrackingProvider from "../components/TrackingProvider";
 import ConsentScripts from "../components/ConsentScripts";
-import ProcessProof from "../components/ProcessProof";
 
 const SITE_URL = SITE.domain;
 const LOGO_URL = `${SITE_URL}/icon-512.png`;
@@ -13,13 +12,6 @@ const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 const TITLE = "Best IPTV VIP — Plans from $10/mo";
 const DESCRIPTION =
   "Live TV subscription via WhatsApp. 24h trial, no card. Plans $10 / $25 / $35 / $60. Firestick, Smart TV, Android, iPhone.";
-
-function languageAlternates(path = "/") {
-  const out: Record<string, string> = {};
-  for (const l of LOCALES) out[l] = `${SITE_URL}${path}?lang=${l}`;
-  out["x-default"] = `${SITE_URL}${path}`;
-  return out;
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,8 +25,7 @@ export const metadata: Metadata = {
   publisher: SITE.brand,
   formatDetection: { email: false, address: false, telephone: false },
   alternates: {
-    canonical: SITE_URL,
-    languages: languageAlternates("/"),
+    canonical: "/",
   },
   openGraph: {
     type: "website",
@@ -100,7 +91,6 @@ const jsonLdOrganization = {
     "@type": "ContactPoint",
     telephone: `+${SITE.whatsapp}`,
     contactType: "customer support",
-    availableLanguage: ["English", "French", "Arabic", "Spanish", "German"],
     areaServed: "Worldwide",
   },
 };
@@ -111,7 +101,7 @@ const jsonLdWebsite = {
   "@id": `${SITE_URL}#website`,
   name: SITE.brand,
   url: SITE_URL,
-  inLanguage: ["en", "fr", "ar", "es", "de"],
+  inLanguage: "en",
   publisher: { "@id": `${SITE_URL}#organization` },
 };
 
@@ -166,11 +156,6 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ background: "#050507", colorScheme: "dark" }}>
       <head>
-        <link rel="canonical" href={SITE_URL} />
-        {LOCALES.map((l) => (
-          <link key={l} rel="alternate" hrefLang={l} href={`${SITE_URL}/?lang=${l}`} />
-        ))}
-        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }} />
@@ -179,7 +164,6 @@ export default function RootLayout({
       <body style={{ background: "#050507", margin: 0 }}>
         <TrackingProvider />
         {children}
-        <ProcessProof />
         <CookieConsent />
         <ConsentScripts />
       </body>
